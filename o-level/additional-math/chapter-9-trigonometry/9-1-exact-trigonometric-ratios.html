@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9.1: Exact Trigonometric Ratios</title>
+
+    <!-- Custom CSS File Framework -->
+    <link
+      href="/assets/css/style.min.css"
+      media="print"
+      onload="
+        this.media = 'all';
+        this.onload = null;
+      "
+      rel="stylesheet"
+    />
+    <noscript>
+      <link href="/assets/css/style.min.css" rel="stylesheet" />
+    </noscript>
+
+    <!-- MathJax Configuration and Script engine for rendering LaTeX -->
+    <script>
+    MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']],
+      processEscapes: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+    };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        /* Embedded styling rule overrides requested for step labels */
+        .step-side-label {
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Integrated Native Page Loader Engine Wrapper Structure -->
+    <div id="loader-wrapper">
+      <div aria-label="Loading Japanify" class="brand-loader" role="status">
+        <div class="ring"></div>
+        <span class="brand-text"> Japanify </span>
+      </div>
+    </div>
+    <script>
+      (function () {
+        const loader = document.getElementById("loader-wrapper");
+        const body = document.body;
+        if (loader) {
+          body.classList.add("loading-active");
+          const hideLoader = () => {
+            if (!loader) return;
+            loader.style.opacity = "0";
+            setTimeout(() => {
+              loader.remove();
+              body.classList.remove("loading-active");
+            }, 400);
+          };
+          window.addEventListener("load", hideLoader);
+          setTimeout(() => {
+            if (document.getElementById("loader-wrapper")) hideLoader();
+          }, 4000);
+        }
+      })();
+    </script>
+
+    <!-- Permanent Brand Site Header Navigation Bar Area Component -->
+    <div class="mobile-header-container">
+      <header class="mobile-header">
+        <div class="logo">
+          <a aria-label="Japanify Home" href="/"
+            ><img
+              alt="Japanify - Learn Japanese Online"
+              height="33"
+              src="/assets/images/logo.svg"
+              width="105"
+          /></a>
+        </div>
+        <nav aria-label="Main navigation" class="header-nav" id="header-nav">
+          <div class="nav-dropdown">
+            <div class="nav-accordion">
+              学 Learn
+              <svg class="arrow" height="20" width="20">
+                <use
+                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
+                ></use>
+              </svg>
+            </div>
+            <div class="accordion-content nav-dropdown-content">
+              <ul>
+                <li>
+                  <a href="/pages/Japanese-full-lessons-jlpt-jft-online.html">
+                    課 Full Lessons
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/complete-japanese-kanji-for-n5-n4-n3.html">
+                    人 Kanji Library
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/pages/complete-japanese-grammar-for-jlpt-jft-exam.html"
+                  >
+                    法 Grammar Rules
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/pages/complete-japanese-jlpt-jft-vocabulary-and-conversation.html"
+                  >
+                    語 Vocabulary Library
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-hiragana-katakana-lessons.html">
+                    あ Hiragana &amp; Katakana
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <div class="nav-accordion">
+              練 Practice
+              <svg class="arrow" height="20" width="20">
+                <use
+                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
+                ></use>
+              </svg>
+            </div>
+            <div class="accordion-content nav-dropdown-content">
+              <ul>
+                <li>
+                  <a href="/pages/japanese-kanji-shortlisted-quiz.html">
+                    聞 Kanji Practice
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-reading-practice.html">
+                    書 Reading Practice
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/pages/complete-japanese-alphabet-hiragana-katakana-practice.html"
+                    >あ Alphabet Practice</a
+                  >
+                </li>
+                <li>
+                  <a href="/pages/japanese-grammar-quiz.html">
+                    会 Grammar Practice
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-vocabulary-quiz.html">
+                    語 Vocabulary Practice
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <div class="nav-accordion">
+              報 Latest News
+              <svg class="arrow" height="20" width="20">
+                <use
+                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
+                ></use>
+              </svg>
+            </div>
+            <div class="accordion-content nav-dropdown-content">
+              <ul>
+                <li>
+                  <a href="/pages/japanese-visa-news.html"> 報 VISA News </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-student-visa-opportunities.html">
+                    校 Study in Japan
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-job-opportunities.html">
+                    職 Job Opportunities
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <div class="nav-accordion">
+              技 Tips &amp; Tricks
+              <svg class="arrow" height="20" width="20">
+                <use
+                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
+                ></use>
+              </svg>
+            </div>
+            <div class="accordion-content nav-dropdown-content">
+              <ul>
+                <li>
+                  <a href="/pages/japanese-study-plans.html">
+                    計 Study Plans
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-pronunciation-tips.html">
+                    音 Pronunciation Tips
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/kanji-memory-hacks.html">
+                    記 Kanji Memory Hacks
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div
+          aria-label="Social media links"
+          class="header-social"
+          id="header-social"
+        >
+          <a
+            href="https://www.facebook.com/profile.php?id=61582101913054"
+            rel="noopener me"
+            target="_blank"
+            ><svg class="header-icon" height="26" width="26">
+              <use
+                href="/assets/icons/svg-sprite.svg#icon-facebook"
+              ></use></svg></a
+          ><a
+            href="https://www.instagram.com/japanify.bd"
+            rel="noopener me"
+            target="_blank"
+            ><svg class="header-icon" height="26" width="26">
+              <use
+                href="/assets/icons/svg-sprite.svg#icon-instagram"
+              ></use></svg></a
+          ><a
+            href="https://www.youtube.com/channel/UCFaz9d1uR-BTut3dcYRybWw"
+            rel="noopener me"
+            target="_blank"
+            ><svg class="header-icon" height="26" width="26">
+              <use href="/assets/icons/svg-sprite.svg#icon-youtube"></use>
+            </svg>
+          </a>
+        </div>
+        <button
+          aria-controls="fullscreen-menu"
+          aria-expanded="false"
+          aria-label="Toggle Menu"
+          class="hamburger-menu"
+          id="hamburger-toggle"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </header>
+      <div aria-hidden="true" class="fullscreen-menu" id="fullscreen-menu">
+        <div class="menu-content">
+          <nav class="header-nav" id="mobile-js-nav"></nav>
+          <div class="menu-footer">
+            <div class="header-social" id="mobile-js-social"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dynamic Content Hero Banner Area Section Module Block -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <h1>9.1: Exact Trigonometric Ratios</h1>
+            <h2>Using right-angled triangles and exact values of special angles</h2>
+            <p>Learn how to find the exact values of trigonometric functions. This lesson covers using the Pythagorean theorem to find missing sides of right-angled triangles given one ratio, and evaluating expressions using the exact values of special angles (30°, 45°, 60°) in both degrees and radians.</p>
+        </div>
+    </section>
+
+    <!-- Primary Content Grid Flow Block Container -->
+    <main class="wrap">
+        <div class="study-area"><section class="problem-section">
+  <h2 class="section-heading">1. Given that tan θ = 2/3 and that θ is acute, find the exact values of:</h2>
+  <div class="problem" id="p-1-1">
+    <p class="question">1. \( \text{Context: } \tan \theta = \frac{2}{3} \text{ (acute)} \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Construct a right-angled triangle in Q1.} \]</div>
+      <div class="step">\[ \text{Opposite side} = 2, \text{ Adjacent side} = 3. \]</div>
+      <div class="step">\[ \text{Using Pythagoras: Hypotenuse} = \sqrt{2^2 + 3^2} = \sqrt{4 + 9} = \sqrt{13} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1a">
+    <p class="question">1a. \( \sin \theta \)</p>
+    <div class="steps">
+      <div class="step">\[ \sin \theta = \frac{\text{Opposite}}{\text{Hypotenuse}} \]</div>
+      <div class="step">\[ \sin \theta = \frac{2}{\sqrt{13}} = \frac{2\sqrt{13}}{13} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1b">
+    <p class="question">1b. \( \cos \theta \)</p>
+    <div class="steps">
+      <div class="step">\[ \cos \theta = \frac{\text{Adjacent}}{\text{Hypotenuse}} \]</div>
+      <div class="step">\[ \cos \theta = \frac{3}{\sqrt{13}} = \frac{3\sqrt{13}}{13} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1c">
+    <p class="question">1c. \( \sin^2 \theta \)</p>
+    <div class="steps">
+      <div class="step">\[ \sin^2 \theta = \left(\frac{2}{\sqrt{13}}\right)^2 \]</div>
+      <div class="step">\[ = \frac{4}{13} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1d">
+    <p class="question">1d. \( \sin^2 \theta + \cos^2 \theta \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{This is the Pythagorean identity.} \]</div>
+      <div class="step">\[ \sin^2 \theta + \cos^2 \theta = 1 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1e">
+    <p class="question">1e. \( \frac{2 + \sin \theta}{3 - \cos \theta} \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Substitute the exact values:} \]</div>
+      <div class="step">\[ = \frac{2 + \frac{2}{\sqrt{13}}}{3 - \frac{3}{\sqrt{13}}} \]</div>
+      <div class="step">\[ = \frac{\frac{2\sqrt{13} + 2}{\sqrt{13}}}{\frac{3\sqrt{13} - 3}{\sqrt{13}}} \]</div>
+      <div class="step">\[ = \frac{2(\sqrt{13} + 1)}{3(\sqrt{13} - 1)} \]</div>
+      <div class="step">\[ \text{Rationalise the denominator:} \]</div>
+      <div class="step">\[ = \frac{2(\sqrt{13} + 1)(\sqrt{13} + 1)}{3(\sqrt{13} - 1)(\sqrt{13} + 1)} \]</div>
+      <div class="step">\[ = \frac{2(13 + 2\sqrt{13} + 1)}{3(13 - 1)} \]</div>
+      <div class="step">\[ = \frac{2(14 + 2\sqrt{13})}{3(12)} = \frac{28 + 4\sqrt{13}}{36} \]</div>
+      <div class="step">\[ = \frac{7 + \sqrt{13}}{9} \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">2. Given that sin θ = √2/5 and that θ is acute, find the exact values of:</h2>
+  <div class="problem" id="p-2-2">
+    <p class="question">2. \( \text{Context: } \sin \theta = \frac{\sqrt{2}}{5} \text{ (acute)} \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Construct a right-angled triangle in Q1.} \]</div>
+      <div class="step">\[ \text{Opposite side} = \sqrt{2}, \text{ Hypotenuse} = 5. \]</div>
+      <div class="step">\[ \text{Using Pythagoras: Adjacent} = \sqrt{5^2 - (\sqrt{2})^2} = \sqrt{25 - 2} = \sqrt{23} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2a">
+    <p class="question">2a. \( \cos \theta \)</p>
+    <div class="steps">
+      <div class="step">\[ \cos \theta = \frac{\text{Adjacent}}{\text{Hypotenuse}} \]</div>
+      <div class="step">\[ \cos \theta = \frac{\sqrt{23}}{5} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2b">
+    <p class="question">2b. \( \tan \theta \)</p>
+    <div class="steps">
+      <div class="step">\[ \tan \theta = \frac{\text{Opposite}}{\text{Adjacent}} \]</div>
+      <div class="step">\[ \tan \theta = \frac{\sqrt{2}}{\sqrt{23}} = \frac{\sqrt{46}}{23} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2c">
+    <p class="question">2c. \( 1 - \sin^2 \theta \)</p>
+    <div class="steps">
+      <div class="step">\[ 1 - \sin^2 \theta = 1 - \left(\frac{\sqrt{2}}{5}\right)^2 \]</div>
+      <div class="step">\[ = 1 - \frac{2}{25} \]</div>
+      <div class="step">\[ = \frac{23}{25} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2d">
+    <p class="question">2d. \( \sin \theta + \cos \theta \)</p>
+    <div class="steps">
+      <div class="step">\[ = \frac{\sqrt{2}}{5} + \frac{\sqrt{23}}{5} \]</div>
+      <div class="step">\[ = \frac{\sqrt{2} + \sqrt{23}}{5} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2e">
+    <p class="question">2e. \( \frac{\cos \theta - \sin \theta}{\tan \theta} \)</p>
+    <div class="steps">
+      <div class="step">\[ = \frac{\frac{\sqrt{23}}{5} - \frac{\sqrt{2}}{5}}{\frac{\sqrt{2}}{\sqrt{23}}} \]</div>
+      <div class="step">\[ = \frac{\frac{\sqrt{23} - \sqrt{2}}{5}}{\frac{\sqrt{2}}{\sqrt{23}}} \]</div>
+      <div class="step">\[ = \frac{\sqrt{23} - \sqrt{2}}{5} \times \frac{\sqrt{23}}{\sqrt{2}} \]</div>
+      <div class="step">\[ = \frac{23 - \sqrt{46}}{5\sqrt{2}} \]</div>
+      <div class="step">\[ \text{Rationalise: } = \frac{(23 - \sqrt{46})\sqrt{2}}{5(2)} \]</div>
+      <div class="step">\[ = \frac{23\sqrt{2} - \sqrt{92}}{10} = \frac{23\sqrt{2} - 2\sqrt{23}}{10} \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">3. Given that cos θ = 1/7 and that θ is acute, find the exact values of:</h2>
+  <div class="problem" id="p-3-3">
+    <p class="question">3. \( \text{Context: } \cos \theta = \frac{1}{7} \text{ (acute)} \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Construct a right-angled triangle in Q1.} \]</div>
+      <div class="step">\[ \text{Adjacent side} = 1, \text{ Hypotenuse} = 7. \]</div>
+      <div class="step">\[ \text{Using Pythagoras: Opposite} = \sqrt{7^2 - 1^2} = \sqrt{49 - 1} = \sqrt{48} = 4\sqrt{3} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-3-3a">
+    <p class="question">3a. \( \sin \theta \)</p>
+    <div class="steps">
+      <div class="step">\[ \sin \theta = \frac{\text{Opposite}}{\text{Hypotenuse}} \]</div>
+      <div class="step">\[ \sin \theta = \frac{4\sqrt{3}}{7} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-3-3b">
+    <p class="question">3b. \( \tan \theta \)</p>
+    <div class="steps">
+      <div class="step">\[ \tan \theta = \frac{\text{Opposite}}{\text{Adjacent}} \]</div>
+      <div class="step">\[ \tan \theta = \frac{4\sqrt{3}}{1} = 4\sqrt{3} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-3-3c">
+    <p class="question">3c. \( \tan \theta \cos \theta \)</p>
+    <div class="steps">
+      <div class="step">\[ = (4\sqrt{3}) \times \left(\frac{1}{7}\right) \]</div>
+      <div class="step">\[ = \frac{4\sqrt{3}}{7} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-3-3d">
+    <p class="question">3d. \( \sin^2 \theta + \cos^2 \theta \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{By the Pythagorean identity:} \]</div>
+      <div class="step">\[ \sin^2 \theta + \cos^2 \theta = 1 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-3-3e">
+    <p class="question">3e. \( \frac{\cos \theta - \tan \theta}{1 - \cos^2 \theta} \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Note that } 1 - \cos^2 \theta = \sin^2 \theta = \left(\frac{4\sqrt{3}}{7}\right)^2 = \frac{48}{49} \]</div>
+      <div class="step">\[ \text{Numerator: } \frac{1}{7} - 4\sqrt{3} = \frac{1 - 28\sqrt{3}}{7} \]</div>
+      <div class="step">\[ \text{Expression: } = \frac{\frac{1 - 28\sqrt{3}}{7}}{\frac{48}{49}} \]</div>
+      <div class="step">\[ = \frac{1 - 28\sqrt{3}}{7} \times \frac{49}{48} \]</div>
+      <div class="step">\[ = \frac{7(1 - 28\sqrt{3})}{48} \]</div>
+      <div class="step">\[ = \frac{7 - 196\sqrt{3}}{48} \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">4. Find the exact value of each of the following.</h2>
+  <div class="problem" id="p-4-4a">
+    <p class="question">4a. \( \tan 45^\circ \cos 60^\circ \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Use exact values: } \tan 45^\circ = 1, \text{ } \cos 60^\circ = \frac{1}{2} \]</div>
+      <div class="step">\[ = (1) \times \left(\frac{1}{2}\right) \]</div>
+      <div class="step">\[ = \frac{1}{2} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-4-4b">
+    <p class="question">4b. \( \tan^2 60^\circ \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Use exact value: } \tan 60^\circ = \sqrt{3} \]</div>
+      <div class="step">\[ = (\sqrt{3})^2 \]</div>
+      <div class="step">\[ = 3 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-4-4c">
+    <p class="question">4c. \( \frac{\tan 30^\circ}{\cos 30^\circ} \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Use exact values: } \tan 30^\circ = \frac{1}{\sqrt{3}}, \text{ } \cos 30^\circ = \frac{\sqrt{3}}{2} \]</div>
+      <div class="step">\[ = \frac{\frac{1}{\sqrt{3}}}{\frac{\sqrt{3}}{2}} \]</div>
+      <div class="step">\[ = \frac{1}{\sqrt{3}} \times \frac{2}{\sqrt{3}} \]</div>
+      <div class="step">\[ = \frac{2}{3} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-4-4d">
+    <p class="question">4d. \( \sin 45^\circ + \cos 30^\circ \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Use exact values: } \sin 45^\circ = \frac{\sqrt{2}}{2}, \text{ } \cos 30^\circ = \frac{\sqrt{3}}{2} \]</div>
+      <div class="step">\[ = \frac{\sqrt{2}}{2} + \frac{\sqrt{3}}{2} \]</div>
+      <div class="step">\[ = \frac{\sqrt{2} + \sqrt{3}}{2} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-4-4e">
+    <p class="question">4e. \( \frac{\cos^2 30^\circ}{\cos 45^\circ + \cos 60^\circ} \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Use exact values: } \cos 30^\circ = \frac{\sqrt{3}}{2}, \cos 45^\circ = \frac{\sqrt{2}}{2}, \cos 60^\circ = \frac{1}{2} \]</div>
+      <div class="step">\[ = \frac{\left(\frac{\sqrt{3}}{2}\right)^2}{\frac{\sqrt{2}}{2} + \frac{1}{2}} \]</div>
+      <div class="step">\[ = \frac{\frac{3}{4}}{\frac{\sqrt{2} + 1}{2}} \]</div>
+      <div class="step">\[ = \frac{3}{4} \times \frac{2}{\sqrt{2} + 1} \]</div>
+      <div class="step">\[ = \frac{3}{2(\sqrt{2} + 1)} \]</div>
+      <div class="step">\[ \text{Rationalise: } = \frac{3(\sqrt{2} - 1)}{2(2 - 1)} \]</div>
+      <div class="step">\[ = \frac{3\sqrt{2} - 3}{2} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-4-4f">
+    <p class="question">4f. \( \frac{\tan 45^\circ - \sin 30^\circ}{1 + \sin^2 60^\circ} \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Use exact values: } \tan 45^\circ = 1, \sin 30^\circ = \frac{1}{2}, \sin 60^\circ = \frac{\sqrt{3}}{2} \]</div>
+      <div class="step">\[ = \frac{1 - \frac{1}{2}}{1 + \left(\frac{\sqrt{3}}{2}\right)^2} \]</div>
+      <div class="step">\[ = \frac{\frac{1}{2}}{1 + \frac{3}{4}} \]</div>
+      <div class="step">\[ = \frac{\frac{1}{2}}{\frac{7}{4}} \]</div>
+      <div class="step">\[ = \frac{1}{2} \times \frac{4}{7} \]</div>
+      <div class="step">\[ = \frac{2}{7} \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">5. Find the exact value of each of the following.</h2>
+  <div class="problem" id="p-5-5a">
+    <p class="question">5a. \( \sin\left(\frac{\pi}{4}\right) \cos\left(\frac{\pi}{3}\right) \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Use exact values: } \sin\left(\frac{\pi}{4}\right) = \frac{\sqrt{2}}{2}, \cos\left(\frac{\pi}{3}\right) = \frac{1}{2} \]</div>
+      <div class="step">\[ = \frac{\sqrt{2}}{2} \times \frac{1}{2} \]</div>
+      <div class="step">\[ = \frac{\sqrt{2}}{4} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-5-5b">
+    <p class="question">5b. \( \sin^2\left(\frac{\pi}{4}\right) \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Use exact value: } \sin\left(\frac{\pi}{4}\right) = \frac{\sqrt{2}}{2} \]</div>
+      <div class="step">\[ = \left(\frac{\sqrt{2}}{2}\right)^2 \]</div>
+      <div class="step">\[ = \frac{2}{4} \]</div>
+      <div class="step">\[ = \frac{1}{2} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-5-5c">
+    <p class="question">5c. \( \frac{\tan\left(\frac{\pi}{6}\right)}{\cos\left(\frac{\pi}{4}\right)} \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Use exact values: } \tan\left(\frac{\pi}{6}\right) = \frac{1}{\sqrt{3}}, \cos\left(\frac{\pi}{4}\right) = \frac{\sqrt{2}}{2} \]</div>
+      <div class="step">\[ = \frac{\frac{1}{\sqrt{3}}}{\frac{\sqrt{2}}{2}} \]</div>
+      <div class="step">\[ = \frac{1}{\sqrt{3}} \times \frac{2}{\sqrt{2}} \]</div>
+      <div class="step">\[ = \frac{2}{\sqrt{6}} \]</div>
+      <div class="step">\[ \text{Rationalise: } = \frac{2\sqrt{6}}{6} \]</div>
+      <div class="step">\[ = \frac{\sqrt{6}}{3} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-5-5d">
+    <p class="question">5d. \( \frac{5 - \tan\left(\frac{\pi}{3}\right)}{\sin\left(\frac{\pi}{3}\right)} \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Use exact values: } \tan\left(\frac{\pi}{3}\right) = \sqrt{3}, \sin\left(\frac{\pi}{3}\right) = \frac{\sqrt{3}}{2} \]</div>
+      <div class="step">\[ = \frac{5 - \sqrt{3}}{\frac{\sqrt{3}}{2}} \]</div>
+      <div class="step">\[ = (5 - \sqrt{3}) \times \frac{2}{\sqrt{3}} \]</div>
+      <div class="step">\[ = \frac{10 - 2\sqrt{3}}{\sqrt{3}} \]</div>
+      <div class="step">\[ \text{Rationalise: } = \frac{(10 - 2\sqrt{3})\sqrt{3}}{3} \]</div>
+      <div class="step">\[ = \frac{10\sqrt{3} - 6}{3} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-5-5e">
+    <p class="question">5e. \( \frac{1}{\sin\left(\frac{\pi}{6}\right)} - \frac{1}{\cos\left(\frac{\pi}{4}\right)} \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Use exact values: } \sin\left(\frac{\pi}{6}\right) = \frac{1}{2}, \cos\left(\frac{\pi}{4}\right) = \frac{\sqrt{2}}{2} \]</div>
+      <div class="step">\[ = \frac{1}{\frac{1}{2}} - \frac{1}{\frac{\sqrt{2}}{2}} \]</div>
+      <div class="step">\[ = 2 - \frac{2}{\sqrt{2}} \]</div>
+      <div class="step">\[ = 2 - \sqrt{2} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-5-5f">
+    <p class="question">5f. \( \frac{\tan\left(\frac{\pi}{4}\right) - \sin\left(\frac{\pi}{4}\right)}{\tan\left(\frac{\pi}{6}\right) \sin\left(\frac{\pi}{6}\right)} \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Use exact values: } \tan\left(\frac{\pi}{4}\right) = 1, \sin\left(\frac{\pi}{4}\right) = \frac{\sqrt{2}}{2}, \tan\left(\frac{\pi}{6}\right) = \frac{1}{\sqrt{3}}, \sin\left(\frac{\pi}{6}\right) = \frac{1}{2} \]</div>
+      <div class="step">\[ \text{Numerator: } 1 - \frac{\sqrt{2}}{2} = \frac{2 - \sqrt{2}}{2} \]</div>
+      <div class="step">\[ \text{Denominator: } \left(\frac{1}{\sqrt{3}}\right) \times \left(\frac{1}{2}\right) = \frac{1}{2\sqrt{3}} \]</div>
+      <div class="step">\[ \text{Expression: } = \frac{\frac{2 - \sqrt{2}}{2}}{\frac{1}{2\sqrt{3}}} \]</div>
+      <div class="step">\[ = \frac{2 - \sqrt{2}}{2} \times \frac{2\sqrt{3}}{1} \]</div>
+      <div class="step">\[ = \sqrt{3}(2 - \sqrt{2}) \]</div>
+      <div class="step">\[ = 2\sqrt{3} - \sqrt{6} \]</div>
+    </div>
+  </div>
+</section>
+</div>
+    </main>
+
+    <!-- Permanent Brand Site Footer Area Component -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-column">
+          <a aria-label="Japanify Home" href="/"
+            ><img
+              alt="Japanify - Learn Japanese Online"
+              class="footer-image"
+              height="33"
+              src="/assets/images/logo.svg"
+              width="105"
+          /></a>
+          <div class="always-open" style="padding: 0">
+            Learn Japanese Online.
+          </div>
+          <div class="accordion-content">
+            <p class="description">
+              Master Japanese through short lessons &amp; culture bites.
+            </p>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            学 Learn
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a href="/pages/Japanese-full-lessons-jlpt-jft-online.html"
+                  >人 Full Lessons</a
+                >
+              </li>
+              <li>
+                <a href="/pages/complete-japanese-kanji-for-n5-n4-n3.html"
+                  >字 Kanji Library</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/pages/complete-japanese-grammar-for-jlpt-jft-exam.html"
+                  >法 Grammar Rules</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/pages/complete-japanese-jlpt-jft-vocabulary-and-conversation.html"
+                  >語 Vocabulary Library</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-hiragana-katakana-lessons.html"
+                  >あ Hiragana &amp; Katakana</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            練 Practice
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a href="/pages/japanese-kanji-shortlisted-quiz.html"
+                  >字 Kanji Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-reading-practice.html"
+                  >書 Reading Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/complete-japanese-kanji-for-n5-n4-n3.html"
+                  >あ Alphabet Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-grammar-quiz.html"
+                  >会 Grammar Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-vocabulary-quiz.html"
+                  >語 Vocabulary Practice</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            技 Tips &amp; Tricks
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a href="/pages/japanese-study-plans.html">計 Study Plans</a>
+              </li>
+              <li>
+                <a href="/pages/kanji-memory-hacks.html">記 Life in Japan</a>
+              </li>
+              <li>
+                <a href="/pages/japanese-pronunciation-tips.html"
+                  >列 Study Materials</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-pronunciation-tips.html"
+                  >音 Pronunciation Tips</a
+                >
+              </li>
+              <li>
+                <a href="/pages/kanji-memory-hacks.html"
+                  >記 Kanji Memory Hacks</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            隨 Follow Us
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a
+                  class="social-link"
+                  href="mailto:japanify.bd@gmail.com"
+                  target="_blank"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-mail"></use>
+                  </svg>
+                  E-mail</a
+                >
+              </li>
+              <li>
+                <a class="social-link" href="/pages/about.html"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-info"></use>
+                  </svg>
+                  About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  class="social-link"
+                  href="https://www.facebook.com/@japanify"
+                  rel="noopener me"
+                  target="_blank"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-facebook"></use>
+                  </svg>
+                  Facebook</a
+                >
+              </li>
+              <li>
+                <a
+                  class="social-link"
+                  href="https://www.instagram.com/japanify.bd"
+                  rel="noopener me"
+                  target="_blank"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-instagram"></use>
+                  </svg>
+                  Instagram</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <span> © Japanify 2026 | All Rights Reserved | </span
+        ><a href="/pages/credits.html">Credits </a>
+      </div>
+    </footer>
+
+    <!-- Global JavaScript Entry Point -->
+    <script
+      nonce="&lt;?= $csp_nonce ?&gt;"
+      src="/assets/javascripts/main.js"
+      type="module"
+    ></script>
+</body>
+</html>

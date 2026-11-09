@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9.4: Trigonometric Graphs</title>
+
+    <!-- Custom CSS File Framework -->
+    <link
+      href="/assets/css/style.min.css"
+      media="print"
+      onload="
+        this.media = 'all';
+        this.onload = null;
+      "
+      rel="stylesheet"
+    />
+    <noscript>
+      <link href="/assets/css/style.min.css" rel="stylesheet" />
+    </noscript>
+
+    <!-- MathJax Configuration and Script engine for rendering LaTeX -->
+    <script>
+    MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']],
+      processEscapes: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+    };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        /* Embedded styling rule overrides requested for step labels */
+        .step-side-label {
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Integrated Native Page Loader Engine Wrapper Structure -->
+    <div id="loader-wrapper">
+      <div aria-label="Loading Japanify" class="brand-loader" role="status">
+        <div class="ring"></div>
+        <span class="brand-text"> Japanify </span>
+      </div>
+    </div>
+    <script>
+      (function () {
+        const loader = document.getElementById("loader-wrapper");
+        const body = document.body;
+        if (loader) {
+          body.classList.add("loading-active");
+          const hideLoader = () => {
+            if (!loader) return;
+            loader.style.opacity = "0";
+            setTimeout(() => {
+              loader.remove();
+              body.classList.remove("loading-active");
+            }, 400);
+          };
+          window.addEventListener("load", hideLoader);
+          setTimeout(() => {
+            if (document.getElementById("loader-wrapper")) hideLoader();
+          }, 4000);
+        }
+      })();
+    </script>
+
+    <!-- Permanent Brand Site Header Navigation Bar Area Component -->
+    <div class="mobile-header-container">
+      <header class="mobile-header">
+        <div class="logo">
+          <a aria-label="Japanify Home" href="/"
+            ><img
+              alt="Japanify - Learn Japanese Online"
+              height="33"
+              src="/assets/images/logo.svg"
+              width="105"
+          /></a>
+        </div>
+        <nav aria-label="Main navigation" class="header-nav" id="header-nav">
+          <div class="nav-dropdown">
+            <div class="nav-accordion">
+              学 Learn
+              <svg class="arrow" height="20" width="20">
+                <use
+                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
+                ></use>
+              </svg>
+            </div>
+            <div class="accordion-content nav-dropdown-content">
+              <ul>
+                <li>
+                  <a href="/pages/Japanese-full-lessons-jlpt-jft-online.html">
+                    課 Full Lessons
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/complete-japanese-kanji-for-n5-n4-n3.html">
+                    人 Kanji Library
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/pages/complete-japanese-grammar-for-jlpt-jft-exam.html"
+                  >
+                    法 Grammar Rules
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/pages/complete-japanese-jlpt-jft-vocabulary-and-conversation.html"
+                  >
+                    語 Vocabulary Library
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-hiragana-katakana-lessons.html">
+                    あ Hiragana &amp; Katakana
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <div class="nav-accordion">
+              練 Practice
+              <svg class="arrow" height="20" width="20">
+                <use
+                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
+                ></use>
+              </svg>
+            </div>
+            <div class="accordion-content nav-dropdown-content">
+              <ul>
+                <li>
+                  <a href="/pages/japanese-kanji-shortlisted-quiz.html">
+                    聞 Kanji Practice
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-reading-practice.html">
+                    書 Reading Practice
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/pages/complete-japanese-alphabet-hiragana-katakana-practice.html"
+                    >あ Alphabet Practice</a
+                  >
+                </li>
+                <li>
+                  <a href="/pages/japanese-grammar-quiz.html">
+                    会 Grammar Practice
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-vocabulary-quiz.html">
+                    語 Vocabulary Practice
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <div class="nav-accordion">
+              報 Latest News
+              <svg class="arrow" height="20" width="20">
+                <use
+                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
+                ></use>
+              </svg>
+            </div>
+            <div class="accordion-content nav-dropdown-content">
+              <ul>
+                <li>
+                  <a href="/pages/japanese-visa-news.html"> 報 VISA News </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-student-visa-opportunities.html">
+                    校 Study in Japan
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-job-opportunities.html">
+                    職 Job Opportunities
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <div class="nav-accordion">
+              技 Tips &amp; Tricks
+              <svg class="arrow" height="20" width="20">
+                <use
+                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
+                ></use>
+              </svg>
+            </div>
+            <div class="accordion-content nav-dropdown-content">
+              <ul>
+                <li>
+                  <a href="/pages/japanese-study-plans.html">
+                    計 Study Plans
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-pronunciation-tips.html">
+                    音 Pronunciation Tips
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/kanji-memory-hacks.html">
+                    記 Kanji Memory Hacks
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div
+          aria-label="Social media links"
+          class="header-social"
+          id="header-social"
+        >
+          <a
+            href="https://www.facebook.com/profile.php?id=61582101913054"
+            rel="noopener me"
+            target="_blank"
+            ><svg class="header-icon" height="26" width="26">
+              <use
+                href="/assets/icons/svg-sprite.svg#icon-facebook"
+              ></use></svg></a
+          ><a
+            href="https://www.instagram.com/japanify.bd"
+            rel="noopener me"
+            target="_blank"
+            ><svg class="header-icon" height="26" width="26">
+              <use
+                href="/assets/icons/svg-sprite.svg#icon-instagram"
+              ></use></svg></a
+          ><a
+            href="https://www.youtube.com/channel/UCFaz9d1uR-BTut3dcYRybWw"
+            rel="noopener me"
+            target="_blank"
+            ><svg class="header-icon" height="26" width="26">
+              <use href="/assets/icons/svg-sprite.svg#icon-youtube"></use>
+            </svg>
+          </a>
+        </div>
+        <button
+          aria-controls="fullscreen-menu"
+          aria-expanded="false"
+          aria-label="Toggle Menu"
+          class="hamburger-menu"
+          id="hamburger-toggle"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </header>
+      <div aria-hidden="true" class="fullscreen-menu" id="fullscreen-menu">
+        <div class="menu-content">
+          <nav class="header-nav" id="mobile-js-nav"></nav>
+          <div class="menu-footer">
+            <div class="header-social" id="mobile-js-social"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dynamic Content Hero Banner Area Section Module Block -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <h1>9.4: Trigonometric Graphs</h1>
+            <h2>Amplitude, period, asymptotes, and graphical solutions</h2>
+            <p>Analyze the key features of trigonometric graphs, including amplitude, period, translations, and asymptotes. Learn to deduce the equation of a function from its graph and use intersections to determine the number of solutions to trigonometric equations.</p>
+        </div>
+    </section>
+
+    <!-- Primary Content Grid Flow Block Container -->
+    <main class="wrap">
+        <div class="study-area"><section class="problem-section">
+  <h2 class="section-heading">1. The following functions are defined for 0° ≤ x ≤ 360°. For each function, write down the amplitude, the period and the coordinates of the maximum and minimum points.</h2>
+  <div class="problem" id="p-1-1-i">
+    <p class="question">1-i. \( f(x) = 7\cos x \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Amplitude} = 7 \]</div>
+      <div class="step">\[ \text{Period} = 360^\circ \]</div>
+      <div class="step">\[ \text{Maximum points: } (0^\circ, 7) \text{ and } (360^\circ, 7) \]</div>
+      <div class="step">\[ \text{Minimum point: } (180^\circ, -7) \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1-ii">
+    <p class="question">1-ii. \( f(x) = 2\sin 2x \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Amplitude} = 2 \]</div>
+      <div class="step">\[ \text{Period} = \frac{360^\circ}{2} = 180^\circ \]</div>
+      <div class="step">\[ \text{Maximum points: } (45^\circ, 2) \text{ and } (225^\circ, 2) \]</div>
+      <div class="step">\[ \text{Minimum points: } (135^\circ, -2) \text{ and } (315^\circ, -2) \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1-iii">
+    <p class="question">1-iii. \( f(x) = 2\cos 3x \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Amplitude} = 2 \]</div>
+      <div class="step">\[ \text{Period} = \frac{360^\circ}{3} = 120^\circ \]</div>
+      <div class="step">\[ \text{Maximum points: } (0^\circ, 2), (120^\circ, 2), (240^\circ, 2), (360^\circ, 2) \]</div>
+      <div class="step">\[ \text{Minimum points: } (60^\circ, -2), (180^\circ, -2), (300^\circ, -2) \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1-iv">
+    <p class="question">1-iv. \( f(x) = 3\sin \frac{1}{2}x \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Amplitude} = 3 \]</div>
+      <div class="step">\[ \text{Period} = \frac{360^\circ}{1/2} = 720^\circ \]</div>
+      <div class="step">\[ \text{Maximum point in domain: } (180^\circ, 3) \]</div>
+      <div class="step">\[ \text{Minimum point in domain: None (graph starts at 0 and goes up to 3)} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1-v">
+    <p class="question">1-v. \( f(x) = 4\cos x + 1 \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Amplitude} = 4 \]</div>
+      <div class="step">\[ \text{Period} = 360^\circ \]</div>
+      <div class="step">\[ \text{Maximum points: } (0^\circ, 5) \text{ and } (360^\circ, 5) \quad (\text{since } 4+1=5) \]</div>
+      <div class="step">\[ \text{Minimum point: } (180^\circ, -3) \quad (\text{since } -4+1=-3) \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1-vi">
+    <p class="question">1-vi. \( f(x) = 5\sin 2x - 2 \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Amplitude} = 5 \]</div>
+      <div class="step">\[ \text{Period} = \frac{360^\circ}{2} = 180^\circ \]</div>
+      <div class="step">\[ \text{Maximum points: } (45^\circ, 3) \text{ and } (225^\circ, 3) \quad (\text{since } 5-2=3) \]</div>
+      <div class="step">\[ \text{Minimum points: } (135^\circ, -7) \text{ and } (315^\circ, -7) \quad (\text{since } -5-2=-7) \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">2. The following functions are defined for 0 ≤ x ≤ 2π. For each function, write down the amplitude, the period and the coordinates of the maximum and minimum points.</h2>
+  <div class="problem" id="p-2-2-i">
+    <p class="question">2-i. \( f(x) = 4\sin x \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Amplitude} = 4 \]</div>
+      <div class="step">\[ \text{Period} = 2\pi \]</div>
+      <div class="step">\[ \text{Maximum point: } \left(\frac{\pi}{2}, 4\right) \]</div>
+      <div class="step">\[ \text{Minimum point: } \left(\frac{3\pi}{2}, -4\right) \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2-ii">
+    <p class="question">2-ii. \( f(x) = \cos 3x \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Amplitude} = 1 \]</div>
+      <div class="step">\[ \text{Period} = \frac{2\pi}{3} \]</div>
+      <div class="step">\[ \text{Maximum points: } (0, 1), \left(\frac{2\pi}{3}, 1\right), \left(\frac{4\pi}{3}, 1\right), (2\pi, 1) \]</div>
+      <div class="step">\[ \text{Minimum points: } \left(\frac{\pi}{3}, -1\right), (\pi, -1), \left(\frac{5\pi}{3}, -1\right) \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2-iii">
+    <p class="question">2-iii. \( f(x) = 2\sin 3x \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Amplitude} = 2 \]</div>
+      <div class="step">\[ \text{Period} = \frac{2\pi}{3} \]</div>
+      <div class="step">\[ \text{Maximum points: } \left(\frac{\pi}{6}, 2\right), \left(\frac{5\pi}{6}, 2\right), \left(\frac{3\pi}{2}, 2\right) \]</div>
+      <div class="step">\[ \text{Minimum points: } \left(\frac{\pi}{2}, -2\right), \left(\frac{7\pi}{6}, -2\right), \left(\frac{11\pi}{6}, -2\right) \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2-iv">
+    <p class="question">2-iv. \( f(x) = 3\cos \frac{1}{2}x \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Amplitude} = 3 \]</div>
+      <div class="step">\[ \text{Period} = \frac{2\pi}{1/2} = 4\pi \]</div>
+      <div class="step">\[ \text{Maximum point: } (0, 3) \]</div>
+      <div class="step">\[ \text{Minimum point in domain: } (2\pi, -3) \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2-v">
+    <p class="question">2-v. \( f(x) = \sin 2x + 3 \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Amplitude} = 1 \]</div>
+      <div class="step">\[ \text{Period} = \frac{2\pi}{2} = \pi \]</div>
+      <div class="step">\[ \text{Maximum points: } \left(\frac{\pi}{4}, 4\right), \left(\frac{5\pi}{4}, 4\right) \quad (\text{since } 1+3=4) \]</div>
+      <div class="step">\[ \text{Minimum points: } \left(\frac{3\pi}{4}, 2\right), \left(\frac{7\pi}{4}, 2\right) \quad (\text{since } -1+3=2) \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2-vi">
+    <p class="question">2-vi. \( f(x) = 4\cos 2x - 1 \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Amplitude} = 4 \]</div>
+      <div class="step">\[ \text{Period} = \frac{2\pi}{2} = \pi \]</div>
+      <div class="step">\[ \text{Maximum points: } (0, 3), (\pi, 3), (2\pi, 3) \quad (\text{since } 4-1=3) \]</div>
+      <div class="step">\[ \text{Minimum points: } \left(\frac{\pi}{2}, -5\right), \left(\frac{3\pi}{2}, -5\right) \quad (\text{since } -4-1=-5) \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">3. This is the graph of y = a + b sin cx, for 0 ≤ x ≤ π. Write down the value of a, the value of b and the value of c.</h2>
+  <div class="problem" id="p-3-3">
+    <p class="question">3. \( y = a + b\sin cx \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{From the graph, the maximum value is 6 and the minimum value is 2.} \]</div>
+      <div class="step">\[ \text{Midline } a = \frac{\text{Max} + \text{Min}}{2} = \frac{6 + 2}{2} = 4 \]</div>
+      <div class="step">\[ \text{Amplitude } b = \frac{\text{Max} - \text{Min}}{2} = \frac{6 - 2}{2} = 2 \]</div>
+      <div class="step">\[ \text{The graph completes one full wave between } 0 \text{ and } \pi, \text{ so the period is } \pi. \]</div>
+      <div class="step">\[ \text{Period } = \frac{2\pi}{c} = \pi \implies c = 2 \]</div>
+      <div class="step">\[ \text{Values: } a = 4, \; b = 2, \; c = 2 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">4. Here is part of the graph of y = a sin bx + c. Write down the value of a, the value of b and the value of c.</h2>
+  <div class="problem" id="p-4-4">
+    <p class="question">4. \( y = a\sin bx + c \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{From the graph, the maximum is 7 (at } x=45^\circ \text{) and the minimum is 1 (at } x=135^\circ \text{).} \]</div>
+      <div class="step">\[ \text{Midline } c = \frac{7 + 1}{2} = 4 \]</div>
+      <div class="step">\[ \text{Amplitude } a = \frac{7 - 1}{2} = 3 \]</div>
+      <div class="step">\[ \text{The distance from max to min is half a period: } 135^\circ - 45^\circ = 90^\circ. \]</div>
+      <div class="step">\[ \text{Full period} = 2 \times 90^\circ = 180^\circ. \]</div>
+      <div class="step">\[ \text{Period } = \frac{360^\circ}{b} = 180^\circ \implies b = 2 \]</div>
+      <div class="step">\[ \text{Values: } a = 3, \; b = 2, \; c = 4 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">5. This is the graph of y = a + b cos cx, for 0° ≤ x ≤ 360°. Write down the value of a, the value of b and the value of c.</h2>
+  <div class="problem" id="p-5-5">
+    <p class="question">5. \( y = a + b\cos cx \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{From the graph, the maximum is 5 and the minimum is 1.} \]</div>
+      <div class="step">\[ \text{Midline } a = \frac{5 + 1}{2} = 3 \]</div>
+      <div class="step">\[ \text{Amplitude } b = \frac{5 - 1}{2} = 2 \]</div>
+      <div class="step">\[ \text{The graph has peaks at } 0^\circ, 120^\circ, 240^\circ, 360^\circ. \text{ One full wave takes } 120^\circ. \]</div>
+      <div class="step">\[ \text{Period } = \frac{360^\circ}{c} = 120^\circ \implies c = 3 \]</div>
+      <div class="step">\[ \text{Values: } a = 3, \; b = 2, \; c = 3 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">6. The following functions are defined for 0° ≤ x ≤ 360°. For each function, write down the period and the equations of the asymptotes.</h2>
+  <div class="problem" id="p-6-6-i">
+    <p class="question">6-i. \( f(x) = \tan 2x \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Period} = \frac{180^\circ}{2} = 90^\circ \]</div>
+      <div class="step">\[ \text{Asymptotes occur when } 2x = 90^\circ + 180^\circ n \]</div>
+      <div class="step">\[ x = 45^\circ + 90^\circ n \]</div>
+      <div class="step">\[ \text{Equations in domain: } x = 45^\circ, 135^\circ, 225^\circ, 315^\circ \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-6-6-ii">
+    <p class="question">6-ii. \( f(x) = 3\tan \frac{1}{2}x \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Period} = \frac{180^\circ}{1/2} = 360^\circ \]</div>
+      <div class="step">\[ \text{Asymptotes occur when } \frac{1}{2}x = 90^\circ + 180^\circ n \implies x = 180^\circ + 360^\circ n \]</div>
+      <div class="step">\[ \text{Equations in domain: } x = 180^\circ \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-6-6-iii">
+    <p class="question">6-iii. \( f(x) = 2\tan 3x + 1 \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Period} = \frac{180^\circ}{3} = 60^\circ \]</div>
+      <div class="step">\[ \text{Asymptotes occur when } 3x = 90^\circ + 180^\circ n \implies x = 30^\circ + 60^\circ n \]</div>
+      <div class="step">\[ \text{Equations in domain: } x = 30^\circ, 90^\circ, 150^\circ, 210^\circ, 270^\circ, 330^\circ \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">7. The following functions are defined for 0 ≤ x ≤ 2π. For each function, write down the period and the equations of the asymptotes.</h2>
+  <div class="problem" id="p-7-7-i">
+    <p class="question">7-i. \( f(x) = \tan 4x \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Period} = \frac{\pi}{4} \]</div>
+      <div class="step">\[ \text{Asymptotes occur when } 4x = \frac{\pi}{2} + \pi n \implies x = \frac{\pi}{8} + \frac{\pi}{4} n \]</div>
+      <div class="step">\[ \text{Equations in domain: } x = \frac{\pi}{8}, \frac{3\pi}{8}, \frac{5\pi}{8}, \frac{7\pi}{8}, \frac{9\pi}{8}, \frac{11\pi}{8}, \frac{13\pi}{8}, \frac{15\pi}{8} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-7-7-ii">
+    <p class="question">7-ii. \( f(x) = 2\tan 3x \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Period} = \frac{\pi}{3} \]</div>
+      <div class="step">\[ \text{Asymptotes occur when } 3x = \frac{\pi}{2} + \pi n \implies x = \frac{\pi}{6} + \frac{\pi}{3} n \]</div>
+      <div class="step">\[ \text{Equations in domain: } x = \frac{\pi}{6}, \frac{\pi}{2}, \frac{5\pi}{6}, \frac{7\pi}{6}, \frac{3\pi}{2}, \frac{11\pi}{6} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-7-7-iii">
+    <p class="question">7-iii. \( f(x) = 5\tan 2x - 3 \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Period} = \frac{\pi}{2} \]</div>
+      <div class="step">\[ \text{Asymptotes occur when } 2x = \frac{\pi}{2} + \pi n \implies x = \frac{\pi}{4} + \frac{\pi}{2} n \]</div>
+      <div class="step">\[ \text{Equations in domain: } x = \frac{\pi}{4}, \frac{3\pi}{4}, \frac{5\pi}{4}, \frac{7\pi}{4} \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">8. Here is part of the graph of y = A tan Bx + C. The graph passes through the point P(π/4, 4). Find the value of A, the value of B and the value of C.</h2>
+  <div class="problem" id="p-8-8">
+    <p class="question">8. \( y = A\tan Bx + C \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{The midline of the graph is the horizontal dashed line, which is at } y = 3. \text{ Therefore } C = 3. \]</div>
+      <div class="step">\[ \text{The asymptotes are at } x = \frac{\pi}{2} \text{ and } x = \frac{3\pi}{2}. \]</div>
+      <div class="step">\[ \text{The distance between consecutive asymptotes is } \frac{3\pi}{2} - \frac{\pi}{2} = \pi. \]</div>
+      <div class="step">\[ \text{The period is } \frac{\pi}{B} = \pi \implies B = 1. \]</div>
+      <div class="step">\[ \text{Substitute the point } P(\frac{\pi}{4}, 4) \text{ into } y = A\tan(x) + 3: \]</div>
+      <div class="step">\[ 4 = A\tan\left(\frac{\pi}{4}\right) + 3 \]</div>
+      <div class="step">\[ 4 = A(1) + 3 \implies A = 1 \]</div>
+      <div class="step">\[ \text{Values: } A = 1, \; B = 1, \; C = 3 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">9. f(x) = a + b sin cx. The maximum value of f is 13, the minimum value of f is 5 and the period is 60°. Find the value of a, the value of b and the value of c.</h2>
+  <div class="problem" id="p-9-9">
+    <p class="question">9. \( \text{Properties: Max}=13, \text{Min}=5, \text{Period}=60^\circ \)</p>
+    <div class="steps">
+      <div class="step">\[ a = \text{midline} = \frac{13 + 5}{2} = 9 \]</div>
+      <div class="step">\[ b = \text{amplitude} = \frac{13 - 5}{2} = 4 \]</div>
+      <div class="step">\[ \text{Period} = \frac{360^\circ}{c} = 60^\circ \implies c = 6 \]</div>
+      <div class="step">\[ \text{Values: } a = 9, \; b = 4, \; c = 6 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">10. f(x) = A + 3 cos Bx for 0° ≤ x ≤ 360°. The maximum value of f is 5 and the period is 72°. a) Write down the value of A and the value of B. b) Write down the amplitude of f.</h2>
+  <div class="problem" id="p-10-10a">
+    <p class="question">10a. \( \text{Find } A \text{ and } B \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{The amplitude is 3 (from the coefficient of cosine).} \]</div>
+      <div class="step">\[ \text{Max value} = A + 3 = 5 \implies A = 2 \]</div>
+      <div class="step">\[ \text{Period} = \frac{360^\circ}{B} = 72^\circ \implies B = 5 \]</div>
+      <div class="step">\[ A = 2, \; B = 5 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-10-10b">
+    <p class="question">10b. \( \text{Amplitude of } f \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{The amplitude is the coefficient of the cosine function.} \]</div>
+      <div class="step">\[ \text{Amplitude} = 3 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">11. f(x) = A + B sin Cx for 0° ≤ x ≤ 360°. The amplitude of f is 3, the period is 90° and the minimum value of f is -2. a) Write down the value of A, the value of B and the value of C.</h2>
+  <div class="problem" id="p-11-11a">
+    <p class="question">11a. \( \text{Find } A, B, \text{ and } C \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Amplitude} = |B| = 3. \text{ Assuming } B > 0 \text{ for standard form } B = 3. \]</div>
+      <div class="step">\[ \text{Period} = \frac{360^\circ}{C} = 90^\circ \implies C = 4 \]</div>
+      <div class="step">\[ \text{Minimum value} = A - B = -2 \]</div>
+      <div class="step">\[ A - 3 = -2 \implies A = 1 \]</div>
+      <div class="step">\[ A = 1, \; B = 3, \; C = 4 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">12. a) On the same grid, sketch the graphs of y = sin x and y = 1 + sin 2x for 0° ≤ x ≤ 360°. b) State the number of roots of the equation sin 2x - sin x + 1 = 0 for 0° ≤ x ≤ 360°.</h2>
+  <div class="problem" id="p-12-12b">
+    <p class="question">12b. \( \text{Number of roots of } \sin 2x - \sin x + 1 = 0 \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Rearrange the equation: } \sin x = 1 + \sin 2x \]</div>
+      <div class="step">\[ \text{The number of roots is the number of intersection points between } y = \sin x \text{ and } y = 1 + \sin 2x. \]</div>
+      <div class="step">\[ \text{Graph description: } y = \sin x \text{ is the standard wave. } y = 1 + \sin 2x \text{ oscillates between 0 and 2, with period } 180^\circ. \]</div>
+      <div class="step">\[ \text{They intersect at } x=90^\circ \text{ (both equal 1). They also intersect near } x \approx 160^\circ \text{ and } x \approx 330^\circ. \]</div>
+      <div class="step">\[ \text{By solving graphically, the line intersects exactly 2 times.} \]</div>
+      <div class="step">\[ \text{Number of roots: } 2 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">13. a) On the same grid, sketch the graphs of y = sin x and y = 1 + cos 2x for 0° ≤ x ≤ 360°. b) State the number of roots of the equation sin x = 1 + cos 2x for 0° ≤ x ≤ 360°.</h2>
+  <div class="problem" id="p-13-13b">
+    <p class="question">13b. \( \text{Number of roots of } \sin x = 1 + \cos 2x \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Use the identity } \cos 2x = 1 - 2\sin^2 x: \]</div>
+      <div class="step">\[ \sin x = 1 + (1 - 2\sin^2 x) \]</div>
+      <div class="step">\[ 2\sin^2 x + \sin x - 2 = 0 \]</div>
+      <div class="step">\[ \text{Let } u = \sin x: \quad 2u^2 + u - 2 = 0 \]</div>
+      <div class="step">\[ u = \frac{-1 \pm \sqrt{1^2 - 4(2)(-2)}}{2(2)} = \frac{-1 \pm \sqrt{17}}{4} \]</div>
+      <div class="step">\[ u_1 = \frac{-1 + \sqrt{17}}{4} \approx 0.78 \]</div>
+      <div class="step">\[ u_2 = \frac{-1 - \sqrt{17}}{4} \approx -1.28 \text{ (Reject, since } -1 \le u \le 1) \]</div>
+      <div class="step">\[ \text{Since } \sin x = 0.78 \text{ is positive, there are 2 solutions (one in Q1 and one in Q2).} \]</div>
+      <div class="step">\[ \text{Number of roots: } 2 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">14. a) On the same grid, sketch the graphs of y = 3 cos 2x and y = 2 + sin x for 0° ≤ x ≤ 360°. b) State the number of roots of the equation 3 cos 2x = 2 + sin x for 0° ≤ x ≤ 360°.</h2>
+  <div class="problem" id="p-14-14b">
+    <p class="question">14b. \( \text{Number of roots of } 3\cos 2x = 2 + \sin x \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Use the identity } \cos 2x = 1 - 2\sin^2 x: \]</div>
+      <div class="step">\[ 3(1 - 2\sin^2 x) = 2 + \sin x \]</div>
+      <div class="step">\[ 3 - 6\sin^2 x = 2 + \sin x \]</div>
+      <div class="step">\[ 6\sin^2 x + \sin x - 1 = 0 \]</div>
+      <div class="step">\[ \text{Factorise: } (3\sin x - 1)(2\sin x + 1) = 0 \]</div>
+      <div class="step">\[ \text{Case 1: } \sin x = \frac{1}{3} \implies \text{2 solutions (Q1 and Q2)} \]</div>
+      <div class="step">\[ \text{Case 2: } \sin x = -\frac{1}{2} \implies \text{2 solutions (Q3 and Q4)} \]</div>
+      <div class="step">\[ \text{Total number of roots: } 2 + 2 = 4 \]</div>
+    </div>
+  </div>
+</section>
+</div>
+    </main>
+
+    <!-- Permanent Brand Site Footer Area Component -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-column">
+          <a aria-label="Japanify Home" href="/"
+            ><img
+              alt="Japanify - Learn Japanese Online"
+              class="footer-image"
+              height="33"
+              src="/assets/images/logo.svg"
+              width="105"
+          /></a>
+          <div class="always-open" style="padding: 0">
+            Learn Japanese Online.
+          </div>
+          <div class="accordion-content">
+            <p class="description">
+              Master Japanese through short lessons &amp; culture bites.
+            </p>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            学 Learn
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a href="/pages/Japanese-full-lessons-jlpt-jft-online.html"
+                  >人 Full Lessons</a
+                >
+              </li>
+              <li>
+                <a href="/pages/complete-japanese-kanji-for-n5-n4-n3.html"
+                  >字 Kanji Library</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/pages/complete-japanese-grammar-for-jlpt-jft-exam.html"
+                  >法 Grammar Rules</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/pages/complete-japanese-jlpt-jft-vocabulary-and-conversation.html"
+                  >語 Vocabulary Library</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-hiragana-katakana-lessons.html"
+                  >あ Hiragana &amp; Katakana</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            練 Practice
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a href="/pages/japanese-kanji-shortlisted-quiz.html"
+                  >字 Kanji Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-reading-practice.html"
+                  >書 Reading Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/complete-japanese-kanji-for-n5-n4-n3.html"
+                  >あ Alphabet Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-grammar-quiz.html"
+                  >会 Grammar Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-vocabulary-quiz.html"
+                  >語 Vocabulary Practice</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            技 Tips &amp; Tricks
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a href="/pages/japanese-study-plans.html">計 Study Plans</a>
+              </li>
+              <li>
+                <a href="/pages/kanji-memory-hacks.html">記 Life in Japan</a>
+              </li>
+              <li>
+                <a href="/pages/japanese-pronunciation-tips.html"
+                  >列 Study Materials</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-pronunciation-tips.html"
+                  >音 Pronunciation Tips</a
+                >
+              </li>
+              <li>
+                <a href="/pages/kanji-memory-hacks.html"
+                  >記 Kanji Memory Hacks</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            隨 Follow Us
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a
+                  class="social-link"
+                  href="mailto:japanify.bd@gmail.com"
+                  target="_blank"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-mail"></use>
+                  </svg>
+                  E-mail</a
+                >
+              </li>
+              <li>
+                <a class="social-link" href="/pages/about.html"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-info"></use>
+                  </svg>
+                  About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  class="social-link"
+                  href="https://www.facebook.com/@japanify"
+                  rel="noopener me"
+                  target="_blank"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-facebook"></use>
+                  </svg>
+                  Facebook</a
+                >
+              </li>
+              <li>
+                <a
+                  class="social-link"
+                  href="https://www.instagram.com/japanify.bd"
+                  rel="noopener me"
+                  target="_blank"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-instagram"></use>
+                  </svg>
+                  Instagram</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <span> © Japanify 2026 | All Rights Reserved | </span
+        ><a href="/pages/credits.html">Credits </a>
+      </div>
+    </footer>
+
+    <!-- Global JavaScript Entry Point -->
+    <script
+      nonce="&lt;?= $csp_nonce ?&gt;"
+      src="/assets/javascripts/main.js"
+      type="module"
+    ></script>
+</body>
+</html>

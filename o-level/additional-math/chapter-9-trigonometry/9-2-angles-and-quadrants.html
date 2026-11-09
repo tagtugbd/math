@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9.2: Angles and Quadrants</title>
+
+    <!-- Custom CSS File Framework -->
+    <link
+      href="/assets/css/style.min.css"
+      media="print"
+      onload="
+        this.media = 'all';
+        this.onload = null;
+      "
+      rel="stylesheet"
+    />
+    <noscript>
+      <link href="/assets/css/style.min.css" rel="stylesheet" />
+    </noscript>
+
+    <!-- MathJax Configuration and Script engine for rendering LaTeX -->
+    <script>
+    MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']],
+      processEscapes: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+    };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        /* Embedded styling rule overrides requested for step labels */
+        .step-side-label {
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Integrated Native Page Loader Engine Wrapper Structure -->
+    <div id="loader-wrapper">
+      <div aria-label="Loading Japanify" class="brand-loader" role="status">
+        <div class="ring"></div>
+        <span class="brand-text"> Japanify </span>
+      </div>
+    </div>
+    <script>
+      (function () {
+        const loader = document.getElementById("loader-wrapper");
+        const body = document.body;
+        if (loader) {
+          body.classList.add("loading-active");
+          const hideLoader = () => {
+            if (!loader) return;
+            loader.style.opacity = "0";
+            setTimeout(() => {
+              loader.remove();
+              body.classList.remove("loading-active");
+            }, 400);
+          };
+          window.addEventListener("load", hideLoader);
+          setTimeout(() => {
+            if (document.getElementById("loader-wrapper")) hideLoader();
+          }, 4000);
+        }
+      })();
+    </script>
+
+    <!-- Permanent Brand Site Header Navigation Bar Area Component -->
+    <div class="mobile-header-container">
+      <header class="mobile-header">
+        <div class="logo">
+          <a aria-label="Japanify Home" href="/"
+            ><img
+              alt="Japanify - Learn Japanese Online"
+              height="33"
+              src="/assets/images/logo.svg"
+              width="105"
+          /></a>
+        </div>
+        <nav aria-label="Main navigation" class="header-nav" id="header-nav">
+          <div class="nav-dropdown">
+            <div class="nav-accordion">
+              学 Learn
+              <svg class="arrow" height="20" width="20">
+                <use
+                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
+                ></use>
+              </svg>
+            </div>
+            <div class="accordion-content nav-dropdown-content">
+              <ul>
+                <li>
+                  <a href="/pages/Japanese-full-lessons-jlpt-jft-online.html">
+                    課 Full Lessons
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/complete-japanese-kanji-for-n5-n4-n3.html">
+                    人 Kanji Library
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/pages/complete-japanese-grammar-for-jlpt-jft-exam.html"
+                  >
+                    法 Grammar Rules
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/pages/complete-japanese-jlpt-jft-vocabulary-and-conversation.html"
+                  >
+                    語 Vocabulary Library
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-hiragana-katakana-lessons.html">
+                    あ Hiragana &amp; Katakana
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <div class="nav-accordion">
+              練 Practice
+              <svg class="arrow" height="20" width="20">
+                <use
+                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
+                ></use>
+              </svg>
+            </div>
+            <div class="accordion-content nav-dropdown-content">
+              <ul>
+                <li>
+                  <a href="/pages/japanese-kanji-shortlisted-quiz.html">
+                    聞 Kanji Practice
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-reading-practice.html">
+                    書 Reading Practice
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/pages/complete-japanese-alphabet-hiragana-katakana-practice.html"
+                    >あ Alphabet Practice</a
+                  >
+                </li>
+                <li>
+                  <a href="/pages/japanese-grammar-quiz.html">
+                    会 Grammar Practice
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-vocabulary-quiz.html">
+                    語 Vocabulary Practice
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <div class="nav-accordion">
+              報 Latest News
+              <svg class="arrow" height="20" width="20">
+                <use
+                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
+                ></use>
+              </svg>
+            </div>
+            <div class="accordion-content nav-dropdown-content">
+              <ul>
+                <li>
+                  <a href="/pages/japanese-visa-news.html"> 報 VISA News </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-student-visa-opportunities.html">
+                    校 Study in Japan
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-job-opportunities.html">
+                    職 Job Opportunities
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <div class="nav-accordion">
+              技 Tips &amp; Tricks
+              <svg class="arrow" height="20" width="20">
+                <use
+                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
+                ></use>
+              </svg>
+            </div>
+            <div class="accordion-content nav-dropdown-content">
+              <ul>
+                <li>
+                  <a href="/pages/japanese-study-plans.html">
+                    計 Study Plans
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-pronunciation-tips.html">
+                    音 Pronunciation Tips
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/kanji-memory-hacks.html">
+                    記 Kanji Memory Hacks
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div
+          aria-label="Social media links"
+          class="header-social"
+          id="header-social"
+        >
+          <a
+            href="https://www.facebook.com/profile.php?id=61582101913054"
+            rel="noopener me"
+            target="_blank"
+            ><svg class="header-icon" height="26" width="26">
+              <use
+                href="/assets/icons/svg-sprite.svg#icon-facebook"
+              ></use></svg></a
+          ><a
+            href="https://www.instagram.com/japanify.bd"
+            rel="noopener me"
+            target="_blank"
+            ><svg class="header-icon" height="26" width="26">
+              <use
+                href="/assets/icons/svg-sprite.svg#icon-instagram"
+              ></use></svg></a
+          ><a
+            href="https://www.youtube.com/channel/UCFaz9d1uR-BTut3dcYRybWw"
+            rel="noopener me"
+            target="_blank"
+            ><svg class="header-icon" height="26" width="26">
+              <use href="/assets/icons/svg-sprite.svg#icon-youtube"></use>
+            </svg>
+          </a>
+        </div>
+        <button
+          aria-controls="fullscreen-menu"
+          aria-expanded="false"
+          aria-label="Toggle Menu"
+          class="hamburger-menu"
+          id="hamburger-toggle"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </header>
+      <div aria-hidden="true" class="fullscreen-menu" id="fullscreen-menu">
+        <div class="menu-content">
+          <nav class="header-nav" id="mobile-js-nav"></nav>
+          <div class="menu-footer">
+            <div class="header-social" id="mobile-js-social"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dynamic Content Hero Banner Area Section Module Block -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <h1>9.2: Angles and Quadrants</h1>
+            <h2>Determining quadrants, direction of rotation, and reference angles</h2>
+            <p>Learn how to visualize angles in the Cartesian plane. This lesson covers identifying the quadrant of a rotating line OP for positive and negative angles in both degrees and radians, determining the direction of rotation, and calculating the acute reference angle made with the x-axis.</p>
+        </div>
+    </section>
+
+    <!-- Primary Content Grid Flow Block Container -->
+    <main class="wrap">
+        <div class="study-area"><section class="problem-section">
+  <h2 class="section-heading">1. Draw a diagram showing the quadrant in which the rotating line OP lies for each of the following angles. In each question, indicate clearly the direction of rotation and find the acute angle that the line OP makes with the x-axis.</h2>
+  <div class="problem" id="p-1-1a">
+    <p class="question">1a. \( 110^\circ \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Direction: Counter-clockwise (positive angle).} \]</div>
+      <div class="step">\[ \text{Quadrant: Q2 (since } 90^\circ < 110^\circ < 180^\circ \text{).} \]</div>
+      <div class="step">\[ \text{Acute angle with x-axis: } 180^\circ - 110^\circ = 70^\circ \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1b">
+    <p class="question">1b. \( -60^\circ \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Direction: Clockwise (negative angle).} \]</div>
+      <div class="step">\[ \text{Quadrant: Q4 (since } 0^\circ \text{ to } -90^\circ \text{ is Q4).} \]</div>
+      <div class="step">\[ \text{Acute angle with x-axis: } 60^\circ \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1c">
+    <p class="question">1c. \( 220^\circ \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Direction: Counter-clockwise (positive angle).} \]</div>
+      <div class="step">\[ \text{Quadrant: Q3 (since } 180^\circ < 220^\circ < 270^\circ \text{).} \]</div>
+      <div class="step">\[ \text{Acute angle with x-axis: } 220^\circ - 180^\circ = 40^\circ \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1d">
+    <p class="question">1d. \( -135^\circ \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Direction: Clockwise (negative angle).} \]</div>
+      <div class="step">\[ \text{Quadrant: Q3 (Co-terminal with } 360^\circ - 135^\circ = 225^\circ \text{, which is in Q3).} \]</div>
+      <div class="step">\[ \text{Acute angle with x-axis: } 180^\circ - 135^\circ = 45^\circ \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1e">
+    <p class="question">1e. \( -300^\circ \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Direction: Clockwise (negative angle).} \]</div>
+      <div class="step">\[ \text{Quadrant: Q1 (Co-terminal with } 360^\circ - 300^\circ = 60^\circ \text{, which is in Q1).} \]</div>
+      <div class="step">\[ \text{Acute angle with x-axis: } 60^\circ \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1f">
+    <p class="question">1f. \( \frac{3\pi}{4} \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Direction: Counter-clockwise (positive angle).} \]</div>
+      <div class="step">\[ \text{Quadrant: Q2 (since } \frac{\pi}{2} < \frac{3\pi}{4} < \pi \text{).} \]</div>
+      <div class="step">\[ \text{Acute angle with x-axis: } \pi - \frac{3\pi}{4} = \frac{\pi}{4} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1g">
+    <p class="question">1g. \( \frac{7\pi}{6} \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Direction: Counter-clockwise (positive angle).} \]</div>
+      <div class="step">\[ \text{Quadrant: Q3 (since } \pi < \frac{7\pi}{6} < \frac{3\pi}{2} \text{).} \]</div>
+      <div class="step">\[ \text{Acute angle with x-axis: } \frac{7\pi}{6} - \pi = \frac{\pi}{6} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1h">
+    <p class="question">1h. \( -\frac{5\pi}{3} \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Direction: Clockwise (negative angle).} \]</div>
+      <div class="step">\[ \text{Quadrant: Q1 (Co-terminal with } 2\pi - \frac{5\pi}{3} = \frac{\pi}{3} \text{, which is in Q1).} \]</div>
+      <div class="step">\[ \text{Acute angle with x-axis: } \frac{\pi}{3} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1i">
+    <p class="question">1i. \( \frac{13\pi}{9} \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Direction: Counter-clockwise (positive angle).} \]</div>
+      <div class="step">\[ \text{Quadrant: Q3 (since } \pi < \frac{13\pi}{9} < \frac{3\pi}{2} \text{, as } \frac{13}{9} \approx 1.44 \text{).} \]</div>
+      <div class="step">\[ \text{Acute angle with x-axis: } \frac{13\pi}{9} - \pi = \frac{4\pi}{9} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1j">
+    <p class="question">1j. \( -\frac{5\pi}{8} \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Direction: Clockwise (negative angle).} \]</div>
+      <div class="step">\[ \text{Quadrant: Q3 (Co-terminal with } 2\pi - \frac{5\pi}{8} = \frac{11\pi}{8} \text{, which is in Q3).} \]</div>
+      <div class="step">\[ \text{Acute angle with x-axis: } \frac{11\pi}{8} - \pi = \frac{3\pi}{8} \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">2. State the quadrant that OP lies in when the angle that OP makes with the positive x-axis is:</h2>
+  <div class="problem" id="p-2-2a">
+    <p class="question">2a. \( 110^\circ \)</p>
+    <div class="steps">
+      <div class="step">\[ 90^\circ < 110^\circ < 180^\circ \]</div>
+      <div class="step">\[ \text{Quadrant: Q2 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2b">
+    <p class="question">2b. \( 300^\circ \)</p>
+    <div class="steps">
+      <div class="step">\[ 270^\circ < 300^\circ < 360^\circ \]</div>
+      <div class="step">\[ \text{Quadrant: Q4 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2c">
+    <p class="question">2c. \( -160^\circ \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Co-terminal angle: } -160^\circ + 360^\circ = 200^\circ \]</div>
+      <div class="step">\[ 180^\circ < 200^\circ < 270^\circ \]</div>
+      <div class="step">\[ \text{Quadrant: Q3 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2d">
+    <p class="question">2d. \( 245^\circ \)</p>
+    <div class="steps">
+      <div class="step">\[ 180^\circ < 245^\circ < 270^\circ \]</div>
+      <div class="step">\[ \text{Quadrant: Q3 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2e">
+    <p class="question">2e. \( -500^\circ \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Co-terminal angle: } -500^\circ + 2(360^\circ) = 220^\circ \]</div>
+      <div class="step">\[ 180^\circ < 220^\circ < 270^\circ \]</div>
+      <div class="step">\[ \text{Quadrant: Q3 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2f">
+    <p class="question">2f. \( \frac{\pi}{4} \)</p>
+    <div class="steps">
+      <div class="step">\[ 0 < \frac{\pi}{4} < \frac{\pi}{2} \]</div>
+      <div class="step">\[ \text{Quadrant: Q1 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2g">
+    <p class="question">2g. \( \frac{11\pi}{6} \)</p>
+    <div class="steps">
+      <div class="step">\[ \frac{3\pi}{2} < \frac{11\pi}{6} < 2\pi \]</div>
+      <div class="step">\[ \text{Quadrant: Q4 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2h">
+    <p class="question">2h. \( -\frac{5\pi}{6} \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Co-terminal angle: } -\frac{5\pi}{6} + 2\pi = \frac{7\pi}{6} \]</div>
+      <div class="step">\[ \pi < \frac{7\pi}{6} < \frac{3\pi}{2} \]</div>
+      <div class="step">\[ \text{Quadrant: Q3 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2i">
+    <p class="question">2i. \( \frac{13\pi}{6} \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Co-terminal angle: } \frac{13\pi}{6} - 2\pi = \frac{\pi}{6} \]</div>
+      <div class="step">\[ 0 < \frac{\pi}{6} < \frac{\pi}{2} \]</div>
+      <div class="step">\[ \text{Quadrant: Q1 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2j">
+    <p class="question">2j. \( \frac{9\pi}{4} \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Co-terminal angle: } \frac{9\pi}{4} - 2\pi = \frac{\pi}{4} \]</div>
+      <div class="step">\[ 0 < \frac{\pi}{4} < \frac{\pi}{2} \]</div>
+      <div class="step">\[ \text{Quadrant: Q1 \]</div>
+    </div>
+  </div>
+</section>
+</div>
+    </main>
+
+    <!-- Permanent Brand Site Footer Area Component -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-column">
+          <a aria-label="Japanify Home" href="/"
+            ><img
+              alt="Japanify - Learn Japanese Online"
+              class="footer-image"
+              height="33"
+              src="/assets/images/logo.svg"
+              width="105"
+          /></a>
+          <div class="always-open" style="padding: 0">
+            Learn Japanese Online.
+          </div>
+          <div class="accordion-content">
+            <p class="description">
+              Master Japanese through short lessons &amp; culture bites.
+            </p>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            学 Learn
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a href="/pages/Japanese-full-lessons-jlpt-jft-online.html"
+                  >人 Full Lessons</a
+                >
+              </li>
+              <li>
+                <a href="/pages/complete-japanese-kanji-for-n5-n4-n3.html"
+                  >字 Kanji Library</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/pages/complete-japanese-grammar-for-jlpt-jft-exam.html"
+                  >法 Grammar Rules</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/pages/complete-japanese-jlpt-jft-vocabulary-and-conversation.html"
+                  >語 Vocabulary Library</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-hiragana-katakana-lessons.html"
+                  >あ Hiragana &amp; Katakana</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            練 Practice
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a href="/pages/japanese-kanji-shortlisted-quiz.html"
+                  >字 Kanji Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-reading-practice.html"
+                  >書 Reading Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/complete-japanese-kanji-for-n5-n4-n3.html"
+                  >あ Alphabet Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-grammar-quiz.html"
+                  >会 Grammar Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-vocabulary-quiz.html"
+                  >語 Vocabulary Practice</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            技 Tips &amp; Tricks
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a href="/pages/japanese-study-plans.html">計 Study Plans</a>
+              </li>
+              <li>
+                <a href="/pages/kanji-memory-hacks.html">記 Life in Japan</a>
+              </li>
+              <li>
+                <a href="/pages/japanese-pronunciation-tips.html"
+                  >列 Study Materials</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-pronunciation-tips.html"
+                  >音 Pronunciation Tips</a
+                >
+              </li>
+              <li>
+                <a href="/pages/kanji-memory-hacks.html"
+                  >記 Kanji Memory Hacks</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            隨 Follow Us
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a
+                  class="social-link"
+                  href="mailto:japanify.bd@gmail.com"
+                  target="_blank"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-mail"></use>
+                  </svg>
+                  E-mail</a
+                >
+              </li>
+              <li>
+                <a class="social-link" href="/pages/about.html"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-info"></use>
+                  </svg>
+                  About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  class="social-link"
+                  href="https://www.facebook.com/@japanify"
+                  rel="noopener me"
+                  target="_blank"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-facebook"></use>
+                  </svg>
+                  Facebook</a
+                >
+              </li>
+              <li>
+                <a
+                  class="social-link"
+                  href="https://www.instagram.com/japanify.bd"
+                  rel="noopener me"
+                  target="_blank"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-instagram"></use>
+                  </svg>
+                  Instagram</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <span> © Japanify 2026 | All Rights Reserved | </span
+        ><a href="/pages/credits.html">Credits </a>
+      </div>
+    </footer>
+
+    <!-- Global JavaScript Entry Point -->
+    <script
+      nonce="&lt;?= $csp_nonce ?&gt;"
+      src="/assets/javascripts/main.js"
+      type="module"
+    ></script>
+</body>
+</html>
