@@ -297,7 +297,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     </section>
 
     <!-- Primary Content Grid Flow Block Container -->
-    <main class="wrap">
+    <main>
         <div class="study-area">{content}</div>
     </main>
 

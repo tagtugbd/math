@@ -134,7 +134,7 @@ mjx-container[jax="CHTML"]:not([display="true"]) {
 
 .problem {
   margin: 1.25rem 0;
-  border: 1px solid var(--border);
+  /* border: 1px solid var(--border); */
   border-radius: 8px;
 }
 
@@ -144,8 +144,9 @@ mjx-container[jax="CHTML"]:not([display="true"]) {
   background: var(--error-bg);
   padding: 0.6rem 0.85rem;
   border-left: 4px solid var(--primary);
-  border-radius: 4px;
-  margin: 0 0 0.75rem;
+  /* border-radius: 4px; */
+  font-size: 1.2rem;
+  margin: 0;
 }
 
 .step {
