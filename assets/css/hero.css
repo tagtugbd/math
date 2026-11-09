@@ -1,0 +1,84 @@
+.hero-section {
+  align-items: center;
+  padding: 72px 1rem 80px;
+}
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 72px 0 80px;
+}
+.hero h1 {
+  font-size: clamp(2.6rem, 5.6vw, 4.4rem);
+  letter-spacing: -0.02em;
+}
+.hero p {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 30em;
+  margin: 20px 0 32px;
+}
+.cta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.plot {
+  background: #fff;
+  border: 1.5px solid var(--text-dark);
+  border-radius: 6px;
+  box-shadow: var(--shadow-box);
+  padding: 16px;
+}
+.plot svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.eq {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-style: italic;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 4px 4px 10px;
+}
+.eq small {
+  font: 500 0.85rem var(--sans);
+  color: var(--text-secondary);
+  font-style: normal;
+}
+.ctrl {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 6px 14px;
+  align-items: center;
+  padding: 12px 4px 2px;
+  border-top: 1px dashed var(--border);
+  margin-top: 8px;
+}
+.ctrl label {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.15rem;
+}
+.ctrl output {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  min-width: 2.5em;
+  text-align: right;
+}
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--primary);
+}
+@media (max-width: 900px) {
+  .hero {
+    padding: 48px 24px 56px;
+  }
+}
+.hero-ch {
+  padding: 48px 24px 56px;
+}

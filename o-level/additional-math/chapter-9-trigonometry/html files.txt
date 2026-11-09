@@ -1,0 +1,52 @@
+# Define the target folder where files will be created (Current Directory)
+$targetFolder = Get-Location
+
+# List of topics provided
+$topics = @(
+    "9.1 Angles between 0° and 90°",
+    "9.2 The general definition of an angle",
+    "9.3 Trigonometric ratios of general angles",
+    "9.4 Graphs of trigonometric functions",
+    "9.5 Graphs of y = |f(x)|, where f(x) is a trigonometric function",
+    "9.6 Trigonometric equations",
+    "9.7 Trigonometric identities",
+    "9.8 Further trigonometric equations",
+    "9.9 Further trigonometric identities"
+)
+
+foreach ($topic in $topics) {
+    # 1. Remove trailing page numbers (e.g., "")
+    $cleanName = $topic -replace '\s+\d+$', ''
+
+    # 2. Extract the prefix number (e.g., "9.1") and the remaining text
+    if ($cleanName -match '^(\d+\.\d+)\s+(.*)$') {
+        $prefix = $Matches[1]
+        $text = $Matches[2]
+
+        # 3. Clean up the text portion to create a URL/slug-friendly format
+        $text = $text.ToLower()
+        $text = $text -replace '°', ''                 # Remove degree symbols
+        $text = $text -replace '\|', ''                # Remove pipe symbols
+        $text = $text -replace '[^a-z0-9\s-]', ''      # Remove other special characters except spaces/hyphens
+        $text = $text -replace '\s+', '-'              # Replace spaces with single hyphens
+        $text = $text -replace '-+', '-'               # Remove duplicate hyphens
+        $text = $text.Trim('-')                        # Trim hyphens from the ends
+
+        # 4. Combine into the requested format: prefix-text.html
+        $fileName = "${prefix}-${text}.html"
+    } else {
+        # Fallback if the pattern doesn't match perfectly
+        $fileName = ($cleanName -replace '\s+', '-').ToLower() + ".html"
+    }
+    
+    # 5. Combine into a full system path
+    $filePath = Join-Path -Path $targetFolder -ChildPath $fileName
+
+    # 6. Create the file if it doesn't already exist
+    if (-not (Test-Path -Path $filePath)) {
+        New-Item -Path $filePath -ItemType "File" | Out-Null
+        Write-Host "Created: $fileName" -ForegroundColor Green
+    } else {
+        Write-Host "Already Exists: $fileName" -ForegroundColor Yellow
+    }
+}

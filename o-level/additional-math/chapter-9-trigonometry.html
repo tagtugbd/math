@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fd4239" />
+    <title>
+      Chapter 9: Trigonometry — Angles, Graphs, Equations & Identities |
+      Quotient
+    </title>
+    <meta
+      name="description"
+      content="Additional Mathematics Chapter 9: trigonometry from right triangles to general angles. Worked lessons on trig ratios in all quadrants, graphs of sine, cosine and tangent, modulus graphs, trigonometric equations and identities."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=STIX+Two+Text:ital,wght@0,500;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/css/style.min.css"
+      media="print"
+      onload="
+        this.media = 'all';
+        this.onload = null;
+      "
+      rel="stylesheet"
+    />
+    <noscript
+      ><link href="/assets/css/style.min.css" rel="stylesheet"
+    /></noscript>
+    <style>
+      /* page header */
+      .page-head {
+        padding: 64px 0 36px;
+      }
+      .page-head h1 {
+        font-size: clamp(2.2rem, 5vw, 3.6rem);
+        letter-spacing: -0.02em;
+        max-width: 16em;
+      }
+      .page-head p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        max-width: 34em;
+        margin: 16px 0 0;
+      }
+      .crumbs {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-bottom: 18px;
+      }
+      .crumbs a {
+        text-decoration: none;
+        color: var(--primary-dark);
+      }
+      .crumbs a:hover {
+        text-decoration: underline;
+      }
+
+      /* about / SEO section */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 48px;
+        align-items: start;
+      }
+      .about-text p {
+        color: var(--text-secondary);
+        font-size: 1.05rem;
+        margin: 0 0 18px;
+      }
+      .about-text p strong {
+        color: var(--text-dark);
+      }
+      .formula-card {
+        background: var(--bg);
+        border: 1.5px solid var(--text-dark);
+        border-radius: 6px;
+        box-shadow: 5px 5px 0 var(--text-dark);
+        padding: 26px;
+      }
+      .formula-card h3 {
+        font-size: 1.15rem;
+        margin-bottom: 14px;
+      }
+      .formula-card ul {
+        margin: 0;
+        padding-left: 1.1em;
+        color: var(--text-secondary);
+      }
+      .formula-card li {
+        margin: 10px 0;
+        font-size: 0.98rem;
+      }
+      .formula-card .m {
+        font-family: var(--serif);
+        font-style: italic;
+        color: var(--text-dark);
+        font-size: 1.05rem;
+      }
+      .formula-card .note {
+        margin: 18px 0 0;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap bar">
+        <a class="brand" href="/" aria-label="Quotient home"
+          >Quotient<i>.</i></a
+        >
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#topics">Topics</a></li>
+            <li>
+              <a
+                class="btn"
+                href="/o-level/additional-math/solution-manual.html"
+                >All chapters</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrap">
+        <div class="page-head">
+          <div class="crumbs">
+            <a href="/">Home</a> /
+            <a href="/o-level/additional-math/solution-manual.html"
+              >Additional Mathematics</a
+            >
+            / Chapter 9
+          </div>
+          <h1>Chapter 9: Trigonometry</h1>
+          <p>
+            Nine lessons that take you from right-triangle ratios to general
+            angles, transformed graphs, trigonometric equations and identity
+            proofs.
+          </p>
+        </div>
+      </div>
+
+      <section class="band" aria-labelledby="about-title">
+        <div class="wrap">
+          <div class="head">
+            <h2 id="about-title">From right triangles to the whole circle</h2>
+            <p>
+              Trigonometry begins with the ratios in a right-angled triangle,
+              but the subject only becomes powerful once you let the angle grow
+              beyond 90°.
+            </p>
+          </div>
+          <div class="about-grid">
+            <div class="about-text">
+              <p>
+                <strong>Trigonometry</strong> is the mathematics of angles and
+                periodic change. In this chapter you start with the familiar
+                sine, cosine and tangent ratios of acute angles, then extend
+                those definitions to angles of any size using the unit circle.
+                That single shift is what makes it possible to describe waves,
+                oscillations and rotation — and to solve equations that come up
+                again and again in physics, engineering and calculus.
+              </p>
+              <p>
+                The lessons are arranged in a deliberate order. Sections 9.1 to
+                9.3 rebuild the foundations: exact values, the general
+                definition of an angle, and the signs of the ratios in each
+                quadrant. Sections 9.4 and 9.5 turn those definitions into
+                pictures, so you can sketch
+                <span style="font-family: var(--serif); font-style: italic"
+                  >y = sin x</span
+                >,
+                <span style="font-family: var(--serif); font-style: italic"
+                  >y = cos x</span
+                >
+                and
+                <span style="font-family: var(--serif); font-style: italic"
+                  >y = tan x</span
+                >
+                and their modulus forms without memorising every point.
+              </p>
+              <p>
+                Sections 9.6 to 9.9 are where trigonometry becomes an algebraic
+                tool. You will solve trigonometric equations over a stated
+                interval, prove identities using the Pythagorean and reciprocal
+                relationships, and finally handle double-angle formulae and more
+                involved proofs. Each section includes worked examples with
+                every line explained, followed by practice problems that check
+                your answer immediately.
+              </p>
+              <p>
+                If you are revising for an exam, work through the sections in
+                order the first time, then use the cards below to jump straight
+                back to whichever technique you need to refresh.
+              </p>
+            </div>
+            <aside class="formula-card" aria-label="Key ideas in this chapter">
+              <h3>What you will learn</h3>
+              <ul>
+                <li>
+                  Exact values of <span class="m">sin</span>,
+                  <span class="m">cos</span> and <span class="m">tan</span> for
+                  30°, 45° and 60°
+                </li>
+                <li>
+                  Angles in standard position, reference angles and coterminal
+                  angles
+                </li>
+                <li>
+                  Signs of the ratios in the four quadrants, and the graphs of
+                  <span class="m">y = sin x</span>,
+                  <span class="m">y = cos x</span> and
+                  <span class="m">y = tan x</span>
+                </li>
+                <li>
+                  Modulus graphs such as
+                  <span class="m">y = |sin x|</span>
+                </li>
+                <li>
+                  Solving equations like
+                  <span class="m">sin θ = k</span> over a given interval
+                </li>
+                <li>
+                  The Pythagorean identities:
+                  <span class="m">sin²θ + cos²θ = 1</span>
+                </li>
+                <li>
+                  Double-angle formulae for
+                  <span class="m">sin 2θ</span> and
+                  <span class="m">cos 2θ</span>
+                </li>
+              </ul>
+              <p class="note">
+                Prerequisite: confident algebra, solving linear and quadratic
+                equations, and the basic SOHCAHTOA ratios from earlier years.
+              </p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="lessons" aria-labelledby="lessons-title">
+        <div class="wrap">
+          <div class="head">
+            <h2 id="lessons-title">Lessons in this chapter</h2>
+            <p>
+              Work through them in order, or jump to the section you need. Each
+              lesson includes a short explanation, worked examples and practice.
+            </p>
+          </div>
+          <div class="course">
+            <div class="card-grid">
+              <div class="card-container">
+                <a
+                  class="card-link"
+                  href="/o-level/additional-math/chapter-9-trigonometry/9-1-angles-between-0-and-90.html"
+                >
+                  <div class="card-shine"></div>
+                  <div class="card-image" data-symbol="θ">
+                    <img
+                      alt="Lesson 9.1: Angles between 0° and 90°"
+                      height="240"
+                      onerror="
+                        this.onerror = function () {
+                          this.style.display = 'none';
+                        };
+                        this.removeAttribute('srcset');
+                        this.src = '/assets/images/error.webp';
+                      "
+                      src="/assets/images/ad-math-chapter9-1.webp"
+                      srcset="
+                        /assets/images/ad-math-chapter9-1-small.webp 1x,
+                        /assets/images/ad-math-chapter9-1.webp       2x
+                      "
+                      width="350"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="card-content">
+                    <div class="text-group">
+                      <h3 class="card-title">
+                        <span>9.1 Angles between 0° and 90°</span>
+                      </h3>
+                      <p class="card-topic-description">
+                        Recap the three basic ratios, learn the exact values of
+                        30°, 45° and 60°, and solve right-angled triangles in
+                        both directions.<br /><span class="lesson-tag"
+                          >Trigonometry</span
+                        ><span class="lesson-tag">12 min</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="card-container">
+                <a
+                  class="card-link"
+                  href="/o-level/additional-math/chapter-9-trigonometry/9-2-general-definition-of-an-angle.html"
+                >
+                  <div class="card-shine"></div>
+                  <div class="card-image" data-symbol="360°">
+                    <img
+                      alt="Lesson 9.2: The general definition of an angle"
+                      height="240"
+                      onerror="
+                        this.onerror = function () {
+                          this.style.display = 'none';
+                        };
+                        this.removeAttribute('srcset');
+                        this.src = '/assets/images/error.webp';
+                      "
+                      src="/assets/images/ad-math-chapter9-2.webp"
+                      srcset="
+                        /assets/images/ad-math-chapter9-2-small.webp 1x,
+                        /assets/images/ad-math-chapter9-2.webp       2x
+                      "
+                      width="350"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="card-content">
+                    <div class="text-group">
+                      <h3 class="card-title">
+                        <span>9.2 The general definition of an angle</span>
+                      </h3>
+                      <p class="card-topic-description">
+                        Measure angles in standard position, work in degrees and
+                        radians, and find coterminal and reference angles for
+                        any rotation.<br /><span class="lesson-tag"
+                          >Trigonometry</span
+                        ><span class="lesson-tag">15 min</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="card-container">
+                <a
+                  class="card-link"
+                  href="/o-level/additional-math/chapter-9-trigonometry/9-3-trigonometric-ratios-of-general-angles.html"
+                >
+                  <div class="card-shine"></div>
+                  <div class="card-image" data-symbol="sin">
+                    <img
+                      alt="Lesson 9.3: Trigonometric ratios of general angles"
+                      height="240"
+                      onerror="
+                        this.onerror = function () {
+                          this.style.display = 'none';
+                        };
+                        this.removeAttribute('srcset');
+                        this.src = '/assets/images/error.webp';
+                      "
+                      src="/assets/images/ad-math-chapter9-3.webp"
+                      srcset="
+                        /assets/images/ad-math-chapter9-3-small.webp 1x,
+                        /assets/images/ad-math-chapter9-3.webp       2x
+                      "
+                      width="350"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="card-content">
+                    <div class="text-group">
+                      <h3 class="card-title">
+                        <span>9.3 Trigonometric ratios of general angles</span>
+                      </h3>
+                      <p class="card-topic-description">
+                        Extend sine, cosine and tangent to all four quadrants,
+                        use reference angles to evaluate them, and apply exact
+                        values beyond 90°.<br /><span class="lesson-tag"
+                          >Trigonometry</span
+                        ><span class="lesson-tag">20 min</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="card-container">
+                <a
+                  class="card-link"
+                  href="/o-level/additional-math/chapter-9-trigonometry/9-4-graphs-of-trigonometric-functions.html"
+                >
+                  <div class="card-shine"></div>
+                  <div class="card-image" data-symbol="∿">
+                    <img
+                      alt="Lesson 9.4: Graphs of trigonometric functions"
+                      height="240"
+                      onerror="
+                        this.onerror = function () {
+                          this.style.display = 'none';
+                        };
+                        this.removeAttribute('srcset');
+                        this.src = '/assets/images/error.webp';
+                      "
+                      src="/assets/images/ad-math-chapter9-4.webp"
+                      srcset="
+                        /assets/images/ad-math-chapter9-4-small.webp 1x,
+                        /assets/images/ad-math-chapter9-4.webp       2x
+                      "
+                      width="350"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="card-content">
+                    <div class="text-group">
+                      <h3 class="card-title">
+                        <span>9.4 Graphs of trigonometric functions</span>
+                      </h3>
+                      <p class="card-topic-description">
+                        Sketch y = sin x, y = cos x and y = tan x, then
+                        transform amplitude, period and phase to graph related
+                        functions.<br /><span class="lesson-tag">Graphing</span
+                        ><span class="lesson-tag">22 min</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="card-container">
+                <a
+                  class="card-link"
+                  href="/o-level/additional-math/chapter-9-trigonometry/9-5-trigonometric-graphs-and-absolute-values.html"
+                >
+                  <div class="card-shine"></div>
+                  <div class="card-image" data-symbol="|f(x)|">
+                    <img
+                      alt="Lesson 9.5: Graphs of y = |f(x)| for trigonometric functions"
+                      height="240"
+                      onerror="
+                        this.onerror = function () {
+                          this.style.display = 'none';
+                        };
+                        this.removeAttribute('srcset');
+                        this.src = '/assets/images/error.webp';
+                      "
+                      src="/assets/images/ad-math-chapter9-5.webp"
+                      srcset="
+                        /assets/images/ad-math-chapter9-5-small.webp 1x,
+                        /assets/images/ad-math-chapter9-5.webp       2x
+                      "
+                      width="350"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="card-content">
+                    <div class="text-group">
+                      <h3 class="card-title">
+                        <span>9.5 Graphs of y = |f(x)|</span>
+                      </h3>
+                      <p class="card-topic-description">
+                        Reflect the negative parts of a trigonometric graph
+                        above the x-axis, and interpret modulus graphs when
+                        solving problems.<br /><span class="lesson-tag"
+                          >Graphing</span
+                        ><span class="lesson-tag">16 min</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="card-container">
+                <a
+                  class="card-link"
+                  href="/o-level/additional-math/chapter-9-trigonometry/9-6-solving-trigonometric-equations.html"
+                >
+                  <div class="card-shine"></div>
+                  <div class="card-image" data-symbol="sin θ">
+                    <img
+                      alt="Lesson 9.6: Trigonometric equations"
+                      height="240"
+                      onerror="
+                        this.onerror = function () {
+                          this.style.display = 'none';
+                        };
+                        this.removeAttribute('srcset');
+                        this.src = '/assets/images/error.webp';
+                      "
+                      src="/assets/images/ad-math-chapter9-6.webp"
+                      srcset="
+                        /assets/images/ad-math-chapter9-6-small.webp 1x,
+                        /assets/images/ad-math-chapter9-6.webp       2x
+                      "
+                      width="350"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="card-content">
+                    <div class="text-group">
+                      <h3 class="card-title">
+                        <span>9.6 Trigonometric equations</span>
+                      </h3>
+                      <p class="card-topic-description">
+                        Solve sin θ = k, cos θ = k and tan θ = k over a stated
+                        interval using the principal value and reference
+                        angles.<br /><span class="lesson-tag">Equations</span
+                        ><span class="lesson-tag">25 min</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="card-container">
+                <a
+                  class="card-link"
+                  href="/o-level/additional-math/chapter-9-trigonometry/9-7-proving-trigonometric-identities.html"
+                >
+                  <div class="card-shine"></div>
+                  <div class="card-image" data-symbol="≡">
+                    <img
+                      alt="Lesson 9.7: Trigonometric identities"
+                      height="240"
+                      onerror="
+                        this.onerror = function () {
+                          this.style.display = 'none';
+                        };
+                        this.removeAttribute('srcset');
+                        this.src = '/assets/images/error.webp';
+                      "
+                      src="/assets/images/ad-math-chapter9.7.webp"
+                      srcset="
+                        /assets/images/ad-math-chapter9.7-small.webp 1x,
+                        /assets/images/ad-math-chapter9.7.webp       2x
+                      "
+                      width="350"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="card-content">
+                    <div class="text-group">
+                      <h3 class="card-title">
+                        <span>9.7 Trigonometric identities</span>
+                      </h3>
+                      <p class="card-topic-description">
+                        Prove and apply the Pythagorean identities, the
+                        reciprocal identities and the quotient identities in
+                        multi-step proofs.<br /><span class="lesson-tag"
+                          >Identities</span
+                        ><span class="lesson-tag">18 min</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="card-container">
+                <a
+                  class="card-link"
+                  href="/o-level/additional-math/chapter-9-trigonometry/9-8-further-trigonometric-equations.html"
+                >
+                  <div class="card-shine"></div>
+                  <div class="card-image" data-symbol="tan">
+                    <img
+                      alt="Lesson 9.8: Further trigonometric equations"
+                      height="240"
+                      onerror="
+                        this.onerror = function () {
+                          this.style.display = 'none';
+                        };
+                        this.removeAttribute('srcset');
+                        this.src = '/assets/images/error.webp';
+                      "
+                      src="/assets/images/ad-math-chapter9-8.webp"
+                      srcset="
+                        /assets/images/ad-math-chapter9-8-small.webp 1x,
+                        /assets/images/ad-math-chapter9-8.webp       2x
+                      "
+                      width="350"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="card-content">
+                    <div class="text-group">
+                      <h3 class="card-title">
+                        <span>9.8 Further trigonometric equations</span>
+                      </h3>
+                      <p class="card-topic-description">
+                        Solve quadratic equations in sin, cos or tan, and use
+                        identities to reduce more complicated equations to a
+                        single ratio.<br /><span class="lesson-tag"
+                          >Equations</span
+                        ><span class="lesson-tag">24 min</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="card-container">
+                <a
+                  class="card-link"
+                  href="/o-level/additional-math/chapter-9-trigonometry/9-9-further-trigonometric-identities.html"
+                >
+                  <div class="card-shine"></div>
+                  <div class="card-image" data-symbol="cos 2θ">
+                    <img
+                      alt="Lesson 9.9: Further trigonometric identities"
+                      height="240"
+                      onerror="
+                        this.onerror = function () {
+                          this.style.display = 'none';
+                        };
+                        this.removeAttribute('srcset');
+                        this.src = '/assets/images/error.webp';
+                      "
+                      src="/assets/images/ad-math-chapter9-9.webp"
+                      srcset="
+                        /assets/images/ad-math-chapter9-9-small.webp 1x,
+                        /assets/images/ad-math-chapter9-9.webp       2x
+                      "
+                      width="350"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="card-content">
+                    <div class="text-group">
+                      <h3 class="card-title">
+                        <span>9.9 Further trigonometric identities</span>
+                      </h3>
+                      <p class="card-topic-description">
+                        Work with the double-angle formulae for sin 2θ and cos
+                        2θ, and use them to prove and simplify more demanding
+                        identities.<br /><span class="lesson-tag"
+                          >Identities</span
+                        ><span class="lesson-tag">20 min</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="wrap close">
+          <h2>Ready to check your understanding?</h2>
+          <a
+            class="btn"
+            href="/o-level/additional-math/solution-manual.html#chapters"
+            >Back to all chapters</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div>
+          <span class="fb">Quotient.</span><br />Learn math online, one step at
+          a time.
+        </div>
+        <div>
+          <a href="/pages/about.html">About</a
+          ><a href="mailto:you@example.com">Email</a
+          ><a href="/pages/credits.html">Credits</a>
+        </div>
+        <div>© Quotient 2026. All rights reserved.</div>
+      </div>
+    </footer>
+  </body>
+</html>

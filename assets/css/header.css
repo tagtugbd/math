@@ -1,0 +1,752 @@
+/* ─── Header shell ─────────────────────────────────────────── */
+.mobile-header-container {
+  position: relative;
+  z-index: 1001;
+}
+
+.mobile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  transition:
+    background 0.5s ease,
+    box-shadow 0.5s ease,
+    height 0.4s ease;
+}
+
+/* Thin accent line at bottom of header */
+.mobile-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-header.scrolled::after {
+  width: 80%;
+}
+
+.mobile-header.scrolled {
+  background: var(--surface2);
+  box-shadow: var(--shadow-sm);
+  height: 56px;
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .mobile-header.scrolled {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+  }
+}
+.mobile-header:has(.hamburger-menu.active)::after {
+  content: none;
+}
+.mobile-header.scrolled:has(.hamburger-menu.active) {
+  background: transparent !important;
+  backdrop-filter: none;
+}
+
+/* ─── Logo ──────────────────────────────────────────────────── */
+.logo {
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  position: relative;
+}
+
+/* Subtle shimmer on logo hover */
+.logo a::before {
+  content: "";
+  position: absolute;
+  inset: -6px -10px;
+  border-radius: 6px;
+  background: var(--primary);
+  opacity: 0;
+  transform: scale(0.9);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.logo a:hover::before {
+  opacity: 0.06;
+  transform: scale(1);
+}
+
+.logo img {
+  height: 30px;
+  width: auto;
+  position: relative;
+}
+
+/* ─── Desktop nav ───────────────────────────────────────────── */
+/* Hidden on mobile, revealed via media query below */
+.mobile-header .header-nav,
+.mobile-header .header-social {
+  display: none;
+}
+
+/* ─── Hamburger ─────────────────────────────────────────────── */
+.hamburger-menu {
+  align-items: unset;
+  width: 32px;
+  height: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 1003;
+  border: none;
+  background: transparent;
+  padding: 0;
+  position: relative;
+  overflow: visible;
+  box-shadow: unset;
+}
+.hamburger-menu.active {
+  height: 32px;
+}
+.hamburger-menu span {
+  display: block;
+  /* Fixed: Changed from 1.5px to 2px to stop subpixel rendering bugs */
+  height: 2px;
+  width: 100%;
+  background: var(--primary);
+  border-radius: 2px;
+  /* Changed to left center for a smoother morphing effect */
+  transform-origin: left center;
+  transition:
+    transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+    opacity 0.3s ease,
+    width 0.3s ease;
+}
+
+/* 3 lines: first is full, second is 70%, third is full */
+.hamburger-menu span:nth-child(2) {
+  width: 70%;
+  margin-left: auto;
+}
+
+.hamburger-menu:hover {
+  box-shadow: unset;
+  transform: none;
+}
+
+.hamburger-menu.active {
+  background: transparent;
+}
+
+/* Morph into X */
+.hamburger-menu.active span:nth-child(1) {
+  /* Fits beautifully with left-center origin */
+  transform: rotate(45deg) translate(5px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+  /* Fixed Firefox bug by using width 0 instead of scaleX(0) */
+  width: 0;
+  opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+  /* Fits beautifully with left-center origin */
+  transform: rotate(-45deg) translate(5px);
+}
+
+.hamburger-menu::before {
+  content: none;
+}
+
+/* ─── Fullscreen overlay menu ───────────────────────────────── */
+.fullscreen-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.4s ease;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* Dark cinematic background falling back to theme engine */
+  background:
+    radial-gradient(
+      ellipse 80% 60% at 90% 10%,
+      var(--com3) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 60% 80% at 10% 90%,
+      var(--com3) 0%,
+      transparent 60%
+    ),
+    var(--bg);
+}
+
+/* Fine grid overlay */
+.fullscreen-menu::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border-lighter) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-lighter) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Left edge line draws down on open */
+.fullscreen-menu::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--primary) 15%,
+    var(--primary) 85%,
+    transparent 100%
+  );
+  transition: height 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.05s;
+  z-index: 2;
+}
+
+.fullscreen-menu.active::after {
+  height: 100%;
+}
+
+.fullscreen-menu.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* ─── Menu inner layout ─────────────────────────────────────── */
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  padding: 88px 20px 48px;
+  min-height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Section eyebrow label */
+.menu-content::before {
+  content: "— Navigation";
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary-light);
+  margin-bottom: 12px;
+  padding: 0 4px;
+  opacity: 0;
+  transition: opacity 0.4s ease 0.1s;
+}
+
+.fullscreen-menu.active .menu-content::before {
+  opacity: 1;
+}
+
+/* ─── Mobile nav links ──────────────────────────────────────── */
+.fullscreen-menu .header-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Stagger animation for nav items */
+.fullscreen-menu .header-nav > * {
+  opacity: 0;
+  transform: translateX(-16px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+.fullscreen-menu.active .header-nav > *:nth-child(1) {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.1s;
+}
+.fullscreen-menu.active .header-nav > *:nth-child(2) {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.16s;
+}
+.fullscreen-menu.active .header-nav > *:nth-child(3) {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.22s;
+}
+.fullscreen-menu.active .header-nav > *:nth-child(4) {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.28s;
+}
+.fullscreen-menu.active .header-nav > *:nth-child(5) {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.34s;
+}
+
+.fullscreen-menu .header-nav > a:not(.nav-accordion) {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+
+  border-radius: 10px;
+  border: 0.5px solid var(--border-light);
+  background: var(--border-lighter);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    padding-left 0.25s ease;
+}
+
+/* Icon box prefix for links */
+.fullscreen-menu .header-nav > a:not(.nav-accordion)::before {
+  content: "";
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  background: var(--border-light);
+  border-radius: 8px;
+  display: block;
+}
+
+.fullscreen-menu .header-nav > a:not(.nav-accordion):hover {
+  background: var(--com3);
+  color: var(--text-darker);
+  border-color: var(--border);
+  padding-left: 18px;
+}
+
+/* ─── Mobile accordion / dropdown ──────────────────────────── */
+.fullscreen-menu .nav-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.fullscreen-menu .nav-accordion {
+  cursor: pointer;
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  letter-spacing: 0.01em;
+  background: var(--border-lighter);
+  border: 0.5px solid var(--border-light);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    padding-left 0.25s ease;
+  margin: 0;
+}
+
+.fullscreen-menu .nav-accordion:hover {
+  background: var(--com3);
+  border-color: var(--border);
+  padding-left: 18px;
+}
+
+.fullscreen-menu .nav-accordion.active {
+  background: var(--com3);
+  border-color: var(--border);
+  border-radius: 10px 10px 0 0;
+  height: 4rem;
+}
+
+/* Chevron icon for accordion */
+.fullscreen-menu .nav-accordion .arrow img {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.4;
+  filter: invert(var(--dark-invert, 0));
+}
+
+.fullscreen-menu .nav-accordion.active .arrow img {
+  transform: rotate(180deg);
+  opacity: 0.8;
+}
+
+/* HARDWARE-ACCELERATED ACCORDION BASE PANEL */
+.fullscreen-menu .nav-dropdown-content {
+  position: static;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transform: none;
+  box-shadow: none;
+  background: var(--border-lighter);
+  border-left: 2px solid var(--border);
+  margin: 0 0 4px 0;
+  border-radius: 0 0 8px 8px;
+  width: 100%;
+
+  /* Cubic curve handles frame scheduling fluidly on high-refresh-rate displays */
+  transition:
+    max-height 0.38s cubic-bezier(0.25, 1, 0.5, 1),
+    opacity 0.25s ease,
+    visibility 0.3s ease;
+
+  /* Offloads composition recalculations directly onto independent GPU threads */
+  will-change: max-height, opacity;
+}
+
+/* GPU-ACCELERATED ACTIVE DRAW PANEL STATE */
+.fullscreen-menu .nav-dropdown-content.open {
+  max-height: 600px; /* Comfortably spans the links layout tree without causing scrolling lag */
+  opacity: 1;
+  visibility: visible;
+}
+
+.fullscreen-menu .nav-dropdown-content ul {
+  list-style: none;
+  margin: 0;
+  padding: 6px 0 10px;
+}
+
+.fullscreen-menu .nav-dropdown-content li {
+  background: transparent;
+  box-shadow: none;
+  margin: 0;
+}
+
+.fullscreen-menu .nav-dropdown-content a {
+  display: block;
+  color: var(--text);
+  padding: 9px 16px 9px 20px;
+  border-radius: 6px;
+  /* font-size: 0.88rem; */
+  letter-spacing: 0.01em;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.fullscreen-menu .nav-dropdown-content a:hover {
+  background: var(--com3);
+  color: var(--text-darker);
+  padding-left: 26px;
+}
+
+/* ─── Social icons in fullscreen menu ──────────────────────── */
+.fullscreen-menu .header-social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-light);
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.4s ease 0.38s,
+    transform 0.4s ease 0.38s;
+}
+
+.fullscreen-menu .header-social::before {
+  content: "Follow";
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--primary-light);
+  white-space: nowrap;
+  margin-right: 4px;
+}
+
+.fullscreen-menu.active .header-social {
+  opacity: 1;
+  transform: none;
+}
+
+.fullscreen-menu .header-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--primary);
+
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  color: var(--primary);
+}
+
+.fullscreen-menu .header-social a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--primary);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fullscreen-menu .header-social a:hover::before {
+  transform: scale(1);
+}
+
+.fullscreen-menu .header-social a:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.fullscreen-menu .header-social a:hover img {
+  filter: brightness(0) invert(1);
+}
+
+/* ─── Menu footer ───────────────────────────────────────────── */
+.menu-footer {
+  margin-top: auto;
+  padding-top: 24px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.4s ease 0.45s,
+    transform 0.4s ease 0.45s;
+}
+
+.fullscreen-menu.active .menu-footer {
+  opacity: 1;
+  transform: none;
+}
+
+/* Copyright line inside menu footer */
+.menu-footer p,
+.menu-footer span,
+.menu-footer a {
+  font-size: 11px;
+  color: var(--text-disabled);
+  letter-spacing: 0.04em;
+}
+
+/* ─── Desktop dropdown ──────────────────────────────────────── */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-accordion {
+  cursor: pointer;
+  padding: 6px 12px;
+  color: var(--primary);
+  font-size: 1rem;
+  display: flex;
+  /* font-weight: 600; */
+  /* align-items: center; */
+  /* gap: 6px; */
+  /* letter-spacing: 0.02em; */
+  text-transform: uppercase;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+.nav-accordion:hover {
+  background: var(--com3);
+  transform: translateY(-1px);
+}
+
+.nav-accordion .arrow img {
+  opacity: 0.6;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.nav-dropdown:hover .nav-accordion .arrow img {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* Desktop dropdown panel */
+.nav-dropdown-content {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  transform: translateY(-8px);
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  width: max-content;
+  min-width: 200px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.25s ease,
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.25s ease;
+  /* z-index: 1000; */
+  overflow: hidden;
+  border: 0.5px solid var(--border-light);
+}
+
+/* Red top accent line on desktop dropdown */
+/* .nav-dropdown-content::before {
+  content: "";
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), transparent);
+  margin: 0;
+} */
+
+.nav-dropdown-content ul {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0 10px;
+}
+
+.nav-dropdown-content li {
+  margin: 0;
+}
+
+.nav-dropdown-content a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  padding: 9px 18px;
+  /* font-size: 0.9rem; */
+  letter-spacing: 0.01em;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.nav-dropdown-content a:hover {
+  background: var(--com3);
+  color: var(--primary);
+  padding-left: 22px;
+}
+
+.nav-dropdown:hover .nav-dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ─── Desktop breakpoint ────────────────────────────────────── */
+@media (min-width: 1150px) {
+  .mobile-header .header-nav,
+  .mobile-header .header-social {
+    display: flex;
+  }
+
+  .hamburger-menu,
+  .fullscreen-menu {
+    display: none !important;
+  }
+
+  .mobile-header .header-nav a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    color: var(--primary);
+
+    border-radius: 6px;
+    letter-spacing: 0.02em;
+    transition:
+      background 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .mobile-header .header-nav a:hover {
+    background: var(--com3);
+    transform: translateY(-1px);
+  }
+
+  .mobile-header .header-social {
+    gap: 8px;
+  }
+
+  .mobile-header .header-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    /* border: 1.5px solid var(--primary); */
+    color: var(--primary);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mobile-header .header-social a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--primary);
+    transform: scale(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mobile-header .header-social a:hover::before {
+    transform: scale(1);
+  }
+
+  .mobile-header .header-social a:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+    color: var(--white);
+  }
+}
+
+/* ─── Body lock ─────────────────────────────────────────────── */
+.no-scroll {
+  overflow: hidden !important;
+}
+
+/* ─── Tablet: push menu-content down less ───────────────────── */
+@media (min-width: 600px) {
+  .menu-content {
+    padding-top: 88px;
+  }
+}

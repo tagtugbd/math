@@ -1,0 +1,113 @@
+.course {
+  padding: 0 0 88px;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+}
+
+/* lesson cards */
+.card-container {
+  display: flex;
+}
+.card-link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text-dark);
+  background: var(--card-bg);
+  border: 1.5px solid var(--text-dark);
+  border-radius: 6px;
+  box-shadow: 4px 4px 0 var(--text-dark);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+.card-link:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--text-dark);
+}
+.card-link:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--text-dark);
+}
+.card-shine {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    110deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 65%
+  );
+  transform: translateX(-120%);
+}
+.card-link:hover .card-shine {
+  transform: translateX(120%);
+  transition: transform 0.7s ease;
+}
+.card-image {
+  position: relative;
+  aspect-ratio: 350/240;
+  background-color: var(--gray-100);
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 24px 24px;
+  border-bottom: 1.5px solid var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.card-image::before {
+  content: attr(data-symbol);
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 3.6rem;
+  color: var(--primary);
+  position: absolute;
+}
+.card-image img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.card-content {
+  padding: 20px 22px 24px;
+  flex: 1;
+}
+.card-title {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+.card-topic-description {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+.lesson-tag {
+  display: inline-block;
+  margin: 14px 8px 0 0;
+  padding: 3px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  background: var(--gray-200);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+}
+@media (max-width: 560px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}

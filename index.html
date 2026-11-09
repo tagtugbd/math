@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fd4239" />
+    <title>Quotient | Learn Math Online, One Step at a Time</title>
+    <meta
+      name="description"
+      content="Clear math lessons from arithmetic to calculus, with worked examples and practice problems."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=STIX+Two+Text:ital,wght@0,500;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/css/style.min.css"
+      media="print"
+      onload="
+        this.media = 'all';
+        this.onload = null;
+      "
+      rel="stylesheet"
+    />
+    <noscript
+      ><link href="/assets/css/style.min.css" rel="stylesheet"
+    /></noscript>
+    <style>
+      /* topic matrix */
+      .matrix {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border: 1.5px solid var(--text-dark);
+        background: var(--card-bg);
+        border-radius: 6px;
+        overflow: hidden;
+      }
+      .cell {
+        display: block;
+        text-decoration: none;
+        padding: 28px 28px 30px;
+        border-right: 1.5px solid var(--text-dark);
+        border-bottom: 1.5px solid var(--text-dark);
+        transition: background 0.15s;
+      }
+      .cell:nth-child(3n) {
+        border-right: 0;
+      }
+      .cell:nth-last-child(-n + 3) {
+        border-bottom: 0;
+      }
+      .cell:hover {
+        background: var(--gray-200);
+      }
+      .sym {
+        font-family: var(--serif);
+        font-size: 3.4rem;
+        line-height: 1;
+        color: var(--primary);
+        display: block;
+        margin-bottom: 14px;
+      }
+      .cell h3 {
+        font-size: 1.4rem;
+        margin-bottom: 6px;
+      }
+      .cell span.d {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        display: block;
+      }
+      .cell em {
+        display: block;
+        margin-top: 14px;
+        font-family: var(--serif);
+        font-size: 1.05rem;
+        color: var(--text-dark);
+      }
+
+      /* worked example */
+      .work {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 48px;
+        align-items: start;
+      }
+      .steps {
+        background: var(--bg);
+        border: 1.5px solid var(--text-dark);
+        border-radius: 6px;
+        padding: 28px;
+        font-family: var(--serif);
+        font-size: 1.5rem;
+        min-height: 300px;
+        box-shadow: var(--shadow-box);
+      }
+      .steps .row {
+        padding: 10px 0;
+        border-bottom: 1px dashed var(--border);
+      }
+      .steps .row:last-child {
+        border: 0;
+      }
+      .steps .why {
+        display: block;
+        font: 500 0.9rem var(--sans);
+        color: var(--text-secondary);
+        margin-bottom: 2px;
+      }
+      .steps .row.new {
+        animation: in 0.35s ease-out;
+      }
+      .steps b {
+        color: var(--primary);
+      }
+      @keyframes in {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .work .btns {
+        display: flex;
+        gap: 12px;
+        margin-top: 22px;
+      }
+      .work ol {
+        padding-left: 1.2em;
+        color: var(--text-secondary);
+      }
+      .work ol li {
+        margin: 10px 0;
+      }
+      .work ol strong {
+        color: var(--text-dark);
+      }
+
+      /* levels */
+      .levels {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        border-top: 1.5px solid var(--text-dark);
+      }
+      .lv {
+        padding: 22px 20px 0 0;
+      }
+      .lv h3 {
+        font-size: 1.2rem;
+      }
+      .lv p {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        margin: 6px 0 0;
+      }
+
+      /* closing */
+      .close {
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        gap: 32px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .close h2 {
+        font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+        max-width: 16em;
+      }
+
+      footer {
+        background: var(--com1);
+        color: var(--border);
+        padding: 40px 0;
+        font-size: 0.95rem;
+      }
+      footer .wrap {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      footer a {
+        text-decoration: none;
+        margin-right: 20px;
+      }
+      footer a:hover {
+        color: #fff;
+      }
+      .fb {
+        font-family: var(--serif);
+        font-size: 1.3rem;
+        color: #fff;
+      }
+
+      @media (max-width: 900px) {
+        .hero,
+        .work {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .matrix {
+          grid-template-columns: 1fr 1fr;
+        }
+        .cell:nth-child(3n) {
+          border-right: 1.5px solid var(--text-dark);
+        }
+        .cell:nth-child(2n) {
+          border-right: 0;
+        }
+        .cell:nth-last-child(-n + 3) {
+          border-bottom: 1.5px solid var(--text-dark);
+        }
+        .cell:nth-last-child(-n + 2) {
+          border-bottom: 0;
+        }
+        .levels {
+          grid-template-columns: 1fr 1fr;
+        }
+        nav ul li:not(:last-child) {
+          display: none;
+        }
+      }
+      @media (max-width: 560px) {
+        .matrix,
+        .levels {
+          grid-template-columns: 1fr;
+        }
+        .cell {
+          border-right: 0 !important;
+          border-bottom: 1.5px solid var(--text-dark) !important;
+        }
+        .cell:last-child {
+          border-bottom: 0 !important;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap bar">
+        <a class="brand" href="/" aria-label="Quotient home"
+          >Quotient<i>.</i></a
+        >
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="#topics">Topics</a></li>
+            <li>
+              <a href="/o-level/additional-math/solution-manual.html"
+                >Add Math</a
+              >
+            </li>
+            <li><a href="/o-level/math-d/solution-manual.html">Math D</a></li>
+            <li><a class="btn" href="#topics">Start learning</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrap hero">
+        <div>
+          <h1>Math makes sense when you can see it move.</h1>
+          <p>
+            Short lessons, worked examples and practice problems that take you
+            from fractions to calculus, one clear step at a time.
+          </p>
+          <div class="cta">
+            <a class="btn" href="#topics">Browse topics</a>
+            <a class="btn alt" href="#example">See a lesson</a>
+          </div>
+        </div>
+
+        <div class="plot" aria-label="Interactive graph of a sine wave">
+          <div class="eq">
+            <span id="eq">y = 1·sin(1x)</span><small>Drag the sliders</small>
+          </div>
+          <svg
+            viewBox="0 0 600 360"
+            role="img"
+            aria-label="Graph of y equals a times sine of b x"
+          >
+            <g stroke="#ede6de" stroke-width="1">
+              <path
+                d="M0 30H600M0 80H600M0 130H600M0 230H600M0 280H600M0 330H600"
+              />
+              <path
+                d="M60 0V360M130 0V360M200 0V360M270 0V360M340 0V360M410 0V360M480 0V360M550 0V360"
+              />
+            </g>
+            <g stroke="#1a1514" stroke-width="1.5">
+              <path d="M0 180H600M300 0V360" />
+            </g>
+            <g
+              font-family="STIX Two Text, serif"
+              font-size="15"
+              fill="#5c4e4d"
+              text-anchor="middle"
+            >
+              <text x="20" y="200">−2π</text>
+              <text x="160" y="200">−π</text>
+              <text x="440" y="200">π</text>
+              <text x="580" y="200">2π</text>
+            </g>
+            <path
+              id="curve"
+              d=""
+              fill="none"
+              stroke="#fd4239"
+              stroke-width="3.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <g id="pt">
+              <circle
+                r="7"
+                fill="#39a8fd"
+                stroke="#1a1514"
+                stroke-width="1.5"
+              />
+              <text
+                x="12"
+                y="-10"
+                font-family="STIX Two Text, serif"
+                font-style="italic"
+                font-size="16"
+                fill="#1a1514"
+              >
+                max
+              </text>
+            </g>
+          </svg>
+          <div class="ctrl">
+            <label for="a">a</label
+            ><input
+              id="a"
+              type="range"
+              min="0.5"
+              max="3"
+              step="0.1"
+              value="1"
+            /><output id="av">1.0</output> <label for="b">b</label
+            ><input
+              id="b"
+              type="range"
+              min="0.5"
+              max="4"
+              step="0.1"
+              value="1"
+            /><output id="bv">1.0</output>
+          </div>
+        </div>
+      </div>
+
+      <section id="topics" class="band">
+        <div class="wrap">
+          <div class="head">
+            <h2>Pick a topic and start anywhere</h2>
+            <p>
+              Each topic has short lessons, worked examples and a set of
+              practice problems.
+            </p>
+          </div>
+          <div class="matrix">
+            <a class="cell" href="/pages/arithmetic.html"
+              ><span class="sym">+</span>
+              <h3>Arithmetic</h3>
+              <span class="d"
+                >Fractions, decimals, percentages and number sense.</span
+              ><em>3/4 + 1/8 = 7/8</em></a
+            >
+            <a class="cell" href="/pages/algebra.html"
+              ><span class="sym">x</span>
+              <h3>Algebra</h3>
+              <span class="d"
+                >Equations, expressions, functions and inequalities.</span
+              ><em>2x + 6 = 14</em></a
+            >
+            <a class="cell" href="/pages/geometry.html"
+              ><span class="sym">△</span>
+              <h3>Geometry</h3>
+              <span class="d">Shapes, angles, area, volume and proofs.</span
+              ><em>a² + b² = c²</em></a
+            >
+            <a class="cell" href="/pages/trigonometry.html"
+              ><span class="sym">π</span>
+              <h3>Trigonometry</h3>
+              <span class="d">Sine, cosine, tangent and the unit circle.</span
+              ><em>sin²θ + cos²θ = 1</em></a
+            >
+            <a class="cell" href="/pages/statistics.html"
+              ><span class="sym">σ</span>
+              <h3>Statistics</h3>
+              <span class="d">Mean, spread, probability and reading data.</span
+              ><em>μ = Σx / n</em></a
+            >
+            <a class="cell" href="/pages/calculus.html"
+              ><span class="sym">∫</span>
+              <h3>Calculus</h3>
+              <span class="d"
+                >Limits, derivatives and integrals, explained visually.</span
+              ><em>d/dx xⁿ = nxⁿ⁻¹</em></a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section id="example">
+        <div class="wrap work">
+          <div>
+            <div class="head" style="margin-bottom: 20px">
+              <h2>Every step has a reason</h2>
+              <p>
+                Lessons show the working, not just the answer. Try it: reveal
+                the solution one step at a time.
+              </p>
+            </div>
+            <ol>
+              <li><strong>Learn</strong> the idea in a short lesson.</li>
+              <li><strong>Follow</strong> a worked example line by line.</li>
+              <li>
+                <strong>Practice</strong> with problems that check your answer
+                straight away.
+              </li>
+            </ol>
+          </div>
+          <div>
+            <div class="steps" id="steps" aria-live="polite">
+              <div class="row">
+                <span class="why">Solve for x</span>2<i>x</i> + 6 = 14
+              </div>
+            </div>
+            <div class="btns">
+              <button class="btn" id="next" type="button">
+                Show next step
+              </button>
+              <button class="btn alt" id="reset" type="button">
+                Start over
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="levels" class="band">
+        <div class="wrap">
+          <div class="head">
+            <h2>Find your level</h2>
+            <p>
+              Not sure where to begin? Start with the level that sounds closest
+              and move up when it feels easy.
+            </p>
+          </div>
+          <div class="levels">
+            <div class="lv">
+              <h3>Foundations</h3>
+              <p>Number sense, fractions and basic operations.</p>
+            </div>
+            <div class="lv">
+              <h3>Middle school</h3>
+              <p>Ratios, pre-algebra and introductory geometry.</p>
+            </div>
+            <div class="lv">
+              <h3>High school</h3>
+              <p>Algebra, trigonometry and statistics.</p>
+            </div>
+            <div class="lv">
+              <h3>Advanced</h3>
+              <p>Pre-calculus and calculus.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap close">
+          <h2>Your first lesson takes ten minutes.</h2>
+          <a class="btn" href="#topics">Choose a topic</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div>
+          <span class="fb">Quotient.</span><br />Learn math online, one step at
+          a time.
+        </div>
+        <div>
+          <a href="/pages/about.html">About</a
+          ><a href="mailto:you@example.com">Email</a
+          ><a href="/pages/credits.html">Credits</a>
+        </div>
+        <div>© Quotient 2026. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        /* Interactive graph */
+        var a = document.getElementById("a"),
+          b = document.getElementById("b"),
+          curve = document.getElementById("curve"),
+          pt = document.getElementById("pt"),
+          eq = document.getElementById("eq"),
+          av = document.getElementById("av"),
+          bv = document.getElementById("bv");
+        var PX = 280 / (2 * Math.PI),
+          PY = 50;
+        function draw() {
+          var A = +a.value,
+            B = +b.value,
+            d = "";
+          for (var i = 0; i <= 300; i++) {
+            var x = -2 * Math.PI + i * ((4 * Math.PI) / 300);
+            d +=
+              (i ? "L" : "M") +
+              (300 + x * PX).toFixed(1) +
+              " " +
+              (180 - A * Math.sin(B * x) * PY).toFixed(1);
+          }
+          curve.setAttribute("d", d);
+          var px = Math.PI / (2 * B);
+          pt.setAttribute(
+            "transform",
+            "translate(" +
+              (300 + px * PX).toFixed(1) +
+              " " +
+              (180 - A * PY).toFixed(1) +
+              ")",
+          );
+          var as = A.toFixed(1),
+            bs = B.toFixed(1);
+          eq.textContent = "y = " + as + "·sin(" + bs + "x)";
+          av.textContent = as;
+          bv.textContent = bs;
+        }
+        a.addEventListener("input", draw);
+        b.addEventListener("input", draw);
+        draw();
+
+        /* Worked example */
+        var steps = [
+          ["Subtract 6 from both sides", "2<i>x</i> = 8"],
+          ["Divide both sides by 2", "<i>x</i> = 4"],
+          ["Check: 2(4) + 6 = 14", "<b>x = 4 ✓</b>"],
+        ];
+        var box = document.getElementById("steps"),
+          next = document.getElementById("next"),
+          n = 0;
+        var first = box.innerHTML;
+        next.addEventListener("click", function () {
+          if (n >= steps.length) return;
+          var s = steps[n++],
+            r = document.createElement("div");
+          r.className = "row new";
+          r.innerHTML = '<span class="why">' + s[0] + "</span>" + s[1];
+          box.appendChild(r);
+          if (n >= steps.length) next.disabled = true;
+        });
+        document.getElementById("reset").addEventListener("click", function () {
+          box.innerHTML = first;
+          n = 0;
+          next.disabled = false;
+        });
+      })();
+    </script>
+  </body>
+</html>

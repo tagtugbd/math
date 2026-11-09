@@ -1,0 +1,168 @@
+/* ==========================================================================
+   3. PROBLEM & PROOF CARD LAYOUT (Structure)
+   ========================================================================== */
+.problem-block {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.2rem 0.8rem 0.8rem;
+  margin-bottom: 1.75rem;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.05),
+    0 1px 2px rgba(0, 0, 0, 0.03);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.problem-block:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.05),
+    0 4px 6px -2px rgba(0, 0, 0, 0.02);
+}
+
+/* The prompt/identity to prove */
+.problem-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--border);
+}
+
+/* ==========================================================================
+   4. STEP-BY-STEP PROOF LAYOUT (Lists)
+   ========================================================================== */
+.proof-steps {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.proof-steps li {
+  position: relative;
+  padding-left: 0.3rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Subtle continuous vertical timeline line behind steps */
+/* .proof-steps li::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: -0.75rem;
+  width: 2px;
+  background-color: var(--border);
+}
+
+.proof-steps li:last-child::before {
+  display: none;
+} */
+
+/* ==========================================================================
+   5. MATHJAX FORMULA REFINEMENTS (MOBILE RESPONSIVE & LEFT ALIGN)
+   ========================================================================== */
+
+/* 1. Target the outermost MathJax v3 container */
+mjx-container[jax="CHTML"][display="true"],
+.mjx-container[display="true"] {
+  display: flex !important;
+  justify-content: flex-start !important; /* Locks equations cleanly to the left */
+  text-align: left !important;
+  margin: 0 !important;
+  padding: 0.5rem 0 !important;
+
+  /* Critical Mobile Fixes */
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  overflow-x: auto !important; /* Creates a smooth swipe-scroll wrapper for long fractions */
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch; /* Butter-smooth scrolling on iPhone/iOS */
+}
+
+/* 2. Target the math tag provided in your HTML output */
+mjx-math[display="true"],
+html body mjx-container[jax="CHTML"][display="true"] > mjx-math {
+  display: inline-flex !important;
+  align-items: center !important;
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  padding: 0 !important;
+
+  /* Stop internal tables/fractions from breaking or collapsing */
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+/* 3. Ensure the internal fraction table components safely render inside the container */
+mjx-math[display="true"] * {
+  box-sizing: border-box !important;
+}
+
+/* Target strings explicitly highlighting final solutions/justifications */
+.proof-steps li:last-child {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.proof-steps li:last-child::after {
+  background-color: var(--primary);
+}
+
+/* Clean inline math highlights inside body text */
+.MathJax,
+.mjx-chtml:not([display="block"]),
+mjx-container[jax="CHTML"]:not([display="true"]) {
+  padding: 2px 4px !important;
+  border-radius: 4px;
+  background-color: transparent !important;
+}
+
+/* Question */
+.section-heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 1.5rem 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #e1e6ea;
+}
+
+.problem {
+  margin: 1.25rem 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.question {
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--error-bg);
+  padding: 0.6rem 0.85rem;
+  border-left: 4px solid var(--primary);
+  border-radius: 4px;
+  margin: 0 0 0.75rem;
+}
+
+.step {
+  color: #2c3e50;
+  margin: 0.4rem 0;
+  padding: 0.25rem 0 0.25rem 0.85rem;
+  border-left: 2px dashed #cfd8e0;
+}
+
+.step-side-label {
+  font-weight: 700;
+  color: var(--primary);
+  margin-right: 0.35rem;
+}
+
+.step-side-label-end {
+  margin-left: 0.5rem;
+  margin-right: 0;
+  opacity: 0.85;
+}

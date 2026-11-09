@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9.5: Trigonometric Graphs and Absolute Values</title>
+
+    <!-- Custom CSS File Framework -->
+    <link
+      href="/assets/css/style.min.css"
+      media="print"
+      onload="
+        this.media = 'all';
+        this.onload = null;
+      "
+      rel="stylesheet"
+    />
+    <noscript>
+      <link href="/assets/css/style.min.css" rel="stylesheet" />
+    </noscript>
+
+    <!-- MathJax Configuration and Script engine for rendering LaTeX -->
+    <script>
+    MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']],
+      processEscapes: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+    };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        /* Embedded styling rule overrides requested for step labels */
+        .step-side-label {
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Integrated Native Page Loader Engine Wrapper Structure -->
+    <div id="loader-wrapper">
+      <div aria-label="Loading Japanify" class="brand-loader" role="status">
+        <div class="ring"></div>
+        <span class="brand-text"> Japanify </span>
+      </div>
+    </div>
+    <script>
+      (function () {
+        const loader = document.getElementById("loader-wrapper");
+        const body = document.body;
+        if (loader) {
+          body.classList.add("loading-active");
+          const hideLoader = () => {
+            if (!loader) return;
+            loader.style.opacity = "0";
+            setTimeout(() => {
+              loader.remove();
+              body.classList.remove("loading-active");
+            }, 400);
+          };
+          window.addEventListener("load", hideLoader);
+          setTimeout(() => {
+            if (document.getElementById("loader-wrapper")) hideLoader();
+          }, 4000);
+        }
+      })();
+    </script>
+
+    <!-- Permanent Brand Site Header Navigation Bar Area Component -->
+    <div class="mobile-header-container">
+      <header class="mobile-header">
+        <div class="logo">
+          <a aria-label="Japanify Home" href="/"
+            ><img
+              alt="Japanify - Learn Japanese Online"
+              height="33"
+              src="/assets/images/logo.svg"
+              width="105"
+          /></a>
+        </div>
+        <nav aria-label="Main navigation" class="header-nav" id="header-nav">
+          <div class="nav-dropdown">
+            <div class="nav-accordion">
+              学 Learn
+              <svg class="arrow" height="20" width="20">
+                <use
+                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
+                ></use>
+              </svg>
+            </div>
+            <div class="accordion-content nav-dropdown-content">
+              <ul>
+                <li>
+                  <a href="/pages/Japanese-full-lessons-jlpt-jft-online.html">
+                    課 Full Lessons
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/complete-japanese-kanji-for-n5-n4-n3.html">
+                    人 Kanji Library
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/pages/complete-japanese-grammar-for-jlpt-jft-exam.html"
+                  >
+                    法 Grammar Rules
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/pages/complete-japanese-jlpt-jft-vocabulary-and-conversation.html"
+                  >
+                    語 Vocabulary Library
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-hiragana-katakana-lessons.html">
+                    あ Hiragana &amp; Katakana
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <div class="nav-accordion">
+              練 Practice
+              <svg class="arrow" height="20" width="20">
+                <use
+                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
+                ></use>
+              </svg>
+            </div>
+            <div class="accordion-content nav-dropdown-content">
+              <ul>
+                <li>
+                  <a href="/pages/japanese-kanji-shortlisted-quiz.html">
+                    聞 Kanji Practice
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-reading-practice.html">
+                    書 Reading Practice
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/pages/complete-japanese-alphabet-hiragana-katakana-practice.html"
+                    >あ Alphabet Practice</a
+                  >
+                </li>
+                <li>
+                  <a href="/pages/japanese-grammar-quiz.html">
+                    会 Grammar Practice
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-vocabulary-quiz.html">
+                    語 Vocabulary Practice
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <div class="nav-accordion">
+              報 Latest News
+              <svg class="arrow" height="20" width="20">
+                <use
+                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
+                ></use>
+              </svg>
+            </div>
+            <div class="accordion-content nav-dropdown-content">
+              <ul>
+                <li>
+                  <a href="/pages/japanese-visa-news.html"> 報 VISA News </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-student-visa-opportunities.html">
+                    校 Study in Japan
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-job-opportunities.html">
+                    職 Job Opportunities
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <div class="nav-accordion">
+              技 Tips &amp; Tricks
+              <svg class="arrow" height="20" width="20">
+                <use
+                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
+                ></use>
+              </svg>
+            </div>
+            <div class="accordion-content nav-dropdown-content">
+              <ul>
+                <li>
+                  <a href="/pages/japanese-study-plans.html">
+                    計 Study Plans
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/japanese-pronunciation-tips.html">
+                    音 Pronunciation Tips
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/kanji-memory-hacks.html">
+                    記 Kanji Memory Hacks
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div
+          aria-label="Social media links"
+          class="header-social"
+          id="header-social"
+        >
+          <a
+            href="https://www.facebook.com/profile.php?id=61582101913054"
+            rel="noopener me"
+            target="_blank"
+            ><svg class="header-icon" height="26" width="26">
+              <use
+                href="/assets/icons/svg-sprite.svg#icon-facebook"
+              ></use></svg></a
+          ><a
+            href="https://www.instagram.com/japanify.bd"
+            rel="noopener me"
+            target="_blank"
+            ><svg class="header-icon" height="26" width="26">
+              <use
+                href="/assets/icons/svg-sprite.svg#icon-instagram"
+              ></use></svg></a
+          ><a
+            href="https://www.youtube.com/channel/UCFaz9d1uR-BTut3dcYRybWw"
+            rel="noopener me"
+            target="_blank"
+            ><svg class="header-icon" height="26" width="26">
+              <use href="/assets/icons/svg-sprite.svg#icon-youtube"></use>
+            </svg>
+          </a>
+        </div>
+        <button
+          aria-controls="fullscreen-menu"
+          aria-expanded="false"
+          aria-label="Toggle Menu"
+          class="hamburger-menu"
+          id="hamburger-toggle"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </header>
+      <div aria-hidden="true" class="fullscreen-menu" id="fullscreen-menu">
+        <div class="menu-content">
+          <nav class="header-nav" id="mobile-js-nav"></nav>
+          <div class="menu-footer">
+            <div class="header-social" id="mobile-js-social"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dynamic Content Hero Banner Area Section Module Block -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <h1>9.5: Trigonometric Graphs and Absolute Values</h1>
+            <h2>Sketching, finding ranges, and solving modulus equations</h2>
+            <p>Master the techniques for sketching complex trigonometric graphs, applying absolute value transformations, and using graphs to determine the number of roots for equations within specific intervals.</p>
+        </div>
+    </section>
+
+    <!-- Primary Content Grid Flow Block Container -->
+    <main class="wrap">
+        <div class="study-area"><section class="problem-section">
+  <h2 class="section-heading">1. Sketch the graphs of each of the following functions, for 0° &lt; x ≤ 360°, and state the range of each function. Use graphing software to check your graphs.</h2>
+  <div class="problem" id="p-1-1a">
+    <p class="question">1a. \( f(x) = |\tan x| \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Graph description: Sketch the standard } y = \tan x \text{ graph. Reflect all negative parts (the portion between 90° and 180°, and between 270° and 360°) above the x-axis.} \]</div>
+      <div class="step">\[ \text{The asymptotes remain at } x = 90° \text{ and } x = 270°. \text{ The roots remain at } x = 0°, 180°, 360°. \]</div>
+      <div class="step">\[ \text{Range: } f(x) \ge 0 \text{ or } [0, \infty) \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1b">
+    <p class="question">1b. \( f(x) = |\cos 2x| \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Graph description: Sketch the standard } y = \cos 2x \text{ graph (period is } 180°\text{). Reflect all negative parts above the x-axis.} \]</div>
+      <div class="step">\[ \text{Range: } 0 \le f(x) \le 1 \text{ or } [0, 1] \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1c">
+    <p class="question">1c. \( f(x) = |3\sin x| \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Graph description: Sketch } y = 3\sin x \text{ (amplitude 3, period 360°). Reflect the negative parts (180° to 360°) above the x-axis.} \]</div>
+      <div class="step">\[ \text{Range: } 0 \le f(x) \le 3 \text{ or } [0, 3] \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1d">
+    <p class="question">1d. \( f(x) = \sin x \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Graph description: Sketch the standard sine wave for one full period.} \]</div>
+      <div class="step">\[ \text{Range: } -1 \le f(x) \le 1 \text{ or } [-1, 1] \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1e">
+    <p class="question">1e. \( f(x) = 2\cos x \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Graph description: Sketch a cosine wave with an amplitude of 2. Maximum is 2, minimum is -2.} \]</div>
+      <div class="step">\[ \text{Range: } -2 \le f(x) \le 2 \text{ or } [-2, 2] \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1f">
+    <p class="question">1f. \( f(x) = |2\sin 2x| \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Graph description: Sketch } y = 2\sin 2x \text{ (amplitude 2, period 180°). Reflect all negative parts above the x-axis. This will create 4 'humps' between 0° and 360°.} \]</div>
+      <div class="step">\[ \text{Range: } 0 \le f(x) \le 2 \text{ or } [0, 2] \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1g">
+    <p class="question">1g. \( f(x) = |\sin x - 2| \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Since } -1 \le \sin x \le 1\text{, then } -3 \le \sin x - 2 \le -1. \]</div>
+      <div class="step">\[ \text{Because the expression inside the absolute value is always negative } |\sin x - 2| = 2 - \sin x. \]</div>
+      <div class="step">\[ \text{Graph description: Shift the standard sine graph down by 2 units, then reflect the entire graph above the x-axis.} \]</div>
+      <div class="step">\[ \text{Range: Minimum occurs when } \sin x = 1 \text{ (gives } |1-2|=1\text{), maximum when } \sin x = -1 \text{ (gives } |-1-2|=3\text{).} \]</div>
+      <div class="step">\[ \text{Range: } 1 \le f(x) \le 3 \text{ or } [1, 3] \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1h">
+    <p class="question">1h. \( f(x) = |5\sin x + 1| \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Consider the graph of } y = 5\sin x + 1. \text{ It oscillates between } -4 \text{ (when } \sin x = -1\text{) and } 6 \text{ (when } \sin x = 1\text{).} \]</div>
+      <div class="step">\[ \text{The absolute value reflects the negative portion above the x-axis. The minimum value occurs when } 5\sin x + 1 = 0 \implies \sin x = -0.2. \text{ At this point } f(x) = 0. \]</div>
+      <div class="step">\[ \text{Range: } 0 \le f(x) \le 6 \text{ or } [0, 6] \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1i">
+    <p class="question">1i. \( f(x) = |4\cos x - 3| \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Consider the graph of } y = 4\cos x - 3. \text{ It oscillates between } -7 \text{ (when } \cos x = -1\text{) and } 1 \text{ (when } \cos x = 1\text{).} \]</div>
+      <div class="step">\[ \text{The absolute value reflects the negative portion above the x-axis. The minimum value occurs when } 4\cos x - 3 = 0 \implies \cos x = 0.75. \text{ At this point } f(x) = 0. \]</div>
+      <div class="step">\[ \text{Range: } 0 \le f(x) \le 7 \text{ or } [0, 7] \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">2. 2a. Sketch the graph of y = 2 sin x - 1 for 0° ≤ x ≤ 180°. b. Sketch the graph of y = |2 sin x - 1| for 0° ≤ x ≤ 180°. c. Write down the number of solutions of the equation |2 sin x - 1| = 0.5 for 0° ≤ x ≤ 180°.</h2>
+  <div class="problem" id="p-2-2a">
+    <p class="question">2a. \( \text{Sketch } y = 2\sin x - 1 \text{ for } 0° \le x \le 180° \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Key points: At } x=0, y = -1. \text{ At } x=90°, y = 2(1)-1 = 1. \text{ At } x=180°, y = -1. \]</div>
+      <div class="step">\[ \text{The graph is a single sine wave 'hump' shifted down by 1 unit.} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2b">
+    <p class="question">2b. \( \text{Sketch } y = |2\sin x - 1| \text{ for } 0° \le x \le 180° \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Take the graph from 2a and reflect the portion where } y < 0 \text{ (the parts near } 0° \text{ and } 180°\text{) above the x-axis.} \]</div>
+      <div class="step">\[ \text{The roots of this new graph are where } 2\sin x - 1 = 0 \implies \sin x = 0.5 \implies x = 30°, 150°. \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2c">
+    <p class="question">2c. \( \text{Number of solutions of } |2\sin x - 1| = 0.5 \text{ for } 0° \le x \le 180° \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Algebraic method: } 2\sin x - 1 = 0.5 \implies 2\sin x = 1.5 \implies \sin x = 0.75. \text{ This gives 2 solutions (one in Q1, one in Q2).} \]</div>
+      <div class="step">\[ \text{Or } 2\sin x - 1 = -0.5 \implies 2\sin x = 0.5 \implies \sin x = 0.25. \text{ This gives 2 more solutions.} \]</div>
+      <div class="step">\[ \text{Graphical method: Draw the horizontal line } y = 0.5 \text{ on the graph from 2b. It intersects the 'W' shape exactly 4 times.} \]</div>
+      <div class="step">\[ \text{Number of solutions: } 4 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">3. 3a. Sketch the graph of y = 2 + 5 cos x for 0° ≤ x ≤ 180°. b. Sketch the graph of y = |2 + 5 cos x| for 0° ≤ x ≤ 180°. c. Write down the number of solutions of the equation |2 + 5 cos x| = 1 for 0° ≤ x ≤ 180°.</h2>
+  <div class="problem" id="p-3-3a">
+    <p class="question">3a. \( \text{Sketch } y = 2 + 5\cos x \text{ for } 0° \le x \le 180° \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Key points: At } x=0, y = 2+5 = 7. \text{ At } x=90°, y = 2+0 = 2. \text{ At } x=180°, y = 2-5 = -3. \]</div>
+      <div class="step">\[ \text{The graph is a curve starting at (0,7), passing through (90°, 2), and ending at (180°, -3).} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-3-3b">
+    <p class="question">3b. \( \text{Sketch } y = |2 + 5\cos x| \text{ for } 0° \le x \le 180° \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Reflect the part of the graph from 3a that is below the x-axis above it. The x-intercept is where } 2+5\cos x = 0 \implies \cos x = -0.4. \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-3-3c">
+    <p class="question">3c. \( \text{Number of solutions of } |2 + 5\cos x| = 1 \text{ for } 0° \le x \le 180° \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Set } 2+5\cos x = 1 \implies 5\cos x = -1 \implies \cos x = -0.2. \text{ Since } \cos x \text{ is negative, this gives 1 solution in the interval (Q2).} \]</div>
+      <div class="step">\[ \text{Set } 2+5\cos x = -1 \implies 5\cos x = -3 \implies \cos x = -0.6. \text{ This gives 1 solution in the interval (Q2).} \]</div>
+      <div class="step">\[ \text{Number of solutions: } 2 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">4. 4a. Sketch the graph of y = 2 + 3 cos x for 0° ≤ x ≤ 180°. b. Sketch the graph of y = |2 + 3 cos x| for 0° ≤ x ≤ 180°. c. Write down the number of solutions of the equation |2 + 3 sin 2x| = 1 for 0° ≤ x ≤ 180°. *(Note: Assuming the equation follows the previous parts using cos x, though text says sin 2x)*</h2>
+  <div class="problem" id="p-4-4a">
+    <p class="question">4a. \( \text{Sketch } y = 2 + 3\cos x \text{ for } 0° \le x \le 180° \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Key points: At } x=0, y = 5. \text{ At } x=90°, y = 2. \text{ At } x=180°, y = -1. \]</div>
+      <div class="step">\[ \text{The graph is a smooth curve connecting these points.} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-4-4b">
+    <p class="question">4b. \( \text{Sketch } y = |2 + 3\cos x| \text{ for } 0° \le x \le 180° \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Reflect the small portion below the x-axis (near 180°) above the x-axis. The x-intercept is where } 2+3\cos x = 0 \implies \cos x = -2/3. \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-4-4c">
+    <p class="question">4c. \( \text{Number of solutions of } |2 + 3\sin 2x| = 1 \text{ for } 0° \le x \le 180° \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Solve } 2+3\sin 2x = 1 \implies \sin 2x = -1/3. \text{ For } 0° \le 2x \le 360°\text{, this yields 2 solutions.} \]</div>
+      <div class="step">\[ \text{Solve } 2+3\sin 2x = -1 \implies \sin 2x = -1. \text{ This yields 1 solution (} 2x=270° \implies x=135°\text{).} \]</div>
+      <div class="step">\[ \text{Total number of solutions: } 3 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">5. 5a. On the same grid, sketch the graphs of y = |tan x| and y = cos x for 0° ≤ x ≤ 360°. b. State the number of roots of the equation |tan x| = cos x for 0° ≤ x ≤ 360°.</h2>
+  <div class="problem" id="p-5-5">
+    <p class="question">5. \( |\tan x| = \cos x \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Graph description: } y = |\tan x| \text{ is a 'U' shaped curve in each quadrant starting at 0 and going to infinity. } y = \cos x \text{ is the standard cosine wave.} \]</div>
+      <div class="step">\[ \text{Since } \cos x \ge 0 \text{ in Q1 and Q4, we only look for intersections there.} \]</div>
+      <div class="step">\[ \text{In Q1 } \tan x = \cos x \implies \sin x = \cos^2 x = 1 - \sin^2 x \implies \sin^2 x + \sin x - 1 = 0 \implies \sin x = \frac{\sqrt{5}-1}{2} \approx 0.618. \text{ (1 root)} \]</div>
+      <div class="step">\[ \text{In Q4 } -\tan x = \cos x \implies -\sin x = \cos^2 x. \text{ Let } u = \sin x \text{ (u < 0) } -u = 1 - u^2 \implies u^2 - u - 1 = 0 \implies u = \frac{1 - \sqrt{5}}{2} \approx -0.618. \text{ (1 root)} \]</div>
+      <div class="step">\[ \text{Number of roots: } 2 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">6. 6a. On the same grid, sketch the graphs of y = |sin 2x| and y = tan x for 0 ≤ x ≤ 2π. b. State the number of roots of the equation |sin 2x| = tan x for 0 ≤ x ≤ 2π.</h2>
+  <div class="problem" id="p-6-6">
+    <p class="question">6. \( |\sin 2x| = \tan x \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Graph description: } y = |\sin 2x| \text{ has 4 humps between 0 and } 2\pi. \ y = \tan x \text{ has asymptotes at } \pi/2 \text{ and } 3\pi/2. \]</div>
+      <div class="step">\[ \text{Equation: } |\sin 2x| = \tan x. \text{ Since LHS } \ge 0, \text{ we need } \tan x \ge 0 \text{ (Q1, Q3).} \]</div>
+      <div class="step">\[ \text{In Q1 } \sin 2x = \tan x \implies 2\sin x \cos x = \frac{\sin x}{\cos x} \implies 2\cos^2 x = 1 \implies \cos x = \frac{1}{\sqrt{2}} \implies x = \frac{\pi}{4}. \text{ Also } x=0 \text{ is a root.} \]</div>
+      <div class="step">\[ \text{In Q3 } -\sin 2x = \tan x \implies -2\sin x \cos x = \frac{\sin x}{\cos x}. \text{ Since } \sin x < 0, \text{ divide by } \sin x: -2\cos^2 x = 1 \implies \cos^2 x = -1/2 \text{ (no solution).} \]</div>
+      <div class="step">\[ \text{Checking } \sin x = 0: x = 0, \pi, 2\pi \text{ are roots since } \tan x = 0 \text{ and } |\sin 2x| = 0. \]</div>
+      <div class="step">\[ \text{Checking the negative hump of } |\sin 2x| \text{ in Q2: } \tan x \text{ is negative, so no intersection.} \]</div>
+      <div class="step">\[ \text{Number of roots: } x = 0, \frac{\pi}{4}, \pi, 2\pi \implies 4 \text{ roots}. \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">7. 7a. On the same grid, sketch the graphs of y = |0.5 + sin x| and y = cos x for 0° ≤ x ≤ 360°. b. State the number of roots of the equation |0.5 + sin x| = cos x for 0° ≤ x ≤ 360°.</h2>
+  <div class="problem" id="p-7-7">
+    <p class="question">7. \( |0.5 + \sin x| = \cos x \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Graph description: } y = |0.5 + \sin x| \text{ is a sine wave shifted up by 0.5 (so its minimum is -0.5), with the negative part reflected.} \]</div>
+      <div class="step">\[ \text{For intersections } \cos x \ge 0 \text{ (Q1, Q4).} \]</div>
+      <div class="step">\[ \text{In Q1 and Q4 } 0.5 + \sin x \ge 0 \text{ is mostly true except for a small part in Q4.} \]</div>
+      <div class="step">\[ \text{Case 1: } 0.5 + \sin x = \cos x \implies \cos x - \sin x = 0.5 \implies \sqrt{2}\cos(x+45°) = 0.5. \text{ This yields 1 valid solution in Q1.} \]</div>
+      <div class="step">\[ \text{Case 2: } -0.5 - \sin x = \cos x \implies \cos x + \sin x = -0.5 \implies \sqrt{2}\cos(x-45°) = -0.5. \text{ This yields 1 valid solution in Q4.} \]</div>
+      <div class="step">\[ \text{Number of roots: } 2 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">8. 8a. On the same grid, sketch the graphs of y = |1 + 4 cos x| and y = 2 + cos x for 0° ≤ x ≤ 360°. b. State the number of roots of the equation |1 + 4 cos x| = 2 + cos x for 0° ≤ x ≤ 360°.</h2>
+  <div class="problem" id="p-8-8">
+    <p class="question">8. \( |1 + 4\cos x| = 2 + \cos x \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Solve algebraically: } 1 + 4\cos x = 2 + \cos x \text{ or } 1 + 4\cos x = -(2 + \cos x). \]</div>
+      <div class="step">\[ \text{Case 1: } 3\cos x = 1 \implies \cos x = 1/3. \text{ In } [0°, 360°]\text{, this has 2 solutions.} \]</div>
+      <div class="step">\[ \text{Case 2: } 5\cos x = -3 \implies \cos x = -0.6. \text{ In } [0°, 360°]\text{, this has 2 solutions.} \]</div>
+      <div class="step">\[ \text{Number of roots: } 4 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">9. The equation |3 cos x - 2| = k, has 2 roots for the interval 0 ≤ x ≤ 2π. Find the possible values of k.</h2>
+  <div class="problem" id="p-9-9">
+    <p class="question">9. \( |3\cos x - 2| = k \)</p>
+    <div class="steps">
+      <div class="step">\[ \text{Consider the graph of } y = |3\cos x - 2|. \text{ The range of } \cos x \text{ is } [-1, 1]. \]</div>
+      <div class="step">\[ \text{The expression } 3\cos x - 2 \text{ ranges from } -5 \text{ to } 1. \]</div>
+      <div class="step">\[ \text{The absolute value graph has a minimum of 0 when } \cos x = 2/3 \text{ (gives 2 roots in } [0, 2\pi]\text{).} \]</div>
+      <div class="step">\[ \text{The graph reaches a maximum of 5 at } x = \pi \text{ (1 root).} \]</div>
+      <div class="step">\[ \text{At } x=0 \text{ and } x=2\pi, y = |3(1)-2| = 1. \]</div>
+      <div class="step">\[ \text{For the horizontal line } y=k \text{ to intersect the graph exactly twice:} \]</div>
+      <div class="step">\[ \text{1. } k = 0 \text{ (intersects at the minimum).} \]</div>
+      <div class="step">\[ \text{2. } 1 < k < 5 \text{ (intersects the two steep sides of the central peak).} \]</div>
+      <div class="step">\[ \text{Possible values for } k: \quad k = 0 \quad \text{or} \quad 1 < k < 5 \]</div>
+    </div>
+  </div>
+</section>
+</div>
+    </main>
+
+    <!-- Permanent Brand Site Footer Area Component -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-column">
+          <a aria-label="Japanify Home" href="/"
+            ><img
+              alt="Japanify - Learn Japanese Online"
+              class="footer-image"
+              height="33"
+              src="/assets/images/logo.svg"
+              width="105"
+          /></a>
+          <div class="always-open" style="padding: 0">
+            Learn Japanese Online.
+          </div>
+          <div class="accordion-content">
+            <p class="description">
+              Master Japanese through short lessons &amp; culture bites.
+            </p>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            学 Learn
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a href="/pages/Japanese-full-lessons-jlpt-jft-online.html"
+                  >人 Full Lessons</a
+                >
+              </li>
+              <li>
+                <a href="/pages/complete-japanese-kanji-for-n5-n4-n3.html"
+                  >字 Kanji Library</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/pages/complete-japanese-grammar-for-jlpt-jft-exam.html"
+                  >法 Grammar Rules</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/pages/complete-japanese-jlpt-jft-vocabulary-and-conversation.html"
+                  >語 Vocabulary Library</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-hiragana-katakana-lessons.html"
+                  >あ Hiragana &amp; Katakana</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            練 Practice
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a href="/pages/japanese-kanji-shortlisted-quiz.html"
+                  >字 Kanji Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-reading-practice.html"
+                  >書 Reading Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/complete-japanese-kanji-for-n5-n4-n3.html"
+                  >あ Alphabet Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-grammar-quiz.html"
+                  >会 Grammar Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-vocabulary-quiz.html"
+                  >語 Vocabulary Practice</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            技 Tips &amp; Tricks
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a href="/pages/japanese-study-plans.html">計 Study Plans</a>
+              </li>
+              <li>
+                <a href="/pages/kanji-memory-hacks.html">記 Life in Japan</a>
+              </li>
+              <li>
+                <a href="/pages/japanese-pronunciation-tips.html"
+                  >列 Study Materials</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-pronunciation-tips.html"
+                  >音 Pronunciation Tips</a
+                >
+              </li>
+              <li>
+                <a href="/pages/kanji-memory-hacks.html"
+                  >記 Kanji Memory Hacks</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            隨 Follow Us
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a
+                  class="social-link"
+                  href="mailto:japanify.bd@gmail.com"
+                  target="_blank"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-mail"></use>
+                  </svg>
+                  E-mail</a
+                >
+              </li>
+              <li>
+                <a class="social-link" href="/pages/about.html"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-info"></use>
+                  </svg>
+                  About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  class="social-link"
+                  href="https://www.facebook.com/@japanify"
+                  rel="noopener me"
+                  target="_blank"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-facebook"></use>
+                  </svg>
+                  Facebook</a
+                >
+              </li>
+              <li>
+                <a
+                  class="social-link"
+                  href="https://www.instagram.com/japanify.bd"
+                  rel="noopener me"
+                  target="_blank"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-instagram"></use>
+                  </svg>
+                  Instagram</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <span> © Japanify 2026 | All Rights Reserved | </span
+        ><a href="/pages/credits.html">Credits </a>
+      </div>
+    </footer>
+
+    <!-- Global JavaScript Entry Point -->
+    <script
+      nonce="&lt;?= $csp_nonce ?&gt;"
+      src="/assets/javascripts/main.js"
+      type="module"
+    ></script>
+</body>
+</html>

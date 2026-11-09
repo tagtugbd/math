@@ -1,0 +1,90 @@
+header {
+  background: rgba(255, 248, 242, 0.92);
+  border-bottom: 1.5px solid var(--text-dark);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.brand {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.brand i {
+  color: var(--primary);
+  font-weight: 500;
+}
+nav ul {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+nav a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+nav a:hover {
+  color: var(--primary);
+}
+button,
+.btn {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 16px;
+  border: 1.5px solid var(--text-dark);
+  border-radius: 4px;
+  box-shadow: var(--shadow-box);
+  transition:
+    transform 0.12s,
+    box-shadow 0.12s;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--text-dark);
+}
+button:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-box);
+}
+button.alt {
+  background: #fff;
+  color: var(--text-dark);
+}
+nav .btn {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  color: #fff;
+}
+.head {
+  max-width: 36em;
+  margin-bottom: 36px;
+}
+.head h2 {
+  font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+}
+.head p {
+  color: var(--text-secondary);
+  margin: 12px 0 0;
+}
+.band {
+  background: var(--card-bg);
+  border-block: 1.5px solid var(--text-dark);
+}

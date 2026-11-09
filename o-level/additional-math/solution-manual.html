@@ -1,0 +1,1018 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fd4239" />
+    <title>Additional Mathematics: All 16 Chapters | Quotient</title>
+    <meta
+      name="description"
+      content="Additional Mathematics lessons in 16 chapters: functions, quadratics, logarithms, trigonometry, series, differentiation, integration, vectors and kinematics."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=STIX+Two+Text:ital,wght@0,500;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/css/style.min.css"
+      media="print"
+      onload="
+        this.media = 'all';
+        this.onload = null;
+      "
+      rel="stylesheet"
+    />
+    <noscript
+      ><link href="/assets/css/style.min.css" rel="stylesheet"
+    /></noscript>
+    <style>
+      /* sections */
+      section {
+        padding: 72px 0;
+      }
+      .head {
+        max-width: 36em;
+        margin-bottom: 36px;
+      }
+      .head h2 {
+        font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+      }
+      .head p {
+        color: var(--text-secondary);
+        margin: 12px 0 0;
+      }
+      .band {
+        background: var(--card-bg);
+        border-block: 1.5px solid var(--text-dark);
+      }
+
+      /* topic matrix */
+      .matrix {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border: 1.5px solid var(--text-dark);
+        background: var(--card-bg);
+        border-radius: 6px;
+        overflow: hidden;
+      }
+      .cell {
+        display: block;
+        text-decoration: none;
+        padding: 28px 28px 30px;
+        border-right: 1.5px solid var(--text-dark);
+        border-bottom: 1.5px solid var(--text-dark);
+        transition: background 0.15s;
+      }
+      .cell:nth-child(3n) {
+        border-right: 0;
+      }
+      .cell:nth-last-child(-n + 3) {
+        border-bottom: 0;
+      }
+      .cell:hover {
+        background: var(--gray-200);
+      }
+      .sym {
+        font-family: var(--serif);
+        font-size: 3.4rem;
+        line-height: 1;
+        color: var(--primary);
+        display: block;
+        margin-bottom: 14px;
+      }
+      .cell h3 {
+        font-size: 1.4rem;
+        margin-bottom: 6px;
+      }
+      .cell span.d {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        display: block;
+      }
+      .cell em {
+        display: block;
+        margin-top: 14px;
+        font-family: var(--serif);
+        font-size: 1.05rem;
+        color: var(--text-dark);
+      }
+
+      /* worked example */
+      .work {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 48px;
+        align-items: start;
+      }
+      .steps {
+        background: var(--bg);
+        border: 1.5px solid var(--text-dark);
+        border-radius: 6px;
+        padding: 28px;
+        font-family: var(--serif);
+        font-size: 1.5rem;
+        min-height: 300px;
+        box-shadow: 6px 6px 0 var(--text-dark);
+      }
+      .steps .row {
+        padding: 10px 0;
+        border-bottom: 1px dashed var(--border);
+      }
+      .steps .row:last-child {
+        border: 0;
+      }
+      .steps .why {
+        display: block;
+        font: 500 0.9rem var(--sans);
+        color: var(--text-secondary);
+        margin-bottom: 2px;
+      }
+      .steps .row.new {
+        animation: in 0.35s ease-out;
+      }
+      .steps b {
+        color: var(--primary);
+      }
+      @keyframes in {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .work .btns {
+        display: flex;
+        gap: 12px;
+        margin-top: 22px;
+      }
+      .work ol {
+        padding-left: 1.2em;
+        color: var(--text-secondary);
+      }
+      .work ol li {
+        margin: 10px 0;
+      }
+      .work ol strong {
+        color: var(--text-dark);
+      }
+
+      /* levels */
+      .levels {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        border-top: 1.5px solid var(--text-dark);
+      }
+      .lv {
+        padding: 22px 20px 0 0;
+      }
+      .lv h3 {
+        font-size: 1.2rem;
+      }
+      .lv p {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        margin: 6px 0 0;
+      }
+
+      /* closing */
+      .close {
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        gap: 32px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .close h2 {
+        font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+        max-width: 16em;
+      }
+
+      footer {
+        background: var(--com1);
+        color: var(--border);
+        padding: 40px 0;
+        font-size: 0.95rem;
+      }
+      footer .wrap {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      footer a {
+        text-decoration: none;
+        margin-right: 20px;
+      }
+      footer a:hover {
+        color: #fff;
+      }
+      .fb {
+        font-family: var(--serif);
+        font-size: 1.3rem;
+        color: #fff;
+      }
+
+      @media (max-width: 900px) {
+        .hero,
+        .work {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .matrix {
+          grid-template-columns: 1fr 1fr;
+        }
+        .cell:nth-child(3n) {
+          border-right: 1.5px solid var(--text-dark);
+        }
+        .cell:nth-child(2n) {
+          border-right: 0;
+        }
+        .cell:nth-last-child(-n + 3) {
+          border-bottom: 1.5px solid var(--text-dark);
+        }
+        .cell:nth-last-child(-n + 2) {
+          border-bottom: 0;
+        }
+        .levels {
+          grid-template-columns: 1fr 1fr;
+        }
+        nav ul li:not(:last-child) {
+          display: none;
+        }
+      }
+      @media (max-width: 560px) {
+        .matrix,
+        .levels {
+          grid-template-columns: 1fr;
+        }
+        .cell {
+          border-right: 0 !important;
+          border-bottom: 1.5px solid var(--text-dark) !important;
+        }
+        .cell:last-child {
+          border-bottom: 0 !important;
+        }
+        .hero {
+          padding: 48px 0 56px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto;
+        }
+      }
+
+      /* page header */
+      .page-head {
+        padding: 64px 0 36px;
+      }
+      .page-head h1 {
+        font-size: clamp(2.2rem, 5vw, 3.6rem);
+        letter-spacing: -0.02em;
+        max-width: 16em;
+      }
+      .page-head p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        max-width: 34em;
+        margin: 16px 0 0;
+      }
+      .crumbs {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-bottom: 18px;
+      }
+      .crumbs a {
+        text-decoration: none;
+        color: var(--primary-dark);
+      }
+      .crumbs a:hover {
+        text-decoration: underline;
+      }
+      .course {
+        padding: 0 0 88px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap bar">
+        <a class="brand" href="/" aria-label="Quotient home"
+          >Quotient<i>.</i></a
+        >
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#topics">Topics</a></li>
+            <li><a class="btn" href="#chapters">All chapters</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="wrap">
+        <div class="page-head">
+          <div class="crumbs">
+            <a href="/">Home</a> / Additional Mathematics
+          </div>
+          <h1>Additional Mathematics</h1>
+          <p>
+            Sixteen chapters from functions to kinematics. Work through them in
+            order, or jump to the chapter you need.
+          </p>
+        </div>
+        <div class="course" id="chapters">
+          <div class="card-grid">
+            <div class="card-container">
+              <a
+                class="card-link"
+                href="/o-level/additional-math/chapter-1-functions.html"
+              >
+                <div class="card-shine"></div>
+                <div class="card-image" data-symbol="f(x)">
+                  <img
+                    alt="Chapter 1: Functions"
+                    height="240"
+                    onerror="
+                      this.onerror = function () {
+                        this.style.display = 'none';
+                      };
+                      this.removeAttribute('srcset');
+                      this.src = '/assets/images/error.webp';
+                    "
+                    src="/assets/images/ad-math-chapter1.webp"
+                    srcset="
+                      /assets/images/ad-math-chapter1-small.webp 1x,
+                      /assets/images/ad-math-chapter1.webp       2x
+                    "
+                    width="350"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-content">
+                  <div class="text-group">
+                    <h3 class="card-title">
+                      <span>Chapter 1: Functions</span>
+                    </h3>
+                    <p class="card-topic-description">
+                      Understand mappings and function notation, combine
+                      functions, work with modulus functions, and find and graph
+                      inverse functions.<br /><span class="lesson-tag"
+                        >Algebra</span
+                      ><span class="lesson-tag">7 sections</span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="card-container">
+              <a
+                class="card-link"
+                href="/o-level/additional-math/chapter-2-simultaneous-equations-and-quadratics.html"
+              >
+                <div class="card-shine"></div>
+                <div class="card-image" data-symbol="x²">
+                  <img
+                    alt="Chapter 2: Simultaneous equations and quadratics"
+                    height="240"
+                    onerror="
+                      this.onerror = function () {
+                        this.style.display = 'none';
+                      };
+                      this.removeAttribute('srcset');
+                      this.src = '/assets/images/error.webp';
+                    "
+                    src="/assets/images/ad-math-chapter2.webp"
+                    srcset="
+                      /assets/images/ad-math-chapter2-small.webp 1x,
+                      /assets/images/ad-math-chapter2.webp       2x
+                    "
+                    width="350"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-content">
+                  <div class="text-group">
+                    <h3 class="card-title">
+                      <span
+                        >Chapter 2: Simultaneous equations and quadratics</span
+                      >
+                    </h3>
+                    <p class="card-topic-description">
+                      Solve pairs of equations where one is non-linear, find the
+                      maximum or minimum of a quadratic, and solve quadratic
+                      inequalities.<br /><span class="lesson-tag">Algebra</span
+                      ><span class="lesson-tag">6 sections</span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="card-container">
+              <a
+                class="card-link"
+                href="/o-level/additional-math/chapter-3-factors-and-polynomials.html"
+              >
+                <div class="card-shine"></div>
+                <div class="card-image" data-symbol="P(x)">
+                  <img
+                    alt="Chapter 3: Factors and polynomials"
+                    height="240"
+                    onerror="
+                      this.onerror = function () {
+                        this.style.display = 'none';
+                      };
+                      this.removeAttribute('srcset');
+                      this.src = '/assets/images/error.webp';
+                    "
+                    src="/assets/images/ad-math-chapter3.webp"
+                    srcset="
+                      /assets/images/ad-math-chapter3-small.webp 1x,
+                      /assets/images/ad-math-chapter3.webp       2x
+                    "
+                    width="350"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-content">
+                  <div class="text-group">
+                    <h3 class="card-title">
+                      <span>Chapter 3: Factors and polynomials</span>
+                    </h3>
+                    <p class="card-topic-description">
+                      Add, multiply and divide polynomials, then use the factor
+                      and remainder theorems to solve cubic equations.<br /><span
+                        class="lesson-tag"
+                        >Algebra</span
+                      ><span class="lesson-tag">5 sections</span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="card-container">
+              <a
+                class="card-link"
+                href="/o-level/additional-math/chapter-4-equations-inequalities-and-graphs.html"
+              >
+                <div class="card-shine"></div>
+                <div class="card-image" data-symbol="|x|">
+                  <img
+                    alt="Chapter 4: Equations, inequalities and graphs"
+                    height="240"
+                    onerror="
+                      this.onerror = function () {
+                        this.style.display = 'none';
+                      };
+                      this.removeAttribute('srcset');
+                      this.src = '/assets/images/error.webp';
+                    "
+                    src="/assets/images/ad-math-chapter4.webp"
+                    srcset="
+                      /assets/images/ad-math-chapter4-small.webp 1x,
+                      /assets/images/ad-math-chapter4.webp       2x
+                    "
+                    width="350"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-content">
+                  <div class="text-group">
+                    <h3 class="card-title">
+                      <span>Chapter 4: Equations, inequalities and graphs</span>
+                    </h3>
+                    <p class="card-topic-description">
+                      Solve modulus equations and inequalities, sketch cubic
+                      graphs, and work through more complex quadratic
+                      equations.<br /><span class="lesson-tag">Algebra</span
+                      ><span class="lesson-tag">5 sections</span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="card-container">
+              <a
+                class="card-link"
+                href="/o-level/additional-math/chapter-5-logarithmic-and-exponential-functions.html"
+              >
+                <div class="card-shine"></div>
+                <div class="card-image" data-symbol="log">
+                  <img
+                    alt="Chapter 5: Logarithmic and exponential functions"
+                    height="240"
+                    onerror="
+                      this.onerror = function () {
+                        this.style.display = 'none';
+                      };
+                      this.removeAttribute('srcset');
+                      this.src = '/assets/images/error.webp';
+                    "
+                    src="/assets/images/ad-math-chapter5.webp"
+                    srcset="
+                      /assets/images/ad-math-chapter5-small.webp 1x,
+                      /assets/images/ad-math-chapter5.webp       2x
+                    "
+                    width="350"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-content">
+                  <div class="text-group">
+                    <h3 class="card-title">
+                      <span
+                        >Chapter 5: Logarithmic and exponential functions</span
+                      >
+                    </h3>
+                    <p class="card-topic-description">
+                      Use the laws of logarithms, solve log and exponential
+                      equations, work with natural logs, and graph both function
+                      types.<br /><span class="lesson-tag">Algebra</span
+                      ><span class="lesson-tag">11 sections</span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="card-container">
+              <a
+                class="card-link"
+                href="/o-level/additional-math/chapter-6-straight-line-graphs.html"
+              >
+                <div class="card-shine"></div>
+                <div class="card-image" data-symbol="y=mx">
+                  <img
+                    alt="Chapter 6: Straight-line graphs"
+                    height="240"
+                    onerror="
+                      this.onerror = function () {
+                        this.style.display = 'none';
+                      };
+                      this.removeAttribute('srcset');
+                      this.src = '/assets/images/error.webp';
+                    "
+                    src="/assets/images/ad-math-chapter6.webp"
+                    srcset="
+                      /assets/images/ad-math-chapter6-small.webp 1x,
+                      /assets/images/ad-math-chapter6.webp       2x
+                    "
+                    width="350"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-content">
+                  <div class="text-group">
+                    <h3 class="card-title">
+                      <span>Chapter 6: Straight-line graphs</span>
+                    </h3>
+                    <p class="card-topic-description">
+                      Find lengths, midpoints and equations of lines, then turn
+                      non-linear relationships into linear form to read from
+                      data.<br /><span class="lesson-tag"
+                        >Coordinate geometry</span
+                      ><span class="lesson-tag">7 sections</span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="card-container">
+              <a
+                class="card-link"
+                href="/o-level/additional-math/chapter-7-coordinate-geometry-of-the-circle.html"
+              >
+                <div class="card-shine"></div>
+                <div class="card-image" data-symbol="○">
+                  <img
+                    alt="Chapter 7: Coordinate geometry of the circle"
+                    height="240"
+                    onerror="
+                      this.onerror = function () {
+                        this.style.display = 'none';
+                      };
+                      this.removeAttribute('srcset');
+                      this.src = '/assets/images/error.webp';
+                    "
+                    src="/assets/images/ad-math-chapter7.webp"
+                    srcset="
+                      /assets/images/ad-math-chapter7-small.webp 1x,
+                      /assets/images/ad-math-chapter7.webp       2x
+                    "
+                    width="350"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-content">
+                  <div class="text-group">
+                    <h3 class="card-title">
+                      <span>Chapter 7: Coordinate geometry of the circle</span>
+                    </h3>
+                    <p class="card-topic-description">
+                      Write the equation of a circle and solve problems where
+                      lines and circles meet.<br /><span class="lesson-tag"
+                        >Coordinate geometry</span
+                      ><span class="lesson-tag">2 sections</span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="card-container">
+              <a
+                class="card-link"
+                href="/o-level/additional-math/chapter-8-circular-measure.html"
+              >
+                <div class="card-shine"></div>
+                <div class="card-image" data-symbol="rad">
+                  <img
+                    alt="Chapter 8: Circular measure"
+                    height="240"
+                    onerror="
+                      this.onerror = function () {
+                        this.style.display = 'none';
+                      };
+                      this.removeAttribute('srcset');
+                      this.src = '/assets/images/error.webp';
+                    "
+                    src="/assets/images/ad-math-chapter8.webp"
+                    srcset="
+                      /assets/images/ad-math-chapter8-small.webp 1x,
+                      /assets/images/ad-math-chapter8.webp       2x
+                    "
+                    width="350"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-content">
+                  <div class="text-group">
+                    <h3 class="card-title">
+                      <span>Chapter 8: Circular measure</span>
+                    </h3>
+                    <p class="card-topic-description">
+                      Work in radians and calculate arc length and the area of a
+                      sector.<br /><span class="lesson-tag">Trigonometry</span
+                      ><span class="lesson-tag">3 sections</span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="card-container">
+              <a
+                class="card-link"
+                href="/o-level/additional-math/chapter-9-trigonometry.html"
+              >
+                <div class="card-shine"></div>
+                <div class="card-image" data-symbol="sin">
+                  <img
+                    alt="Chapter 9: Trigonometry"
+                    height="240"
+                    onerror="
+                      this.onerror = function () {
+                        this.style.display = 'none';
+                      };
+                      this.removeAttribute('srcset');
+                      this.src = '/assets/images/error.webp';
+                    "
+                    src="/assets/images/ad-math-chapter9.webp"
+                    srcset="
+                      /assets/images/ad-math-chapter9-small.webp 1x,
+                      /assets/images/ad-math-chapter9.webp       2x
+                    "
+                    width="350"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-content">
+                  <div class="text-group">
+                    <h3 class="card-title">
+                      <span>Chapter 9: Trigonometry</span>
+                    </h3>
+                    <p class="card-topic-description">
+                      Extend trig ratios to any angle, graph trig functions, and
+                      solve equations and prove identities.<br /><span
+                        class="lesson-tag"
+                        >Trigonometry</span
+                      ><span class="lesson-tag">9 sections</span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="card-container">
+              <a
+                class="card-link"
+                href="/o-level/additional-math/chapter-10-permutations-and-combinations.html"
+              >
+                <div class="card-shine"></div>
+                <div class="card-image" data-symbol="n!">
+                  <img
+                    alt="Chapter 10: Permutations and combinations"
+                    height="240"
+                    onerror="
+                      this.onerror = function () {
+                        this.style.display = 'none';
+                      };
+                      this.removeAttribute('srcset');
+                      this.src = '/assets/images/error.webp';
+                    "
+                    src="/assets/images/ad-math-chapter10.webp"
+                    srcset="
+                      /assets/images/ad-math-chapter10-small.webp 1x,
+                      /assets/images/ad-math-chapter10.webp       2x
+                    "
+                    width="350"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-content">
+                  <div class="text-group">
+                    <h3 class="card-title">
+                      <span>Chapter 10: Permutations and combinations</span>
+                    </h3>
+                    <p class="card-topic-description">
+                      Count arrangements and selections using factorial
+                      notation, permutations and combinations.<br /><span
+                        class="lesson-tag"
+                        >Probability and counting</span
+                      ><span class="lesson-tag">4 sections</span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="card-container">
+              <a
+                class="card-link"
+                href="/o-level/additional-math/chapter-11-series.html"
+              >
+                <div class="card-shine"></div>
+                <div class="card-image" data-symbol="Σ">
+                  <img
+                    alt="Chapter 11: Series"
+                    height="240"
+                    onerror="
+                      this.onerror = function () {
+                        this.style.display = 'none';
+                      };
+                      this.removeAttribute('srcset');
+                      this.src = '/assets/images/error.webp';
+                    "
+                    src="/assets/images/ad-math-chapter11.webp"
+                    srcset="
+                      /assets/images/ad-math-chapter11-small.webp 1x,
+                      /assets/images/ad-math-chapter11.webp       2x
+                    "
+                    width="350"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-content">
+                  <div class="text-group">
+                    <h3 class="card-title"><span>Chapter 11: Series</span></h3>
+                    <p class="card-topic-description">
+                      Expand with Pascal's triangle and the binomial theorem,
+                      and work with arithmetic and geometric progressions.<br /><span
+                        class="lesson-tag"
+                        >Algebra</span
+                      ><span class="lesson-tag">6 sections</span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="card-container">
+              <a
+                class="card-link"
+                href="/o-level/additional-math/chapter-12-calculus-differentiation-1.html"
+              >
+                <div class="card-shine"></div>
+                <div class="card-image" data-symbol="dy/dx">
+                  <img
+                    alt="Chapter 12: Calculus – Differentiation 1"
+                    height="240"
+                    onerror="
+                      this.onerror = function () {
+                        this.style.display = 'none';
+                      };
+                      this.removeAttribute('srcset');
+                      this.src = '/assets/images/error.webp';
+                    "
+                    src="/assets/images/ad-math-chapter12.webp"
+                    srcset="
+                      /assets/images/ad-math-chapter12-small.webp 1x,
+                      /assets/images/ad-math-chapter12.webp       2x
+                    "
+                    width="350"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-content">
+                  <div class="text-group">
+                    <h3 class="card-title">
+                      <span>Chapter 12: Calculus – Differentiation 1</span>
+                    </h3>
+                    <p class="card-topic-description">
+                      Find gradients with the chain, product and quotient rules,
+                      then solve tangent, rate-of-change and optimisation
+                      problems.<br /><span class="lesson-tag">Calculus</span
+                      ><span class="lesson-tag">10 sections</span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="card-container">
+              <a
+                class="card-link"
+                href="/o-level/additional-math/chapter-13-vectors.html"
+              >
+                <div class="card-shine"></div>
+                <div class="card-image" data-symbol="v→">
+                  <img
+                    alt="Chapter 13: Vectors"
+                    height="240"
+                    onerror="
+                      this.onerror = function () {
+                        this.style.display = 'none';
+                      };
+                      this.removeAttribute('srcset');
+                      this.src = '/assets/images/error.webp';
+                    "
+                    src="/assets/images/ad-math-chapter13.webp"
+                    srcset="
+                      /assets/images/ad-math-chapter13-small.webp 1x,
+                      /assets/images/ad-math-chapter13.webp       2x
+                    "
+                    width="350"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-content">
+                  <div class="text-group">
+                    <h3 class="card-title"><span>Chapter 13: Vectors</span></h3>
+                    <p class="card-topic-description">
+                      Use vector notation and position vectors to solve geometry
+                      and constant-velocity problems.<br /><span
+                        class="lesson-tag"
+                        >Vectors</span
+                      ><span class="lesson-tag">4 sections</span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="card-container">
+              <a
+                class="card-link"
+                href="/o-level/additional-math/chapter-14-calculus-differentiation-2.html"
+              >
+                <div class="card-shine"></div>
+                <div class="card-image" data-symbol="eˣ">
+                  <img
+                    alt="Chapter 14: Calculus – Differentiation 2"
+                    height="240"
+                    onerror="
+                      this.onerror = function () {
+                        this.style.display = 'none';
+                      };
+                      this.removeAttribute('srcset');
+                      this.src = '/assets/images/error.webp';
+                    "
+                    src="/assets/images/ad-math-chapter14.webp"
+                    srcset="
+                      /assets/images/ad-math-chapter14-small.webp 1x,
+                      /assets/images/ad-math-chapter14.webp       2x
+                    "
+                    width="350"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-content">
+                  <div class="text-group">
+                    <h3 class="card-title">
+                      <span>Chapter 14: Calculus – Differentiation 2</span>
+                    </h3>
+                    <p class="card-topic-description">
+                      Differentiate exponential, logarithmic and trigonometric
+                      functions and apply them to further problems.<br /><span
+                        class="lesson-tag"
+                        >Calculus</span
+                      ><span class="lesson-tag">4 sections</span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="card-container">
+              <a
+                class="card-link"
+                href="/o-level/additional-math/chapter-15-calculus-integration.html"
+              >
+                <div class="card-shine"></div>
+                <div class="card-image" data-symbol="∫">
+                  <img
+                    alt="Chapter 15: Calculus – Integration"
+                    height="240"
+                    onerror="
+                      this.onerror = function () {
+                        this.style.display = 'none';
+                      };
+                      this.removeAttribute('srcset');
+                      this.src = '/assets/images/error.webp';
+                    "
+                    src="/assets/images/ad-math-chapter15.webp"
+                    srcset="
+                      /assets/images/ad-math-chapter15-small.webp 1x,
+                      /assets/images/ad-math-chapter15.webp       2x
+                    "
+                    width="350"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-content">
+                  <div class="text-group">
+                    <h3 class="card-title">
+                      <span>Chapter 15: Calculus – Integration</span>
+                    </h3>
+                    <p class="card-topic-description">
+                      Reverse differentiation, find indefinite and definite
+                      integrals, and calculate areas under curves and between
+                      curves and lines.<br /><span class="lesson-tag"
+                        >Calculus</span
+                      ><span class="lesson-tag">11 sections</span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="card-container">
+              <a
+                class="card-link"
+                href="/o-level/additional-math/chapter-16-kinematics.html"
+              >
+                <div class="card-shine"></div>
+                <div class="card-image" data-symbol="v=ds/dt">
+                  <img
+                    alt="Chapter 16: Kinematics"
+                    height="240"
+                    onerror="
+                      this.onerror = function () {
+                        this.style.display = 'none';
+                      };
+                      this.removeAttribute('srcset');
+                      this.src = '/assets/images/error.webp';
+                    "
+                    src="/assets/images/ad-math-chapter16.webp"
+                    srcset="
+                      /assets/images/ad-math-chapter16-small.webp 1x,
+                      /assets/images/ad-math-chapter16.webp       2x
+                    "
+                    width="350"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-content">
+                  <div class="text-group">
+                    <h3 class="card-title">
+                      <span>Chapter 16: Kinematics</span>
+                    </h3>
+                    <p class="card-topic-description">
+                      Use differentiation and integration to link displacement,
+                      velocity and acceleration.<br /><span class="lesson-tag"
+                        >Calculus</span
+                      ><span class="lesson-tag">2 sections</span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="wrap">
+        <div>
+          <span class="fb">Quotient.</span><br />Learn math online, one step at
+          a time.
+        </div>
+        <div>
+          <a href="/pages/about.html">About</a
+          ><a href="mailto:you@example.com">Email</a
+          ><a href="/pages/credits.html">Credits</a>
+        </div>
+        <div>© Quotient 2026. All rights reserved.</div>
+      </div>
+    </footer>
+  </body>
+</html>
