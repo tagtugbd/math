@@ -1,9 +1,12 @@
-import os
-import re
-import json
 import glob
 import html
+import json
+import os
+from pathlib import Path
+import re
 
+# Define the target output directory path
+OUTPUT_DIR = Path("../../../../o-level/additional-math/chapter-9-trigonometry")
 
 # Updated Master Production Blueprint Layout Template Integration
 HTML_TEMPLATE = """<!DOCTYPE html>
@@ -42,259 +45,123 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     </script>
     <script id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-    <style>
-        /* Embedded styling rule overrides requested for step labels */
-        .step-side-label {{
-            font-weight: 700;
-            color: var(--primary);
-            display: block;
-            margin-bottom: 0.25rem;
-        }}
-    </style>
 </head>
 <body>
-
-    <!-- Integrated Native Page Loader Engine Wrapper Structure -->
-    <div id="loader-wrapper">
-      <div aria-label="Loading Japanify" class="brand-loader" role="status">
-        <div class="ring"></div>
-        <span class="brand-text"> Japanify </span>
-      </div>
-    </div>
-    <script>
-      (function () {{
-        const loader = document.getElementById("loader-wrapper");
-        const body = document.body;
-        if (loader) {{
-          body.classList.add("loading-active");
-          const hideLoader = () => {{
-            if (!loader) return;
-            loader.style.opacity = "0";
-            setTimeout(() => {{
-              loader.remove();
-              body.classList.remove("loading-active");
-            }}, 400);
-          }};
-          window.addEventListener("load", hideLoader);
-          setTimeout(() => {{
-            if (document.getElementById("loader-wrapper")) hideLoader();
-          }}, 4000);
-        }}
-      }})();
-    </script>
-
-    <!-- Permanent Brand Site Header Navigation Bar Area Component -->
-    <div class="mobile-header-container">
-      <header class="mobile-header">
-        <div class="logo">
-          <a aria-label="Japanify Home" href="/"
-            ><img
-              alt="Japanify - Learn Japanese Online"
-              height="33"
-              src="/assets/images/logo.svg"
-              width="105"
-          /></a>
-        </div>
-        <nav aria-label="Main navigation" class="header-nav" id="header-nav">
-          <div class="nav-dropdown">
-            <div class="nav-accordion">
-              学 Learn
-              <svg class="arrow" height="20" width="20">
-                <use
-                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
-                ></use>
-              </svg>
-            </div>
-            <div class="accordion-content nav-dropdown-content">
-              <ul>
-                <li>
-                  <a href="/pages/Japanese-full-lessons-jlpt-jft-online.html">
-                    課 Full Lessons
-                  </a>
-                </li>
-                <li>
-                  <a href="/pages/complete-japanese-kanji-for-n5-n4-n3.html">
-                    人 Kanji Library
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/pages/complete-japanese-grammar-for-jlpt-jft-exam.html"
-                  >
-                    法 Grammar Rules
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/pages/complete-japanese-jlpt-jft-vocabulary-and-conversation.html"
-                  >
-                    語 Vocabulary Library
-                  </a>
-                </li>
-                <li>
-                  <a href="/pages/japanese-hiragana-katakana-lessons.html">
-                    あ Hiragana &amp; Katakana
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="nav-dropdown">
-            <div class="nav-accordion">
-              練 Practice
-              <svg class="arrow" height="20" width="20">
-                <use
-                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
-                ></use>
-              </svg>
-            </div>
-            <div class="accordion-content nav-dropdown-content">
-              <ul>
-                <li>
-                  <a href="/pages/japanese-kanji-shortlisted-quiz.html">
-                    聞 Kanji Practice
-                  </a>
-                </li>
-                <li>
-                  <a href="/pages/japanese-reading-practice.html">
-                    書 Reading Practice
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/pages/complete-japanese-alphabet-hiragana-katakana-practice.html"
-                    >あ Alphabet Practice</a
-                  >
-                </li>
-                <li>
-                  <a href="/pages/japanese-grammar-quiz.html">
-                    会 Grammar Practice
-                  </a>
-                </li>
-                <li>
-                  <a href="/pages/japanese-vocabulary-quiz.html">
-                    語 Vocabulary Practice
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="nav-dropdown">
-            <div class="nav-accordion">
-              報 Latest News
-              <svg class="arrow" height="20" width="20">
-                <use
-                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
-                ></use>
-              </svg>
-            </div>
-            <div class="accordion-content nav-dropdown-content">
-              <ul>
-                <li>
-                  <a href="/pages/japanese-visa-news.html"> 報 VISA News </a>
-                </li>
-                <li>
-                  <a href="/pages/japanese-student-visa-opportunities.html">
-                    校 Study in Japan
-                  </a>
-                </li>
-                <li>
-                  <a href="/pages/japanese-job-opportunities.html">
-                    職 Job Opportunities
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="nav-dropdown">
-            <div class="nav-accordion">
-              技 Tips &amp; Tricks
-              <svg class="arrow" height="20" width="20">
-                <use
-                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
-                ></use>
-              </svg>
-            </div>
-            <div class="accordion-content nav-dropdown-content">
-              <ul>
-                <li>
-                  <a href="/pages/japanese-study-plans.html">
-                    計 Study Plans
-                  </a>
-                </li>
-                <li>
-                  <a href="/pages/japanese-pronunciation-tips.html">
-                    音 Pronunciation Tips
-                  </a>
-                </li>
-                <li>
-                  <a href="/pages/kanji-memory-hacks.html">
-                    記 Kanji Memory Hacks
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+    <header>
+      <div class="bar">
+        <a class="brand" href="/" aria-label="Quotient home"
+          >Quotient<i>.</i></a
+        >
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="#topics">Topics</a></li>
+            <li>
+              <a href="/o-level/additional-math/solution-manual.html"
+                >Add Math</a
+              >
+            </li>
+            <li><a href="/o-level/math-d/solution-manual.html">Math D</a></li>
+            <li>
+              <a
+                class="btn"
+                href="/o-level/additional-math/chapter-9-trigonometry.html"
+                >Start learning</a
+              >
+            </li>
+          </ul>
         </nav>
-        <div
-          aria-label="Social media links"
-          class="header-social"
-          id="header-social"
-        >
-          <a
-            href="https://www.facebook.com/profile.php?id=61582101913054"
-            rel="noopener me"
-            target="_blank"
-            ><svg class="header-icon" height="26" width="26">
-              <use
-                href="/assets/icons/svg-sprite.svg#icon-facebook"
-              ></use></svg></a
-          ><a
-            href="https://www.instagram.com/japanify.bd"
-            rel="noopener me"
-            target="_blank"
-            ><svg class="header-icon" height="26" width="26">
-              <use
-                href="/assets/icons/svg-sprite.svg#icon-instagram"
-              ></use></svg></a
-          ><a
-            href="https://www.youtube.com/channel/UCFaz9d1uR-BTut3dcYRybWw"
-            rel="noopener me"
-            target="_blank"
-            ><svg class="header-icon" height="26" width="26">
-              <use href="/assets/icons/svg-sprite.svg#icon-youtube"></use>
-            </svg>
-          </a>
+      </div>
+    </header>
+    <!-- Dynamic Content Hero Banner Area Section Module Block -->
+      <div class="wrap hero">
+        <div>
+          <h1>{title}</h1>
+          <h2>{hero_subtitle}</h2>
+          <p>
+            {hero_description}
+          </p>
+          <div class="cta">
+            <a class="btn" href="#topics">Browse topics</a>
+            <a class="btn alt" href="#example">See a lesson</a>
+          </div>
         </div>
-        <button
-          aria-controls="fullscreen-menu"
-          aria-expanded="false"
-          aria-label="Toggle Menu"
-          class="hamburger-menu"
-          id="hamburger-toggle"
-        >
-          <span></span><span></span><span></span>
-        </button>
-      </header>
-      <div aria-hidden="true" class="fullscreen-menu" id="fullscreen-menu">
-        <div class="menu-content">
-          <nav class="header-nav" id="mobile-js-nav"></nav>
-          <div class="menu-footer">
-            <div class="header-social" id="mobile-js-social"></div>
+        <div class="plot" aria-label="Interactive unit circle showing quadrant and trigonometric ratios">
+          <div class="eq">
+            <span id="eq">θ = 45°</span><small></small>
+          </div>
+          <svg id="unitCircleSvg" viewBox="-1.35 -1.35 2.7 2.7" role="img" aria-label="Unit circle with angle and projections">
+            <!-- grid -->
+            <g stroke="#ede6de" stroke-width="0.005" stroke-dasharray="0.02 0.02">
+              <line x1="-1.3" y1="-0.5" x2="1.3" y2="-0.5" />
+              <line x1="-1.3" y1="0.5" x2="1.3" y2="0.5" />
+              <line x1="-0.5" y1="-1.3" x2="-0.5" y2="1.3" />
+              <line x1="0.5" y1="-1.3" x2="0.5" y2="1.3" />
+            </g>
+
+            <!-- quadrant tints -->
+            <rect x="0" y="-1.25" width="1.25" height="1.25" fill="#fd4239" fill-opacity="0.03" />
+            <rect x="-1.25" y="-1.25" width="1.25" height="1.25" fill="#39a8fd" fill-opacity="0.03" />
+            <rect x="-1.25" y="0" width="1.25" height="1.25" fill="#c9a227" fill-opacity="0.03" />
+            <rect x="0" y="0" width="1.25" height="1.25" fill="#3aa86b" fill-opacity="0.03" />
+
+            <g font-family="STIX Two Text, serif" font-size="0.22" font-weight="600" fill="#5c4e4d" opacity="0.35" text-anchor="middle" dominant-baseline="middle">
+              <text x="0.65" y="-0.65">All</text>
+              <text x="-0.65" y="-0.65">Sin</text>
+              <text x="-0.65" y="0.65">Tan</text>
+              <text x="0.65" y="0.65">Cos</text>
+            </g>
+
+            <!-- axes -->
+            <g stroke="#1a1514" stroke-width="0.015">
+              <line x1="-1.25" y1="0" x2="1.25" y2="0" />
+              <line x1="0" y1="1.25" x2="0" y2="-1.25" />
+            </g>
+
+            <!-- unit circle -->
+            <circle cx="0" cy="0" r="1" fill="none" stroke="#1a1514" stroke-width="0.012" />
+
+            <!-- ticks -->
+            <g font-family="STIX Two Text, serif" font-size="0.07" fill="#5c4e4d" text-anchor="middle">
+              <text x="1.1" y="0.13">1</text>
+              <text x="-1.1" y="0.13">−1</text>
+              <text x="-0.1" y="-1.06">1</text>
+              <text x="-0.1" y="1.14">−1</text>
+              <text x="1.28" y="-0.04" font-size="0.08">0 / 2π</text>
+              <text x="0" y="-1.3" font-size="0.08">½π</text>
+              <text x="-1.3" y="-0.04" font-size="0.08">π</text>
+              <text x="0" y="1.34" font-size="0.08">1.5π</text>
+            </g>
+
+            <!-- angle sector -->
+            <path id="angleArc" fill="rgba(253,66,57,0.12)" stroke="#fd4239" stroke-width="0.01" />
+
+            <!-- projections -->
+            <line id="cosLine" x1="0" y1="0" x2="1" y2="0" stroke="#39a8fd" stroke-width="0.022" stroke-linecap="round" />
+            <line id="sinLine" x1="1" y1="0" x2="1" y2="-1" stroke="#3aa86b" stroke-width="0.022" stroke-linecap="round" />
+            <line id="hypLine" x1="0" y1="0" x2="1" y2="-1" stroke="#1a1514" stroke-width="0.014" />
+
+            <!-- moving point -->
+            <g id="pt">
+              <circle id="pointP" cx="1" cy="0" r="0.045" fill="#39a8fd" stroke="#1a1514" stroke-width="0.015" />
+              <text id="pointLabel" x="1.08" y="-0.08" font-family="STIX Two Text, serif" font-style="italic" font-size="0.075" fill="#1a1514">P(1.00, 0.00)</text>
+            </g>
+
+            <text id="angleArcText" x="0.25" y="-0.1" font-family="STIX Two Text, serif" font-size="0.075" fill="#fd4239" font-style="italic">θ</text>
+          </svg>
+
+          <div class="ctrl">
+            <label for="angleSlider">θ</label>
+            <input id="angleSlider" type="range" min="0" max="360" step="1" value="45" />
+            <output id="angleDisplay">45°</output>
+
+            <label for="unitToggle" style="margin-left:auto">unit</label>
+            <select id="unitToggle" style="font-family:inherit;font-size:14px;background:transparent;border:1px solid var(--grid);border-radius:6px;padding:2px 6px;color:var(--ink)">
+              <option value="deg">deg</option>
+              <option value="rad">rad</option>
+            </select>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Dynamic Content Hero Banner Area Section Module Block -->
-    <section class="hero-section">
-        <div class="hero-container">
-            <h1>{title}</h1>
-            {hero_subtitle}
-            {hero_description}
-        </div>
-    </section>
 
     <!-- Primary Content Grid Flow Block Container -->
     <main>
@@ -519,6 +386,11 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       src="/assets/javascripts/main.js"
       type="module"
     ></script>
+    <script
+      nonce="&lt;?= $csp_nonce ?&gt;"
+      src="/assets/javascripts/circle.js"
+      type="module"
+    ></script>
 </body>
 </html>
 """
@@ -641,7 +513,7 @@ def generate_html(data, output_path):
             content_html += f'    <p class="question">{html.escape(str(prob_id))}. \\( {question} \\)</p>\n'
 
             if steps:
-                content_html += '    <div class="steps">\n'
+                content_html += '    <div class="m-steps">\n'
                 for step in steps:
                     step_str = step.strip()
                     # 1. Starting pattern: "LHS = ..." or "RHS = ..."
@@ -653,7 +525,7 @@ def generate_html(data, output_path):
                         side_label = start_match.group(1)
                         math_expression = start_match.group(2)
                         content_html += (
-                            f'      <div class="step">'
+                            f'      <div class="m-step">'
                             f'<span class="step-side-label">{side_label}</span>'
                             f'\\[ = {math_expression} \\]'
                             f'</div>\n'
@@ -666,13 +538,13 @@ def generate_html(data, output_path):
                         else:
                             display_math = f'\\[ = {math_expression} \\]'
                         content_html += (
-                            f'      <div class="step">'
+                            f'      <div class="m-step">'
                             f'{display_math}'
                             f'<span class="step-side-label step-side-label-end">{side_label}</span>'
                             f'</div>\n'
                         )
                     else:
-                        content_html += f'      <div class="step">\\[ {step_str} \\]</div>\n'
+                        content_html += f'      <div class="m-step">\\[ {step_str} \\]</div>\n'
                 content_html += '    </div>\n'
 
             content_html += '  </div>\n'
@@ -696,46 +568,47 @@ def generate_html(data, output_path):
         f.write(final_html)
     print(f"✅ Generated: {output_path}")
 
+
 def slugify(text):
     """Turn 'Trigonometric Graphs and Absolute Values' →
        'trigonometric-graphs-and-absolute-values'.
        Dots also become hyphens, so '9.5' → '9-5'."""
     text = text.lower().strip()
     text = re.sub(r'[^\w\s.-]', '', text)   # keep letters/digits/dot/hyphen
-    text = re.sub(r'[\s_.]+', '-', text)    # spaces, underscores, AND dots → hyphen  ← change
+    text = re.sub(r'[\s_.]+', '-', text)    # spaces, underscores, AND dots → hyphen
     text = re.sub(r'-{2,}', '-', text)      # collapse repeated hyphens
     return text.strip('-')
 
 
 def make_output_filename(js_file, title):
     """
-    Build the output filename from the JS filename prefix + slugified title.
-
-      9.5-data.js + "9.5: Trigonometric Graphs and Absolute Values"
-        → 9-5-trigonometric-graphs-and-absolute-values.html
-
-      9.7-data.js + "9.7: Proving Trigonometric Identities"
-        → 9-7-proving-trigonometric-identities.html
+    Build the output filename from the JS filename prefix + slugified title,
+    combined with the target OUTPUT_DIR path.
     """
     # Numeric prefix comes from the JS filename — always unique per file.
-    # Feed it through slugify so "9.5" → "9-5".
     base_raw = re.sub(r'-data\.js$', '', js_file, flags=re.I).strip()
-    base = slugify(base_raw)   # ← was: base_raw directly
+    base = slugify(base_raw)
 
     # Strip any leading "9.5:", "9.7 -", "12." etc. from the title text
     title_body = re.sub(r'^\s*[\d.]+\s*[:\-–—.]?\s*', '', title or '')
     slug = slugify(title_body)
 
     if base and slug:
-        return f"{base}-{slug}.html"
-    if base:
-        return f"{base}.html"
-    if slug:
-        return f"{slug}.html"
-    return "untitled.html"
+        filename = f"{base}-{slug}.html"
+    elif base:
+        filename = f"{base}.html"
+    elif slug:
+        filename = f"{slug}.html"
+    else:
+        filename = "untitled.html"
+
+    return OUTPUT_DIR / filename
 
 
 def main():
+    # Ensure the output directory structure exists before writing files
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
     js_files = sorted(glob.glob('*-data.js'))
     if not js_files:
         print("❌ No files matching '*-data.js' found in the current directory.")
@@ -759,7 +632,8 @@ def main():
                 print(f"   ⚠️  collision: {output_file} already written by {seen_outputs[output_file]}")
             seen_outputs[output_file] = js_file
 
-            generate_html(data, output_file)
+            # Convert output_file Path object to string for file writing
+            generate_html(data, str(output_file))
         except Exception as e:
             print(f"❌ Failed to process {js_file}: {e}")
 

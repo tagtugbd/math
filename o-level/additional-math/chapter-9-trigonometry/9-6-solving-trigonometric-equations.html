@@ -34,259 +34,123 @@
     </script>
     <script id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-    <style>
-        /* Embedded styling rule overrides requested for step labels */
-        .step-side-label {
-            font-weight: 700;
-            color: var(--primary);
-            display: block;
-            margin-bottom: 0.25rem;
-        }
-    </style>
 </head>
 <body>
-
-    <!-- Integrated Native Page Loader Engine Wrapper Structure -->
-    <div id="loader-wrapper">
-      <div aria-label="Loading Japanify" class="brand-loader" role="status">
-        <div class="ring"></div>
-        <span class="brand-text"> Japanify </span>
-      </div>
-    </div>
-    <script>
-      (function () {
-        const loader = document.getElementById("loader-wrapper");
-        const body = document.body;
-        if (loader) {
-          body.classList.add("loading-active");
-          const hideLoader = () => {
-            if (!loader) return;
-            loader.style.opacity = "0";
-            setTimeout(() => {
-              loader.remove();
-              body.classList.remove("loading-active");
-            }, 400);
-          };
-          window.addEventListener("load", hideLoader);
-          setTimeout(() => {
-            if (document.getElementById("loader-wrapper")) hideLoader();
-          }, 4000);
-        }
-      })();
-    </script>
-
-    <!-- Permanent Brand Site Header Navigation Bar Area Component -->
-    <div class="mobile-header-container">
-      <header class="mobile-header">
-        <div class="logo">
-          <a aria-label="Japanify Home" href="/"
-            ><img
-              alt="Japanify - Learn Japanese Online"
-              height="33"
-              src="/assets/images/logo.svg"
-              width="105"
-          /></a>
-        </div>
-        <nav aria-label="Main navigation" class="header-nav" id="header-nav">
-          <div class="nav-dropdown">
-            <div class="nav-accordion">
-              学 Learn
-              <svg class="arrow" height="20" width="20">
-                <use
-                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
-                ></use>
-              </svg>
-            </div>
-            <div class="accordion-content nav-dropdown-content">
-              <ul>
-                <li>
-                  <a href="/pages/Japanese-full-lessons-jlpt-jft-online.html">
-                    課 Full Lessons
-                  </a>
-                </li>
-                <li>
-                  <a href="/pages/complete-japanese-kanji-for-n5-n4-n3.html">
-                    人 Kanji Library
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/pages/complete-japanese-grammar-for-jlpt-jft-exam.html"
-                  >
-                    法 Grammar Rules
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/pages/complete-japanese-jlpt-jft-vocabulary-and-conversation.html"
-                  >
-                    語 Vocabulary Library
-                  </a>
-                </li>
-                <li>
-                  <a href="/pages/japanese-hiragana-katakana-lessons.html">
-                    あ Hiragana &amp; Katakana
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="nav-dropdown">
-            <div class="nav-accordion">
-              練 Practice
-              <svg class="arrow" height="20" width="20">
-                <use
-                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
-                ></use>
-              </svg>
-            </div>
-            <div class="accordion-content nav-dropdown-content">
-              <ul>
-                <li>
-                  <a href="/pages/japanese-kanji-shortlisted-quiz.html">
-                    聞 Kanji Practice
-                  </a>
-                </li>
-                <li>
-                  <a href="/pages/japanese-reading-practice.html">
-                    書 Reading Practice
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/pages/complete-japanese-alphabet-hiragana-katakana-practice.html"
-                    >あ Alphabet Practice</a
-                  >
-                </li>
-                <li>
-                  <a href="/pages/japanese-grammar-quiz.html">
-                    会 Grammar Practice
-                  </a>
-                </li>
-                <li>
-                  <a href="/pages/japanese-vocabulary-quiz.html">
-                    語 Vocabulary Practice
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="nav-dropdown">
-            <div class="nav-accordion">
-              報 Latest News
-              <svg class="arrow" height="20" width="20">
-                <use
-                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
-                ></use>
-              </svg>
-            </div>
-            <div class="accordion-content nav-dropdown-content">
-              <ul>
-                <li>
-                  <a href="/pages/japanese-visa-news.html"> 報 VISA News </a>
-                </li>
-                <li>
-                  <a href="/pages/japanese-student-visa-opportunities.html">
-                    校 Study in Japan
-                  </a>
-                </li>
-                <li>
-                  <a href="/pages/japanese-job-opportunities.html">
-                    職 Job Opportunities
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="nav-dropdown">
-            <div class="nav-accordion">
-              技 Tips &amp; Tricks
-              <svg class="arrow" height="20" width="20">
-                <use
-                  href="/assets/icons/svg-sprite.svg#icon-chevron-down"
-                ></use>
-              </svg>
-            </div>
-            <div class="accordion-content nav-dropdown-content">
-              <ul>
-                <li>
-                  <a href="/pages/japanese-study-plans.html">
-                    計 Study Plans
-                  </a>
-                </li>
-                <li>
-                  <a href="/pages/japanese-pronunciation-tips.html">
-                    音 Pronunciation Tips
-                  </a>
-                </li>
-                <li>
-                  <a href="/pages/kanji-memory-hacks.html">
-                    記 Kanji Memory Hacks
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+    <header>
+      <div class="bar">
+        <a class="brand" href="/" aria-label="Quotient home"
+          >Quotient<i>.</i></a
+        >
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="#topics">Topics</a></li>
+            <li>
+              <a href="/o-level/additional-math/solution-manual.html"
+                >Add Math</a
+              >
+            </li>
+            <li><a href="/o-level/math-d/solution-manual.html">Math D</a></li>
+            <li>
+              <a
+                class="btn"
+                href="/o-level/additional-math/chapter-9-trigonometry.html"
+                >Start learning</a
+              >
+            </li>
+          </ul>
         </nav>
-        <div
-          aria-label="Social media links"
-          class="header-social"
-          id="header-social"
-        >
-          <a
-            href="https://www.facebook.com/profile.php?id=61582101913054"
-            rel="noopener me"
-            target="_blank"
-            ><svg class="header-icon" height="26" width="26">
-              <use
-                href="/assets/icons/svg-sprite.svg#icon-facebook"
-              ></use></svg></a
-          ><a
-            href="https://www.instagram.com/japanify.bd"
-            rel="noopener me"
-            target="_blank"
-            ><svg class="header-icon" height="26" width="26">
-              <use
-                href="/assets/icons/svg-sprite.svg#icon-instagram"
-              ></use></svg></a
-          ><a
-            href="https://www.youtube.com/channel/UCFaz9d1uR-BTut3dcYRybWw"
-            rel="noopener me"
-            target="_blank"
-            ><svg class="header-icon" height="26" width="26">
-              <use href="/assets/icons/svg-sprite.svg#icon-youtube"></use>
-            </svg>
-          </a>
+      </div>
+    </header>
+    <!-- Dynamic Content Hero Banner Area Section Module Block -->
+      <div class="wrap hero">
+        <div>
+          <h1>9.6: Solving Trigonometric Equations</h1>
+          <h2><h2>Finding angles using inverse functions, factorisation, and quadratic methods</h2></h2>
+          <p>
+            <p>Master the techniques for solving trigonometric equations in degrees and radians. This lesson covers basic inverse trigonometric equations, compound angles, homogeneous equations (using the tangent identity), and quadratic equations in trigonometric functions within specific domains.</p>
+          </p>
+          <div class="cta">
+            <a class="btn" href="#topics">Browse topics</a>
+            <a class="btn alt" href="#example">See a lesson</a>
+          </div>
         </div>
-        <button
-          aria-controls="fullscreen-menu"
-          aria-expanded="false"
-          aria-label="Toggle Menu"
-          class="hamburger-menu"
-          id="hamburger-toggle"
-        >
-          <span></span><span></span><span></span>
-        </button>
-      </header>
-      <div aria-hidden="true" class="fullscreen-menu" id="fullscreen-menu">
-        <div class="menu-content">
-          <nav class="header-nav" id="mobile-js-nav"></nav>
-          <div class="menu-footer">
-            <div class="header-social" id="mobile-js-social"></div>
+        <div class="plot" aria-label="Interactive unit circle showing quadrant and trigonometric ratios">
+          <div class="eq">
+            <span id="eq">θ = 45°</span><small></small>
+          </div>
+          <svg id="unitCircleSvg" viewBox="-1.35 -1.35 2.7 2.7" role="img" aria-label="Unit circle with angle and projections">
+            <!-- grid -->
+            <g stroke="#ede6de" stroke-width="0.005" stroke-dasharray="0.02 0.02">
+              <line x1="-1.3" y1="-0.5" x2="1.3" y2="-0.5" />
+              <line x1="-1.3" y1="0.5" x2="1.3" y2="0.5" />
+              <line x1="-0.5" y1="-1.3" x2="-0.5" y2="1.3" />
+              <line x1="0.5" y1="-1.3" x2="0.5" y2="1.3" />
+            </g>
+
+            <!-- quadrant tints -->
+            <rect x="0" y="-1.25" width="1.25" height="1.25" fill="#fd4239" fill-opacity="0.03" />
+            <rect x="-1.25" y="-1.25" width="1.25" height="1.25" fill="#39a8fd" fill-opacity="0.03" />
+            <rect x="-1.25" y="0" width="1.25" height="1.25" fill="#c9a227" fill-opacity="0.03" />
+            <rect x="0" y="0" width="1.25" height="1.25" fill="#3aa86b" fill-opacity="0.03" />
+
+            <g font-family="STIX Two Text, serif" font-size="0.22" font-weight="600" fill="#5c4e4d" opacity="0.35" text-anchor="middle" dominant-baseline="middle">
+              <text x="0.65" y="-0.65">All</text>
+              <text x="-0.65" y="-0.65">Sin</text>
+              <text x="-0.65" y="0.65">Tan</text>
+              <text x="0.65" y="0.65">Cos</text>
+            </g>
+
+            <!-- axes -->
+            <g stroke="#1a1514" stroke-width="0.015">
+              <line x1="-1.25" y1="0" x2="1.25" y2="0" />
+              <line x1="0" y1="1.25" x2="0" y2="-1.25" />
+            </g>
+
+            <!-- unit circle -->
+            <circle cx="0" cy="0" r="1" fill="none" stroke="#1a1514" stroke-width="0.012" />
+
+            <!-- ticks -->
+            <g font-family="STIX Two Text, serif" font-size="0.07" fill="#5c4e4d" text-anchor="middle">
+              <text x="1.1" y="0.13">1</text>
+              <text x="-1.1" y="0.13">−1</text>
+              <text x="-0.1" y="-1.06">1</text>
+              <text x="-0.1" y="1.14">−1</text>
+              <text x="1.28" y="-0.04" font-size="0.08">0 / 2π</text>
+              <text x="0" y="-1.3" font-size="0.08">½π</text>
+              <text x="-1.3" y="-0.04" font-size="0.08">π</text>
+              <text x="0" y="1.34" font-size="0.08">1.5π</text>
+            </g>
+
+            <!-- angle sector -->
+            <path id="angleArc" fill="rgba(253,66,57,0.12)" stroke="#fd4239" stroke-width="0.01" />
+
+            <!-- projections -->
+            <line id="cosLine" x1="0" y1="0" x2="1" y2="0" stroke="#39a8fd" stroke-width="0.022" stroke-linecap="round" />
+            <line id="sinLine" x1="1" y1="0" x2="1" y2="-1" stroke="#3aa86b" stroke-width="0.022" stroke-linecap="round" />
+            <line id="hypLine" x1="0" y1="0" x2="1" y2="-1" stroke="#1a1514" stroke-width="0.014" />
+
+            <!-- moving point -->
+            <g id="pt">
+              <circle id="pointP" cx="1" cy="0" r="0.045" fill="#39a8fd" stroke="#1a1514" stroke-width="0.015" />
+              <text id="pointLabel" x="1.08" y="-0.08" font-family="STIX Two Text, serif" font-style="italic" font-size="0.075" fill="#1a1514">P(1.00, 0.00)</text>
+            </g>
+
+            <text id="angleArcText" x="0.25" y="-0.1" font-family="STIX Two Text, serif" font-size="0.075" fill="#fd4239" font-style="italic">θ</text>
+          </svg>
+
+          <div class="ctrl">
+            <label for="angleSlider">θ</label>
+            <input id="angleSlider" type="range" min="0" max="360" step="1" value="45" />
+            <output id="angleDisplay">45°</output>
+
+            <label for="unitToggle" style="margin-left:auto">unit</label>
+            <select id="unitToggle" style="font-family:inherit;font-size:14px;background:transparent;border:1px solid var(--grid);border-radius:6px;padding:2px 6px;color:var(--ink)">
+              <option value="deg">deg</option>
+              <option value="rad">rad</option>
+            </select>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Dynamic Content Hero Banner Area Section Module Block -->
-    <section class="hero-section">
-        <div class="hero-container">
-            <h1>9.6: Solving Trigonometric Equations</h1>
-            <h2>Finding angles using inverse functions, factorisation, and quadratic methods</h2>
-            <p>Master the techniques for solving trigonometric equations in degrees and radians. This lesson covers basic inverse trigonometric equations, compound angles, homogeneous equations (using the tangent identity), and quadratic equations in trigonometric functions within specific domains.</p>
-        </div>
-    </section>
 
     <!-- Primary Content Grid Flow Block Container -->
     <main>
@@ -294,76 +158,76 @@
   <h2 class="section-heading">1. Solve each of these equations for 0° &lt; x ≤ 360°.</h2>
   <div class="problem" id="p-1-1a">
     <p class="question">1a. \( \sin x = 0.3 \)</p>
-    <div class="steps">
-      <div class="step">\[ x = \sin^{-1}(0.3) \approx 17.46^\circ \]</div>
-      <div class="step">\[ \text{Since } \sin x \text{ is positive, solutions are in Q1 and Q2.} \]</div>
-      <div class="step">\[ x_1 \approx 17.46^\circ \]</div>
-      <div class="step">\[ x_2 = 180^\circ - 17.46^\circ = 162.54^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ x = \sin^{-1}(0.3) \approx 17.46^\circ \]</div>
+      <div class="m-step">\[ \text{Since } \sin x \text{ is positive, solutions are in Q1 and Q2.} \]</div>
+      <div class="m-step">\[ x_1 \approx 17.46^\circ \]</div>
+      <div class="m-step">\[ x_2 = 180^\circ - 17.46^\circ = 162.54^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-1-1b">
     <p class="question">1b. \( \cos x = 0.2 \)</p>
-    <div class="steps">
-      <div class="step">\[ x = \cos^{-1}(0.2) \approx 78.46^\circ \]</div>
-      <div class="step">\[ \text{Since } \cos x \text{ is positive, solutions are in Q1 and Q4.} \]</div>
-      <div class="step">\[ x_1 \approx 78.46^\circ \]</div>
-      <div class="step">\[ x_2 = 360^\circ - 78.46^\circ = 281.54^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ x = \cos^{-1}(0.2) \approx 78.46^\circ \]</div>
+      <div class="m-step">\[ \text{Since } \cos x \text{ is positive, solutions are in Q1 and Q4.} \]</div>
+      <div class="m-step">\[ x_1 \approx 78.46^\circ \]</div>
+      <div class="m-step">\[ x_2 = 360^\circ - 78.46^\circ = 281.54^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-1-1c">
     <p class="question">1c. \( \tan x = 2 \)</p>
-    <div class="steps">
-      <div class="step">\[ x = \tan^{-1}(2) \approx 63.43^\circ \]</div>
-      <div class="step">\[ \text{Since } \tan x \text{ is positive, solutions are in Q1 and Q3.} \]</div>
-      <div class="step">\[ x_1 \approx 63.43^\circ \]</div>
-      <div class="step">\[ x_2 = 180^\circ + 63.43^\circ = 243.43^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ x = \tan^{-1}(2) \approx 63.43^\circ \]</div>
+      <div class="m-step">\[ \text{Since } \tan x \text{ is positive, solutions are in Q1 and Q3.} \]</div>
+      <div class="m-step">\[ x_1 \approx 63.43^\circ \]</div>
+      <div class="m-step">\[ x_2 = 180^\circ + 63.43^\circ = 243.43^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-1-1d">
     <p class="question">1d. \( \sin x = -0.6 \)</p>
-    <div class="steps">
-      <div class="step">\[ \text{Principal value: } x = \sin^{-1}(-0.6) \approx -36.87^\circ \]</div>
-      <div class="step">\[ \text{Since } \sin x \text{ is negative, solutions are in Q3 and Q4.} \]</div>
-      <div class="step">\[ x_1 = 180^\circ - (-36.87^\circ) = 216.87^\circ \]</div>
-      <div class="step">\[ x_2 = 360^\circ + (-36.87^\circ) = 323.13^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Principal value: } x = \sin^{-1}(-0.6) \approx -36.87^\circ \]</div>
+      <div class="m-step">\[ \text{Since } \sin x \text{ is negative, solutions are in Q3 and Q4.} \]</div>
+      <div class="m-step">\[ x_1 = 180^\circ - (-36.87^\circ) = 216.87^\circ \]</div>
+      <div class="m-step">\[ x_2 = 360^\circ + (-36.87^\circ) = 323.13^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-1-1e">
     <p class="question">1e. \( \tan x = -1.4 \)</p>
-    <div class="steps">
-      <div class="step">\[ \text{Principal value: } x = \tan^{-1}(-1.4) \approx -54.46^\circ \]</div>
-      <div class="step">\[ \text{Since } \tan x \text{ is negative, solutions are in Q2 and Q4.} \]</div>
-      <div class="step">\[ x_1 = 180^\circ - 54.46^\circ = 125.54^\circ \]</div>
-      <div class="step">\[ x_2 = 360^\circ - 54.46^\circ = 305.54^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Principal value: } x = \tan^{-1}(-1.4) \approx -54.46^\circ \]</div>
+      <div class="m-step">\[ \text{Since } \tan x \text{ is negative, solutions are in Q2 and Q4.} \]</div>
+      <div class="m-step">\[ x_1 = 180^\circ - 54.46^\circ = 125.54^\circ \]</div>
+      <div class="m-step">\[ x_2 = 360^\circ - 54.46^\circ = 305.54^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-1-1f">
     <p class="question">1f. \( \sin x = -0.8 \)</p>
-    <div class="steps">
-      <div class="step">\[ \text{Principal value: } x = \sin^{-1}(-0.8) \approx -53.13^\circ \]</div>
-      <div class="step">\[ \text{Since } \sin x \text{ is negative, solutions are in Q3 and Q4.} \]</div>
-      <div class="step">\[ x_1 = 180^\circ + 53.13^\circ = 233.13^\circ \]</div>
-      <div class="step">\[ x_2 = 360^\circ - 53.13^\circ = 306.87^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Principal value: } x = \sin^{-1}(-0.8) \approx -53.13^\circ \]</div>
+      <div class="m-step">\[ \text{Since } \sin x \text{ is negative, solutions are in Q3 and Q4.} \]</div>
+      <div class="m-step">\[ x_1 = 180^\circ + 53.13^\circ = 233.13^\circ \]</div>
+      <div class="m-step">\[ x_2 = 360^\circ - 53.13^\circ = 306.87^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-1-1g">
     <p class="question">1g. \( 4\sin x - 3 = 0 \)</p>
-    <div class="steps">
-      <div class="step">\[ 4\sin x = 3 \implies \sin x = 0.75 \]</div>
-      <div class="step">\[ x = \sin^{-1}(0.75) \approx 48.59^\circ \]</div>
-      <div class="step">\[ \text{Positive sine means Q1 and Q2.} \]</div>
-      <div class="step">\[ x_1 \approx 48.59^\circ \]</div>
-      <div class="step">\[ x_2 = 180^\circ - 48.59^\circ = 131.41^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ 4\sin x = 3 \implies \sin x = 0.75 \]</div>
+      <div class="m-step">\[ x = \sin^{-1}(0.75) \approx 48.59^\circ \]</div>
+      <div class="m-step">\[ \text{Positive sine means Q1 and Q2.} \]</div>
+      <div class="m-step">\[ x_1 \approx 48.59^\circ \]</div>
+      <div class="m-step">\[ x_2 = 180^\circ - 48.59^\circ = 131.41^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-1-1h">
     <p class="question">1h. \( 2\cos x + 1 = 0 \)</p>
-    <div class="steps">
-      <div class="step">\[ 2\cos x = -1 \implies \cos x = -0.5 \]</div>
-      <div class="step">\[ x = \cos^{-1}(-0.5) = 120^\circ \]</div>
-      <div class="step">\[ \text{Negative cosine means Q2 and Q3.} \]</div>
-      <div class="step">\[ x_1 = 120^\circ \]</div>
-      <div class="step">\[ x_2 = 360^\circ - 120^\circ = 240^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ 2\cos x = -1 \implies \cos x = -0.5 \]</div>
+      <div class="m-step">\[ x = \cos^{-1}(-0.5) = 120^\circ \]</div>
+      <div class="m-step">\[ \text{Negative cosine means Q2 and Q3.} \]</div>
+      <div class="m-step">\[ x_1 = 120^\circ \]</div>
+      <div class="m-step">\[ x_2 = 360^\circ - 120^\circ = 240^\circ \]</div>
     </div>
   </div>
 </section>
@@ -371,75 +235,75 @@
   <h2 class="section-heading">2. Solve each of these equations for 0 &lt; x &lt; 2π.</h2>
   <div class="problem" id="p-2-2a">
     <p class="question">2a. \( \cos x = 0.5 \)</p>
-    <div class="steps">
-      <div class="step">\[ \text{Reference angle: } \cos^{-1}(0.5) = \frac{\pi}{3} \]</div>
-      <div class="step">\[ \text{Positive cosine means Q1 and Q4.} \]</div>
-      <div class="step">\[ x_1 = \frac{\pi}{3} \]</div>
-      <div class="step">\[ x_2 = 2\pi - \frac{\pi}{3} = \frac{5\pi}{3} \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Reference angle: } \cos^{-1}(0.5) = \frac{\pi}{3} \]</div>
+      <div class="m-step">\[ \text{Positive cosine means Q1 and Q4.} \]</div>
+      <div class="m-step">\[ x_1 = \frac{\pi}{3} \]</div>
+      <div class="m-step">\[ x_2 = 2\pi - \frac{\pi}{3} = \frac{5\pi}{3} \]</div>
     </div>
   </div>
   <div class="problem" id="p-2-2b">
     <p class="question">2b. \( \tan x = 0.2 \)</p>
-    <div class="steps">
-      <div class="step">\[ x = \tan^{-1}(0.2) \approx 0.197 \text{ radians} \]</div>
-      <div class="step">\[ \text{Positive tangent means Q1 and Q3.} \]</div>
-      <div class="step">\[ x_1 \approx 0.197 \]</div>
-      <div class="step">\[ x_2 = \pi + 0.197 \approx 3.339 \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ x = \tan^{-1}(0.2) \approx 0.197 \text{ radians} \]</div>
+      <div class="m-step">\[ \text{Positive tangent means Q1 and Q3.} \]</div>
+      <div class="m-step">\[ x_1 \approx 0.197 \]</div>
+      <div class="m-step">\[ x_2 = \pi + 0.197 \approx 3.339 \]</div>
     </div>
   </div>
   <div class="problem" id="p-2-2c">
     <p class="question">2c. \( \sin x = 2 \)</p>
-    <div class="steps">
-      <div class="step">\[ \text{The range of } \sin x \text{ is } [-1, 1]. \]</div>
-      <div class="step">\[ \text{Since } 2 > 1, \text{ there are no real solutions.} \]</div>
-      <div class="step">\[ \text{No solution.} \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{The range of } \sin x \text{ is } [-1, 1]. \]</div>
+      <div class="m-step">\[ \text{Since } 2 > 1, \text{ there are no real solutions.} \]</div>
+      <div class="m-step">\[ \text{No solution.} \]</div>
     </div>
   </div>
   <div class="problem" id="p-2-2d">
     <p class="question">2d. \( \tan x = -3 \)</p>
-    <div class="steps">
-      <div class="step">\[ \text{Principal value: } x = \tan^{-1}(-3) \approx -1.249 \]</div>
-      <div class="step">\[ \text{Negative tangent means Q2 and Q4.} \]</div>
-      <div class="step">\[ x_1 = \pi - 1.249 \approx 1.893 \]</div>
-      <div class="step">\[ x_2 = 2\pi - 1.249 \approx 5.034 \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Principal value: } x = \tan^{-1}(-3) \approx -1.249 \]</div>
+      <div class="m-step">\[ \text{Negative tangent means Q2 and Q4.} \]</div>
+      <div class="m-step">\[ x_1 = \pi - 1.249 \approx 1.893 \]</div>
+      <div class="m-step">\[ x_2 = 2\pi - 1.249 \approx 5.034 \]</div>
     </div>
   </div>
   <div class="problem" id="p-2-2e">
     <p class="question">2e. \( \sin x = -0.75 \)</p>
-    <div class="steps">
-      <div class="step">\[ \text{Principal value: } x = \sin^{-1}(-0.75) \approx -0.848 \]</div>
-      <div class="step">\[ \text{Negative sine means Q3 and Q4.} \]</div>
-      <div class="step">\[ x_1 = \pi + 0.848 \approx 3.990 \]</div>
-      <div class="step">\[ x_2 = 2\pi - 0.848 \approx 5.435 \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Principal value: } x = \sin^{-1}(-0.75) \approx -0.848 \]</div>
+      <div class="m-step">\[ \text{Negative sine means Q3 and Q4.} \]</div>
+      <div class="m-step">\[ x_1 = \pi + 0.848 \approx 3.990 \]</div>
+      <div class="m-step">\[ x_2 = 2\pi - 0.848 \approx 5.435 \]</div>
     </div>
   </div>
   <div class="problem" id="p-2-2f">
     <p class="question">2f. \( \cos x = -0.55 \)</p>
-    <div class="steps">
-      <div class="step">\[ x = \cos^{-1}(-0.55) \approx 2.153 \]</div>
-      <div class="step">\[ \text{Negative cosine means Q2 and Q3.} \]</div>
-      <div class="step">\[ x_1 \approx 2.153 \]</div>
-      <div class="step">\[ x_2 = 2\pi - 2.153 \approx 4.130 \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ x = \cos^{-1}(-0.55) \approx 2.153 \]</div>
+      <div class="m-step">\[ \text{Negative cosine means Q2 and Q3.} \]</div>
+      <div class="m-step">\[ x_1 \approx 2.153 \]</div>
+      <div class="m-step">\[ x_2 = 2\pi - 2.153 \approx 4.130 \]</div>
     </div>
   </div>
   <div class="problem" id="p-2-2g">
     <p class="question">2g. \( 4\sin x = 1 \)</p>
-    <div class="steps">
-      <div class="step">\[ \sin x = 0.25 \]</div>
-      <div class="step">\[ x = \sin^{-1}(0.25) \approx 0.253 \]</div>
-      <div class="step">\[ \text{Positive sine means Q1 and Q2.} \]</div>
-      <div class="step">\[ x_1 \approx 0.253 \]</div>
-      <div class="step">\[ x_2 = \pi - 0.253 \approx 2.889 \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \sin x = 0.25 \]</div>
+      <div class="m-step">\[ x = \sin^{-1}(0.25) \approx 0.253 \]</div>
+      <div class="m-step">\[ \text{Positive sine means Q1 and Q2.} \]</div>
+      <div class="m-step">\[ x_1 \approx 0.253 \]</div>
+      <div class="m-step">\[ x_2 = \pi - 0.253 \approx 2.889 \]</div>
     </div>
   </div>
   <div class="problem" id="p-2-2h">
     <p class="question">2h. \( 5\sin x + 2 = 0 \)</p>
-    <div class="steps">
-      <div class="step">\[ \sin x = -0.4 \]</div>
-      <div class="step">\[ \text{Principal value: } x = \sin^{-1}(-0.4) \approx -0.412 \]</div>
-      <div class="step">\[ \text{Negative sine means Q3 and Q4.} \]</div>
-      <div class="step">\[ x_1 = \pi + 0.412 \approx 3.553 \]</div>
-      <div class="step">\[ x_2 = 2\pi - 0.412 \approx 5.871 \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \sin x = -0.4 \]</div>
+      <div class="m-step">\[ \text{Principal value: } x = \sin^{-1}(-0.4) \approx -0.412 \]</div>
+      <div class="m-step">\[ \text{Negative sine means Q3 and Q4.} \]</div>
+      <div class="m-step">\[ x_1 = \pi + 0.412 \approx 3.553 \]</div>
+      <div class="m-step">\[ x_2 = 2\pi - 0.412 \approx 5.871 \]</div>
     </div>
   </div>
 </section>
@@ -447,82 +311,82 @@
   <h2 class="section-heading">3. Solve each of these equations for 0° &lt; x ≤ 180°.</h2>
   <div class="problem" id="p-3-3a">
     <p class="question">3a. \( \sin 2x = 0.8 \)</p>
-    <div class="steps">
-      <div class="step">\[ \text{Domain for } 2x \text{ is } 0^\circ < 2x \le 360^\circ. \]</div>
-      <div class="step">\[ 2x = \sin^{-1}(0.8) \approx 53.13^\circ \]</div>
-      <div class="step">\[ \text{Positive sine means Q1 and Q2.} \]</div>
-      <div class="step">\[ 2x_1 \approx 53.13^\circ \implies x_1 \approx 26.57^\circ \]</div>
-      <div class="step">\[ 2x_2 = 180^\circ - 53.13^\circ = 126.87^\circ \implies x_2 \approx 63.43^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Domain for } 2x \text{ is } 0^\circ < 2x \le 360^\circ. \]</div>
+      <div class="m-step">\[ 2x = \sin^{-1}(0.8) \approx 53.13^\circ \]</div>
+      <div class="m-step">\[ \text{Positive sine means Q1 and Q2.} \]</div>
+      <div class="m-step">\[ 2x_1 \approx 53.13^\circ \implies x_1 \approx 26.57^\circ \]</div>
+      <div class="m-step">\[ 2x_2 = 180^\circ - 53.13^\circ = 126.87^\circ \implies x_2 \approx 63.43^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-3-3b">
     <p class="question">3b. \( \cos 2x = -0.6 \)</p>
-    <div class="steps">
-      <div class="step">\[ \text{Domain for } 2x \text{ is } 0^\circ < 2x \le 360^\circ. \]</div>
-      <div class="step">\[ 2x = \cos^{-1}(-0.6) \approx 126.87^\circ \]</div>
-      <div class="step">\[ \text{Negative cosine means Q2 and Q3.} \]</div>
-      <div class="step">\[ 2x_1 = 126.87^\circ \implies x_1 \approx 63.43^\circ \]</div>
-      <div class="step">\[ 2x_2 = 360^\circ - 126.87^\circ = 233.13^\circ \implies x_2 \approx 116.57^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Domain for } 2x \text{ is } 0^\circ < 2x \le 360^\circ. \]</div>
+      <div class="m-step">\[ 2x = \cos^{-1}(-0.6) \approx 126.87^\circ \]</div>
+      <div class="m-step">\[ \text{Negative cosine means Q2 and Q3.} \]</div>
+      <div class="m-step">\[ 2x_1 = 126.87^\circ \implies x_1 \approx 63.43^\circ \]</div>
+      <div class="m-step">\[ 2x_2 = 360^\circ - 126.87^\circ = 233.13^\circ \implies x_2 \approx 116.57^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-3-3c">
     <p class="question">3c. \( \tan 2x = 2 \)</p>
-    <div class="steps">
-      <div class="step">\[ \text{Domain for } 2x \text{ is } 0^\circ < 2x \le 360^\circ. \]</div>
-      <div class="step">\[ 2x = \tan^{-1}(2) \approx 63.43^\circ \]</div>
-      <div class="step">\[ \text{Positive tangent means Q1 and Q3.} \]</div>
-      <div class="step">\[ 2x_1 = 63.43^\circ \implies x_1 \approx 31.72^\circ \]</div>
-      <div class="step">\[ 2x_2 = 180^\circ + 63.43^\circ = 243.43^\circ \implies x_2 \approx 121.72^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Domain for } 2x \text{ is } 0^\circ < 2x \le 360^\circ. \]</div>
+      <div class="m-step">\[ 2x = \tan^{-1}(2) \approx 63.43^\circ \]</div>
+      <div class="m-step">\[ \text{Positive tangent means Q1 and Q3.} \]</div>
+      <div class="m-step">\[ 2x_1 = 63.43^\circ \implies x_1 \approx 31.72^\circ \]</div>
+      <div class="m-step">\[ 2x_2 = 180^\circ + 63.43^\circ = 243.43^\circ \implies x_2 \approx 121.72^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-3-3d">
     <p class="question">3d. \( \sin 2x = -0.6 \)</p>
-    <div class="steps">
-      <div class="step">\[ \text{Domain for } 2x \text{ is } 0^\circ < 2x \le 360^\circ. \]</div>
-      <div class="step">\[ \text{Principal value: } \sin^{-1}(-0.6) \approx -36.87^\circ \]</div>
-      <div class="step">\[ \text{Negative sine means Q3 and Q4.} \]</div>
-      <div class="step">\[ 2x_1 = 180^\circ + 36.87^\circ = 216.87^\circ \implies x_1 \approx 108.44^\circ \]</div>
-      <div class="step">\[ 2x_2 = 360^\circ - 36.87^\circ = 323.13^\circ \implies x_2 \approx 161.57^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Domain for } 2x \text{ is } 0^\circ < 2x \le 360^\circ. \]</div>
+      <div class="m-step">\[ \text{Principal value: } \sin^{-1}(-0.6) \approx -36.87^\circ \]</div>
+      <div class="m-step">\[ \text{Negative sine means Q3 and Q4.} \]</div>
+      <div class="m-step">\[ 2x_1 = 180^\circ + 36.87^\circ = 216.87^\circ \implies x_1 \approx 108.44^\circ \]</div>
+      <div class="m-step">\[ 2x_2 = 360^\circ - 36.87^\circ = 323.13^\circ \implies x_2 \approx 161.57^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-3-3e">
     <p class="question">3e. \( 5\cos 2x = 4 \)</p>
-    <div class="steps">
-      <div class="step">\[ \cos 2x = 0.8 \]</div>
-      <div class="step">\[ 2x = \cos^{-1}(0.8) \approx 36.87^\circ \]</div>
-      <div class="step">\[ \text{Positive cosine means Q1 and Q4.} \]</div>
-      <div class="step">\[ 2x_1 = 36.87^\circ \implies x_1 \approx 18.44^\circ \]</div>
-      <div class="step">\[ 2x_2 = 360^\circ - 36.87^\circ = 323.13^\circ \implies x_2 \approx 161.57^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \cos 2x = 0.8 \]</div>
+      <div class="m-step">\[ 2x = \cos^{-1}(0.8) \approx 36.87^\circ \]</div>
+      <div class="m-step">\[ \text{Positive cosine means Q1 and Q4.} \]</div>
+      <div class="m-step">\[ 2x_1 = 36.87^\circ \implies x_1 \approx 18.44^\circ \]</div>
+      <div class="m-step">\[ 2x_2 = 360^\circ - 36.87^\circ = 323.13^\circ \implies x_2 \approx 161.57^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-3-3f">
     <p class="question">3f. \( 7\sin 2x = -2 \)</p>
-    <div class="steps">
-      <div class="step">\[ \sin 2x = -\frac{2}{7} \approx -0.2857 \]</div>
-      <div class="step">\[ \text{Principal value: } \sin^{-1}(-0.2857) \approx -16.6^\circ \]</div>
-      <div class="step">\[ \text{Negative sine means Q3 and Q4.} \]</div>
-      <div class="step">\[ 2x_1 = 180^\circ + 16.6^\circ = 196.6^\circ \implies x_1 \approx 98.3^\circ \]</div>
-      <div class="step">\[ 2x_2 = 360^\circ - 16.6^\circ = 343.4^\circ \implies x_2 \approx 171.7^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \sin 2x = -\frac{2}{7} \approx -0.2857 \]</div>
+      <div class="m-step">\[ \text{Principal value: } \sin^{-1}(-0.2857) \approx -16.6^\circ \]</div>
+      <div class="m-step">\[ \text{Negative sine means Q3 and Q4.} \]</div>
+      <div class="m-step">\[ 2x_1 = 180^\circ + 16.6^\circ = 196.6^\circ \implies x_1 \approx 98.3^\circ \]</div>
+      <div class="m-step">\[ 2x_2 = 360^\circ - 16.6^\circ = 343.4^\circ \implies x_2 \approx 171.7^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-3-3g">
     <p class="question">3g. \( 1 + 3\tan 2x = 0 \)</p>
-    <div class="steps">
-      <div class="step">\[ 3\tan 2x = -1 \implies \tan 2x = -\frac{1}{3} \]</div>
-      <div class="step">\[ \text{Principal value: } 2x = \tan^{-1}(-1/3) \approx -18.43^\circ \]</div>
-      <div class="step">\[ \text{Negative tangent means Q2 and Q4.} \]</div>
-      <div class="step">\[ 2x_1 = 180^\circ - 18.43^\circ = 161.57^\circ \implies x_1 \approx 80.79^\circ \]</div>
-      <div class="step">\[ 2x_2 = 360^\circ - 18.43^\circ = 341.57^\circ \implies x_2 \approx 170.79^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ 3\tan 2x = -1 \implies \tan 2x = -\frac{1}{3} \]</div>
+      <div class="m-step">\[ \text{Principal value: } 2x = \tan^{-1}(-1/3) \approx -18.43^\circ \]</div>
+      <div class="m-step">\[ \text{Negative tangent means Q2 and Q4.} \]</div>
+      <div class="m-step">\[ 2x_1 = 180^\circ - 18.43^\circ = 161.57^\circ \implies x_1 \approx 80.79^\circ \]</div>
+      <div class="m-step">\[ 2x_2 = 360^\circ - 18.43^\circ = 341.57^\circ \implies x_2 \approx 170.79^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-3-3h">
     <p class="question">3h. \( 2 - 3\sin 2x = 0 \)</p>
-    <div class="steps">
-      <div class="step">\[ 3\sin 2x = 2 \implies \sin 2x = \frac{2}{3} \]</div>
-      <div class="step">\[ 2x = \sin^{-1}(2/3) \approx 41.81^\circ \]</div>
-      <div class="step">\[ \text{Positive sine means Q1 and Q2.} \]</div>
-      <div class="step">\[ 2x_1 = 41.81^\circ \implies x_1 \approx 20.91^\circ \]</div>
-      <div class="step">\[ 2x_2 = 180^\circ - 41.81^\circ = 138.19^\circ \implies x_2 \approx 69.10^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ 3\sin 2x = 2 \implies \sin 2x = \frac{2}{3} \]</div>
+      <div class="m-step">\[ 2x = \sin^{-1}(2/3) \approx 41.81^\circ \]</div>
+      <div class="m-step">\[ \text{Positive sine means Q1 and Q2.} \]</div>
+      <div class="m-step">\[ 2x_1 = 41.81^\circ \implies x_1 \approx 20.91^\circ \]</div>
+      <div class="m-step">\[ 2x_2 = 180^\circ - 41.81^\circ = 138.19^\circ \implies x_2 \approx 69.10^\circ \]</div>
     </div>
   </div>
 </section>
@@ -530,66 +394,66 @@
   <h2 class="section-heading">4. Solve each of these equations for the given domains.</h2>
   <div class="problem" id="p-4-4a">
     <p class="question">4a. \( \cos(x - 30^\circ) = -0.5 \text{ for } 0^\circ \le x \le 360^\circ \)</p>
-    <div class="steps">
-      <div class="step">\[ \text{Let } u = x - 30^\circ. \text{ Domain for } u \text{ is } -30^\circ \le u \le 330^\circ. \]</div>
-      <div class="step">\[ \cos u = -0.5 \implies u = 120^\circ, 240^\circ \text{ (in Q2 and Q3).} \]</div>
-      <div class="step">\[ x_1 - 30^\circ = 120^\circ \implies x_1 = 150^\circ \]</div>
-      <div class="step">\[ x_2 - 30^\circ = 240^\circ \implies x_2 = 270^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Let } u = x - 30^\circ. \text{ Domain for } u \text{ is } -30^\circ \le u \le 330^\circ. \]</div>
+      <div class="m-step">\[ \cos u = -0.5 \implies u = 120^\circ, 240^\circ \text{ (in Q2 and Q3).} \]</div>
+      <div class="m-step">\[ x_1 - 30^\circ = 120^\circ \implies x_1 = 150^\circ \]</div>
+      <div class="m-step">\[ x_2 - 30^\circ = 240^\circ \implies x_2 = 270^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-4-4b">
     <p class="question">4b. \( 6\sin(2x + 45^\circ) = -5 \text{ for } 0^\circ \le x \le 180^\circ \)</p>
-    <div class="steps">
-      <div class="step">\[ \sin(2x + 45^\circ) = -\frac{5}{6} \approx -0.8333 \]</div>
-      <div class="step">\[ \text{Let } u = 2x + 45^\circ. \text{ For } 0^\circ \le x \le 180^\circ, \text{ domain for } u \text{ is } 45^\circ \le u \le 405^\circ. \]</div>
-      <div class="step">\[ \text{Principal value: } u = \sin^{-1}(-0.8333) \approx -56.44^\circ \]</div>
-      <div class="step">\[ \text{Negative sine means Q3 and Q4. Valid values in domain:} \]</div>
-      <div class="step">\[ u_1 = 180^\circ - (-56.44^\circ) = 236.44^\circ \]</div>
-      <div class="step">\[ u_2 = 360^\circ + (-56.44^\circ) = 303.56^\circ \]</div>
-      <div class="step">\[ 2x_1 + 45^\circ = 236.44^\circ \implies 2x_1 = 191.44^\circ \implies x_1 \approx 95.72^\circ \]</div>
-      <div class="step">\[ 2x_2 + 45^\circ = 303.56^\circ \implies 2x_2 = 258.56^\circ \implies x_2 \approx 129.28^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \sin(2x + 45^\circ) = -\frac{5}{6} \approx -0.8333 \]</div>
+      <div class="m-step">\[ \text{Let } u = 2x + 45^\circ. \text{ For } 0^\circ \le x \le 180^\circ, \text{ domain for } u \text{ is } 45^\circ \le u \le 405^\circ. \]</div>
+      <div class="m-step">\[ \text{Principal value: } u = \sin^{-1}(-0.8333) \approx -56.44^\circ \]</div>
+      <div class="m-step">\[ \text{Negative sine means Q3 and Q4. Valid values in domain:} \]</div>
+      <div class="m-step">\[ u_1 = 180^\circ - (-56.44^\circ) = 236.44^\circ \]</div>
+      <div class="m-step">\[ u_2 = 360^\circ + (-56.44^\circ) = 303.56^\circ \]</div>
+      <div class="m-step">\[ 2x_1 + 45^\circ = 236.44^\circ \implies 2x_1 = 191.44^\circ \implies x_1 \approx 95.72^\circ \]</div>
+      <div class="m-step">\[ 2x_2 + 45^\circ = 303.56^\circ \implies 2x_2 = 258.56^\circ \implies x_2 \approx 129.28^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-4-4c">
     <p class="question">4c. \( 2\tan\left(\frac{x}{2}\right) + 3 = 0 \text{ for } 0^\circ \le x \le 540^\circ \)</p>
-    <div class="steps">
-      <div class="step">\[ \tan\left(\frac{x}{2}\right) = -1.5 \]</div>
-      <div class="step">\[ \text{Let } u = \frac{x}{2}. \text{ Domain for } u \text{ is } 0^\circ \le u \le 270^\circ. \]</div>
-      <div class="step">\[ \text{Principal value: } u = \tan^{-1}(-1.5) \approx -56.31^\circ \]</div>
-      <div class="step">\[ \text{Negative tangent means Q2 and Q4. Valid value in domain:} \]</div>
-      <div class="step">\[ u = 180^\circ - 56.31^\circ = 123.69^\circ \]</div>
-      <div class="step">\[ \frac{x}{2} = 123.69^\circ \implies x = 247.38^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \tan\left(\frac{x}{2}\right) = -1.5 \]</div>
+      <div class="m-step">\[ \text{Let } u = \frac{x}{2}. \text{ Domain for } u \text{ is } 0^\circ \le u \le 270^\circ. \]</div>
+      <div class="m-step">\[ \text{Principal value: } u = \tan^{-1}(-1.5) \approx -56.31^\circ \]</div>
+      <div class="m-step">\[ \text{Negative tangent means Q2 and Q4. Valid value in domain:} \]</div>
+      <div class="m-step">\[ u = 180^\circ - 56.31^\circ = 123.69^\circ \]</div>
+      <div class="m-step">\[ \frac{x}{2} = 123.69^\circ \implies x = 247.38^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-4-4d">
     <p class="question">4d. \( \cos\left(x + \frac{\pi}{4}\right) = -0.5 \text{ for } 0 \le x \le 2\pi \)</p>
-    <div class="steps">
-      <div class="step">\[ \text{Let } u = x + \frac{\pi}{4}. \text{ Domain for } u \text{ is } \frac{\pi}{4} \le u \le \frac{9\pi}{4}. \]</div>
-      <div class="step">\[ \cos u = -0.5 \implies u = \frac{2\pi}{3}, \frac{4\pi}{3} \text{ (in Q2 and Q3).} \]</div>
-      <div class="step">\[ x_1 + \frac{\pi}{4} = \frac{2\pi}{3} \implies x_1 = \frac{8\pi}{12} - \frac{3\pi}{12} = \frac{5\pi}{12} \]</div>
-      <div class="step">\[ x_2 + \frac{\pi}{4} = \frac{4\pi}{3} \implies x_2 = \frac{16\pi}{12} - \frac{3\pi}{12} = \frac{13\pi}{12} \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Let } u = x + \frac{\pi}{4}. \text{ Domain for } u \text{ is } \frac{\pi}{4} \le u \le \frac{9\pi}{4}. \]</div>
+      <div class="m-step">\[ \cos u = -0.5 \implies u = \frac{2\pi}{3}, \frac{4\pi}{3} \text{ (in Q2 and Q3).} \]</div>
+      <div class="m-step">\[ x_1 + \frac{\pi}{4} = \frac{2\pi}{3} \implies x_1 = \frac{8\pi}{12} - \frac{3\pi}{12} = \frac{5\pi}{12} \]</div>
+      <div class="m-step">\[ x_2 + \frac{\pi}{4} = \frac{4\pi}{3} \implies x_2 = \frac{16\pi}{12} - \frac{3\pi}{12} = \frac{13\pi}{12} \]</div>
     </div>
   </div>
   <div class="problem" id="p-4-4e">
     <p class="question">4e. \( \sin(2x - 3) = 0.6 \text{ for } 0 \le x \le \pi \)</p>
-    <div class="steps">
-      <div class="step">\[ \text{Let } u = 2x - 3. \text{ Domain for } u \text{ is } -3 \le u \le 2\pi - 3 \approx 3.28. \]</div>
-      <div class="step">\[ \text{Principal value: } u = \sin^{-1}(0.6) \approx 0.6435 \text{ radians} \]</div>
-      <div class="step">\[ \text{Positive sine means Q1 and Q2. Valid values in domain:} \]</div>
-      <div class="step">\[ u_1 \approx 0.6435 \]</div>
-      <div class="step">\[ u_2 = \pi - 0.6435 \approx 2.498 \]</div>
-      <div class="step">\[ 2x_1 - 3 = 0.6435 \implies 2x_1 = 3.6435 \implies x_1 \approx 1.82 \]</div>
-      <div class="step">\[ 2x_2 - 3 = 2.498 \implies 2x_2 = 5.498 \implies x_2 \approx 2.75 \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Let } u = 2x - 3. \text{ Domain for } u \text{ is } -3 \le u \le 2\pi - 3 \approx 3.28. \]</div>
+      <div class="m-step">\[ \text{Principal value: } u = \sin^{-1}(0.6) \approx 0.6435 \text{ radians} \]</div>
+      <div class="m-step">\[ \text{Positive sine means Q1 and Q2. Valid values in domain:} \]</div>
+      <div class="m-step">\[ u_1 \approx 0.6435 \]</div>
+      <div class="m-step">\[ u_2 = \pi - 0.6435 \approx 2.498 \]</div>
+      <div class="m-step">\[ 2x_1 - 3 = 0.6435 \implies 2x_1 = 3.6435 \implies x_1 \approx 1.82 \]</div>
+      <div class="m-step">\[ 2x_2 - 3 = 2.498 \implies 2x_2 = 5.498 \implies x_2 \approx 2.75 \]</div>
     </div>
   </div>
   <div class="problem" id="p-4-4f">
     <p class="question">4f. \( 2\sin\left(\frac{x}{2}\right) = 1 \text{ for } 0 \le x \le 4\pi \)</p>
-    <div class="steps">
-      <div class="step">\[ \sin\left(\frac{x}{2}\right) = 0.5 \]</div>
-      <div class="step">\[ \text{Let } u = \frac{x}{2}. \text{ Domain for } u \text{ is } 0 \le u \le 2\pi. \]</div>
-      <div class="step">\[ \sin u = 0.5 \implies u = \frac{\pi}{6}, \frac{5\pi}{6} \text{ (in Q1 and Q2).} \]</div>
-      <div class="step">\[ \frac{x_1}{2} = \frac{\pi}{6} \implies x_1 = \frac{\pi}{3} \]</div>
-      <div class="step">\[ \frac{x_2}{2} = \frac{5\pi}{6} \implies x_2 = \frac{5\pi}{3} \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \sin\left(\frac{x}{2}\right) = 0.5 \]</div>
+      <div class="m-step">\[ \text{Let } u = \frac{x}{2}. \text{ Domain for } u \text{ is } 0 \le u \le 2\pi. \]</div>
+      <div class="m-step">\[ \sin u = 0.5 \implies u = \frac{\pi}{6}, \frac{5\pi}{6} \text{ (in Q1 and Q2).} \]</div>
+      <div class="m-step">\[ \frac{x_1}{2} = \frac{\pi}{6} \implies x_1 = \frac{\pi}{3} \]</div>
+      <div class="m-step">\[ \frac{x_2}{2} = \frac{5\pi}{6} \implies x_2 = \frac{5\pi}{3} \]</div>
     </div>
   </div>
 </section>
@@ -597,47 +461,47 @@
   <h2 class="section-heading">5. Solve each of these equations for 0° ≤ x ≤ 360°.</h2>
   <div class="problem" id="p-5-5a">
     <p class="question">5a. \( 4\sin x = \cos x \)</p>
-    <div class="steps">
-      <div class="step">\[ \text{Divide both sides by } \cos x \text{ (since } \cos x \ne 0\text{):} \]</div>
-      <div class="step">\[ 4\tan x = 1 \implies \tan x = 0.25 \]</div>
-      <div class="step">\[ x = \tan^{-1}(0.25) \approx 14.04^\circ \]</div>
-      <div class="step">\[ \text{Positive tangent means Q1 and Q3.} \]</div>
-      <div class="step">\[ x_1 \approx 14.04^\circ \]</div>
-      <div class="step">\[ x_2 = 180^\circ + 14.04^\circ = 194.04^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Divide both sides by } \cos x \text{ (since } \cos x \ne 0\text{):} \]</div>
+      <div class="m-step">\[ 4\tan x = 1 \implies \tan x = 0.25 \]</div>
+      <div class="m-step">\[ x = \tan^{-1}(0.25) \approx 14.04^\circ \]</div>
+      <div class="m-step">\[ \text{Positive tangent means Q1 and Q3.} \]</div>
+      <div class="m-step">\[ x_1 \approx 14.04^\circ \]</div>
+      <div class="m-step">\[ x_2 = 180^\circ + 14.04^\circ = 194.04^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-5-5b">
     <p class="question">5b. \( 3\sin x + 4\cos x = 0 \)</p>
-    <div class="steps">
-      <div class="step">\[ 3\sin x = -4\cos x \]</div>
-      <div class="step">\[ \tan x = -\frac{4}{3} \approx -1.333 \]</div>
-      <div class="step">\[ \text{Principal value: } x = \tan^{-1}(-1.333) \approx -53.13^\circ \]</div>
-      <div class="step">\[ \text{Negative tangent means Q2 and Q4.} \]</div>
-      <div class="step">\[ x_1 = 180^\circ - 53.13^\circ = 126.87^\circ \]</div>
-      <div class="step">\[ x_2 = 360^\circ - 53.13^\circ = 306.87^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ 3\sin x = -4\cos x \]</div>
+      <div class="m-step">\[ \tan x = -\frac{4}{3} \approx -1.333 \]</div>
+      <div class="m-step">\[ \text{Principal value: } x = \tan^{-1}(-1.333) \approx -53.13^\circ \]</div>
+      <div class="m-step">\[ \text{Negative tangent means Q2 and Q4.} \]</div>
+      <div class="m-step">\[ x_1 = 180^\circ - 53.13^\circ = 126.87^\circ \]</div>
+      <div class="m-step">\[ x_2 = 360^\circ - 53.13^\circ = 306.87^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-5-5c">
     <p class="question">5c. \( 5\sin x - 3\cos x = 0 \)</p>
-    <div class="steps">
-      <div class="step">\[ 5\sin x = 3\cos x \implies \tan x = 0.6 \]</div>
-      <div class="step">\[ x = \tan^{-1}(0.6) \approx 30.96^\circ \]</div>
-      <div class="step">\[ \text{Positive tangent means Q1 and Q3.} \]</div>
-      <div class="step">\[ x_1 \approx 30.96^\circ \]</div>
-      <div class="step">\[ x_2 = 180^\circ + 30.96^\circ = 210.96^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ 5\sin x = 3\cos x \implies \tan x = 0.6 \]</div>
+      <div class="m-step">\[ x = \tan^{-1}(0.6) \approx 30.96^\circ \]</div>
+      <div class="m-step">\[ \text{Positive tangent means Q1 and Q3.} \]</div>
+      <div class="m-step">\[ x_1 \approx 30.96^\circ \]</div>
+      <div class="m-step">\[ x_2 = 180^\circ + 30.96^\circ = 210.96^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-5-5d">
     <p class="question">5d. \( 5\cos 2x - 4\sin 2x = 0 \)</p>
-    <div class="steps">
-      <div class="step">\[ 5\cos 2x = 4\sin 2x \implies \tan 2x = 1.25 \]</div>
-      <div class="step">\[ \text{Domain for } 2x \text{ is } 0^\circ \le 2x \le 720^\circ. \]</div>
-      <div class="step">\[ 2x = \tan^{-1}(1.25) \approx 51.34^\circ \]</div>
-      <div class="step">\[ \text{Positive tangent means Q1 and Q3.} \]</div>
-      <div class="step">\[ 2x_1 \approx 51.34^\circ \implies x_1 \approx 25.67^\circ \]</div>
-      <div class="step">\[ 2x_2 = 180^\circ + 51.34^\circ = 231.34^\circ \implies x_2 \approx 115.67^\circ \]</div>
-      <div class="step">\[ 2x_3 = 360^\circ + 51.34^\circ = 411.34^\circ \implies x_3 \approx 205.67^\circ \]</div>
-      <div class="step">\[ 2x_4 = 540^\circ + 51.34^\circ = 591.34^\circ \implies x_4 \approx 295.67^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ 5\cos 2x = 4\sin 2x \implies \tan 2x = 1.25 \]</div>
+      <div class="m-step">\[ \text{Domain for } 2x \text{ is } 0^\circ \le 2x \le 720^\circ. \]</div>
+      <div class="m-step">\[ 2x = \tan^{-1}(1.25) \approx 51.34^\circ \]</div>
+      <div class="m-step">\[ \text{Positive tangent means Q1 and Q3.} \]</div>
+      <div class="m-step">\[ 2x_1 \approx 51.34^\circ \implies x_1 \approx 25.67^\circ \]</div>
+      <div class="m-step">\[ 2x_2 = 180^\circ + 51.34^\circ = 231.34^\circ \implies x_2 \approx 115.67^\circ \]</div>
+      <div class="m-step">\[ 2x_3 = 360^\circ + 51.34^\circ = 411.34^\circ \implies x_3 \approx 205.67^\circ \]</div>
+      <div class="m-step">\[ 2x_4 = 540^\circ + 51.34^\circ = 591.34^\circ \implies x_4 \approx 295.67^\circ \]</div>
     </div>
   </div>
 </section>
@@ -645,15 +509,15 @@
   <h2 class="section-heading">6. Solve 4 sin(2x - 0.4) - 5 cos(2x - 0.4) = 0 for 0 ≤ x ≤ π.</h2>
   <div class="problem" id="p-6-6">
     <p class="question">6. \( 4\sin(2x - 0.4) - 5\cos(2x - 0.4) = 0 \)</p>
-    <div class="steps">
-      <div class="step">\[ 4\sin(2x - 0.4) = 5\cos(2x - 0.4) \implies \tan(2x - 0.4) = \frac{5}{4} = 1.25 \]</div>
-      <div class="step">\[ \text{Let } u = 2x - 0.4. \text{ For } 0 \le x \le \pi, \text{ domain for } u \text{ is } -0.4 \le u \le 2\pi - 0.4 \approx 5.883. \]</div>
-      <div class="step">\[ u = \tan^{-1}(1.25) \approx 0.896 \text{ radians} \]</div>
-      <div class="step">\[ \text{Positive tangent means Q1 and Q3. Valid values in domain:} \]</div>
-      <div class="step">\[ u_1 \approx 0.896 \]</div>
-      <div class="step">\[ u_2 = \pi + 0.896 \approx 4.038 \]</div>
-      <div class="step">\[ 2x_1 - 0.4 = 0.896 \implies 2x_1 = 1.296 \implies x_1 \approx 0.648 \]</div>
-      <div class="step">\[ 2x_2 - 0.4 = 4.038 \implies 2x_2 = 4.438 \implies x_2 \approx 2.219 \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ 4\sin(2x - 0.4) = 5\cos(2x - 0.4) \implies \tan(2x - 0.4) = \frac{5}{4} = 1.25 \]</div>
+      <div class="m-step">\[ \text{Let } u = 2x - 0.4. \text{ For } 0 \le x \le \pi, \text{ domain for } u \text{ is } -0.4 \le u \le 2\pi - 0.4 \approx 5.883. \]</div>
+      <div class="m-step">\[ u = \tan^{-1}(1.25) \approx 0.896 \text{ radians} \]</div>
+      <div class="m-step">\[ \text{Positive tangent means Q1 and Q3. Valid values in domain:} \]</div>
+      <div class="m-step">\[ u_1 \approx 0.896 \]</div>
+      <div class="m-step">\[ u_2 = \pi + 0.896 \approx 4.038 \]</div>
+      <div class="m-step">\[ 2x_1 - 0.4 = 0.896 \implies 2x_1 = 1.296 \implies x_1 \approx 0.648 \]</div>
+      <div class="m-step">\[ 2x_2 - 0.4 = 4.038 \implies 2x_2 = 4.438 \implies x_2 \approx 2.219 \]</div>
     </div>
   </div>
 </section>
@@ -661,55 +525,55 @@
   <h2 class="section-heading">7. Solve each of these equations for 0° ≤ x ≤ 360°.</h2>
   <div class="problem" id="p-7-7a">
     <p class="question">7a. \( \sin x \tan(x - 30^\circ) = 0 \)</p>
-    <div class="steps">
-      <div class="step">\[ \text{Case 1: } \sin x = 0 \implies x = 0^\circ, 180^\circ, 360^\circ \]</div>
-      <div class="step">\[ \text{Case 2: } \tan(x - 30^\circ) = 0 \implies x - 30^\circ = 0^\circ, 180^\circ, 360^\circ \implies x = 30^\circ, 210^\circ \text{ (390 is out of range)} \]</div>
-      <div class="step">\[ \text{Solutions: } x = 0^\circ, 30^\circ, 180^\circ, 210^\circ, 360^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Case 1: } \sin x = 0 \implies x = 0^\circ, 180^\circ, 360^\circ \]</div>
+      <div class="m-step">\[ \text{Case 2: } \tan(x - 30^\circ) = 0 \implies x - 30^\circ = 0^\circ, 180^\circ, 360^\circ \implies x = 30^\circ, 210^\circ \text{ (390 is out of range)} \]</div>
+      <div class="m-step">\[ \text{Solutions: } x = 0^\circ, 30^\circ, 180^\circ, 210^\circ, 360^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-7-7b">
     <p class="question">7b. \( 5\tan^2 x - 4\tan x = 0 \)</p>
-    <div class="steps">
-      <div class="step">\[ \tan x (5\tan x - 4) = 0 \]</div>
-      <div class="step">\[ \text{Case 1: } \tan x = 0 \implies x = 0^\circ, 180^\circ, 360^\circ \]</div>
-      <div class="step">\[ \text{Case 2: } \tan x = 0.8 \implies x \approx 38.66^\circ, 218.66^\circ \]</div>
-      <div class="step">\[ \text{Solutions: } x = 0^\circ, 38.66^\circ, 180^\circ, 218.66^\circ, 360^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \tan x (5\tan x - 4) = 0 \]</div>
+      <div class="m-step">\[ \text{Case 1: } \tan x = 0 \implies x = 0^\circ, 180^\circ, 360^\circ \]</div>
+      <div class="m-step">\[ \text{Case 2: } \tan x = 0.8 \implies x \approx 38.66^\circ, 218.66^\circ \]</div>
+      <div class="m-step">\[ \text{Solutions: } x = 0^\circ, 38.66^\circ, 180^\circ, 218.66^\circ, 360^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-7-7c">
     <p class="question">7c. \( 3\cos^2 x = \cos x \)</p>
-    <div class="steps">
-      <div class="step">\[ 3\cos^2 x - \cos x = 0 \implies \cos x (3\cos x - 1) = 0 \]</div>
-      <div class="step">\[ \text{Case 1: } \cos x = 0 \implies x = 90^\circ, 270^\circ \]</div>
-      <div class="step">\[ \text{Case 2: } \cos x = \frac{1}{3} \implies x \approx 70.53^\circ, 289.47^\circ \]</div>
-      <div class="step">\[ \text{Solutions: } x = 70.53^\circ, 90^\circ, 270^\circ, 289.47^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ 3\cos^2 x - \cos x = 0 \implies \cos x (3\cos x - 1) = 0 \]</div>
+      <div class="m-step">\[ \text{Case 1: } \cos x = 0 \implies x = 90^\circ, 270^\circ \]</div>
+      <div class="m-step">\[ \text{Case 2: } \cos x = \frac{1}{3} \implies x \approx 70.53^\circ, 289.47^\circ \]</div>
+      <div class="m-step">\[ \text{Solutions: } x = 70.53^\circ, 90^\circ, 270^\circ, 289.47^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-7-7d">
     <p class="question">7d. \( \sin^2 x + \sin x \cos x = 0 \)</p>
-    <div class="steps">
-      <div class="step">\[ \sin x (\sin x + \cos x) = 0 \]</div>
-      <div class="step">\[ \text{Case 1: } \sin x = 0 \implies x = 0^\circ, 180^\circ, 360^\circ \]</div>
-      <div class="step">\[ \text{Case 2: } \sin x + \cos x = 0 \implies \tan x = -1 \implies x = 135^\circ, 315^\circ \]</div>
-      <div class="step">\[ \text{Solutions: } x = 0^\circ, 135^\circ, 180^\circ, 315^\circ, 360^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \sin x (\sin x + \cos x) = 0 \]</div>
+      <div class="m-step">\[ \text{Case 1: } \sin x = 0 \implies x = 0^\circ, 180^\circ, 360^\circ \]</div>
+      <div class="m-step">\[ \text{Case 2: } \sin x + \cos x = 0 \implies \tan x = -1 \implies x = 135^\circ, 315^\circ \]</div>
+      <div class="m-step">\[ \text{Solutions: } x = 0^\circ, 135^\circ, 180^\circ, 315^\circ, 360^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-7-7e">
     <p class="question">7e. \( 5\sin x \cos x = \cos x \)</p>
-    <div class="steps">
-      <div class="step">\[ 5\sin x \cos x - \cos x = 0 \implies \cos x (5\sin x - 1) = 0 \]</div>
-      <div class="step">\[ \text{Case 1: } \cos x = 0 \implies x = 90^\circ, 270^\circ \]</div>
-      <div class="step">\[ \text{Case 2: } \sin x = 0.2 \implies x \approx 11.54^\circ, 168.46^\circ \]</div>
-      <div class="step">\[ \text{Solutions: } x = 11.54^\circ, 90^\circ, 168.46^\circ, 270^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ 5\sin x \cos x - \cos x = 0 \implies \cos x (5\sin x - 1) = 0 \]</div>
+      <div class="m-step">\[ \text{Case 1: } \cos x = 0 \implies x = 90^\circ, 270^\circ \]</div>
+      <div class="m-step">\[ \text{Case 2: } \sin x = 0.2 \implies x \approx 11.54^\circ, 168.46^\circ \]</div>
+      <div class="m-step">\[ \text{Solutions: } x = 11.54^\circ, 90^\circ, 168.46^\circ, 270^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-7-7f">
     <p class="question">7f. \( \sin x \tan x = \sin x \)</p>
-    <div class="steps">
-      <div class="step">\[ \sin x \tan x - \sin x = 0 \implies \sin x (\tan x - 1) = 0 \]</div>
-      <div class="step">\[ \text{Case 1: } \sin x = 0 \implies x = 0^\circ, 180^\circ, 360^\circ \]</div>
-      <div class="step">\[ \text{Case 2: } \tan x = 1 \implies x = 45^\circ, 225^\circ \]</div>
-      <div class="step">\[ \text{Solutions: } x = 0^\circ, 45^\circ, 180^\circ, 225^\circ, 360^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \sin x \tan x - \sin x = 0 \implies \sin x (\tan x - 1) = 0 \]</div>
+      <div class="m-step">\[ \text{Case 1: } \sin x = 0 \implies x = 0^\circ, 180^\circ, 360^\circ \]</div>
+      <div class="m-step">\[ \text{Case 2: } \tan x = 1 \implies x = 45^\circ, 225^\circ \]</div>
+      <div class="m-step">\[ \text{Solutions: } x = 0^\circ, 45^\circ, 180^\circ, 225^\circ, 360^\circ \]</div>
     </div>
   </div>
 </section>
@@ -717,20 +581,20 @@
   <h2 class="section-heading">8. Solve each of these equations for 0° ≤ x ≤ 360°.</h2>
   <div class="problem" id="p-8-8a">
     <p class="question">8a. \( 4\sin^2 x = 1 \)</p>
-    <div class="steps">
-      <div class="step">\[ \sin^2 x = \frac{1}{4} \implies \sin x = \pm \frac{1}{2} \]</div>
-      <div class="step">\[ \text{Case 1: } \sin x = 0.5 \implies x = 30^\circ, 150^\circ \]</div>
-      <div class="step">\[ \text{Case 2: } \sin x = -0.5 \implies x = 210^\circ, 330^\circ \]</div>
-      <div class="step">\[ \text{Solutions: } x = 30^\circ, 150^\circ, 210^\circ, 330^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \sin^2 x = \frac{1}{4} \implies \sin x = \pm \frac{1}{2} \]</div>
+      <div class="m-step">\[ \text{Case 1: } \sin x = 0.5 \implies x = 30^\circ, 150^\circ \]</div>
+      <div class="m-step">\[ \text{Case 2: } \sin x = -0.5 \implies x = 210^\circ, 330^\circ \]</div>
+      <div class="m-step">\[ \text{Solutions: } x = 30^\circ, 150^\circ, 210^\circ, 330^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-8-8b">
     <p class="question">8b. \( 25\tan^2 x = 9 \)</p>
-    <div class="steps">
-      <div class="step">\[ \tan^2 x = \frac{9}{25} \implies \tan x = \pm \frac{3}{5} = \pm 0.6 \]</div>
-      <div class="step">\[ \text{Case 1: } \tan x = 0.6 \implies x \approx 30.96^\circ, 210.96^\circ \]</div>
-      <div class="step">\[ \text{Case 2: } \tan x = -0.6 \implies x \approx 149.04^\circ, 329.04^\circ \]</div>
-      <div class="step">\[ \text{Solutions: } x = 30.96^\circ, 149.04^\circ, 210.96^\circ, 329.04^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \tan^2 x = \frac{9}{25} \implies \tan x = \pm \frac{3}{5} = \pm 0.6 \]</div>
+      <div class="m-step">\[ \text{Case 1: } \tan x = 0.6 \implies x \approx 30.96^\circ, 210.96^\circ \]</div>
+      <div class="m-step">\[ \text{Case 2: } \tan x = -0.6 \implies x \approx 149.04^\circ, 329.04^\circ \]</div>
+      <div class="m-step">\[ \text{Solutions: } x = 30.96^\circ, 149.04^\circ, 210.96^\circ, 329.04^\circ \]</div>
     </div>
   </div>
 </section>
@@ -738,100 +602,100 @@
   <h2 class="section-heading">9. Solve each of these equations for 0° ≤ x ≤ 360°.</h2>
   <div class="problem" id="p-9-9a">
     <p class="question">9a. \( \tan^2 x + 2\tan x - 3 = 0 \)</p>
-    <div class="steps">
-      <div class="step">\[ \text{Factorise: } (\tan x + 3)(\tan x - 1) = 0 \]</div>
-      <div class="step">\[ \text{Case 1: } \tan x = -3 \implies x \approx 108.43^\circ, 288.43^\circ \]</div>
-      <div class="step">\[ \text{Case 2: } \tan x = 1 \implies x = 45^\circ, 225^\circ \]</div>
-      <div class="step">\[ \text{Solutions: } x = 45^\circ, 108.43^\circ, 225^\circ, 288.43^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Factorise: } (\tan x + 3)(\tan x - 1) = 0 \]</div>
+      <div class="m-step">\[ \text{Case 1: } \tan x = -3 \implies x \approx 108.43^\circ, 288.43^\circ \]</div>
+      <div class="m-step">\[ \text{Case 2: } \tan x = 1 \implies x = 45^\circ, 225^\circ \]</div>
+      <div class="m-step">\[ \text{Solutions: } x = 45^\circ, 108.43^\circ, 225^\circ, 288.43^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-9-9b">
     <p class="question">9b. \( 2\sin^2 x + \sin x - 1 = 0 \)</p>
-    <div class="steps">
-      <div class="step">\[ \text{Factorise: } (2\sin x - 1)(\sin x + 1) = 0 \]</div>
-      <div class="step">\[ \text{Case 1: } \sin x = 0.5 \implies x = 30^\circ, 150^\circ \]</div>
-      <div class="step">\[ \text{Case 2: } \sin x = -1 \implies x = 270^\circ \]</div>
-      <div class="step">\[ \text{Solutions: } x = 30^\circ, 150^\circ, 270^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Factorise: } (2\sin x - 1)(\sin x + 1) = 0 \]</div>
+      <div class="m-step">\[ \text{Case 1: } \sin x = 0.5 \implies x = 30^\circ, 150^\circ \]</div>
+      <div class="m-step">\[ \text{Case 2: } \sin x = -1 \implies x = 270^\circ \]</div>
+      <div class="m-step">\[ \text{Solutions: } x = 30^\circ, 150^\circ, 270^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-9-9c">
     <p class="question">9c. \( 3\cos^2 x - 2\cos x - 1 = 0 \)</p>
-    <div class="steps">
-      <div class="step">\[ \text{Factorise: } (3\cos x + 1)(\cos x - 1) = 0 \]</div>
-      <div class="step">\[ \text{Case 1: } \cos x = -\frac{1}{3} \implies x \approx 109.47^\circ, 250.53^\circ \]</div>
-      <div class="step">\[ \text{Case 2: } \cos x = 1 \implies x = 0^\circ, 360^\circ \]</div>
-      <div class="step">\[ \text{Solutions: } x = 0^\circ, 109.47^\circ, 250.53^\circ, 360^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Factorise: } (3\cos x + 1)(\cos x - 1) = 0 \]</div>
+      <div class="m-step">\[ \text{Case 1: } \cos x = -\frac{1}{3} \implies x \approx 109.47^\circ, 250.53^\circ \]</div>
+      <div class="m-step">\[ \text{Case 2: } \cos x = 1 \implies x = 0^\circ, 360^\circ \]</div>
+      <div class="m-step">\[ \text{Solutions: } x = 0^\circ, 109.47^\circ, 250.53^\circ, 360^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-9-9d">
     <p class="question">9d. \( 2\sin^2 x - \cos x - 1 = 0 \)</p>
-    <div class="steps">
-      <div class="step">\[ \text{Use } \sin^2 x = 1 - \cos^2 x: \]</div>
-      <div class="step">\[ 2(1 - \cos^2 x) - \cos x - 1 = 0 \implies 2 - 2\cos^2 x - \cos x - 1 = 0 \]</div>
-      <div class="step">\[ 2\cos^2 x + \cos x - 1 = 0 \]</div>
-      <div class="step">\[ \text{Factorise: } (2\cos x - 1)(\cos x + 1) = 0 \]</div>
-      <div class="step">\[ \text{Case 1: } \cos x = 0.5 \implies x = 60^\circ, 300^\circ \]</div>
-      <div class="step">\[ \text{Case 2: } \cos x = -1 \implies x = 180^\circ \]</div>
-      <div class="step">\[ \text{Solutions: } x = 60^\circ, 180^\circ, 300^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Use } \sin^2 x = 1 - \cos^2 x: \]</div>
+      <div class="m-step">\[ 2(1 - \cos^2 x) - \cos x - 1 = 0 \implies 2 - 2\cos^2 x - \cos x - 1 = 0 \]</div>
+      <div class="m-step">\[ 2\cos^2 x + \cos x - 1 = 0 \]</div>
+      <div class="m-step">\[ \text{Factorise: } (2\cos x - 1)(\cos x + 1) = 0 \]</div>
+      <div class="m-step">\[ \text{Case 1: } \cos x = 0.5 \implies x = 60^\circ, 300^\circ \]</div>
+      <div class="m-step">\[ \text{Case 2: } \cos x = -1 \implies x = 180^\circ \]</div>
+      <div class="m-step">\[ \text{Solutions: } x = 60^\circ, 180^\circ, 300^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-9-9e">
     <p class="question">9e. \( 3\cos^2 x - 3 = \sin x \)</p>
-    <div class="steps">
-      <div class="step">\[ 3(1 - \sin^2 x) - 3 = \sin x \implies 3 - 3\sin^2 x - 3 = \sin x \]</div>
-      <div class="step">\[ -3\sin^2 x - \sin x = 0 \implies \sin x(3\sin x + 1) = 0 \]</div>
-      <div class="step">\[ \text{Case 1: } \sin x = 0 \implies x = 0^\circ, 180^\circ, 360^\circ \]</div>
-      <div class="step">\[ \text{Case 2: } \sin x = -\frac{1}{3} \implies x \approx 199.47^\circ, 340.53^\circ \]</div>
-      <div class="step">\[ \text{Solutions: } x = 0^\circ, 180^\circ, 199.47^\circ, 340.53^\circ, 360^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ 3(1 - \sin^2 x) - 3 = \sin x \implies 3 - 3\sin^2 x - 3 = \sin x \]</div>
+      <div class="m-step">\[ -3\sin^2 x - \sin x = 0 \implies \sin x(3\sin x + 1) = 0 \]</div>
+      <div class="m-step">\[ \text{Case 1: } \sin x = 0 \implies x = 0^\circ, 180^\circ, 360^\circ \]</div>
+      <div class="m-step">\[ \text{Case 2: } \sin x = -\frac{1}{3} \implies x \approx 199.47^\circ, 340.53^\circ \]</div>
+      <div class="m-step">\[ \text{Solutions: } x = 0^\circ, 180^\circ, 199.47^\circ, 340.53^\circ, 360^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-9-9f">
     <p class="question">9f. \( \sin x + 5 = 6\cos^2 x \)</p>
-    <div class="steps">
-      <div class="step">\[ \sin x + 5 = 6(1 - \sin^2 x) \implies \sin x + 5 = 6 - 6\sin^2 x \]</div>
-      <div class="step">\[ 6\sin^2 x + \sin x - 1 = 0 \]</div>
-      <div class="step">\[ \text{Factorise: } (3\sin x - 1)(2\sin x + 1) = 0 \]</div>
-      <div class="step">\[ \text{Case 1: } \sin x = \frac{1}{3} \implies x \approx 19.47^\circ, 160.53^\circ \]</div>
-      <div class="step">\[ \text{Case 2: } \sin x = -0.5 \implies x = 210^\circ, 330^\circ \]</div>
-      <div class="step">\[ \text{Solutions: } x = 19.47^\circ, 160.53^\circ, 210^\circ, 330^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \sin x + 5 = 6(1 - \sin^2 x) \implies \sin x + 5 = 6 - 6\sin^2 x \]</div>
+      <div class="m-step">\[ 6\sin^2 x + \sin x - 1 = 0 \]</div>
+      <div class="m-step">\[ \text{Factorise: } (3\sin x - 1)(2\sin x + 1) = 0 \]</div>
+      <div class="m-step">\[ \text{Case 1: } \sin x = \frac{1}{3} \implies x \approx 19.47^\circ, 160.53^\circ \]</div>
+      <div class="m-step">\[ \text{Case 2: } \sin x = -0.5 \implies x = 210^\circ, 330^\circ \]</div>
+      <div class="m-step">\[ \text{Solutions: } x = 19.47^\circ, 160.53^\circ, 210^\circ, 330^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-9-9g">
     <p class="question">9g. \( 2\cos^2 x - \sin^2 x - 2\sin x - 1 = 0 \)</p>
-    <div class="steps">
-      <div class="step">\[ 2(1 - \sin^2 x) - \sin^2 x - 2\sin x - 1 = 0 \]</div>
-      <div class="step">\[ 2 - 2\sin^2 x - \sin^2 x - 2\sin x - 1 = 0 \]</div>
-      <div class="step">\[ 3\sin^2 x + 2\sin x - 1 = 0 \]</div>
-      <div class="step">\[ \text{Factorise: } (3\sin x - 1)(\sin x + 1) = 0 \]</div>
-      <div class="step">\[ \text{Case 1: } \sin x = \frac{1}{3} \implies x \approx 19.47^\circ, 160.53^\circ \]</div>
-      <div class="step">\[ \text{Case 2: } \sin x = -1 \implies x = 270^\circ \]</div>
-      <div class="step">\[ \text{Solutions: } x = 19.47^\circ, 160.53^\circ, 270^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ 2(1 - \sin^2 x) - \sin^2 x - 2\sin x - 1 = 0 \]</div>
+      <div class="m-step">\[ 2 - 2\sin^2 x - \sin^2 x - 2\sin x - 1 = 0 \]</div>
+      <div class="m-step">\[ 3\sin^2 x + 2\sin x - 1 = 0 \]</div>
+      <div class="m-step">\[ \text{Factorise: } (3\sin x - 1)(\sin x + 1) = 0 \]</div>
+      <div class="m-step">\[ \text{Case 1: } \sin x = \frac{1}{3} \implies x \approx 19.47^\circ, 160.53^\circ \]</div>
+      <div class="m-step">\[ \text{Case 2: } \sin x = -1 \implies x = 270^\circ \]</div>
+      <div class="m-step">\[ \text{Solutions: } x = 19.47^\circ, 160.53^\circ, 270^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-9-9h">
     <p class="question">9h. \( 3\cos x = 8\tan x \)</p>
-    <div class="steps">
-      <div class="step">\[ 3\cos x = 8\frac{\sin x}{\cos x} \implies 3\cos^2 x = 8\sin x \]</div>
-      <div class="step">\[ 3(1 - \sin^2 x) = 8\sin x \implies 3 - 3\sin^2 x = 8\sin x \]</div>
-      <div class="step">\[ 3\sin^2 x + 8\sin x - 3 = 0 \]</div>
-      <div class="step">\[ \text{Factorise: } (3\sin x - 1)(\sin x + 3) = 0 \]</div>
-      <div class="step">\[ \text{Case 1: } \sin x = \frac{1}{3} \implies x \approx 19.47^\circ, 160.53^\circ \]</div>
-      <div class="step">\[ \text{Case 2: } \sin x = -3 \text{ (reject, since range is } [-1, 1]) \]</div>
-      <div class="step">\[ \text{Solutions: } x = 19.47^\circ, 160.53^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ 3\cos x = 8\frac{\sin x}{\cos x} \implies 3\cos^2 x = 8\sin x \]</div>
+      <div class="m-step">\[ 3(1 - \sin^2 x) = 8\sin x \implies 3 - 3\sin^2 x = 8\sin x \]</div>
+      <div class="m-step">\[ 3\sin^2 x + 8\sin x - 3 = 0 \]</div>
+      <div class="m-step">\[ \text{Factorise: } (3\sin x - 1)(\sin x + 3) = 0 \]</div>
+      <div class="m-step">\[ \text{Case 1: } \sin x = \frac{1}{3} \implies x \approx 19.47^\circ, 160.53^\circ \]</div>
+      <div class="m-step">\[ \text{Case 2: } \sin x = -3 \text{ (reject, since range is } [-1, 1]) \]</div>
+      <div class="m-step">\[ \text{Solutions: } x = 19.47^\circ, 160.53^\circ \]</div>
     </div>
   </div>
   <div class="problem" id="p-9-9i">
     <p class="question">9i. \( 1 + \tan x \cos x = 2\cos x \)</p>
-    <div class="steps">
-      <div class="step">\[ \text{Since } \tan x = \frac{\sin x}{\cos x}, \text{ then } \tan x \cos x = \sin x. \]</div>
-      <div class="step">\[ 1 + \sin x = 2\cos x \]</div>
-      <div class="step">\[ \text{Square both sides: } (1 + \sin x)^2 = 4\cos^2 x \]</div>
-      <div class="step">\[ 1 + 2\sin x + \sin^2 x = 4(1 - \sin^2 x) \implies 5\sin^2 x + 2\sin x - 3 = 0 \]</div>
-      <div class="step">\[ \text{Factorise: } (5\sin x - 3)(\sin x + 1) = 0 \]</div>
-      <div class="step">\[ \text{Case 1: } \sin x = 0.6 \implies x \approx 36.87^\circ, 143.13^\circ \]</div>
-      <div class="step">\[ \text{Check } x = 143.13^\circ \text{ in original: LHS } = 1 + 0.6 = 1.6, \text{ RHS } = 2(-0.8) = -1.6 \text{ (reject).} \]</div>
-      <div class="step">\[ \text{Case 2: } \sin x = -1 \implies x = 270^\circ \text{ (limit is valid).} \]</div>
-      <div class="step">\[ \text{Solutions: } x = 36.87^\circ, 270^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Since } \tan x = \frac{\sin x}{\cos x}, \text{ then } \tan x \cos x = \sin x. \]</div>
+      <div class="m-step">\[ 1 + \sin x = 2\cos x \]</div>
+      <div class="m-step">\[ \text{Square both sides: } (1 + \sin x)^2 = 4\cos^2 x \]</div>
+      <div class="m-step">\[ 1 + 2\sin x + \sin^2 x = 4(1 - \sin^2 x) \implies 5\sin^2 x + 2\sin x - 3 = 0 \]</div>
+      <div class="m-step">\[ \text{Factorise: } (5\sin x - 3)(\sin x + 1) = 0 \]</div>
+      <div class="m-step">\[ \text{Case 1: } \sin x = 0.6 \implies x \approx 36.87^\circ, 143.13^\circ \]</div>
+      <div class="m-step">\[ \text{Check } x = 143.13^\circ \text{ in original: LHS } = 1 + 0.6 = 1.6, \text{ RHS } = 2(-0.8) = -1.6 \text{ (reject).} \]</div>
+      <div class="m-step">\[ \text{Case 2: } \sin x = -1 \implies x = 270^\circ \text{ (limit is valid).} \]</div>
+      <div class="m-step">\[ \text{Solutions: } x = 36.87^\circ, 270^\circ \]</div>
     </div>
   </div>
 </section>
@@ -839,13 +703,13 @@
   <h2 class="section-heading">10. f(x) = sin x for 0 ≤ x ≤ π. g(x) = 2x - 1 for x ∈ ℝ. Solve gf(x) = 0.5.</h2>
   <div class="problem" id="p-10-10">
     <p class="question">10. \( gf(x) = 0.5 \)</p>
-    <div class="steps">
-      <div class="step">\[ gf(x) = g(\sin x) = 2\sin x - 1 \]</div>
-      <div class="step">\[ 2\sin x - 1 = 0.5 \implies 2\sin x = 1.5 \implies \sin x = 0.75 \]</div>
-      <div class="step">\[ \text{Domain is } 0 \le x \le \pi \text{ (Q1 and Q2).} \]</div>
-      <div class="step">\[ x = \sin^{-1}(0.75) \approx 48.59^\circ \text{ (or } 0.848 \text{ radians)} \]</div>
-      <div class="step">\[ x_2 = 180^\circ - 48.59^\circ = 131.41^\circ \text{ (or } 2.294 \text{ radians)} \]</div>
-      <div class="step">\[ \text{Solutions: } x \approx 48.6^\circ, 131.4^\circ \]</div>
+    <div class="m-steps">
+      <div class="m-step">\[ gf(x) = g(\sin x) = 2\sin x - 1 \]</div>
+      <div class="m-step">\[ 2\sin x - 1 = 0.5 \implies 2\sin x = 1.5 \implies \sin x = 0.75 \]</div>
+      <div class="m-step">\[ \text{Domain is } 0 \le x \le \pi \text{ (Q1 and Q2).} \]</div>
+      <div class="m-step">\[ x = \sin^{-1}(0.75) \approx 48.59^\circ \text{ (or } 0.848 \text{ radians)} \]</div>
+      <div class="m-step">\[ x_2 = 180^\circ - 48.59^\circ = 131.41^\circ \text{ (or } 2.294 \text{ radians)} \]</div>
+      <div class="m-step">\[ \text{Solutions: } x \approx 48.6^\circ, 131.4^\circ \]</div>
     </div>
   </div>
 </section>
@@ -1068,6 +932,11 @@
     <script
       nonce="&lt;?= $csp_nonce ?&gt;"
       src="/assets/javascripts/main.js"
+      type="module"
+    ></script>
+    <script
+      nonce="&lt;?= $csp_nonce ?&gt;"
+      src="/assets/javascripts/circle.js"
       type="module"
     ></script>
 </body>

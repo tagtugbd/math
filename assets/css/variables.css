@@ -29,6 +29,14 @@
   --text-dark: #1a1514;
   --text-darker: #2a2322;
 
+  /* === Circle === */
+  --paper: #faf6f1;
+  --ink: #1a1514;
+  --grid: #ede6de;
+  --muted: #5c4e4d;
+  --curve: #fd4239;
+  --dot: #39a8fd;
+
   /* === Borders === */
   --border: #e8dfd9;
   --border-light: #ede6e0;

@@ -124,12 +124,12 @@ mjx-container[jax="CHTML"]:not([display="true"]) {
 
 /* Question */
 .section-heading {
-  font-size: 1.25rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: var(--primary);
   margin: 1.5rem 0 1rem;
   padding-bottom: 0.4rem;
-  border-bottom: 2px solid #e1e6ea;
+  border-bottom: 2px solid var(--primary);
 }
 
 .problem {
@@ -149,7 +149,7 @@ mjx-container[jax="CHTML"]:not([display="true"]) {
   margin: 0;
 }
 
-.step {
+.m-step {
   color: #2c3e50;
   margin: 0.4rem 0;
   padding: 0.25rem 0 0.25rem 0.85rem;

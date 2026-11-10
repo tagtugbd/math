@@ -27,38 +27,76 @@
     <noscript
       ><link href="/assets/css/style.min.css" rel="stylesheet"
     /></noscript>
-    <style>
-      .steps {
-        background: var(--bg);
-        border: 1.5px solid var(--text-dark);
-        border-radius: 6px;
-        padding: 28px;
-        font-family: var(--serif);
-        font-size: 1.5rem;
-        min-height: 300px;
-        box-shadow: var(--shadow-box);
-      }
-      .steps .row {
-        padding: 10px 0;
-        border-bottom: 1px dashed var(--border);
-      }
-      .steps .row:last-child {
-        border: 0;
-      }
-      .steps .why {
-        display: block;
-        font: 500 0.9rem var(--sans);
-        color: var(--text-secondary);
-        margin-bottom: 2px;
-      }
-      .steps .row.new {
-        animation: in 0.35s ease-out;
-      }
-      .steps b {
-        color: var(--primary);
-      }
-    </style>
   </head>
+  <style>
+    .steps {
+      background: var(--bg);
+      border: 1.5px solid var(--text-dark);
+      border-radius: 6px;
+      padding: 28px;
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      min-height: 300px;
+      box-shadow: var(--shadow-box);
+    }
+    .steps .row {
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--border);
+    }
+    .steps .row:last-child {
+      border: 0;
+    }
+    .steps .why {
+      display: block;
+      font: 500 0.9rem var(--sans);
+      color: var(--text-secondary);
+      margin-bottom: 2px;
+    }
+    .steps .row.new {
+      animation: in 0.35s ease-out;
+    }
+    .steps b {
+      color: var(--primary);
+    }
+    .eq {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-style: italic;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 4px 4px 10px;
+    }
+    .eq small {
+      font: 500 0.85rem var(--sans);
+      color: var(--text-secondary);
+      font-style: normal;
+    }
+    .ctrl {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 6px 14px;
+      align-items: center;
+      padding: 12px 4px 2px;
+      border-top: 1px dashed var(--border);
+      margin-top: 8px;
+    }
+    .ctrl label {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.15rem;
+    }
+    .ctrl output {
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      min-width: 2.5em;
+      text-align: right;
+    }
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--primary);
+    }
+  </style>
   <body>
     <header>
       <div class="bar">
@@ -85,7 +123,6 @@
         </nav>
       </div>
     </header>
-
     <main>
       <div class="wrap hero">
         <div>
@@ -99,7 +136,6 @@
             <a class="btn alt" href="#example">See a lesson</a>
           </div>
         </div>
-
         <div class="plot" aria-label="Interactive graph of a sine wave">
           <div class="eq">
             <span id="eq">y = 1·sin(1x)</span><small>Drag the sliders</small>
@@ -180,7 +216,6 @@
           </div>
         </div>
       </div>
-
       <section id="topics" class="band">
         <div class="wrap">
           <div class="head">
@@ -262,7 +297,6 @@
           </div>
         </div>
       </section>
-
       <section>
         <div class="wrap close">
           <h2>Your first lesson takes ten minutes.</h2>
@@ -270,7 +304,6 @@
         </div>
       </section>
     </main>
-
     <footer>
       <div class="wrap">
         <div>
@@ -285,76 +318,15 @@
         <div>© Quotient 2026. All rights reserved.</div>
       </div>
     </footer>
-
-    <script>
-      (function () {
-        /* Interactive graph */
-        var a = document.getElementById("a"),
-          b = document.getElementById("b"),
-          curve = document.getElementById("curve"),
-          pt = document.getElementById("pt"),
-          eq = document.getElementById("eq"),
-          av = document.getElementById("av"),
-          bv = document.getElementById("bv");
-        var PX = 280 / (2 * Math.PI),
-          PY = 50;
-        function draw() {
-          var A = +a.value,
-            B = +b.value,
-            d = "";
-          for (var i = 0; i <= 300; i++) {
-            var x = -2 * Math.PI + i * ((4 * Math.PI) / 300);
-            d +=
-              (i ? "L" : "M") +
-              (300 + x * PX).toFixed(1) +
-              " " +
-              (180 - A * Math.sin(B * x) * PY).toFixed(1);
-          }
-          curve.setAttribute("d", d);
-          var px = Math.PI / (2 * B);
-          pt.setAttribute(
-            "transform",
-            "translate(" +
-              (300 + px * PX).toFixed(1) +
-              " " +
-              (180 - A * PY).toFixed(1) +
-              ")",
-          );
-          var as = A.toFixed(1),
-            bs = B.toFixed(1);
-          eq.textContent = "y = " + as + "·sin(" + bs + "x)";
-          av.textContent = as;
-          bv.textContent = bs;
-        }
-        a.addEventListener("input", draw);
-        b.addEventListener("input", draw);
-        draw();
-
-        /* Worked example */
-        var steps = [
-          ["Subtract 6 from both sides", "2<i>x</i> = 8"],
-          ["Divide both sides by 2", "<i>x</i> = 4"],
-          ["Check: 2(4) + 6 = 14", "<b>x = 4 ✓</b>"],
-        ];
-        var box = document.getElementById("steps"),
-          next = document.getElementById("next"),
-          n = 0;
-        var first = box.innerHTML;
-        next.addEventListener("click", function () {
-          if (n >= steps.length) return;
-          var s = steps[n++],
-            r = document.createElement("div");
-          r.className = "row new";
-          r.innerHTML = '<span class="why">' + s[0] + "</span>" + s[1];
-          box.appendChild(r);
-          if (n >= steps.length) next.disabled = true;
-        });
-        document.getElementById("reset").addEventListener("click", function () {
-          box.innerHTML = first;
-          n = 0;
-          next.disabled = false;
-        });
-      })();
-    </script>
+    <script
+      nonce="&lt;?= $csp_nonce ?&gt;"
+      src="/assets/javascripts/main.js"
+      type="module"
+    ></script>
+    <script
+      nonce="&lt;?= $csp_nonce ?&gt;"
+      src="/assets/javascripts/graph.js"
+      type="module"
+    ></script>
   </body>
 </html>
