@@ -44,5 +44,5 @@ h1 {
   color: var(--primary);
 }
 main {
-  padding: 28px 5%;
+  padding: 28px clamp(2%, 4vw, 5%);
 }

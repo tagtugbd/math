@@ -1,0 +1,52 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.about-text p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  margin: 0 0 18px;
+}
+.about-text p strong {
+  color: var(--text-dark);
+}
+.formula-card {
+  background: var(--bg);
+  border: 1.5px solid var(--text-dark);
+  border-radius: 6px;
+  box-shadow: 5px 5px 0 var(--text-dark);
+  padding: 26px;
+}
+.formula-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 14px;
+}
+.formula-card ul {
+  margin: 0;
+  padding-left: 1.1em;
+  color: var(--text-secondary);
+}
+.formula-card li {
+  margin: 10px 0;
+  font-size: 0.98rem;
+}
+.formula-card .m {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--text-dark);
+  font-size: 1.05rem;
+}
+.formula-card .note {
+  margin: 18px 0 0;
+  padding-top: 16px;
+  border-top: 1px dashed var(--border);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}

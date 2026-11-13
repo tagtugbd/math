@@ -39,7 +39,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       processEscapes: true
     }},
     options: {{
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      enableMenu: false
     }}
     }};
     </script>
@@ -502,8 +503,49 @@ def parse_js_file(file_path):
         raise
 
 
+def needs_math(text):
+    """
+    Returns True ONLY if the string contains complex math constructs 
+    that require MathJax (e.g., fractions, roots, powers, subscripts).
+    Spacing commands like \quad, plain text, and factorials return False.
+    """
+    if not text:
+        return False
+    
+    # Clean out \text{...} wrappers
+    stripped = re.sub(r'\\text\{([^}]*)\}', r'\1', text)
+    
+    # Remove spacing/formatting commands so they don't trigger MathJax
+    for spacing_cmd in ['\\quad', '\\qquad', '\\,', '\\;', '\\!']:
+        stripped = stripped.replace(spacing_cmd, '')
+        
+    stripped = stripped.strip()
+    
+    # Trigger MathJax ONLY for heavy LaTeX layout commands or structural math symbols
+    complex_math_indicators = [
+        '\\frac', '\\sqrt', '\\sum', '\\int', '\\pmatrix', 
+        '\\binom', '\\times', '\\div', '\\leq', '\\geq', '\\neq',
+        '^', '_'
+    ]
+    
+    for indicator in complex_math_indicators:
+        if indicator in stripped:
+            return True
+            
+    return False
+
+def clean_plain_text(text):
+    """Strips outer/inner \text{...} and spacing commands for clean plain text display."""
+    if not text:
+        return ""
+    # Replace \text{content} with content
+    cleaned = re.sub(r'\\text\{([^}]*)\}', r'\1', text)
+    # Remove leading/inline spacing commands
+    for spacing_cmd in ['\\quad', '\\qquad', '\\,', '\\;', '\\!']:
+        cleaned = cleaned.replace(spacing_cmd, '')
+    return cleaned.strip()
+
 def generate_html(data, output_path):
-    """Generates the HTML file with Hero Header sections and stylized layout conversions."""
     content_html = ""
 
     for section in data.get('sections', []):
@@ -519,53 +561,60 @@ def generate_html(data, output_path):
             steps = problem.get('steps', [])
 
             content_html += f'  <div class="problem" id="p-{section_num}-{html.escape(str(prob_id))}">\n'
-            content_html += f'    <p class="question">{html.escape(str(prob_id))}. \\( {question} \\)</p>\n'
+            
+            # Question rendering
+            if needs_math(question):
+                content_html += f'    <p class="question">{html.escape(str(prob_id))}. \\( {question} \\)</p>\n'
+            else:
+                cleaned_q = clean_plain_text(str(question))
+                content_html += f'    <p class="question">{html.escape(str(prob_id))}. {html.escape(cleaned_q)}</p>\n'
 
             if steps:
                 content_html += '    <div class="m-steps">\n'
                 for step in steps:
                     step_str = step.strip()
-                    # 1. Starting pattern: "LHS = ..." or "RHS = ..."
-                    start_match = re.match(r'^([LR]HS)\s*=\s*(.*)', step_str)
-                    # 2. Ending pattern:   "... = RHS" or "... = LHS"
-                    end_match = re.search(r'(.?)\s=\s*([LR]HS)(?:\s*\[a-zA-Z]+)\s$', step_str)
-
-                    if start_match:
-                        side_label = start_match.group(1)
-                        math_expression = start_match.group(2)
-                        content_html += (
-                            f'      <div class="m-step">'
-                            f'<span class="step-side-label">{side_label}</span>'
-                            f'\\[ = {math_expression} \\]'
-                            f'</div>\n'
-                        )
-                    elif end_match:
-                        math_expression = end_match.group(1)
-                        side_label = end_match.group(2)
-                        if math_expression.startswith('='):
-                            display_math = f'\\[ {math_expression} \\]'
-                        else:
-                            display_math = f'\\[ = {math_expression} \\]'
-                        content_html += (
-                            f'      <div class="m-step">'
-                            f'{display_math}'
-                            f'<span class="step-side-label step-side-label-end">{side_label}</span>'
-                            f'</div>\n'
-                        )
+                    
+                    # If it doesn't need complex MathJax, render as clean normal text!
+                    if not needs_math(step_str):
+                        cleaned_step = clean_plain_text(step_str)
+                        content_html += f'      <div class="m-step">{html.escape(cleaned_step)}</div>\n'
                     else:
-                        content_html += f'      <div class="m-step">\\[ {step_str} \\]</div>\n'
+                        # Handle layout formatting for actual complex math steps (LHS/RHS blocks)
+                        start_match = re.match(r'^([LR]HS)\s*=\s*(.*)', step_str)
+                        end_match = re.search(r'(.?)\s=\s*([LR]HS)(?:\s*\[a-zA-Z]+)\s$', step_str)
+
+                        if start_match:
+                            side_label = start_match.group(1)
+                            math_expression = start_match.group(2)
+                            content_html += (
+                                f'      <div class="m-step">'
+                                f'<span class="step-side-label">{side_label}</span>'
+                                f'\\[ = {math_expression} \\]'
+                                f'</div>\n'
+                            )
+                        elif end_match:
+                            math_expression = end_match.group(1)
+                            side_label = end_match.group(2)
+                            display_math = f'\\[ {math_expression} \\]' if math_expression.startswith('=') else f'\\[ = {math_expression} \\]'
+                            content_html += (
+                                f'      <div class="m-step">'
+                                f'{display_math}'
+                                f'<span class="step-side-label step-side-label-end">{side_label}</span>'
+                                f'</div>\n'
+                            )
+                        else:
+                            content_html += f'      <div class="m-step">\\[ {step_str} \\]</div>\n'
                 content_html += '    </div>\n'
 
             content_html += '  </div>\n'
         content_html += '</section>\n'
 
-    # Build Hero block content conditionally based on dataset variables safely
+    # Build Hero block content and write file...
     subtitle_raw = data.get('subtitle', '')
     desc_raw = data.get('description', '')
     subtitle_html = f'<h2>{html.escape(subtitle_raw)}</h2>' if subtitle_raw else ''
     desc_html = f'<p>{html.escape(desc_raw)}</p>' if desc_raw else ''
 
-    # Inject layout mapping properties into master schema output block
     final_html = HTML_TEMPLATE.format(
         title=html.escape(data.get('title', 'Math Solutions')),
         hero_subtitle=subtitle_html,
@@ -576,7 +625,6 @@ def generate_html(data, output_path):
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(final_html)
     print(f"✅ Generated: {output_path}")
-
 
 def slugify(text):
     """Turn 'Trigonometric Graphs and Absolute Values' →
@@ -594,11 +642,9 @@ def make_output_filename(js_file, title):
     Build the output filename from the JS filename prefix + slugified title,
     combined with the target OUTPUT_DIR path.
     """
-    # Numeric prefix comes from the JS filename — always unique per file.
     base_raw = re.sub(r'-data\.js$', '', js_file, flags=re.I).strip()
     base = slugify(base_raw)
 
-    # Strip any leading "9.5:", "9.7 -", "12." etc. from the title text
     title_body = re.sub(r'^\s*[\d.]+\s*[:\-–—.]?\s*', '', title or '')
     slug = slugify(title_body)
 
@@ -632,7 +678,6 @@ def main():
             title = data.get('title', 'untitled')
             output_file = make_output_filename(js_file, title)
 
-            # Diagnostic — shows exactly what was parsed from each file
             print(f"📄 {js_file}")
             print(f"   parsed title : {title!r}")
             print(f"   output file  : {output_file}")
@@ -641,7 +686,6 @@ def main():
                 print(f"   ⚠️  collision: {output_file} already written by {seen_outputs[output_file]}")
             seen_outputs[output_file] = js_file
 
-            # Convert output_file Path object to string for file writing
             generate_html(data, str(output_file))
         except Exception as e:
             print(f"❌ Failed to process {js_file}: {e}")

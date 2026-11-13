@@ -28,7 +28,8 @@
       processEscapes: true
     },
     options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      enableMenu: false
     }
     };
     </script>
@@ -170,7 +171,7 @@
     <div class="m-steps">
       <div class="m-step">\[ \text{Formula: } {}^nC_r = \frac{n!}{r!(n-r)!} \]</div>
       <div class="m-step">\[ {}^5C_1 = \frac{5!}{1!(5-1)!} = \frac{5!}{1!4!} \]</div>
-      <div class="m-step">\[ = 5 \]</div>
+      <div class="m-step">= 5</div>
     </div>
   </div>
   <div class="problem" id="p-1-1b">
@@ -178,14 +179,14 @@
     <div class="m-steps">
       <div class="m-step">\[ {}^6C_3 = \frac{6!}{3!(6-3)!} = \frac{6!}{3!3!} \]</div>
       <div class="m-step">\[ = \frac{6 \times 5 \times 4}{3 \times 2 \times 1} \]</div>
-      <div class="m-step">\[ = 20 \]</div>
+      <div class="m-step">= 20</div>
     </div>
   </div>
   <div class="problem" id="p-1-1c">
     <p class="question">1c. \( {}^4C_4 \)</p>
     <div class="m-steps">
       <div class="m-step">\[ {}^4C_4 = \frac{4!}{4!(4-4)!} = \frac{4!}{4!0!} \]</div>
-      <div class="m-step">\[ \text{Since } 0! = 1, \text{ this is } 1. \]</div>
+      <div class="m-step">Since  0! = 1,  this is  1.</div>
     </div>
   </div>
   <div class="problem" id="p-1-1d">
@@ -193,14 +194,14 @@
     <div class="m-steps">
       <div class="m-step">\[ {}^8C_4 = \frac{8!}{4!4!} \]</div>
       <div class="m-step">\[ = \frac{8 \times 7 \times 6 \times 5}{4 \times 3 \times 2 \times 1} \]</div>
-      <div class="m-step">\[ = 70 \]</div>
+      <div class="m-step">= 70</div>
     </div>
   </div>
   <div class="problem" id="p-1-1e">
     <p class="question">1e. \( {}^5C_5 \)</p>
     <div class="m-steps">
       <div class="m-step">\[ {}^5C_5 = \frac{5!}{5!0!} \]</div>
-      <div class="m-step">\[ = 1 \]</div>
+      <div class="m-step">= 1</div>
     </div>
   </div>
   <div class="problem" id="p-1-1f">
@@ -208,7 +209,7 @@
     <div class="m-steps">
       <div class="m-step">\[ {}^7C_4 = \frac{7!}{4!3!} \]</div>
       <div class="m-step">\[ = \frac{7 \times 6 \times 5}{3 \times 2 \times 1} \]</div>
-      <div class="m-step">\[ = 35 \]</div>
+      <div class="m-step">= 35</div>
     </div>
   </div>
 </section>
@@ -219,7 +220,7 @@
     <div class="m-steps">
       <div class="m-step">\[ \text{LHS} = {}^8C_3 = \frac{8!}{3!5!} \]</div>
       <div class="m-step">\[ \text{RHS} = {}^8C_5 = \frac{8!}{5!3!} \]</div>
-      <div class="m-step">\[ \text{Since } 3!5! = 5!3!, \text{ the expressions are identical.} \]</div>
+      <div class="m-step">Since  3!5! = 5!3!,  the expressions are identical.</div>
       <div class="m-step">\[ \text{Therefore } {}^8C_3 = {}^8C_5 \text{ (This illustrates the property } {}^nC_r = {}^nC_{n-r}\text{).} \]</div>
     </div>
   </div>
@@ -227,28 +228,28 @@
 <section class="problem-section">
   <h2 class="section-heading">3. How many different ways are there of selecting:</h2>
   <div class="problem" id="p-3-3a">
-    <p class="question">3a. \( 3 \text{ photographs from 10 photographs} \)</p>
+    <p class="question">3a. 3  photographs from 10 photographs</p>
     <div class="m-steps">
-      <div class="m-step">\[ \text{Order does not matter, so we use combinations.} \]</div>
+      <div class="m-step">Order does not matter, so we use combinations.</div>
       <div class="m-step">\[ ^{10}C_3 = \frac{10!}{3!7!} \]</div>
       <div class="m-step">\[ = \frac{10 \times 9 \times 8}{3 \times 2 \times 1} \]</div>
-      <div class="m-step">\[ = 120 \]</div>
+      <div class="m-step">= 120</div>
     </div>
   </div>
   <div class="problem" id="p-3-3b">
-    <p class="question">3b. \( 5 \text{ books from 7 books} \)</p>
+    <p class="question">3b. 5  books from 7 books</p>
     <div class="m-steps">
       <div class="m-step">\[ ^{7}C_5 = \frac{7!}{5!2!} \]</div>
       <div class="m-step">\[ = \frac{7 \times 6}{2 \times 1} \]</div>
-      <div class="m-step">\[ = 21 \]</div>
+      <div class="m-step">= 21</div>
     </div>
   </div>
   <div class="problem" id="p-3-3c">
-    <p class="question">3c. \( \text{a team of 11 footballers from 14 footballers} \)</p>
+    <p class="question">3c. a team of 11 footballers from 14 footballers</p>
     <div class="m-steps">
       <div class="m-step">\[ ^{14}C_{11} = ^{14}C_3 \quad (\text{since } {}^nC_r = {}^nC_{n-r}\text{)} \]</div>
       <div class="m-step">\[ = \frac{14 \times 13 \times 12}{3 \times 2 \times 1} \]</div>
-      <div class="m-step">\[ = 364 \]</div>
+      <div class="m-step">= 364</div>
     </div>
   </div>
 </section>
@@ -257,85 +258,85 @@
   <div class="problem" id="p-4-4">
     <p class="question">4. \( {}^5C_3 \)</p>
     <div class="m-steps">
-      <div class="m-step">\[ \text{Choose 3 from 5 distinct letters.} \]</div>
+      <div class="m-step">Choose 3 from 5 distinct letters.</div>
       <div class="m-step">\[ ^{5}C_3 = \frac{5!}{3!2!} = \frac{5 \times 4}{2 \times 1} \]</div>
-      <div class="m-step">\[ = 10 \]</div>
+      <div class="m-step">= 10</div>
     </div>
   </div>
 </section>
 <section class="problem-section">
   <h2 class="section-heading">5. The diagram shows 2 different boxes, A and B. 8 different toys are to be placed in the boxes. Find the number of ways in which the 8 toys can be placed in the boxes so that 5 toys are in box A and 3 toys are in box B.</h2>
   <div class="problem" id="p-5-5">
-    <p class="question">5. \( \text{Placing 5 in A and 3 in B} \)</p>
+    <p class="question">5. Placing 5 in A and 3 in B</p>
     <div class="m-steps">
-      <div class="m-step">\[ \text{We simply need to choose which 5 toys go into box A. The remaining 3 will automatically go to box B.} \]</div>
+      <div class="m-step">We simply need to choose which 5 toys go into box A. The remaining 3 will automatically go to box B.</div>
       <div class="m-step">\[ \text{Number of ways} = {}^8C_5 \]</div>
       <div class="m-step">\[ = \frac{8!}{5!3!} = \frac{8 \times 7 \times 6}{3 \times 2 \times 1} \]</div>
-      <div class="m-step">\[ = 56 \]</div>
+      <div class="m-step">= 56</div>
     </div>
   </div>
 </section>
 <section class="problem-section">
   <h2 class="section-heading">6. 4 pencils and 3 pens are to be selected from a collection of 8 pencils and 5 pens. Find the number of different selections that can be made.</h2>
   <div class="problem" id="p-6-6">
-    <p class="question">6. \( \text{Selecting } 4 \text{ pencils from } 8 \text{ and } 3 \text{ pens from } 5 \)</p>
+    <p class="question">6. Selecting  4  pencils from  8  and  3  pens from  5</p>
     <div class="m-steps">
       <div class="m-step">\[ \text{Choose 4 pencils from 8: } {}^8C_4 \]</div>
       <div class="m-step">\[ \text{Choose 3 pens from 5: } {}^5C_3 \]</div>
-      <div class="m-step">\[ \text{Multiply the independent choices:} \]</div>
+      <div class="m-step">Multiply the independent choices:</div>
       <div class="m-step">\[ ^{8}C_4 \times {}^5C_3 = 70 \times 10 \]</div>
-      <div class="m-step">\[ = 700 \]</div>
+      <div class="m-step">= 700</div>
     </div>
   </div>
 </section>
 <section class="problem-section">
   <h2 class="section-heading">7. Four of the letters of the word PAINTBRUSH are selected at random. Find the number of different combinations if:</h2>
   <div class="problem" id="p-7-7a">
-    <p class="question">7a. \( \text{there is no restriction on the letters selected} \)</p>
+    <p class="question">7a. there is no restriction on the letters selected</p>
     <div class="m-steps">
-      <div class="m-step">\[ \text{PAINTBRUSH has 10 distinct letters.} \]</div>
+      <div class="m-step">PAINTBRUSH has 10 distinct letters.</div>
       <div class="m-step">\[ \text{Choose 4 from 10: } {}^{10}C_4 \]</div>
       <div class="m-step">\[ = \frac{10!}{4!6!} = 210 \]</div>
     </div>
   </div>
   <div class="problem" id="p-7-7b">
-    <p class="question">7b. \( \text{the letter T must be selected} \)</p>
+    <p class="question">7b. the letter T must be selected</p>
     <div class="m-steps">
-      <div class="m-step">\[ \text{Fix T as one of the choices.} \]</div>
-      <div class="m-step">\[ \text{We need to choose the remaining 3 letters from the other 9 letters.} \]</div>
+      <div class="m-step">Fix T as one of the choices.</div>
+      <div class="m-step">We need to choose the remaining 3 letters from the other 9 letters.</div>
       <div class="m-step">\[ ^{9}C_3 = \frac{9!}{3!6!} = \frac{9 \times 8 \times 7}{3 \times 2 \times 1} \]</div>
-      <div class="m-step">\[ = 84 \]</div>
+      <div class="m-step">= 84</div>
     </div>
   </div>
 </section>
 <section class="problem-section">
   <h2 class="section-heading">8. A test consists of 30 questions. Each answer is either correct or incorrect. Find the number of different ways in which it is possible to answer:</h2>
   <div class="problem" id="p-8-8a">
-    <p class="question">8a. \( \text{exactly 10 questions correctly} \)</p>
+    <p class="question">8a. exactly 10 questions correctly</p>
     <div class="m-steps">
-      <div class="m-step">\[ \text{We need to choose which 10 questions (out of 30) are answered correctly.} \]</div>
+      <div class="m-step">We need to choose which 10 questions (out of 30) are answered correctly.</div>
       <div class="m-step">\[ ^{30}C_{10} = 30045015 \]</div>
     </div>
   </div>
   <div class="problem" id="p-8-8b">
-    <p class="question">8b. \( \text{exactly 25 questions correctly} \)</p>
+    <p class="question">8b. exactly 25 questions correctly</p>
     <div class="m-steps">
-      <div class="m-step">\[ \text{We need to choose which 25 questions are answered correctly.} \]</div>
+      <div class="m-step">We need to choose which 25 questions are answered correctly.</div>
       <div class="m-step">\[ ^{30}C_{25} = ^{30}C_5 \quad (\text{choosing 25 correct is the same as choosing 5 incorrect}) \]</div>
       <div class="m-step">\[ = \frac{30 \times 29 \times 28 \times 27 \times 26}{5 \times 4 \times 3 \times 2 \times 1} \]</div>
-      <div class="m-step">\[ = 142506 \]</div>
+      <div class="m-step">= 142506</div>
     </div>
   </div>
 </section>
 <section class="problem-section">
   <h2 class="section-heading">9. An athletics club has 10 long distance runners, 8 sprinters and 5 jumpers. A team of 3 long distance runners, 5 sprinters and 2 jumpers is to be selected. Find the number of ways in which the team can be selected.</h2>
   <div class="problem" id="p-9-9">
-    <p class="question">9. \( \text{Multi-category selection} \)</p>
+    <p class="question">9. Multi-category selection</p>
     <div class="m-steps">
       <div class="m-step">\[ \text{Choose 3 runners from 10: } {}^{10}C_3 = 120 \]</div>
       <div class="m-step">\[ \text{Choose 5 sprinters from 8: } {}^8C_5 = 56 \]</div>
       <div class="m-step">\[ \text{Choose 2 jumpers from 5: } {}^5C_2 = 10 \]</div>
-      <div class="m-step">\[ \text{Multiply the choices together:} \]</div>
+      <div class="m-step">Multiply the choices together:</div>
       <div class="m-step">\[ 120 \times 56 \times 10 = 67200 \]</div>
     </div>
   </div>
@@ -343,15 +344,15 @@
 <section class="problem-section">
   <h2 class="section-heading">10. A team of 5 members is to be chosen from 5 men and 3 women. Find the number of different teams that can be chosen:</h2>
   <div class="problem" id="p-10-10a">
-    <p class="question">10a. \( \text{if there are no restrictions} \)</p>
+    <p class="question">10a. if there are no restrictions</p>
     <div class="m-steps">
-      <div class="m-step">\[ \text{Choose 5 from the total 8 people.} \]</div>
+      <div class="m-step">Choose 5 from the total 8 people.</div>
       <div class="m-step">\[ ^{8}C_5 = {}^8C_3 \]</div>
-      <div class="m-step">\[ = 56 \]</div>
+      <div class="m-step">= 56</div>
     </div>
   </div>
   <div class="problem" id="p-10-10b">
-    <p class="question">10b. \( \text{that consist of 3 men and 2 women} \)</p>
+    <p class="question">10b. that consist of 3 men and 2 women</p>
     <div class="m-steps">
       <div class="m-step">\[ \text{Choose 3 men from 5: } {}^5C_3 = 10 \]</div>
       <div class="m-step">\[ \text{Choose 2 women from 3: } {}^3C_2 = 3 \]</div>
@@ -359,153 +360,153 @@
     </div>
   </div>
   <div class="problem" id="p-10-10c">
-    <p class="question">10c. \( \text{that consist of no more than 1 woman} \)</p>
+    <p class="question">10c. that consist of no more than 1 woman</p>
     <div class="m-steps">
-      <div class="m-step">\[ \text{This means exactly 0 women OR exactly 1 woman.} \]</div>
+      <div class="m-step">This means exactly 0 women OR exactly 1 woman.</div>
       <div class="m-step">\[ \text{Case 1 (0 women, 5 men): } {}^5C_5 \times {}^3C_0 = 1 \times 1 = 1 \]</div>
       <div class="m-step">\[ \text{Case 2 (1 woman, 4 men): } {}^5C_4 \times {}^3C_1 = 5 \times 3 = 15 \]</div>
-      <div class="m-step">\[ \text{Total} = 1 + 15 = 16 \]</div>
+      <div class="m-step">Total = 1 + 15 = 16</div>
     </div>
   </div>
 </section>
 <section class="problem-section">
   <h2 class="section-heading">11. A committee of 5 people is to be chosen from 6 women and 7 men. Find the number of different committees that can be chosen:</h2>
   <div class="problem" id="p-11-11a">
-    <p class="question">11a. \( \text{if there are no restrictions} \)</p>
+    <p class="question">11a. if there are no restrictions</p>
     <div class="m-steps">
-      <div class="m-step">\[ \text{Choose 5 from the total 13 people.} \]</div>
+      <div class="m-step">Choose 5 from the total 13 people.</div>
       <div class="m-step">\[ ^{13}C_5 = \frac{13!}{5!8!} \]</div>
-      <div class="m-step">\[ = 1287 \]</div>
+      <div class="m-step">= 1287</div>
     </div>
   </div>
   <div class="problem" id="p-11-11b">
-    <p class="question">11b. \( \text{if there are more men than women} \)</p>
+    <p class="question">11b. if there are more men than women</p>
     <div class="m-steps">
-      <div class="m-step">\[ \text{Possible compositions (Men, Women): (5,0), (4,1), (3,2).} \]</div>
+      <div class="m-step">Possible compositions (Men, Women): (5,0), (4,1), (3,2).</div>
       <div class="m-step">\[ \text{Case (5,0): } {}^7C_5 \times {}^6C_0 = 21 \times 1 = 21 \]</div>
       <div class="m-step">\[ \text{Case (4,1): } {}^7C_4 \times {}^6C_1 = 35 \times 6 = 210 \]</div>
       <div class="m-step">\[ \text{Case (3,2): } {}^7C_3 \times {}^6C_2 = 35 \times 15 = 525 \]</div>
-      <div class="m-step">\[ \text{Total} = 21 + 210 + 525 = 756 \]</div>
+      <div class="m-step">Total = 21 + 210 + 525 = 756</div>
     </div>
   </div>
 </section>
 <section class="problem-section">
   <h2 class="section-heading">12. A committee of 6 people is to be chosen from 6 men and 7 women. The committee must contain at least 1 man. Find the number of different committees that can be formed.</h2>
   <div class="problem" id="p-12-12">
-    <p class="question">12. \( \text{At least 1 man} \)</p>
+    <p class="question">12. At least 1 man</p>
     <div class="m-steps">
-      <div class="m-step">\[ \text{Use complementary counting: } \text{Total} - \text{Committees with 0 men.} \]</div>
+      <div class="m-step">Use complementary counting:  Total - Committees with 0 men.</div>
       <div class="m-step">\[ \text{Total possible committees (choose 6 from 13): } {}^{13}C_6 = 1716 \]</div>
       <div class="m-step">\[ \text{Committees with 0 men (choose 6 women from 7): } {}^7C_6 = 7 \]</div>
-      <div class="m-step">\[ \text{Committees with at least 1 man} = 1716 - 7 = 1709 \]</div>
+      <div class="m-step">Committees with at least 1 man = 1716 - 7 = 1709</div>
     </div>
   </div>
 </section>
 <section class="problem-section">
   <h2 class="section-heading">13. A school committee of 5 people is to be selected from a group of 4 teachers and 7 students. Find the number of different ways that the committee can be selected if:</h2>
   <div class="problem" id="p-13-13a">
-    <p class="question">13a. \( \text{there are no restrictions} \)</p>
+    <p class="question">13a. there are no restrictions</p>
     <div class="m-steps">
-      <div class="m-step">\[ \text{Choose 5 from the total 11 people.} \]</div>
+      <div class="m-step">Choose 5 from the total 11 people.</div>
       <div class="m-step">\[ ^{11}C_5 = \frac{11!}{5!6!} \]</div>
-      <div class="m-step">\[ = 462 \]</div>
+      <div class="m-step">= 462</div>
     </div>
   </div>
   <div class="problem" id="p-13-13b">
-    <p class="question">13b. \( \text{there must be at least 1 teacher and there must be more students than teachers} \)</p>
+    <p class="question">13b. there must be at least 1 teacher and there must be more students than teachers</p>
     <div class="m-steps">
-      <div class="m-step">\[ \text{Since the committee has 5 people, and students > teachers, possible (Student, Teacher) splits are (3,2), (4,1), (5,0).} \]</div>
-      <div class="m-step">\[ \text{The condition 'at least 1 teacher' eliminates (5,0).} \]</div>
+      <div class="m-step">Since the committee has 5 people, and students &gt; teachers, possible (Student, Teacher) splits are (3,2), (4,1), (5,0).</div>
+      <div class="m-step">The condition &#x27;at least 1 teacher&#x27; eliminates (5,0).</div>
       <div class="m-step">\[ \text{Case (3 Students, 2 Teachers): } {}^7C_3 \times {}^4C_2 = 35 \times 6 = 210 \]</div>
       <div class="m-step">\[ \text{Case (4 Students, 1 Teacher): } {}^7C_4 \times {}^4C_1 = 35 \times 4 = 140 \]</div>
-      <div class="m-step">\[ \text{Total} = 210 + 140 = 350 \]</div>
+      <div class="m-step">Total = 210 + 140 = 350</div>
     </div>
   </div>
 </section>
 <section class="problem-section">
   <h2 class="section-heading">14. A test consists of 10 different questions. 4 of the questions are on trigonometry and 6 questions are on algebra. Students are asked to answer 8 questions. Find the number of ways in which students can select 8 questions if there are:</h2>
   <div class="problem" id="p-14-14a">
-    <p class="question">14a. \( \text{no restrictions} \)</p>
+    <p class="question">14a. no restrictions</p>
     <div class="m-steps">
-      <div class="m-step">\[ \text{Choose 8 from the total 10 questions.} \]</div>
+      <div class="m-step">Choose 8 from the total 10 questions.</div>
       <div class="m-step">\[ ^{10}C_8 = {}^{10}C_2 \]</div>
       <div class="m-step">\[ = \frac{10 \times 9}{2} = 45 \]</div>
     </div>
   </div>
   <div class="problem" id="p-14-14b">
-    <p class="question">14b. \( \text{at least 4 algebra questions} \)</p>
+    <p class="question">14b. at least 4 algebra questions</p>
     <div class="m-steps">
-      <div class="m-step">\[ \text{Total questions = 8. Number of Algebra (A) questions must be } \ge 4. \text{ Max A = 6.} \]</div>
-      <div class="m-step">\[ \text{Possible (Algebra, Trig) splits: (4,4), (5,3), (6,2).} \]</div>
+      <div class="m-step">Total questions = 8. Number of Algebra (A) questions must be  \ge 4.  Max A = 6.</div>
+      <div class="m-step">Possible (Algebra, Trig) splits: (4,4), (5,3), (6,2).</div>
       <div class="m-step">\[ \text{Case (4,4): } {}^6C_4 \times {}^4C_4 = 15 \times 1 = 15 \]</div>
       <div class="m-step">\[ \text{Case (5,3): } {}^6C_5 \times {}^4C_3 = 6 \times 4 = 24 \]</div>
       <div class="m-step">\[ \text{Case (6,2): } {}^6C_6 \times {}^4C_2 = 1 \times 6 = 6 \]</div>
-      <div class="m-step">\[ \text{Total} = 15 + 24 + 6 = 45 \]</div>
+      <div class="m-step">Total = 15 + 24 + 6 = 45</div>
     </div>
   </div>
 </section>
 <section class="problem-section">
   <h2 class="section-heading">15. Rafiu has downloaded 10 movies to his smartphone. 4 of the movies are comedies, 3 are thrillers and 3 are science fiction. He is going to select 5 of these movies. Find the number of ways he can make his selection if:</h2>
   <div class="problem" id="p-15-15a">
-    <p class="question">15a. \( \text{there are no restrictions} \)</p>
+    <p class="question">15a. there are no restrictions</p>
     <div class="m-steps">
-      <div class="m-step">\[ \text{Choose 5 movies from the total 10.} \]</div>
+      <div class="m-step">Choose 5 movies from the total 10.</div>
       <div class="m-step">\[ ^{10}C_5 = \frac{10!}{5!5!} \]</div>
-      <div class="m-step">\[ = 252 \]</div>
+      <div class="m-step">= 252</div>
     </div>
   </div>
   <div class="problem" id="p-15-15b">
-    <p class="question">15b. \( \text{his selection must contain his favourite thriller movie} \)</p>
+    <p class="question">15b. his selection must contain his favourite thriller movie</p>
     <div class="m-steps">
-      <div class="m-step">\[ \text{Fix the favourite thriller (1 choice).} \]</div>
-      <div class="m-step">\[ \text{Choose the remaining 4 movies from the remaining 9 movies.} \]</div>
+      <div class="m-step">Fix the favourite thriller (1 choice).</div>
+      <div class="m-step">Choose the remaining 4 movies from the remaining 9 movies.</div>
       <div class="m-step">\[ ^{9}C_4 = \frac{9!}{4!5!} \]</div>
-      <div class="m-step">\[ = 126 \]</div>
+      <div class="m-step">= 126</div>
     </div>
   </div>
   <div class="problem" id="p-15-15c">
-    <p class="question">15c. \( \text{his selection must contain at least 3 comedy movies} \)</p>
+    <p class="question">15c. his selection must contain at least 3 comedy movies</p>
     <div class="m-steps">
-      <div class="m-step">\[ \text{Possible splits: (3 comedies, 2 others) OR (4 comedies, 1 other).} \]</div>
+      <div class="m-step">Possible splits: (3 comedies, 2 others) OR (4 comedies, 1 other).</div>
       <div class="m-step">\[ \text{Case 1 (3C, 2 Others): } {}^4C_3 \times {}^6C_2 = 4 \times 15 = 60 \]</div>
       <div class="m-step">\[ \text{Case 2 (4C, 1 Other): } {}^4C_4 \times {}^6C_1 = 1 \times 6 = 6 \]</div>
-      <div class="m-step">\[ \text{Total} = 60 + 6 = 66 \]</div>
+      <div class="m-step">Total = 60 + 6 = 66</div>
     </div>
   </div>
 </section>
 <section class="problem-section">
   <h2 class="section-heading">16. In a group of 15 entertainers, there are 6 singers, 5 guitarists and 4 comedians. A show is to be given by 6 of these entertainers. In the show, there must be at least 1 guitarist and 1 comedian. There must also be more singers than guitarists. Find the number of ways that the 6 entertainers can be selected.</h2>
   <div class="problem" id="p-16-16">
-    <p class="question">16. \( \text{Complex conditions} \)</p>
+    <p class="question">16. Complex conditions</p>
     <div class="m-steps">
-      <div class="m-step">\[ \text{Let S = Singers, G = Guitarists, C = Comedians. Total = 6.} \]</div>
-      <div class="m-step">\[ \text{Conditions: } G \ge 1, C \ge 1, S > G. \]</div>
-      <div class="m-step">\[ \text{List valid combinations (S, G, C) and calculate:} \]</div>
-      <div class="m-step">\[ \text{If C=1: } S+G=5 \implies (3,2,1) \text{ or } (4,1,1). \]</div>
+      <div class="m-step">Let S = Singers, G = Guitarists, C = Comedians. Total = 6.</div>
+      <div class="m-step">Conditions:  G \ge 1, C \ge 1, S &gt; G.</div>
+      <div class="m-step">List valid combinations (S, G, C) and calculate:</div>
+      <div class="m-step">If C=1:  S+G=5 \implies (3,2,1)  or  (4,1,1).</div>
       <div class="m-step">\[ \quad (3,2,1): {}^6C_3 \times {}^5C_2 \times {}^4C_1 = 20 \times 10 \times 4 = 800 \]</div>
       <div class="m-step">\[ \quad (4,1,1): {}^6C_4 \times {}^5C_1 \times {}^4C_1 = 15 \times 5 \times 4 = 300 \]</div>
-      <div class="m-step">\[ \text{If C=2: } S+G=4 \implies (3,1,2). \]</div>
+      <div class="m-step">If C=2:  S+G=4 \implies (3,1,2).</div>
       <div class="m-step">\[ \quad (3,1,2): {}^6C_3 \times {}^5C_1 \times {}^4C_2 = 20 \times 5 \times 6 = 600 \]</div>
-      <div class="m-step">\[ \text{If C=3: } S+G=3 \implies (2,1,3). \]</div>
+      <div class="m-step">If C=3:  S+G=3 \implies (2,1,3).</div>
       <div class="m-step">\[ \quad (2,1,3): {}^6C_2 \times {}^5C_1 \times {}^4C_3 = 15 \times 5 \times 4 = 300 \]</div>
-      <div class="m-step">\[ \text{Total} = 800 + 300 + 600 + 300 = 2000 \]</div>
+      <div class="m-step">Total = 800 + 300 + 600 + 300 = 2000</div>
     </div>
   </div>
 </section>
 <section class="problem-section">
   <h2 class="section-heading">17. Given that 45 × {}^{n}C_4 = (n + 1) × {}^{n+1}C_5, find the value of n.</h2>
   <div class="problem" id="p-17-17">
-    <p class="question">17. \( \text{Solve for } n \)</p>
+    <p class="question">17. Solve for  n</p>
     <div class="m-steps">
       <div class="m-step">\[ \text{Recall the identity: } {}^{n+1}C_5 = \frac{n+1}{5} \times {}^nC_4 \]</div>
-      <div class="m-step">\[ \text{Substitute into the equation:} \]</div>
+      <div class="m-step">Substitute into the equation:</div>
       <div class="m-step">\[ 45 \times {}^nC_4 = (n+1) \times \left( \frac{n+1}{5} \times {}^nC_4 \right) \]</div>
       <div class="m-step">\[ \text{Divide both sides by } {}^nC_4 \text{ (assuming } n \ge 4\text{):} \]</div>
       <div class="m-step">\[ 45 = \frac{(n+1)^2}{5} \]</div>
       <div class="m-step">\[ 225 = (n+1)^2 \]</div>
-      <div class="m-step">\[ \text{Since } n > 0, \text{ take the positive square root:} \]</div>
-      <div class="m-step">\[ n+1 = 15 \]</div>
-      <div class="m-step">\[ n = 14 \]</div>
+      <div class="m-step">Since  n &gt; 0,  take the positive square root:</div>
+      <div class="m-step">n+1 = 15</div>
+      <div class="m-step">n = 14</div>
     </div>
   </div>
 </section>

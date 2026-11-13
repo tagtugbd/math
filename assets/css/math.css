@@ -1,6 +1,6 @@
 /* ==========================================================================
-   3. PROBLEM & PROOF CARD LAYOUT (Structure)
-   ========================================================================== */
+3. PROBLEM & PROOF CARD LAYOUT (Structure)
+========================================================================== */
 .problem-block {
   background: var(--bg);
   border: 1px solid var(--border);
@@ -33,8 +33,8 @@
 }
 
 /* ==========================================================================
-   4. STEP-BY-STEP PROOF LAYOUT (Lists)
-   ========================================================================== */
+4. STEP-BY-STEP PROOF LAYOUT (Lists)
+========================================================================== */
 .proof-steps {
   list-style: none;
   padding-left: 0;
@@ -47,62 +47,6 @@
   margin-bottom: 0.75rem;
 }
 
-/* Subtle continuous vertical timeline line behind steps */
-/* .proof-steps li::before {
-  content: "";
-  position: absolute;
-  left: 7px;
-  top: 0;
-  bottom: -0.75rem;
-  width: 2px;
-  background-color: var(--border);
-}
-
-.proof-steps li:last-child::before {
-  display: none;
-} */
-
-/* ==========================================================================
-   5. MATHJAX FORMULA REFINEMENTS (MOBILE RESPONSIVE & LEFT ALIGN)
-   ========================================================================== */
-
-/* 1. Target the outermost MathJax v3 container */
-mjx-container[jax="CHTML"][display="true"],
-.mjx-container[display="true"] {
-  display: flex !important;
-  justify-content: flex-start !important; /* Locks equations cleanly to the left */
-  text-align: left !important;
-  margin: 0 !important;
-  padding: 0.5rem 0 !important;
-
-  /* Critical Mobile Fixes */
-  max-width: 100% !important;
-  box-sizing: border-box !important;
-  overflow-x: auto !important; /* Creates a smooth swipe-scroll wrapper for long fractions */
-  overflow-y: hidden !important;
-  -webkit-overflow-scrolling: touch; /* Butter-smooth scrolling on iPhone/iOS */
-}
-
-/* 2. Target the math tag provided in your HTML output */
-mjx-math[display="true"],
-html body mjx-container[jax="CHTML"][display="true"] > mjx-math {
-  display: inline-flex !important;
-  align-items: center !important;
-  text-align: left !important;
-  margin-left: 0 !important;
-  margin-right: auto !important;
-  padding: 0 !important;
-
-  /* Stop internal tables/fractions from breaking or collapsing */
-  white-space: nowrap !important;
-  flex-shrink: 0 !important;
-}
-
-/* 3. Ensure the internal fraction table components safely render inside the container */
-mjx-math[display="true"] * {
-  box-sizing: border-box !important;
-}
-
 /* Target strings explicitly highlighting final solutions/justifications */
 .proof-steps li:last-child {
   color: var(--primary);
@@ -113,16 +57,78 @@ mjx-math[display="true"] * {
   background-color: var(--primary);
 }
 
-/* Clean inline math highlights inside body text */
+/* ==========================================================================
+5. MATHJAX FORMULA REFINEMENTS & MOBILE RESPONSIVENESS
+========================================================================== */
+
+/* Prevent touch-action conflicts on mobile devices */
+mjx-container {
+  touch-action: manipulation;
+}
+
+mjx-container[jax="CHTML"][display="true"],
+.mjx-container[display="true"] {
+  display: flex !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+  margin: 0 !important;
+  padding: 0.5rem 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 2. Target the math tag for display equations */
+mjx-math[display="true"],
+html body mjx-container[jax="CHTML"][display="true"] > mjx-math {
+  display: inline-flex !important;
+  align-items: center !important;
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  padding: 0 !important;
+
+  /* Stop internal tables/fractions from collapsing inside display containers */
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+/* 3. Ensure internal fraction/math table components render safely */
+mjx-math[display="true"] * {
+  box-sizing: border-box !important;
+}
+
+/* 4. Inline MathJax formatting & wrapping (Fixes long \text{} blocks in questions like 4a/4b) */
 .MathJax,
 .mjx-chtml:not([display="block"]),
 mjx-container[jax="CHTML"]:not([display="true"]) {
   padding: 2px 4px !important;
   border-radius: 4px;
   background-color: transparent !important;
+
+  /* Allow inline math text to wrap cleanly on mobile screens */
+  max-width: 100% !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
 }
 
-/* Question */
+/* Force internal text wrappers in inline math to wrap across lines */
+mjx-container:not([display="true"]) mjx-math,
+mjx-container:not([display="true"]) mjx-mtext,
+mjx-container:not([display="true"]) mjx-utext,
+mjx-container:not([display="true"]) mjx-c {
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+/* ==========================================================================
+6. SECTION & PROBLEM CONTAINER RESPONSIVENESS
+========================================================================== */
+
 .section-heading {
   font-size: 1.6rem;
   font-weight: 700;
@@ -130,12 +136,14 @@ mjx-container[jax="CHTML"]:not([display="true"]) {
   margin: 2rem 0 1.5rem;
   padding-bottom: 0.4rem;
   border-bottom: 2px solid var(--primary);
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .problem {
   margin: 1.25rem 0;
-  /* border: 1px solid var(--border); */
   border-radius: 8px;
+  max-width: 100%;
 }
 
 .question {
@@ -144,16 +152,24 @@ mjx-container[jax="CHTML"]:not([display="true"]) {
   background: var(--error-bg);
   padding: 0.6rem 0.85rem;
   border-left: 4px solid var(--primary);
-  /* border-radius: 4px; */
   font-size: 1.2rem;
   margin: 0;
+
+  /* Enable text wrapping on mobile viewports */
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 .m-step {
   color: #2c3e50;
   margin: 0.4rem 0;
-  padding: 0.25rem 0 0.25rem 0.85rem;
+  padding: 0.25rem 0.15rem 0.25rem 0.25rem;
   border-left: 2px dashed #cfd8e0;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .step-side-label {
@@ -166,4 +182,10 @@ mjx-container[jax="CHTML"]:not([display="true"]) {
   margin-left: 0.5rem;
   margin-right: 0;
   opacity: 0.85;
+}
+
+.mjx-mtext {
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-x: auto !important;
 }
