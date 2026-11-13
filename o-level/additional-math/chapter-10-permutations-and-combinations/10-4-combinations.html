@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10.4: Combinations</title>
+
+    <!-- Custom CSS File Framework -->
+    <link
+      href="/assets/css/style.min.css"
+      media="print"
+      onload="
+        this.media = 'all';
+        this.onload = null;
+      "
+      rel="stylesheet"
+    />
+    <noscript>
+      <link href="/assets/css/style.min.css" rel="stylesheet" />
+    </noscript>
+
+    <!-- MathJax Configuration and Script engine for rendering LaTeX -->
+    <script>
+    MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']],
+      processEscapes: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+    };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header>
+      <div class="bar">
+        <a class="brand" href="/" aria-label="Quotient home"
+          >Quotient<i>.</i></a
+        >
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="#topics">Topics</a></li>
+            <li>
+              <a href="/o-level/additional-math/solution-manual.html"
+                >Add Math</a
+              >
+            </li>
+            <li><a href="/o-level/math-d/solution-manual.html">Math D</a></li>
+            <li>
+              <a
+                class="btn"
+                href="/o-level/additional-math/chapter-9-trigonometry.html"
+                >Start learning</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- Dynamic Content Hero Banner Area Section Module Block -->
+      <div class="wrap hero">
+        <div>
+          <div class="crumbs">
+            <a href="/">Home</a> /
+            <a href="/o-level/additional-math/solution-manual.html"
+              >Additional Mathematics /</a
+            >
+            <a href="/o-level/additional-math/chapter-10-permutations-and-combinations.html"
+              >Chapter 10</a
+            >
+          </div>
+          <h1>10.4: Combinations</h1>
+          <h2><h2>Selections where order does not matter</h2></h2>
+          <p>
+            <p>Learn how to calculate the number of ways to select items from a group using the combination formula. This lesson covers basic combinations, multi-category selections, selections with constraints (like &#x27;at least&#x27; or &#x27;no more than&#x27;), and complementary counting methods.</p>
+          </p>
+          <div class="cta">
+            <a class="btn" href="#topics">Browse topics</a>
+            <a class="btn alt" href="#example">See a lesson</a>
+          </div>
+        </div>
+        <div class="plot" aria-label="Interactive unit circle showing quadrant and trigonometric ratios">
+          <div class="eq">
+            <span id="eq">θ = 45°</span><small></small>
+          </div>
+          <svg id="unitCircleSvg" viewBox="-1.35 -1.35 2.7 2.7" role="img" aria-label="Unit circle with angle and projections">
+            <!-- grid -->
+            <g stroke="#ede6de" stroke-width="0.005" stroke-dasharray="0.02 0.02">
+              <line x1="-1.3" y1="-0.5" x2="1.3" y2="-0.5" />
+              <line x1="-1.3" y1="0.5" x2="1.3" y2="0.5" />
+              <line x1="-0.5" y1="-1.3" x2="-0.5" y2="1.3" />
+              <line x1="0.5" y1="-1.3" x2="0.5" y2="1.3" />
+            </g>
+
+            <!-- quadrant tints -->
+            <rect x="0" y="-1.25" width="1.25" height="1.25" fill="#fd4239" fill-opacity="0.03" />
+            <rect x="-1.25" y="-1.25" width="1.25" height="1.25" fill="#39a8fd" fill-opacity="0.03" />
+            <rect x="-1.25" y="0" width="1.25" height="1.25" fill="#c9a227" fill-opacity="0.03" />
+            <rect x="0" y="0" width="1.25" height="1.25" fill="#3aa86b" fill-opacity="0.03" />
+
+            <g font-family="STIX Two Text, serif" font-size="0.22" font-weight="600" fill="#5c4e4d" opacity="0.35" text-anchor="middle" dominant-baseline="middle">
+              <text x="0.65" y="-0.65">All</text>
+              <text x="-0.65" y="-0.65">Sin</text>
+              <text x="-0.65" y="0.65">Tan</text>
+              <text x="0.65" y="0.65">Cos</text>
+            </g>
+
+            <!-- axes -->
+            <g stroke="#1a1514" stroke-width="0.015">
+              <line x1="-1.25" y1="0" x2="1.25" y2="0" />
+              <line x1="0" y1="1.25" x2="0" y2="-1.25" />
+            </g>
+
+            <!-- unit circle -->
+            <circle cx="0" cy="0" r="1" fill="none" stroke="#1a1514" stroke-width="0.012" />
+
+            <!-- ticks -->
+            <g font-family="STIX Two Text, serif" font-size="0.07" fill="#5c4e4d" text-anchor="middle">
+              <text x="1.1" y="0.13">1</text>
+              <text x="-1.1" y="0.13">−1</text>
+              <text x="-0.1" y="-1.06">1</text>
+              <text x="-0.1" y="1.14">−1</text>
+              <text x="1.28" y="-0.04" font-size="0.08">0 / 2π</text>
+              <text x="0" y="-1.3" font-size="0.08">½π</text>
+              <text x="-1.3" y="-0.04" font-size="0.08">π</text>
+              <text x="0" y="1.34" font-size="0.08">1.5π</text>
+            </g>
+
+            <!-- angle sector -->
+            <path id="angleArc" fill="rgba(253,66,57,0.12)" stroke="#fd4239" stroke-width="0.01" />
+
+            <!-- projections -->
+            <line id="cosLine" x1="0" y1="0" x2="1" y2="0" stroke="#39a8fd" stroke-width="0.022" stroke-linecap="round" />
+            <line id="sinLine" x1="1" y1="0" x2="1" y2="-1" stroke="#3aa86b" stroke-width="0.022" stroke-linecap="round" />
+            <line id="hypLine" x1="0" y1="0" x2="1" y2="-1" stroke="#1a1514" stroke-width="0.014" />
+
+            <!-- moving point -->
+            <g id="pt">
+              <circle id="pointP" cx="1" cy="0" r="0.045" fill="#39a8fd" stroke="#1a1514" stroke-width="0.015" />
+              <text id="pointLabel" x="1.08" y="-0.08" font-family="STIX Two Text, serif" font-style="italic" font-size="0.075" fill="#1a1514">P(1.00, 0.00)</text>
+            </g>
+
+            <text id="angleArcText" x="0.25" y="-0.1" font-family="STIX Two Text, serif" font-size="0.075" fill="#fd4239" font-style="italic">θ</text>
+          </svg>
+
+          <div class="ctrl">
+            <label for="angleSlider">θ</label>
+            <input id="angleSlider" type="range" min="0" max="360" step="1" value="45" />
+            <output id="angleDisplay">45°</output>
+
+            <label for="unitToggle" style="margin-left:auto">unit</label>
+            <select id="unitToggle" style="font-family:inherit;font-size:14px;background:transparent;border:1px solid var(--grid);border-radius:6px;padding:2px 6px;color:var(--ink)">
+              <option value="deg">deg</option>
+              <option value="rad">rad</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+    <!-- Primary Content Grid Flow Block Container -->
+    <main>
+        <div class="study-area"><section class="problem-section">
+  <h2 class="section-heading">1. Without using a calculator, find the value of each of the following, and then use the ^nC_r key on your calculator to check your answers.</h2>
+  <div class="problem" id="p-1-1a">
+    <p class="question">1a. \( {}^5C_1 \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Formula: } {}^nC_r = \frac{n!}{r!(n-r)!} \]</div>
+      <div class="m-step">\[ {}^5C_1 = \frac{5!}{1!(5-1)!} = \frac{5!}{1!4!} \]</div>
+      <div class="m-step">\[ = 5 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1b">
+    <p class="question">1b. \( {}^6C_3 \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ {}^6C_3 = \frac{6!}{3!(6-3)!} = \frac{6!}{3!3!} \]</div>
+      <div class="m-step">\[ = \frac{6 \times 5 \times 4}{3 \times 2 \times 1} \]</div>
+      <div class="m-step">\[ = 20 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1c">
+    <p class="question">1c. \( {}^4C_4 \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ {}^4C_4 = \frac{4!}{4!(4-4)!} = \frac{4!}{4!0!} \]</div>
+      <div class="m-step">\[ \text{Since } 0! = 1, \text{ this is } 1. \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1d">
+    <p class="question">1d. \( {}^8C_4 \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ {}^8C_4 = \frac{8!}{4!4!} \]</div>
+      <div class="m-step">\[ = \frac{8 \times 7 \times 6 \times 5}{4 \times 3 \times 2 \times 1} \]</div>
+      <div class="m-step">\[ = 70 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1e">
+    <p class="question">1e. \( {}^5C_5 \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ {}^5C_5 = \frac{5!}{5!0!} \]</div>
+      <div class="m-step">\[ = 1 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1f">
+    <p class="question">1f. \( {}^7C_4 \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ {}^7C_4 = \frac{7!}{4!3!} \]</div>
+      <div class="m-step">\[ = \frac{7 \times 6 \times 5}{3 \times 2 \times 1} \]</div>
+      <div class="m-step">\[ = 35 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">2. Show that {}^8C_3 = {}^8C_5.</h2>
+  <div class="problem" id="p-2-2">
+    <p class="question">2. \( \text{Prove } {}^8C_3 = {}^8C_5 \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{LHS} = {}^8C_3 = \frac{8!}{3!5!} \]</div>
+      <div class="m-step">\[ \text{RHS} = {}^8C_5 = \frac{8!}{5!3!} \]</div>
+      <div class="m-step">\[ \text{Since } 3!5! = 5!3!, \text{ the expressions are identical.} \]</div>
+      <div class="m-step">\[ \text{Therefore } {}^8C_3 = {}^8C_5 \text{ (This illustrates the property } {}^nC_r = {}^nC_{n-r}\text{).} \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">3. How many different ways are there of selecting:</h2>
+  <div class="problem" id="p-3-3a">
+    <p class="question">3a. \( 3 \text{ photographs from 10 photographs} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Order does not matter, so we use combinations.} \]</div>
+      <div class="m-step">\[ ^{10}C_3 = \frac{10!}{3!7!} \]</div>
+      <div class="m-step">\[ = \frac{10 \times 9 \times 8}{3 \times 2 \times 1} \]</div>
+      <div class="m-step">\[ = 120 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-3-3b">
+    <p class="question">3b. \( 5 \text{ books from 7 books} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ ^{7}C_5 = \frac{7!}{5!2!} \]</div>
+      <div class="m-step">\[ = \frac{7 \times 6}{2 \times 1} \]</div>
+      <div class="m-step">\[ = 21 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-3-3c">
+    <p class="question">3c. \( \text{a team of 11 footballers from 14 footballers} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ ^{14}C_{11} = ^{14}C_3 \quad (\text{since } {}^nC_r = {}^nC_{n-r}\text{)} \]</div>
+      <div class="m-step">\[ = \frac{14 \times 13 \times 12}{3 \times 2 \times 1} \]</div>
+      <div class="m-step">\[ = 364 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">4. How many different combinations of 3 letters can be chosen from the letters P, Q, R, S, T?</h2>
+  <div class="problem" id="p-4-4">
+    <p class="question">4. \( {}^5C_3 \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Choose 3 from 5 distinct letters.} \]</div>
+      <div class="m-step">\[ ^{5}C_3 = \frac{5!}{3!2!} = \frac{5 \times 4}{2 \times 1} \]</div>
+      <div class="m-step">\[ = 10 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">5. The diagram shows 2 different boxes, A and B. 8 different toys are to be placed in the boxes. Find the number of ways in which the 8 toys can be placed in the boxes so that 5 toys are in box A and 3 toys are in box B.</h2>
+  <div class="problem" id="p-5-5">
+    <p class="question">5. \( \text{Placing 5 in A and 3 in B} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{We simply need to choose which 5 toys go into box A. The remaining 3 will automatically go to box B.} \]</div>
+      <div class="m-step">\[ \text{Number of ways} = {}^8C_5 \]</div>
+      <div class="m-step">\[ = \frac{8!}{5!3!} = \frac{8 \times 7 \times 6}{3 \times 2 \times 1} \]</div>
+      <div class="m-step">\[ = 56 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">6. 4 pencils and 3 pens are to be selected from a collection of 8 pencils and 5 pens. Find the number of different selections that can be made.</h2>
+  <div class="problem" id="p-6-6">
+    <p class="question">6. \( \text{Selecting } 4 \text{ pencils from } 8 \text{ and } 3 \text{ pens from } 5 \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Choose 4 pencils from 8: } {}^8C_4 \]</div>
+      <div class="m-step">\[ \text{Choose 3 pens from 5: } {}^5C_3 \]</div>
+      <div class="m-step">\[ \text{Multiply the independent choices:} \]</div>
+      <div class="m-step">\[ ^{8}C_4 \times {}^5C_3 = 70 \times 10 \]</div>
+      <div class="m-step">\[ = 700 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">7. Four of the letters of the word PAINTBRUSH are selected at random. Find the number of different combinations if:</h2>
+  <div class="problem" id="p-7-7a">
+    <p class="question">7a. \( \text{there is no restriction on the letters selected} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{PAINTBRUSH has 10 distinct letters.} \]</div>
+      <div class="m-step">\[ \text{Choose 4 from 10: } {}^{10}C_4 \]</div>
+      <div class="m-step">\[ = \frac{10!}{4!6!} = 210 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-7-7b">
+    <p class="question">7b. \( \text{the letter T must be selected} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Fix T as one of the choices.} \]</div>
+      <div class="m-step">\[ \text{We need to choose the remaining 3 letters from the other 9 letters.} \]</div>
+      <div class="m-step">\[ ^{9}C_3 = \frac{9!}{3!6!} = \frac{9 \times 8 \times 7}{3 \times 2 \times 1} \]</div>
+      <div class="m-step">\[ = 84 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">8. A test consists of 30 questions. Each answer is either correct or incorrect. Find the number of different ways in which it is possible to answer:</h2>
+  <div class="problem" id="p-8-8a">
+    <p class="question">8a. \( \text{exactly 10 questions correctly} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{We need to choose which 10 questions (out of 30) are answered correctly.} \]</div>
+      <div class="m-step">\[ ^{30}C_{10} = 30045015 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-8-8b">
+    <p class="question">8b. \( \text{exactly 25 questions correctly} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{We need to choose which 25 questions are answered correctly.} \]</div>
+      <div class="m-step">\[ ^{30}C_{25} = ^{30}C_5 \quad (\text{choosing 25 correct is the same as choosing 5 incorrect}) \]</div>
+      <div class="m-step">\[ = \frac{30 \times 29 \times 28 \times 27 \times 26}{5 \times 4 \times 3 \times 2 \times 1} \]</div>
+      <div class="m-step">\[ = 142506 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">9. An athletics club has 10 long distance runners, 8 sprinters and 5 jumpers. A team of 3 long distance runners, 5 sprinters and 2 jumpers is to be selected. Find the number of ways in which the team can be selected.</h2>
+  <div class="problem" id="p-9-9">
+    <p class="question">9. \( \text{Multi-category selection} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Choose 3 runners from 10: } {}^{10}C_3 = 120 \]</div>
+      <div class="m-step">\[ \text{Choose 5 sprinters from 8: } {}^8C_5 = 56 \]</div>
+      <div class="m-step">\[ \text{Choose 2 jumpers from 5: } {}^5C_2 = 10 \]</div>
+      <div class="m-step">\[ \text{Multiply the choices together:} \]</div>
+      <div class="m-step">\[ 120 \times 56 \times 10 = 67200 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">10. A team of 5 members is to be chosen from 5 men and 3 women. Find the number of different teams that can be chosen:</h2>
+  <div class="problem" id="p-10-10a">
+    <p class="question">10a. \( \text{if there are no restrictions} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Choose 5 from the total 8 people.} \]</div>
+      <div class="m-step">\[ ^{8}C_5 = {}^8C_3 \]</div>
+      <div class="m-step">\[ = 56 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-10-10b">
+    <p class="question">10b. \( \text{that consist of 3 men and 2 women} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Choose 3 men from 5: } {}^5C_3 = 10 \]</div>
+      <div class="m-step">\[ \text{Choose 2 women from 3: } {}^3C_2 = 3 \]</div>
+      <div class="m-step">\[ \text{Total} = 10 \times 3 = 30 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-10-10c">
+    <p class="question">10c. \( \text{that consist of no more than 1 woman} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{This means exactly 0 women OR exactly 1 woman.} \]</div>
+      <div class="m-step">\[ \text{Case 1 (0 women, 5 men): } {}^5C_5 \times {}^3C_0 = 1 \times 1 = 1 \]</div>
+      <div class="m-step">\[ \text{Case 2 (1 woman, 4 men): } {}^5C_4 \times {}^3C_1 = 5 \times 3 = 15 \]</div>
+      <div class="m-step">\[ \text{Total} = 1 + 15 = 16 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">11. A committee of 5 people is to be chosen from 6 women and 7 men. Find the number of different committees that can be chosen:</h2>
+  <div class="problem" id="p-11-11a">
+    <p class="question">11a. \( \text{if there are no restrictions} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Choose 5 from the total 13 people.} \]</div>
+      <div class="m-step">\[ ^{13}C_5 = \frac{13!}{5!8!} \]</div>
+      <div class="m-step">\[ = 1287 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-11-11b">
+    <p class="question">11b. \( \text{if there are more men than women} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Possible compositions (Men, Women): (5,0), (4,1), (3,2).} \]</div>
+      <div class="m-step">\[ \text{Case (5,0): } {}^7C_5 \times {}^6C_0 = 21 \times 1 = 21 \]</div>
+      <div class="m-step">\[ \text{Case (4,1): } {}^7C_4 \times {}^6C_1 = 35 \times 6 = 210 \]</div>
+      <div class="m-step">\[ \text{Case (3,2): } {}^7C_3 \times {}^6C_2 = 35 \times 15 = 525 \]</div>
+      <div class="m-step">\[ \text{Total} = 21 + 210 + 525 = 756 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">12. A committee of 6 people is to be chosen from 6 men and 7 women. The committee must contain at least 1 man. Find the number of different committees that can be formed.</h2>
+  <div class="problem" id="p-12-12">
+    <p class="question">12. \( \text{At least 1 man} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Use complementary counting: } \text{Total} - \text{Committees with 0 men.} \]</div>
+      <div class="m-step">\[ \text{Total possible committees (choose 6 from 13): } {}^{13}C_6 = 1716 \]</div>
+      <div class="m-step">\[ \text{Committees with 0 men (choose 6 women from 7): } {}^7C_6 = 7 \]</div>
+      <div class="m-step">\[ \text{Committees with at least 1 man} = 1716 - 7 = 1709 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">13. A school committee of 5 people is to be selected from a group of 4 teachers and 7 students. Find the number of different ways that the committee can be selected if:</h2>
+  <div class="problem" id="p-13-13a">
+    <p class="question">13a. \( \text{there are no restrictions} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Choose 5 from the total 11 people.} \]</div>
+      <div class="m-step">\[ ^{11}C_5 = \frac{11!}{5!6!} \]</div>
+      <div class="m-step">\[ = 462 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-13-13b">
+    <p class="question">13b. \( \text{there must be at least 1 teacher and there must be more students than teachers} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Since the committee has 5 people, and students > teachers, possible (Student, Teacher) splits are (3,2), (4,1), (5,0).} \]</div>
+      <div class="m-step">\[ \text{The condition 'at least 1 teacher' eliminates (5,0).} \]</div>
+      <div class="m-step">\[ \text{Case (3 Students, 2 Teachers): } {}^7C_3 \times {}^4C_2 = 35 \times 6 = 210 \]</div>
+      <div class="m-step">\[ \text{Case (4 Students, 1 Teacher): } {}^7C_4 \times {}^4C_1 = 35 \times 4 = 140 \]</div>
+      <div class="m-step">\[ \text{Total} = 210 + 140 = 350 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">14. A test consists of 10 different questions. 4 of the questions are on trigonometry and 6 questions are on algebra. Students are asked to answer 8 questions. Find the number of ways in which students can select 8 questions if there are:</h2>
+  <div class="problem" id="p-14-14a">
+    <p class="question">14a. \( \text{no restrictions} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Choose 8 from the total 10 questions.} \]</div>
+      <div class="m-step">\[ ^{10}C_8 = {}^{10}C_2 \]</div>
+      <div class="m-step">\[ = \frac{10 \times 9}{2} = 45 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-14-14b">
+    <p class="question">14b. \( \text{at least 4 algebra questions} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Total questions = 8. Number of Algebra (A) questions must be } \ge 4. \text{ Max A = 6.} \]</div>
+      <div class="m-step">\[ \text{Possible (Algebra, Trig) splits: (4,4), (5,3), (6,2).} \]</div>
+      <div class="m-step">\[ \text{Case (4,4): } {}^6C_4 \times {}^4C_4 = 15 \times 1 = 15 \]</div>
+      <div class="m-step">\[ \text{Case (5,3): } {}^6C_5 \times {}^4C_3 = 6 \times 4 = 24 \]</div>
+      <div class="m-step">\[ \text{Case (6,2): } {}^6C_6 \times {}^4C_2 = 1 \times 6 = 6 \]</div>
+      <div class="m-step">\[ \text{Total} = 15 + 24 + 6 = 45 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">15. Rafiu has downloaded 10 movies to his smartphone. 4 of the movies are comedies, 3 are thrillers and 3 are science fiction. He is going to select 5 of these movies. Find the number of ways he can make his selection if:</h2>
+  <div class="problem" id="p-15-15a">
+    <p class="question">15a. \( \text{there are no restrictions} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Choose 5 movies from the total 10.} \]</div>
+      <div class="m-step">\[ ^{10}C_5 = \frac{10!}{5!5!} \]</div>
+      <div class="m-step">\[ = 252 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-15-15b">
+    <p class="question">15b. \( \text{his selection must contain his favourite thriller movie} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Fix the favourite thriller (1 choice).} \]</div>
+      <div class="m-step">\[ \text{Choose the remaining 4 movies from the remaining 9 movies.} \]</div>
+      <div class="m-step">\[ ^{9}C_4 = \frac{9!}{4!5!} \]</div>
+      <div class="m-step">\[ = 126 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-15-15c">
+    <p class="question">15c. \( \text{his selection must contain at least 3 comedy movies} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Possible splits: (3 comedies, 2 others) OR (4 comedies, 1 other).} \]</div>
+      <div class="m-step">\[ \text{Case 1 (3C, 2 Others): } {}^4C_3 \times {}^6C_2 = 4 \times 15 = 60 \]</div>
+      <div class="m-step">\[ \text{Case 2 (4C, 1 Other): } {}^4C_4 \times {}^6C_1 = 1 \times 6 = 6 \]</div>
+      <div class="m-step">\[ \text{Total} = 60 + 6 = 66 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">16. In a group of 15 entertainers, there are 6 singers, 5 guitarists and 4 comedians. A show is to be given by 6 of these entertainers. In the show, there must be at least 1 guitarist and 1 comedian. There must also be more singers than guitarists. Find the number of ways that the 6 entertainers can be selected.</h2>
+  <div class="problem" id="p-16-16">
+    <p class="question">16. \( \text{Complex conditions} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Let S = Singers, G = Guitarists, C = Comedians. Total = 6.} \]</div>
+      <div class="m-step">\[ \text{Conditions: } G \ge 1, C \ge 1, S > G. \]</div>
+      <div class="m-step">\[ \text{List valid combinations (S, G, C) and calculate:} \]</div>
+      <div class="m-step">\[ \text{If C=1: } S+G=5 \implies (3,2,1) \text{ or } (4,1,1). \]</div>
+      <div class="m-step">\[ \quad (3,2,1): {}^6C_3 \times {}^5C_2 \times {}^4C_1 = 20 \times 10 \times 4 = 800 \]</div>
+      <div class="m-step">\[ \quad (4,1,1): {}^6C_4 \times {}^5C_1 \times {}^4C_1 = 15 \times 5 \times 4 = 300 \]</div>
+      <div class="m-step">\[ \text{If C=2: } S+G=4 \implies (3,1,2). \]</div>
+      <div class="m-step">\[ \quad (3,1,2): {}^6C_3 \times {}^5C_1 \times {}^4C_2 = 20 \times 5 \times 6 = 600 \]</div>
+      <div class="m-step">\[ \text{If C=3: } S+G=3 \implies (2,1,3). \]</div>
+      <div class="m-step">\[ \quad (2,1,3): {}^6C_2 \times {}^5C_1 \times {}^4C_3 = 15 \times 5 \times 4 = 300 \]</div>
+      <div class="m-step">\[ \text{Total} = 800 + 300 + 600 + 300 = 2000 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">17. Given that 45 × {}^{n}C_4 = (n + 1) × {}^{n+1}C_5, find the value of n.</h2>
+  <div class="problem" id="p-17-17">
+    <p class="question">17. \( \text{Solve for } n \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Recall the identity: } {}^{n+1}C_5 = \frac{n+1}{5} \times {}^nC_4 \]</div>
+      <div class="m-step">\[ \text{Substitute into the equation:} \]</div>
+      <div class="m-step">\[ 45 \times {}^nC_4 = (n+1) \times \left( \frac{n+1}{5} \times {}^nC_4 \right) \]</div>
+      <div class="m-step">\[ \text{Divide both sides by } {}^nC_4 \text{ (assuming } n \ge 4\text{):} \]</div>
+      <div class="m-step">\[ 45 = \frac{(n+1)^2}{5} \]</div>
+      <div class="m-step">\[ 225 = (n+1)^2 \]</div>
+      <div class="m-step">\[ \text{Since } n > 0, \text{ take the positive square root:} \]</div>
+      <div class="m-step">\[ n+1 = 15 \]</div>
+      <div class="m-step">\[ n = 14 \]</div>
+    </div>
+  </div>
+</section>
+</div>
+    </main>
+
+    <!-- Permanent Brand Site Footer Area Component -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-column">
+          <a aria-label="Japanify Home" href="/"
+            ><img
+              alt="Japanify - Learn Japanese Online"
+              class="footer-image"
+              height="33"
+              src="/assets/images/logo.svg"
+              width="105"
+          /></a>
+          <div class="always-open" style="padding: 0">
+            Learn Japanese Online.
+          </div>
+          <div class="accordion-content">
+            <p class="description">
+              Master Japanese through short lessons &amp; culture bites.
+            </p>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            学 Learn
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a href="/pages/Japanese-full-lessons-jlpt-jft-online.html"
+                  >人 Full Lessons</a
+                >
+              </li>
+              <li>
+                <a href="/pages/complete-japanese-kanji-for-n5-n4-n3.html"
+                  >字 Kanji Library</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/pages/complete-japanese-grammar-for-jlpt-jft-exam.html"
+                  >法 Grammar Rules</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/pages/complete-japanese-jlpt-jft-vocabulary-and-conversation.html"
+                  >語 Vocabulary Library</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-hiragana-katakana-lessons.html"
+                  >あ Hiragana &amp; Katakana</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            練 Practice
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a href="/pages/japanese-kanji-shortlisted-quiz.html"
+                  >字 Kanji Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-reading-practice.html"
+                  >書 Reading Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/complete-japanese-kanji-for-n5-n4-n3.html"
+                  >あ Alphabet Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-grammar-quiz.html"
+                  >会 Grammar Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-vocabulary-quiz.html"
+                  >語 Vocabulary Practice</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            技 Tips &amp; Tricks
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a href="/pages/japanese-study-plans.html">計 Study Plans</a>
+              </li>
+              <li>
+                <a href="/pages/kanji-memory-hacks.html">記 Life in Japan</a>
+              </li>
+              <li>
+                <a href="/pages/japanese-pronunciation-tips.html"
+                  >列 Study Materials</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-pronunciation-tips.html"
+                  >音 Pronunciation Tips</a
+                >
+              </li>
+              <li>
+                <a href="/pages/kanji-memory-hacks.html"
+                  >記 Kanji Memory Hacks</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            隨 Follow Us
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a
+                  class="social-link"
+                  href="mailto:japanify.bd@gmail.com"
+                  target="_blank"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-mail"></use>
+                  </svg>
+                  E-mail</a
+                >
+              </li>
+              <li>
+                <a class="social-link" href="/pages/about.html"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-info"></use>
+                  </svg>
+                  About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  class="social-link"
+                  href="https://www.facebook.com/@japanify"
+                  rel="noopener me"
+                  target="_blank"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-facebook"></use>
+                  </svg>
+                  Facebook</a
+                >
+              </li>
+              <li>
+                <a
+                  class="social-link"
+                  href="https://www.instagram.com/japanify.bd"
+                  rel="noopener me"
+                  target="_blank"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-instagram"></use>
+                  </svg>
+                  Instagram</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <span> © Japanify 2026 | All Rights Reserved | </span
+        ><a href="/pages/credits.html">Credits </a>
+      </div>
+    </footer>
+
+    <!-- Global JavaScript Entry Point -->
+    <script
+      nonce="&lt;?= $csp_nonce ?&gt;"
+      src="/assets/javascripts/main.js"
+      type="module"
+    ></script>
+    <script
+      nonce="&lt;?= $csp_nonce ?&gt;"
+      src="/assets/javascripts/circle.js"
+      type="module"
+    ></script>
+</body>
+</html>

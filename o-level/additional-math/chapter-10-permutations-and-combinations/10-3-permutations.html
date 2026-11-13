@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10.3: Permutations</title>
+
+    <!-- Custom CSS File Framework -->
+    <link
+      href="/assets/css/style.min.css"
+      media="print"
+      onload="
+        this.media = 'all';
+        this.onload = null;
+      "
+      rel="stylesheet"
+    />
+    <noscript>
+      <link href="/assets/css/style.min.css" rel="stylesheet" />
+    </noscript>
+
+    <!-- MathJax Configuration and Script engine for rendering LaTeX -->
+    <script>
+    MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']],
+      processEscapes: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+    };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header>
+      <div class="bar">
+        <a class="brand" href="/" aria-label="Quotient home"
+          >Quotient<i>.</i></a
+        >
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="#topics">Topics</a></li>
+            <li>
+              <a href="/o-level/additional-math/solution-manual.html"
+                >Add Math</a
+              >
+            </li>
+            <li><a href="/o-level/math-d/solution-manual.html">Math D</a></li>
+            <li>
+              <a
+                class="btn"
+                href="/o-level/additional-math/chapter-9-trigonometry.html"
+                >Start learning</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- Dynamic Content Hero Banner Area Section Module Block -->
+      <div class="wrap hero">
+        <div>
+          <div class="crumbs">
+            <a href="/">Home</a> /
+            <a href="/o-level/additional-math/solution-manual.html"
+              >Additional Mathematics /</a
+            >
+            <a href="/o-level/additional-math/chapter-10-permutations-and-combinations.html"
+              >Chapter 10</a
+            >
+          </div>
+          <h1>10.3: Permutations</h1>
+          <h2><h2>Arrangements where order matters</h2></h2>
+          <p>
+            <p>Learn how to calculate the number of ordered arrangements using the permutation formula. This lesson covers standard permutations, arrangements with specific conditions (greater than, odd/even), and solving algebraic equations involving permutations.</p>
+          </p>
+          <div class="cta">
+            <a class="btn" href="#topics">Browse topics</a>
+            <a class="btn alt" href="#example">See a lesson</a>
+          </div>
+        </div>
+        <div class="plot" aria-label="Interactive unit circle showing quadrant and trigonometric ratios">
+          <div class="eq">
+            <span id="eq">θ = 45°</span><small></small>
+          </div>
+          <svg id="unitCircleSvg" viewBox="-1.35 -1.35 2.7 2.7" role="img" aria-label="Unit circle with angle and projections">
+            <!-- grid -->
+            <g stroke="#ede6de" stroke-width="0.005" stroke-dasharray="0.02 0.02">
+              <line x1="-1.3" y1="-0.5" x2="1.3" y2="-0.5" />
+              <line x1="-1.3" y1="0.5" x2="1.3" y2="0.5" />
+              <line x1="-0.5" y1="-1.3" x2="-0.5" y2="1.3" />
+              <line x1="0.5" y1="-1.3" x2="0.5" y2="1.3" />
+            </g>
+
+            <!-- quadrant tints -->
+            <rect x="0" y="-1.25" width="1.25" height="1.25" fill="#fd4239" fill-opacity="0.03" />
+            <rect x="-1.25" y="-1.25" width="1.25" height="1.25" fill="#39a8fd" fill-opacity="0.03" />
+            <rect x="-1.25" y="0" width="1.25" height="1.25" fill="#c9a227" fill-opacity="0.03" />
+            <rect x="0" y="0" width="1.25" height="1.25" fill="#3aa86b" fill-opacity="0.03" />
+
+            <g font-family="STIX Two Text, serif" font-size="0.22" font-weight="600" fill="#5c4e4d" opacity="0.35" text-anchor="middle" dominant-baseline="middle">
+              <text x="0.65" y="-0.65">All</text>
+              <text x="-0.65" y="-0.65">Sin</text>
+              <text x="-0.65" y="0.65">Tan</text>
+              <text x="0.65" y="0.65">Cos</text>
+            </g>
+
+            <!-- axes -->
+            <g stroke="#1a1514" stroke-width="0.015">
+              <line x1="-1.25" y1="0" x2="1.25" y2="0" />
+              <line x1="0" y1="1.25" x2="0" y2="-1.25" />
+            </g>
+
+            <!-- unit circle -->
+            <circle cx="0" cy="0" r="1" fill="none" stroke="#1a1514" stroke-width="0.012" />
+
+            <!-- ticks -->
+            <g font-family="STIX Two Text, serif" font-size="0.07" fill="#5c4e4d" text-anchor="middle">
+              <text x="1.1" y="0.13">1</text>
+              <text x="-1.1" y="0.13">−1</text>
+              <text x="-0.1" y="-1.06">1</text>
+              <text x="-0.1" y="1.14">−1</text>
+              <text x="1.28" y="-0.04" font-size="0.08">0 / 2π</text>
+              <text x="0" y="-1.3" font-size="0.08">½π</text>
+              <text x="-1.3" y="-0.04" font-size="0.08">π</text>
+              <text x="0" y="1.34" font-size="0.08">1.5π</text>
+            </g>
+
+            <!-- angle sector -->
+            <path id="angleArc" fill="rgba(253,66,57,0.12)" stroke="#fd4239" stroke-width="0.01" />
+
+            <!-- projections -->
+            <line id="cosLine" x1="0" y1="0" x2="1" y2="0" stroke="#39a8fd" stroke-width="0.022" stroke-linecap="round" />
+            <line id="sinLine" x1="1" y1="0" x2="1" y2="-1" stroke="#3aa86b" stroke-width="0.022" stroke-linecap="round" />
+            <line id="hypLine" x1="0" y1="0" x2="1" y2="-1" stroke="#1a1514" stroke-width="0.014" />
+
+            <!-- moving point -->
+            <g id="pt">
+              <circle id="pointP" cx="1" cy="0" r="0.045" fill="#39a8fd" stroke="#1a1514" stroke-width="0.015" />
+              <text id="pointLabel" x="1.08" y="-0.08" font-family="STIX Two Text, serif" font-style="italic" font-size="0.075" fill="#1a1514">P(1.00, 0.00)</text>
+            </g>
+
+            <text id="angleArcText" x="0.25" y="-0.1" font-family="STIX Two Text, serif" font-size="0.075" fill="#fd4239" font-style="italic">θ</text>
+          </svg>
+
+          <div class="ctrl">
+            <label for="angleSlider">θ</label>
+            <input id="angleSlider" type="range" min="0" max="360" step="1" value="45" />
+            <output id="angleDisplay">45°</output>
+
+            <label for="unitToggle" style="margin-left:auto">unit</label>
+            <select id="unitToggle" style="font-family:inherit;font-size:14px;background:transparent;border:1px solid var(--grid);border-radius:6px;padding:2px 6px;color:var(--ink)">
+              <option value="deg">deg</option>
+              <option value="rad">rad</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+    <!-- Primary Content Grid Flow Block Container -->
+    <main>
+        <div class="study-area"><section class="problem-section">
+  <h2 class="section-heading">1. Without using a calculator, find the value of each of the following. Use the ^nP_r key on your calculator to check your answers.</h2>
+  <div class="problem" id="p-1-1a">
+    <p class="question">1a. \( {}^8P_5 \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Formula: } {}^nP_r = \frac{n!}{(n-r)!} \]</div>
+      <div class="m-step">\[ {}^8P_5 = \frac{8!}{(8-5)!} = \frac{8!}{3!} \]</div>
+      <div class="m-step">\[ = 8 \times 7 \times 6 \times 5 \times 4 \]</div>
+      <div class="m-step">\[ = 6720 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1b">
+    <p class="question">1b. \( {}^6P_4 \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ {}^6P_4 = \frac{6!}{(6-4)!} = \frac{6!}{2!} \]</div>
+      <div class="m-step">\[ = 6 \times 5 \times 4 \times 3 \]</div>
+      <div class="m-step">\[ = 360 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1c">
+    <p class="question">1c. \( {}^{11}P_8 \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ {}^{11}P_8 = \frac{11!}{(11-8)!} = \frac{11!}{3!} \]</div>
+      <div class="m-step">\[ = 11 \times 10 \times 9 \times 8 \times 7 \times 6 \times 5 \times 4 \]</div>
+      <div class="m-step">\[ = 6652800 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1d">
+    <p class="question">1d. \( {}^7P_7 \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ {}^7P_7 = \frac{7!}{(7-7)!} = \frac{7!}{0!} \]</div>
+      <div class="m-step">\[ \text{Since } 0! = 1, \text{ we have:} \]</div>
+      <div class="m-step">\[ = 7! \]</div>
+      <div class="m-step">\[ = 5040 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">2. Find the number of different ways that 4 books chosen from 6 books are arranged on a shelf.</h2>
+  <div class="problem" id="p-2-2">
+    <p class="question">2. \( \text{Arranging 4 books from 6} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{We need to choose 4 books and arrange them in order.} \]</div>
+      <div class="m-step">\[ \text{Number of ways} = {}^6P_4 \]</div>
+      <div class="m-step">\[ = \frac{6!}{(6-4)!} = \frac{6!}{2!} \]</div>
+      <div class="m-step">\[ = 6 \times 5 \times 4 \times 3 = 360 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">3. How many different five-digit numbers can be formed from the digits 1, 2, 3, 4, 5, 6, 7, 8, 9 if no digit can be repeated?</h2>
+  <div class="problem" id="p-3-3">
+    <p class="question">3. \( \text{Five-digit numbers from 9 digits} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{We are arranging 5 digits chosen from 9 distinct digits.} \]</div>
+      <div class="m-step">\[ \text{Number of ways} = {}^9P_5 \]</div>
+      <div class="m-step">\[ = \frac{9!}{(9-5)!} = \frac{9!}{4!} \]</div>
+      <div class="m-step">\[ = 9 \times 8 \times 7 \times 6 \times 5 \]</div>
+      <div class="m-step">\[ = 15120 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">4. There are 8 competitors in a long jump competition. In how many different ways can the first, second and third prizes be awarded?</h2>
+  <div class="problem" id="p-4-4">
+    <p class="question">4. \( \text{Awarding 1st, 2nd, 3rd from 8 competitors} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Order matters (1st is different from 2nd, etc.).} \]</div>
+      <div class="m-step">\[ \text{We are choosing and arranging 3 people from 8.} \]</div>
+      <div class="m-step">\[ \text{Number of ways} = {}^8P_3 \]</div>
+      <div class="m-step">\[ = \frac{8!}{(8-3)!} = \frac{8!}{5!} \]</div>
+      <div class="m-step">\[ = 8 \times 7 \times 6 \]</div>
+      <div class="m-step">\[ = 336 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">5. Find how many different four-digit numbers greater than 4000 that can be formed using the digits 1, 2, 3, 4, 5, 6 and 7 if no digit can be used more than once.</h2>
+  <div class="problem" id="p-5-5">
+    <p class="question">5. \( \text{Four-digit numbers } > 4000 \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Digits available: } \{1, 2, 3, 4, 5, 6, 7\} \text{ (7 digits).} \]</div>
+      <div class="m-step">\[ \text{For the number to be } > 4000\text{, the first digit must be 4, 5, 6, or 7.} \]</div>
+      <div class="m-step">\[ \text{First digit: 4 choices.} \]</div>
+      <div class="m-step">\[ \text{The remaining 3 digits are chosen from the remaining 6 digits and arranged: } {}^6P_3 \text{ ways.} \]</div>
+      <div class="m-step">\[ \text{Total ways} = 4 \times {}^6P_3 \]</div>
+      <div class="m-step">\[ = 4 \times (6 \times 5 \times 4) = 4 \times 120 \]</div>
+      <div class="m-step">\[ = 480 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">6. Find how many even numbers between 5000 and 6000 can be formed from the digits 2, 4, 5, 7, 8, if no digit can be used more than once.</h2>
+  <div class="problem" id="p-6-6">
+    <p class="question">6. \( \text{Even numbers between 5000 and 6000} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Digits available: } \{2, 4, 5, 7, 8\} \text{ (5 digits).} \]</div>
+      <div class="m-step">\[ \text{The number must be between 5000 and 6000, so the first digit must be 5. (1 choice)} \]</div>
+      <div class="m-step">\[ \text{The number must be even, so the last digit must be 2, 4, or 8. (3 choices)} \]</div>
+      <div class="m-step">\[ \text{The middle 2 digits are chosen from the remaining 3 digits and arranged: } {}^3P_2 \text{ ways.} \]</div>
+      <div class="m-step">\[ \text{Total ways} = 1 \times 3 \times {}^3P_2 \]</div>
+      <div class="m-step">\[ = 3 \times (3 \times 2) = 3 \times 6 \]</div>
+      <div class="m-step">\[ = 18 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">7. A four-digit number is formed using four of the eight digits 1, 2, 3, 4, 5, 6, 7 and 8. No digit can be used more than once. Find how many different four-digit numbers can be formed if:</h2>
+  <div class="problem" id="p-7-7a">
+    <p class="question">7a. \( \text{there are no restrictions} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Choose and arrange 4 digits from 8.} \]</div>
+      <div class="m-step">\[ {}^8P_4 = \frac{8!}{4!} = 8 \times 7 \times 6 \times 5 \]</div>
+      <div class="m-step">\[ = 1680 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-7-7b">
+    <p class="question">7b. \( \text{the number is odd} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Odd digits available: } \{1, 3, 5, 7\} \text{ (4 choices).} \]</div>
+      <div class="m-step">\[ \text{The last digit must be one of these 4.} \]</div>
+      <div class="m-step">\[ \text{The remaining 3 digits are chosen from the remaining 7 digits and arranged: } {}^7P_3 \text{ ways.} \]</div>
+      <div class="m-step">\[ \text{Total ways} = 4 \times {}^7P_3 \]</div>
+      <div class="m-step">\[ = 4 \times (7 \times 6 \times 5) = 4 \times 210 \]</div>
+      <div class="m-step">\[ = 840 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-7-7c">
+    <p class="question">7c. \( \text{the number is greater than 6000} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{The first digit must be 6, 7, or 8. (3 choices)} \]</div>
+      <div class="m-step">\[ \text{The remaining 3 digits are chosen from the remaining 7 digits and arranged: } {}^7P_3 \text{ ways.} \]</div>
+      <div class="m-step">\[ \text{Total ways} = 3 \times {}^7P_3 \]</div>
+      <div class="m-step">\[ = 3 \times 210 \]</div>
+      <div class="m-step">\[ = 630 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-7-7d">
+    <p class="question">7d. \( \text{the number is odd and greater than 6000} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{First digit must be 6, 7, or 8. Last digit must be 1, 3, 5, or 7. We split into cases.} \]</div>
+      <div class="m-step">\[ \text{Case 1: First digit is 6 or 8 (2 choices).} \]</div>
+      <div class="m-step">\[ \quad \text{Last digit can be any of the 4 odd digits.} \]</div>
+      <div class="m-step">\[ \quad \text{Middle 2 digits: } {}^6P_2 = 6 \times 5 = 30 \text{ ways.} \]</div>
+      <div class="m-step">\[ \quad \text{Total for Case 1} = 2 \times 4 \times 30 = 240. \]</div>
+      <div class="m-step">\[ \text{Case 2: First digit is 7 (1 choice).} \]</div>
+      <div class="m-step">\[ \quad \text{Last digit must be an odd digit EXCEPT 7 (3 choices).} \]</div>
+      <div class="m-step">\[ \quad \text{Middle 2 digits: } {}^6P_2 = 30 \text{ ways.} \]</div>
+      <div class="m-step">\[ \quad \text{Total for Case 2} = 1 \times 3 \times 30 = 90. \]</div>
+      <div class="m-step">\[ \text{Overall Total} = 240 + 90 = 330 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">8. Numbers are formed using the digits 3, 5, 6, 8 and 9. No digit can be used more than once. Find how many different:</h2>
+  <div class="problem" id="p-8-8a">
+    <p class="question">8a. \( \text{three-digit numbers can be formed} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Choose and arrange 3 digits from 5.} \]</div>
+      <div class="m-step">\[ {}^5P_3 = \frac{5!}{2!} = 5 \times 4 \times 3 \]</div>
+      <div class="m-step">\[ = 60 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-8-8b">
+    <p class="question">8b. \( \text{numbers using three or more digits can be formed} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Sum the possibilities for 3-digit, 4-digit, and 5-digit numbers.} \]</div>
+      <div class="m-step">\[ \text{3-digit numbers: } {}^5P_3 = 60 \]</div>
+      <div class="m-step">\[ \text{4-digit numbers: } {}^5P_4 = 5 \times 4 \times 3 \times 2 = 120 \]</div>
+      <div class="m-step">\[ \text{5-digit numbers: } {}^5P_5 = 5! = 120 \]</div>
+      <div class="m-step">\[ \text{Total} = 60 + 120 + 120 = 300 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">9. Find how many different even four-digit numbers greater than 2000 can be formed using the digits 1, 2, 3, 4, 5, 6, 7, 8 if no digit may be used more than once.</h2>
+  <div class="problem" id="p-9-9">
+    <p class="question">9. \( \text{Even four-digit numbers } > 2000 \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Digits: } \{1, 2, 3, 4, 5, 6, 7, 8\} \text{ (8 digits).} \]</div>
+      <div class="m-step">\[ \text{Even means last digit is } \{2, 4, 6, 8\}. \]</div>
+      <div class="m-step">\[ \text{Greater than 2000 means first digit is } \{2, 3, 4, 5, 6, 7, 8\}. \]</div>
+      <div class="m-step">\[ \text{Case 1: First digit is 2.} \]</div>
+      <div class="m-step">\[ \quad \text{Last digit cannot be 2 (3 choices: 4, 6, 8).} \]</div>
+      <div class="m-step">\[ \quad \text{Middle 2 digits: } {}^6P_2 = 30 \text{ ways.} \]</div>
+      <div class="m-step">\[ \quad \text{Total} = 1 \times 3 \times 30 = 90. \]</div>
+      <div class="m-step">\[ \text{Case 2: First digit is not 2 (6 choices: 3, 4, 5, 6, 7, 8).} \]</div>
+      <div class="m-step">\[ \quad \text{Last digit can be any even digit (4 choices).} \]</div>
+      <div class="m-step">\[ \quad \text{Middle 2 digits: } {}^6P_2 = 30 \text{ ways.} \]</div>
+      <div class="m-step">\[ \quad \text{Total} = 6 \times 4 \times 30 = 720. \]</div>
+      <div class="m-step">\[ \text{Overall Total} = 90 + 720 = 810 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">10. Solve:</h2>
+  <div class="problem" id="p-10-10a">
+    <p class="question">10a. \( {}^nP_5 = 720 \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \frac{n!}{(n-5)!} = 720 \]</div>
+      <div class="m-step">\[ n(n-1)(n-2)(n-3)(n-4) = 720 \]</div>
+      <div class="m-step">\[ \text{We need the product of 5 consecutive descending integers to equal 720.} \]</div>
+      <div class="m-step">\[ \text{Notice that } 6 \times 5 \times 4 \times 3 \times 2 = 720. \]</div>
+      <div class="m-step">\[ \text{Therefore } n = 6. \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-10-10b">
+    <p class="question">10b. \( {}^nP_3 = 7n(n-1) \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \frac{n!}{(n-3)!} = 7n(n-1) \]</div>
+      <div class="m-step">\[ n(n-1)(n-2) = 7n(n-1) \]</div>
+      <div class="m-step">\[ \text{Since } n \ge 3, \text{ we can divide both sides by } n(n-1): \]</div>
+      <div class="m-step">\[ n - 2 = 7 \]</div>
+      <div class="m-step">\[ n = 9 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-10-10c">
+    <p class="question">10c. \( \frac{{}^nP_5}{{}^nP_4} = 3 \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \frac{\frac{n!}{(n-5)!}}{\frac{n!}{(n-4)!}} = 3 \]</div>
+      <div class="m-step">\[ \frac{n!}{(n-5)!} \times \frac{(n-4)!}{n!} = 3 \]</div>
+      <div class="m-step">\[ \frac{(n-4)!}{(n-5)!} = 3 \]</div>
+      <div class="m-step">\[ n - 4 = 3 \]</div>
+      <div class="m-step">\[ n = 7 \]</div>
+    </div>
+  </div>
+</section>
+</div>
+    </main>
+
+    <!-- Permanent Brand Site Footer Area Component -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-column">
+          <a aria-label="Japanify Home" href="/"
+            ><img
+              alt="Japanify - Learn Japanese Online"
+              class="footer-image"
+              height="33"
+              src="/assets/images/logo.svg"
+              width="105"
+          /></a>
+          <div class="always-open" style="padding: 0">
+            Learn Japanese Online.
+          </div>
+          <div class="accordion-content">
+            <p class="description">
+              Master Japanese through short lessons &amp; culture bites.
+            </p>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            学 Learn
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a href="/pages/Japanese-full-lessons-jlpt-jft-online.html"
+                  >人 Full Lessons</a
+                >
+              </li>
+              <li>
+                <a href="/pages/complete-japanese-kanji-for-n5-n4-n3.html"
+                  >字 Kanji Library</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/pages/complete-japanese-grammar-for-jlpt-jft-exam.html"
+                  >法 Grammar Rules</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/pages/complete-japanese-jlpt-jft-vocabulary-and-conversation.html"
+                  >語 Vocabulary Library</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-hiragana-katakana-lessons.html"
+                  >あ Hiragana &amp; Katakana</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            練 Practice
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a href="/pages/japanese-kanji-shortlisted-quiz.html"
+                  >字 Kanji Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-reading-practice.html"
+                  >書 Reading Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/complete-japanese-kanji-for-n5-n4-n3.html"
+                  >あ Alphabet Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-grammar-quiz.html"
+                  >会 Grammar Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-vocabulary-quiz.html"
+                  >語 Vocabulary Practice</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            技 Tips &amp; Tricks
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a href="/pages/japanese-study-plans.html">計 Study Plans</a>
+              </li>
+              <li>
+                <a href="/pages/kanji-memory-hacks.html">記 Life in Japan</a>
+              </li>
+              <li>
+                <a href="/pages/japanese-pronunciation-tips.html"
+                  >列 Study Materials</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-pronunciation-tips.html"
+                  >音 Pronunciation Tips</a
+                >
+              </li>
+              <li>
+                <a href="/pages/kanji-memory-hacks.html"
+                  >記 Kanji Memory Hacks</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            隨 Follow Us
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a
+                  class="social-link"
+                  href="mailto:japanify.bd@gmail.com"
+                  target="_blank"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-mail"></use>
+                  </svg>
+                  E-mail</a
+                >
+              </li>
+              <li>
+                <a class="social-link" href="/pages/about.html"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-info"></use>
+                  </svg>
+                  About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  class="social-link"
+                  href="https://www.facebook.com/@japanify"
+                  rel="noopener me"
+                  target="_blank"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-facebook"></use>
+                  </svg>
+                  Facebook</a
+                >
+              </li>
+              <li>
+                <a
+                  class="social-link"
+                  href="https://www.instagram.com/japanify.bd"
+                  rel="noopener me"
+                  target="_blank"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-instagram"></use>
+                  </svg>
+                  Instagram</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <span> © Japanify 2026 | All Rights Reserved | </span
+        ><a href="/pages/credits.html">Credits </a>
+      </div>
+    </footer>
+
+    <!-- Global JavaScript Entry Point -->
+    <script
+      nonce="&lt;?= $csp_nonce ?&gt;"
+      src="/assets/javascripts/main.js"
+      type="module"
+    ></script>
+    <script
+      nonce="&lt;?= $csp_nonce ?&gt;"
+      src="/assets/javascripts/circle.js"
+      type="module"
+    ></script>
+</body>
+</html>

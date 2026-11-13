@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fd4239" />
+    <title>
+      Chapter 10: Permutations and Combinations — Counting, Arrangements &amp;
+      Selections | Quotient
+    </title>
+    <meta
+      name="description"
+      content="Additional Mathematics Chapter 10: permutations and combinations. Learn the multiplication principle, factorial notation, nPr and nCr, arrangements with restrictions, and mixed counting problems with worked examples."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=STIX+Two+Text:ital,wght@0,500;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/css/style.min.css"
+      media="print"
+      onload="
+        this.media = 'all';
+        this.onload = null;
+      "
+      rel="stylesheet"
+    />
+    <noscript
+      ><link href="/assets/css/style.min.css" rel="stylesheet"
+    /></noscript>
+    <style>
+      /* page header */
+      .page-head {
+        padding: 64px 0 36px;
+      }
+      .page-head h1 {
+        font-size: clamp(2.2rem, 5vw, 3.6rem);
+        letter-spacing: -0.02em;
+        max-width: 16em;
+      }
+      .page-head p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        max-width: 34em;
+        margin: 16px 0 0;
+      }
+      /* about / SEO section */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 48px;
+        align-items: start;
+      }
+      .about-text p {
+        color: var(--text-secondary);
+        font-size: 1.05rem;
+        margin: 0 0 18px;
+      }
+      .about-text p strong {
+        color: var(--text-dark);
+      }
+      .formula-card {
+        background: var(--bg);
+        border: 1.5px solid var(--text-dark);
+        border-radius: 6px;
+        box-shadow: 5px 5px 0 var(--text-dark);
+        padding: 26px;
+      }
+      .formula-card h3 {
+        font-size: 1.15rem;
+        margin-bottom: 14px;
+      }
+      .formula-card ul {
+        margin: 0;
+        padding-left: 1.1em;
+        color: var(--text-secondary);
+      }
+      .formula-card li {
+        margin: 10px 0;
+        font-size: 0.98rem;
+      }
+      .formula-card .m {
+        font-family: var(--serif);
+        font-style: italic;
+        color: var(--text-dark);
+        font-size: 1.05rem;
+      }
+      .formula-card .note {
+        margin: 18px 0 0;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap bar">
+        <a class="brand" href="/" aria-label="Quotient home"
+          >Quotient<i>.</i></a
+        >
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#topics">Topics</a></li>
+            <li>
+              <a
+                class="btn"
+                href="/o-level/additional-math/solution-manual.html"
+                >All chapters</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrap">
+        <div class="page-head">
+          <div class="crumbs">
+            <a href="/">Home</a> /
+            <a href="/o-level/additional-math/solution-manual.html"
+              >Additional Mathematics</a
+            >
+            / Chapter 10
+          </div>
+          <h1>Chapter 10: Permutations and Combinations</h1>
+          <p>
+            Six lessons on counting: from the multiplication principle and
+            factorial notation to permutations, combinations, restrictions and
+            the mixed problems that combine them.
+          </p>
+        </div>
+      </div>
+
+      <section class="band" aria-labelledby="about-title">
+        <div class="wrap">
+          <div class="head">
+            <h2 id="about-title">
+              Counting every possibility, without listing them
+            </h2>
+            <p>
+              Permutations and combinations are the mathematics of counting
+              without counting. Instead of writing out every possible
+              arrangement, you use a formula to find how many there are.
+            </p>
+          </div>
+          <div class="about-grid">
+            <div class="about-text">
+              <p>
+                <strong>Permutations and combinations</strong> are the tools you
+                use whenever a problem asks “how many ways?” — how many ways to
+                arrange books on a shelf, choose a team from a class, or form a
+                password from a set of letters. The two ideas are closely
+                related: a permutation counts arrangements where order matters,
+                and a combination counts selections where order does not.
+                Getting the distinction right is the single most important skill
+                in this chapter.
+              </p>
+              <p>
+                The lessons are arranged so that each idea builds on the last.
+                Sections 10.1 and 10.2 establish the multiplication principle
+                and factorial notation — the two pieces of machinery that every
+                formula in the chapter depends on. Section 10.3 introduces the
+                permutation formula
+                <span style="font-family: var(--serif); font-style: italic"
+                  ><sup>n</sup>P<sub>r</sub></span
+                >
+                and the reasoning behind it, and Section 10.4 shows how to
+                handle the restrictions that appear in exam questions, such as
+                items that must sit together or repeated letters in a word.
+              </p>
+              <p>
+                Sections 10.5 and 10.6 move on to combinations and to the mixed
+                problems that combine selection with arrangement. By the end you
+                will be able to look at a counting problem, decide whether order
+                matters, choose between
+                <span style="font-family: var(--serif); font-style: italic"
+                  ><sup>n</sup>P<sub>r</sub></span
+                >
+                and
+                <span style="font-family: var(--serif); font-style: italic"
+                  ><sup>n</sup>C<sub>r</sub></span
+                >, and break the problem into stages without double-counting.
+                Each section includes worked examples with every line explained,
+                followed by practice problems that check your answer
+                immediately.
+              </p>
+              <p>
+                If you are revising for an exam, work through the sections in
+                order the first time, then use the cards below to jump straight
+                back to whichever technique you need to refresh. The final
+                section on mixed problems is the one most likely to appear in an
+                unfamiliar form on a test, so give it extra practice once the
+                earlier sections feel comfortable.
+              </p>
+            </div>
+            <aside class="formula-card" aria-label="Key ideas in this chapter">
+              <h3>What you will learn</h3>
+              <ul>
+                <li>The multiplication principle for staged decisions</li>
+                <li>
+                  Factorial notation and the value of
+                  <span class="m">n!</span>
+                </li>
+                <li>
+                  Permutations:
+                  <span class="m"
+                    ><sup>n</sup>P<sub>r</sub> = n! / (n − r)!</span
+                  >
+                  for ordered arrangements
+                </li>
+                <li>
+                  Permutations with restrictions: items together, items
+                  separated, identical items
+                </li>
+                <li>
+                  Combinations:
+                  <span class="m"
+                    ><sup>n</sup>C<sub>r</sub> = n! / [r!(n − r)!]</span
+                  >
+                  for selections
+                </li>
+                <li>Mixed problems that combine choosing and arranging</li>
+                <li>How counting underpins simple probability</li>
+              </ul>
+              <p class="note">
+                Prerequisite: basic algebra, including fractions and simplifying
+                expressions, and the idea of a probability from earlier years.
+              </p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="lessons" aria-labelledby="lessons-title">
+        <div class="wrap">
+          <div class="head">
+            <h2 id="lessons-title">Lessons in this chapter</h2>
+            <p>
+              Work through them in order, or jump to the section you need. Each
+              lesson includes a short explanation, worked examples and practice.
+            </p>
+          </div>
+          <div class="course">
+            <div class="card-grid">
+              <div class="card-container">
+                <a
+                  class="card-link"
+                  href="/o-level/additional-math/chapter-10-permutations-and-combinations/10-1-factorials.html"
+                >
+                  <div class="card-shine"></div>
+                  <div class="card-image" data-symbol="×">
+                    <img
+                      alt="Lesson 10.1: The multiplication principle"
+                      height="240"
+                      onerror="
+                        this.onerror = function () {
+                          this.style.display = 'none';
+                        };
+                        this.removeAttribute('srcset');
+                        this.src = '/assets/images/error.webp';
+                      "
+                      src="/assets/images/ad-math-chapter10-1.webp"
+                      srcset="
+                        /assets/images/ad-math-chapter10-1-small.webp 1x,
+                        /assets/images/ad-math-chapter10-1.webp       2x
+                      "
+                      width="350"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="card-content">
+                    <div class="text-group">
+                      <h3 class="card-title">
+                        <span>10.1 The multiplication principle</span>
+                      </h3>
+                      <p class="card-topic-description">
+                        Count the number of ways several independent choices can
+                        be made, and use tree diagrams to see why the counts
+                        multiply. This is the idea every later formula rests
+                        on.<br /><span class="lesson-tag">Counting</span
+                        ><span class="lesson-tag">10 min</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="card-container">
+                <a
+                  class="card-link"
+                  href="/o-level/additional-math/chapter-10-permutations-and-combinations/10-2-permutations-and-arrangements.html"
+                >
+                  <div class="card-shine"></div>
+                  <div class="card-image" data-symbol="n!">
+                    <img
+                      alt="Lesson 10.2: Factorial notation"
+                      height="240"
+                      onerror="
+                        this.onerror = function () {
+                          this.style.display = 'none';
+                        };
+                        this.removeAttribute('srcset');
+                        this.src = '/assets/images/error.webp';
+                      "
+                      src="/assets/images/ad-math-chapter10-2.webp"
+                      srcset="
+                        /assets/images/ad-math-chapter10-2-small.webp 1x,
+                        /assets/images/ad-math-chapter10-2.webp       2x
+                      "
+                      width="350"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="card-content">
+                    <div class="text-group">
+                      <h3 class="card-title">
+                        <span>10.2 Factorial notation</span>
+                      </h3>
+                      <p class="card-topic-description">
+                        Understand n! as the number of ways to arrange n
+                        distinct objects, then simplify expressions involving
+                        factorials and use them in counting problems.<br /><span
+                          class="lesson-tag"
+                          >Counting</span
+                        ><span class="lesson-tag">12 min</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="card-container">
+                <a
+                  class="card-link"
+                  href="/o-level/additional-math/chapter-10-permutations-and-combinations/10-3-permutations.html"
+                >
+                  <div class="card-shine"></div>
+                  <div class="card-image" data-symbol="nPr">
+                    <img
+                      alt="Lesson 10.3: Permutations of distinct objects"
+                      height="240"
+                      onerror="
+                        this.onerror = function () {
+                          this.style.display = 'none';
+                        };
+                        this.removeAttribute('srcset');
+                        this.src = '/assets/images/error.webp';
+                      "
+                      src="/assets/images/ad-math-chapter10-3.webp"
+                      srcset="
+                        /assets/images/ad-math-chapter10-3-small.webp 1x,
+                        /assets/images/ad-math-chapter10-3.webp       2x
+                      "
+                      width="350"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="card-content">
+                    <div class="text-group">
+                      <h3 class="card-title">
+                        <span>10.3 Permutations of distinct objects</span>
+                      </h3>
+                      <p class="card-topic-description">
+                        Use the permutation formula to count ordered
+                        arrangements of r objects chosen from n, and learn to
+                        recognise when order matters in a problem.<br /><span
+                          class="lesson-tag"
+                          >Permutations</span
+                        ><span class="lesson-tag">15 min</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="card-container">
+                <a
+                  class="card-link"
+                  href="/o-level/additional-math/chapter-10-permutations-and-combinations/10-4-combinations.html"
+                >
+                  <div class="card-shine"></div>
+                  <div class="card-image" data-symbol="↔">
+                    <img
+                      alt="Lesson 10.4: Permutations with restrictions"
+                      height="240"
+                      onerror="
+                        this.onerror = function () {
+                          this.style.display = 'none';
+                        };
+                        this.removeAttribute('srcset');
+                        this.src = '/assets/images/error.webp';
+                      "
+                      src="/assets/images/ad-math-chapter10-4.webp"
+                      srcset="
+                        /assets/images/ad-math-chapter10-4-small.webp 1x,
+                        /assets/images/ad-math-chapter10-4.webp       2x
+                      "
+                      width="350"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="card-content">
+                    <div class="text-group">
+                      <h3 class="card-title">
+                        <span>10.4 Permutations with restrictions</span>
+                      </h3>
+                      <p class="card-topic-description">
+                        Handle arrangements where certain items must sit
+                        together, must be kept apart, or are identical, by
+                        treating groups as single objects or dividing out
+                        repeats.<br /><span class="lesson-tag"
+                          >Permutations</span
+                        ><span class="lesson-tag">20 min</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="wrap close">
+          <h2>Ready to check your understanding?</h2>
+          <a
+            class="btn"
+            href="/o-level/additional-math/solution-manual.html#chapters"
+            >Back to all chapters</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div>
+          <span class="fb">Quotient.</span><br />Learn math online, one step at
+          a time.
+        </div>
+        <div>
+          <a href="/pages/about.html">About</a
+          ><a href="mailto:you@example.com">Email</a
+          ><a href="/pages/credits.html">Credits</a>
+        </div>
+        <div>© Quotient 2026. All rights reserved.</div>
+      </div>
+    </footer>
+  </body>
+</html>

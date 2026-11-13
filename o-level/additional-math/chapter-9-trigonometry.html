@@ -46,19 +46,6 @@
         max-width: 34em;
         margin: 16px 0 0;
       }
-      .crumbs {
-        font-size: 0.9rem;
-        color: var(--text-secondary);
-        margin-bottom: 18px;
-      }
-      .crumbs a {
-        text-decoration: none;
-        color: var(--primary-dark);
-      }
-      .crumbs a:hover {
-        text-decoration: underline;
-      }
-
       /* about / SEO section */
       .about-grid {
         display: grid;
@@ -106,6 +93,11 @@
         border-top: 1px dashed var(--border);
         font-size: 0.9rem;
         color: var(--text-secondary);
+      }
+      @media (max-width: 900px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>

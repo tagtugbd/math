@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10.1: Factorials</title>
+
+    <!-- Custom CSS File Framework -->
+    <link
+      href="/assets/css/style.min.css"
+      media="print"
+      onload="
+        this.media = 'all';
+        this.onload = null;
+      "
+      rel="stylesheet"
+    />
+    <noscript>
+      <link href="/assets/css/style.min.css" rel="stylesheet" />
+    </noscript>
+
+    <!-- MathJax Configuration and Script engine for rendering LaTeX -->
+    <script>
+    MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']],
+      processEscapes: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+    };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header>
+      <div class="bar">
+        <a class="brand" href="/" aria-label="Quotient home"
+          >Quotient<i>.</i></a
+        >
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="#topics">Topics</a></li>
+            <li>
+              <a href="/o-level/additional-math/solution-manual.html"
+                >Add Math</a
+              >
+            </li>
+            <li><a href="/o-level/math-d/solution-manual.html">Math D</a></li>
+            <li>
+              <a
+                class="btn"
+                href="/o-level/additional-math/chapter-9-trigonometry.html"
+                >Start learning</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- Dynamic Content Hero Banner Area Section Module Block -->
+      <div class="wrap hero">
+        <div>
+          <div class="crumbs">
+            <a href="/">Home</a> /
+            <a href="/o-level/additional-math/solution-manual.html"
+              >Additional Mathematics /</a
+            >
+            <a href="/o-level/additional-math/chapter-10-permutations-and-combinations.html"
+              >Chapter 10</a
+            >
+          </div>
+          <h1>10.1: Factorials</h1>
+          <h2><h2>Evaluating and simplifying expressions with factorials</h2></h2>
+          <p>
+            <p>Learn the fundamentals of factorial notation (!). This lesson covers evaluating basic factorials, simplifying fractions involving factorials by expanding and cancelling common terms, and rewriting algebraic products using factorial notation.</p>
+          </p>
+          <div class="cta">
+            <a class="btn" href="#topics">Browse topics</a>
+            <a class="btn alt" href="#example">See a lesson</a>
+          </div>
+        </div>
+        <div class="plot" aria-label="Interactive unit circle showing quadrant and trigonometric ratios">
+          <div class="eq">
+            <span id="eq">θ = 45°</span><small></small>
+          </div>
+          <svg id="unitCircleSvg" viewBox="-1.35 -1.35 2.7 2.7" role="img" aria-label="Unit circle with angle and projections">
+            <!-- grid -->
+            <g stroke="#ede6de" stroke-width="0.005" stroke-dasharray="0.02 0.02">
+              <line x1="-1.3" y1="-0.5" x2="1.3" y2="-0.5" />
+              <line x1="-1.3" y1="0.5" x2="1.3" y2="0.5" />
+              <line x1="-0.5" y1="-1.3" x2="-0.5" y2="1.3" />
+              <line x1="0.5" y1="-1.3" x2="0.5" y2="1.3" />
+            </g>
+
+            <!-- quadrant tints -->
+            <rect x="0" y="-1.25" width="1.25" height="1.25" fill="#fd4239" fill-opacity="0.03" />
+            <rect x="-1.25" y="-1.25" width="1.25" height="1.25" fill="#39a8fd" fill-opacity="0.03" />
+            <rect x="-1.25" y="0" width="1.25" height="1.25" fill="#c9a227" fill-opacity="0.03" />
+            <rect x="0" y="0" width="1.25" height="1.25" fill="#3aa86b" fill-opacity="0.03" />
+
+            <g font-family="STIX Two Text, serif" font-size="0.22" font-weight="600" fill="#5c4e4d" opacity="0.35" text-anchor="middle" dominant-baseline="middle">
+              <text x="0.65" y="-0.65">All</text>
+              <text x="-0.65" y="-0.65">Sin</text>
+              <text x="-0.65" y="0.65">Tan</text>
+              <text x="0.65" y="0.65">Cos</text>
+            </g>
+
+            <!-- axes -->
+            <g stroke="#1a1514" stroke-width="0.015">
+              <line x1="-1.25" y1="0" x2="1.25" y2="0" />
+              <line x1="0" y1="1.25" x2="0" y2="-1.25" />
+            </g>
+
+            <!-- unit circle -->
+            <circle cx="0" cy="0" r="1" fill="none" stroke="#1a1514" stroke-width="0.012" />
+
+            <!-- ticks -->
+            <g font-family="STIX Two Text, serif" font-size="0.07" fill="#5c4e4d" text-anchor="middle">
+              <text x="1.1" y="0.13">1</text>
+              <text x="-1.1" y="0.13">−1</text>
+              <text x="-0.1" y="-1.06">1</text>
+              <text x="-0.1" y="1.14">−1</text>
+              <text x="1.28" y="-0.04" font-size="0.08">0 / 2π</text>
+              <text x="0" y="-1.3" font-size="0.08">½π</text>
+              <text x="-1.3" y="-0.04" font-size="0.08">π</text>
+              <text x="0" y="1.34" font-size="0.08">1.5π</text>
+            </g>
+
+            <!-- angle sector -->
+            <path id="angleArc" fill="rgba(253,66,57,0.12)" stroke="#fd4239" stroke-width="0.01" />
+
+            <!-- projections -->
+            <line id="cosLine" x1="0" y1="0" x2="1" y2="0" stroke="#39a8fd" stroke-width="0.022" stroke-linecap="round" />
+            <line id="sinLine" x1="1" y1="0" x2="1" y2="-1" stroke="#3aa86b" stroke-width="0.022" stroke-linecap="round" />
+            <line id="hypLine" x1="0" y1="0" x2="1" y2="-1" stroke="#1a1514" stroke-width="0.014" />
+
+            <!-- moving point -->
+            <g id="pt">
+              <circle id="pointP" cx="1" cy="0" r="0.045" fill="#39a8fd" stroke="#1a1514" stroke-width="0.015" />
+              <text id="pointLabel" x="1.08" y="-0.08" font-family="STIX Two Text, serif" font-style="italic" font-size="0.075" fill="#1a1514">P(1.00, 0.00)</text>
+            </g>
+
+            <text id="angleArcText" x="0.25" y="-0.1" font-family="STIX Two Text, serif" font-size="0.075" fill="#fd4239" font-style="italic">θ</text>
+          </svg>
+
+          <div class="ctrl">
+            <label for="angleSlider">θ</label>
+            <input id="angleSlider" type="range" min="0" max="360" step="1" value="45" />
+            <output id="angleDisplay">45°</output>
+
+            <label for="unitToggle" style="margin-left:auto">unit</label>
+            <select id="unitToggle" style="font-family:inherit;font-size:14px;background:transparent;border:1px solid var(--grid);border-radius:6px;padding:2px 6px;color:var(--ink)">
+              <option value="deg">deg</option>
+              <option value="rad">rad</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+    <!-- Primary Content Grid Flow Block Container -->
+    <main>
+        <div class="study-area"><section class="problem-section">
+  <h2 class="section-heading">1. Without using a calculator, find the value of each of the following. Use the x! key on your calculator to check your answers.</h2>
+  <div class="problem" id="p-1-1a">
+    <p class="question">1a. \( 7! \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ 7! = 7 \times 6 \times 5 \times 4 \times 3 \times 2 \times 1 \]</div>
+      <div class="m-step">\[ = 5040 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1b">
+    <p class="question">1b. \( \frac{4!}{2!} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ = \frac{4 \times 3 \times 2!}{2!} \]</div>
+      <div class="m-step">\[ \text{Cancel } 2! \text{ from numerator and denominator:} \]</div>
+      <div class="m-step">\[ = 4 \times 3 \]</div>
+      <div class="m-step">\[ = 12 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1c">
+    <p class="question">1c. \( \frac{7!}{3!} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ = \frac{7 \times 6 \times 5 \times 4 \times 3!}{3!} \]</div>
+      <div class="m-step">\[ \text{Cancel } 3!: \]</div>
+      <div class="m-step">\[ = 7 \times 6 \times 5 \times 4 \]</div>
+      <div class="m-step">\[ = 840 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1d-1">
+    <p class="question">1d-1. \( \frac{8!}{5!} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ = \frac{8 \times 7 \times 6 \times 5!}{5!} \]</div>
+      <div class="m-step">\[ \text{Cancel } 5!: \]</div>
+      <div class="m-step">\[ = 8 \times 7 \times 6 \]</div>
+      <div class="m-step">\[ = 336 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1d-2">
+    <p class="question">1d-2. \( \frac{4!}{2!2!} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ = \frac{4 \times 3 \times 2 \times 1}{(2 \times 1) \times (2 \times 1)} \]</div>
+      <div class="m-step">\[ = \frac{24}{4} \]</div>
+      <div class="m-step">\[ = 6 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1e">
+    <p class="question">1e. \( \frac{6!}{3!2!} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ = \frac{6 \times 5 \times 4 \times 3!}{3! \times (2 \times 1)} \]</div>
+      <div class="m-step">\[ \text{Cancel } 3!: \]</div>
+      <div class="m-step">\[ = \frac{6 \times 5 \times 4}{2} \]</div>
+      <div class="m-step">\[ = \frac{120}{2} \]</div>
+      <div class="m-step">\[ = 60 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1f">
+    <p class="question">1f. \( \frac{6!}{(3!)^2} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ = \frac{6 \times 5 \times 4 \times 3!}{3! \times 3!} \]</div>
+      <div class="m-step">\[ \text{Cancel one } 3!: \]</div>
+      <div class="m-step">\[ = \frac{6 \times 5 \times 4}{3 \times 2 \times 1} \]</div>
+      <div class="m-step">\[ = \frac{120}{6} \]</div>
+      <div class="m-step">\[ = 20 \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-1-1g">
+    <p class="question">1g. \( \frac{5!}{3!} \times \frac{7!}{4!} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ = \left(\frac{5 \times 4 \times 3!}{3!}\right) \times \left(\frac{7 \times 6 \times 5 \times 4!}{4!}\right) \]</div>
+      <div class="m-step">\[ = (5 \times 4) \times (7 \times 6 \times 5) \]</div>
+      <div class="m-step">\[ = 20 \times 210 \]</div>
+      <div class="m-step">\[ = 4200 \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">2. Rewrite each of the following using factorial notation.</h2>
+  <div class="problem" id="p-2-2a">
+    <p class="question">2a. \( 2 \times 1 \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{This is the definition of 2 factorial.} \]</div>
+      <div class="m-step">\[ = 2! \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2b">
+    <p class="question">2b. \( 6 \times 5 \times 4 \times 3 \times 2 \times 1 \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{This is a decreasing product of all integers from 6 down to 1.} \]</div>
+      <div class="m-step">\[ = 6! \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2c">
+    <p class="question">2c. \( 5 \times 4 \times 3 \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{To write this as a factorial, extend the product to 1 and divide by the extra terms.} \]</div>
+      <div class="m-step">\[ = \frac{5 \times 4 \times 3 \times 2 \times 1}{2 \times 1} \]</div>
+      <div class="m-step">\[ = \frac{5!}{2!} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2d">
+    <p class="question">2d. \( 17 \times 16 \times 15 \times 14 \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{The largest number is 17. Extend the product down to 1 by including } 13!. \]</div>
+      <div class="m-step">\[ = \frac{17 \times 16 \times 15 \times 14 \times 13!}{13!} \]</div>
+      <div class="m-step">\[ = \frac{17!}{13!} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2e">
+    <p class="question">2e. \( \frac{10 \times 9 \times 8}{3 \times 2 \times 1} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Numerator: Extend } 10 \times 9 \times 8 \text{ down to 1 to get } 10! \text{, dividing by } 7!. \]</div>
+      <div class="m-step">\[ \text{Denominator: } 3 \times 2 \times 1 = 3! \]</div>
+      <div class="m-step">\[ = \frac{\frac{10!}{7!}}{3!} \]</div>
+      <div class="m-step">\[ = \frac{10!}{7!3!} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-2-2f">
+    <p class="question">2f. \( \frac{12 \times 11 \times 10 \times 9 \times 8}{4 \times 3 \times 2 \times 1} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Numerator: Extend } 12 \times \dots \times 8 \text{ down to 1 to get } 12! \text{, dividing by } 7!. \]</div>
+      <div class="m-step">\[ \text{Denominator: } 4 \times 3 \times 2 \times 1 = 4! \]</div>
+      <div class="m-step">\[ = \frac{\frac{12!}{7!}}{4!} \]</div>
+      <div class="m-step">\[ = \frac{12!}{7!4!} \]</div>
+    </div>
+  </div>
+</section>
+<section class="problem-section">
+  <h2 class="section-heading">3. CHALLENGE QUESTION: Rewrite each of the following using factorial notation.</h2>
+  <div class="problem" id="p-3-3a">
+    <p class="question">3a. \( n(n-1)(n-2)(n-3) \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{The highest term is } n \text{ and it descends by 1 each time.} \]</div>
+      <div class="m-step">\[ \text{To make it a factorial, extend the product down to 1 by multiplying and dividing by } (n-4)!. \]</div>
+      <div class="m-step">\[ = \frac{n(n-1)(n-2)(n-3)(n-4)!}{(n-4)!} \]</div>
+      <div class="m-step">\[ = \frac{n!}{(n-4)!} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-3-3b">
+    <p class="question">3b. \( n(n-1)(n-2)(n-3)(n-4)(n-5) \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{The product ends at } (n-5). \]</div>
+      <div class="m-step">\[ \text{Extend the product down to 1 by multiplying and dividing by } (n-6)!. \]</div>
+      <div class="m-step">\[ = \frac{n(n-1)(n-2)(n-3)(n-4)(n-5)(n-6)!}{(n-6)!} \]</div>
+      <div class="m-step">\[ = \frac{n!}{(n-6)!} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-3-3c">
+    <p class="question">3c. \( \frac{n(n-1)(n-2)}{5 \times 4 \times 3 \times 2 \times 1} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Denominator is } 5!. \]</div>
+      <div class="m-step">\[ \text{Extend the numerator down to 1 to form } n! \text{ by dividing by } (n-3)!. \]</div>
+      <div class="m-step">\[ \frac{n(n-1)(n-2)}{5!} = \frac{\frac{n!}{(n-3)!}}{5!} \]</div>
+      <div class="m-step">\[ = \frac{n!}{5!(n-3)!} \]</div>
+    </div>
+  </div>
+  <div class="problem" id="p-3-3d">
+    <p class="question">3d. \( \frac{n(n-1)(n-2)(n-3)(n-4)}{3 \times 2 \times 1} \)</p>
+    <div class="m-steps">
+      <div class="m-step">\[ \text{Denominator is } 3!. \]</div>
+      <div class="m-step">\[ \text{Extend the numerator down to 1 to form } n! \text{ by dividing by } (n-5)!. \]</div>
+      <div class="m-step">\[ \frac{n(n-1)(n-2)(n-3)(n-4)}{3!} = \frac{\frac{n!}{(n-5)!}}{3!} \]</div>
+      <div class="m-step">\[ = \frac{n!}{3!(n-5)!} \]</div>
+    </div>
+  </div>
+</section>
+</div>
+    </main>
+
+    <!-- Permanent Brand Site Footer Area Component -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-column">
+          <a aria-label="Japanify Home" href="/"
+            ><img
+              alt="Japanify - Learn Japanese Online"
+              class="footer-image"
+              height="33"
+              src="/assets/images/logo.svg"
+              width="105"
+          /></a>
+          <div class="always-open" style="padding: 0">
+            Learn Japanese Online.
+          </div>
+          <div class="accordion-content">
+            <p class="description">
+              Master Japanese through short lessons &amp; culture bites.
+            </p>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            学 Learn
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a href="/pages/Japanese-full-lessons-jlpt-jft-online.html"
+                  >人 Full Lessons</a
+                >
+              </li>
+              <li>
+                <a href="/pages/complete-japanese-kanji-for-n5-n4-n3.html"
+                  >字 Kanji Library</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/pages/complete-japanese-grammar-for-jlpt-jft-exam.html"
+                  >法 Grammar Rules</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/pages/complete-japanese-jlpt-jft-vocabulary-and-conversation.html"
+                  >語 Vocabulary Library</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-hiragana-katakana-lessons.html"
+                  >あ Hiragana &amp; Katakana</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            練 Practice
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a href="/pages/japanese-kanji-shortlisted-quiz.html"
+                  >字 Kanji Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-reading-practice.html"
+                  >書 Reading Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/complete-japanese-kanji-for-n5-n4-n3.html"
+                  >あ Alphabet Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-grammar-quiz.html"
+                  >会 Grammar Practice</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-vocabulary-quiz.html"
+                  >語 Vocabulary Practice</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            技 Tips &amp; Tricks
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a href="/pages/japanese-study-plans.html">計 Study Plans</a>
+              </li>
+              <li>
+                <a href="/pages/kanji-memory-hacks.html">記 Life in Japan</a>
+              </li>
+              <li>
+                <a href="/pages/japanese-pronunciation-tips.html"
+                  >列 Study Materials</a
+                >
+              </li>
+              <li>
+                <a href="/pages/japanese-pronunciation-tips.html"
+                  >音 Pronunciation Tips</a
+                >
+              </li>
+              <li>
+                <a href="/pages/kanji-memory-hacks.html"
+                  >記 Kanji Memory Hacks</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-column">
+          <div class="accordion">
+            隨 Follow Us
+            <svg aria-hidden="true" class="arrow" height="20" width="20">
+              <use href="#icon-chevron-down"></use>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>
+                <a
+                  class="social-link"
+                  href="mailto:japanify.bd@gmail.com"
+                  target="_blank"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-mail"></use>
+                  </svg>
+                  E-mail</a
+                >
+              </li>
+              <li>
+                <a class="social-link" href="/pages/about.html"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-info"></use>
+                  </svg>
+                  About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  class="social-link"
+                  href="https://www.facebook.com/@japanify"
+                  rel="noopener me"
+                  target="_blank"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-facebook"></use>
+                  </svg>
+                  Facebook</a
+                >
+              </li>
+              <li>
+                <a
+                  class="social-link"
+                  href="https://www.instagram.com/japanify.bd"
+                  rel="noopener me"
+                  target="_blank"
+                  ><svg
+                    aria-hidden="true"
+                    class="footer-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href="#icon-instagram"></use>
+                  </svg>
+                  Instagram</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <span> © Japanify 2026 | All Rights Reserved | </span
+        ><a href="/pages/credits.html">Credits </a>
+      </div>
+    </footer>
+
+    <!-- Global JavaScript Entry Point -->
+    <script
+      nonce="&lt;?= $csp_nonce ?&gt;"
+      src="/assets/javascripts/main.js"
+      type="module"
+    ></script>
+    <script
+      nonce="&lt;?= $csp_nonce ?&gt;"
+      src="/assets/javascripts/circle.js"
+      type="module"
+    ></script>
+</body>
+</html>

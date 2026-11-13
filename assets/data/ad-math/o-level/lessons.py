@@ -6,7 +6,7 @@ from pathlib import Path
 import re
 
 # Define the target output directory path
-OUTPUT_DIR = Path("../../../../o-level/additional-math/chapter-9-trigonometry")
+OUTPUT_DIR = Path("../../../../o-level/additional-math/chapter-10-permutations-and-combinations")
 
 # Updated Master Production Blueprint Layout Template Integration
 HTML_TEMPLATE = """<!DOCTYPE html>
@@ -75,6 +75,15 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <!-- Dynamic Content Hero Banner Area Section Module Block -->
       <div class="wrap hero">
         <div>
+          <div class="crumbs">
+            <a href="/">Home</a> /
+            <a href="/o-level/additional-math/solution-manual.html"
+              >Additional Mathematics /</a
+            >
+            <a href="/o-level/additional-math/chapter-10-permutations-and-combinations.html"
+              >Chapter 10</a
+            >
+          </div>
           <h1>{title}</h1>
           <h2>{hero_subtitle}</h2>
           <p>
